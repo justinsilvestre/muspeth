@@ -51,7 +51,7 @@ mise exec -- npm run db:import-taxa
 
 | Command | Does |
 |---|---|
-| `npm run db:import-interactions` | Adds the organisms that the sample's organisms interact with, and those interactions, from [GloBI](https://www.globalbioticinteractions.org). It keeps at most 60 partners per organism. |
+| `npm run db:import-interactions` | Adds the organisms that the sample's organisms interact with, those interactions, and the studies that report each one, from [GloBI](https://www.globalbioticinteractions.org). It keeps at most 60 partners per organism. |
 | `npm run db:import-taxa` | Places every organism in the [GBIF backbone taxonomy](https://doi.org/10.15468/39omei). |
 
 Both scripts write to the local database, or to the deployed one when given `-- --remote`. Each can be re-run: it updates what its previous run wrote instead of duplicating it.
