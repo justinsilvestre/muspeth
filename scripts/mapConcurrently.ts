@@ -1,12 +1,17 @@
-/** Maps items through an asynchronous function, a few at a time, keeping their order. */
+/** Maps items with at most `concurrency` calls running at once, keeping the results in order. */
 export async function mapConcurrently<Item, Result>(
   items: Item[],
   map: (item: Item) => Promise<Result>,
   concurrency = 8,
 ) {
-  const results: Result[] = [];
-  for (let start = 0; start < items.length; start += concurrency) {
-    results.push(...(await Promise.all(items.slice(start, start + concurrency).map(map))));
+  const results: Result[] = new Array(items.length);
+  let next = 0;
+  async function work() {
+    while (next < items.length) {
+      const index = next++;
+      results[index] = await map(items[index] as Item);
+    }
   }
+  await Promise.all(Array.from({ length: Math.min(concurrency, items.length) }, work));
   return results;
 }

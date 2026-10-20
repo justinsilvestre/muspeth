@@ -24,6 +24,7 @@ export const qualityFlags = {
     "Other organisms are exactly as alike in traits; a fixed rule picked this one among them.",
   text_match: "The connection was found by matching words in the source's text, not stated by it.",
   uncertain_borrowing: "The source rates the word's borrowing as uncertain.",
+  unreferenced_statement: "The source gives no reference for the statement behind the connection.",
 } satisfies Record<string, string>;
 
 export type QualityFlag = keyof typeof qualityFlags;
