@@ -1,6 +1,6 @@
 # Multispecies ethnography
 
-A an experiment in exploring connections between organisms and the things around them.
+An experiment in exploring connections between organisms and the things around them.
 
 ## Repository structure
 
