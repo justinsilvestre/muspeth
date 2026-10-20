@@ -16,6 +16,7 @@ import {
   selectPartnerNames,
 } from "./globiRecords.ts";
 import type { NodeDraft } from "./graphDrafts.ts";
+import { mapConcurrently } from "./mapConcurrently.ts";
 import {
   chooseWikidataTaxon,
   identifyOrganism,
@@ -30,7 +31,6 @@ import { writeConnectionImport } from "./writeConnectionImport.ts";
 const source = "globi";
 const recordLimit = 20_000;
 const partnerLimit = 60;
-const concurrency = 8;
 
 const startOrganisms = queryD1<{ id: string; label: string }>(seedOrganismsSql);
 const existingIdByName = new Map(startOrganisms.map(({ id, label }) => [label, id]));
@@ -110,12 +110,4 @@ async function chooseWikidataTaxa(candidates: GlobiTaxon[]) {
       return choice ? [[name, choice] as const] : [];
     }),
   );
-}
-
-async function mapConcurrently<Item, Result>(items: Item[], map: (item: Item) => Promise<Result>) {
-  const results: Result[] = [];
-  for (let start = 0; start < items.length; start += concurrency) {
-    results.push(...(await Promise.all(items.slice(start, start + concurrency).map(map))));
-  }
-  return results;
 }

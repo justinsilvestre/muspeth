@@ -49,8 +49,10 @@ for (const name of seedNames) {
   for (const id of await fetchNetworkIdsOfTaxon(name)) candidateIds.add(id);
 }
 const contents = (
-  await mapConcurrently([...candidateIds], concurrency, (id) =>
-    fetchNetworkContent(id, maxNetworkInteractionCount),
+  await mapConcurrently(
+    [...candidateIds],
+    (id) => fetchNetworkContent(id, maxNetworkInteractionCount),
+    concurrency,
   )
 ).filter((content) => content !== null);
 const groups = groupCopies(contents).map((group) => ({ group, canonical: chooseCanonical(group) }));

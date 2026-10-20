@@ -41,6 +41,23 @@ export async function fetchWikidataQidsByTaxonName(names: string[]) {
   return qidsByName;
 }
 
+/** Finds the Wikidata items whose GBIF taxon identifier (property P846) is one of the given keys. */
+export async function fetchWikidataQidsByGbifKey(keys: number[]) {
+  const qidsByKey = new Map<number, string[]>();
+  for (let start = 0; start < keys.length; start += batchSize) {
+    const literals = keys.slice(start, start + batchSize).map((key) => `"${key}"`);
+    const query = `SELECT ?item ?gbif WHERE {
+      VALUES ?gbif { ${literals.join(" ")} }
+      ?item wdt:P846 ?gbif.
+    }`;
+    for (const { item, gbif } of await runQuery(query)) {
+      const key = Number(gbif?.value);
+      qidsByKey.set(key, [...(qidsByKey.get(key) ?? []), toQid(item)]);
+    }
+  }
+  return qidsByKey;
+}
+
 function queryItems(qids: string[]) {
   return runQuery(`SELECT ?item ?taxonName ?label ?gbif ?ncbi WHERE {
     VALUES ?item { ${qids.map((qid) => `wd:${qid}`).join(" ")} }

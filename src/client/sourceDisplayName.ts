@@ -1,4 +1,6 @@
 const sourceNames: Record<string, string> = {
+  eltontraits: "EltonTraits 1.0",
+  fungaltraits: "FungalTraits",
   globi: "Global Biotic Interactions (GloBI)",
   sample: "Hand-entered sample",
 };
