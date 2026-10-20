@@ -30,7 +30,7 @@ const pathogenOfPine = {
   relation: "pathogenOf",
   basis: "observed",
   source: "test",
-  citation: null,
+  citation: "Mamiya 1983. doi:10.1146/annurev.py.21.090183.001221",
   licence: "CC0-1.0",
   qualityFlags: [],
 } satisfies Connection;
@@ -96,6 +96,17 @@ describe("App", () => {
       const connections = await screen.findByRole("region", { name: /Connections of/ });
       const [connection] = await within(connections).findAllByRole("listitem");
       expect(connection?.textContent).toMatch(/^pinewood nematode pathogenOf Japanese red pine/);
+    });
+  });
+
+  describe("when a connection's sources are opened", () => {
+    it("links each citation's DOI", async () => {
+      stubApi();
+      renderApp("/organisms/pine");
+      fireEvent.click(await screen.findByText("Sources"));
+      expect(screen.getByRole("link", { name: /^doi:10\.1146/ }).getAttribute("href")).toBe(
+        "https://doi.org/10.1146/annurev.py.21.090183.001221",
+      );
     });
   });
 
