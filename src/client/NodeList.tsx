@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import type { GraphNode } from "../shared/graph";
 import { findDistinctName } from "./nodeDisplayName";
 import { organismPath } from "./organismPath";
@@ -10,6 +10,9 @@ type NodeListProps = {
 };
 
 export function NodeList({ nodes, selectedNodeId }: NodeListProps) {
+  // Keeps the connection filters in the address when another organism is chosen.
+  const { search } = useLocation();
+
   return (
     <section aria-labelledby="node-list-heading">
       <h2 id="node-list-heading" className="mb-2 font-medium text-lg">
@@ -19,7 +22,7 @@ export function NodeList({ nodes, selectedNodeId }: NodeListProps) {
         {nodes.map((node) => (
           <li key={node.id}>
             <Link
-              to={organismPath(node.id)}
+              to={{ pathname: organismPath(node.id), search }}
               aria-current={node.id === selectedNodeId ? "page" : undefined}
               className={clsx(
                 "block w-full rounded px-3 py-2 text-left hover:bg-subtle",

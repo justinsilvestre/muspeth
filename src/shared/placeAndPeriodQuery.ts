@@ -41,7 +41,7 @@ export function parsePlaceAndPeriodQuery(params: URLSearchParams) {
       radiusKm: readNumber(params, "radiusKm", [0, 20_000], defaultRadiusKm),
       from: readIsoDate(params.get("from"), "from"),
       to: readIsoDate(params.get("to"), "to"),
-      limit: readNumber(params, "limit", [1, 1000], 200),
+      limit: Math.round(readNumber(params, "limit", [1, 1000], 200)),
       filter: filter.value,
     } satisfies PlaceAndPeriodQuery;
     checkPlaceOrPeriod(query);
