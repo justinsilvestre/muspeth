@@ -1,6 +1,6 @@
 /**
- * Loads GloBI interaction records one step outward from the organisms that were not themselves
- * added by this import, adding the partner organisms as nodes.
+ * Loads GloBI interaction records one step outward from the seed's organisms, adding the partner
+ * organisms as nodes.
  * Re-running it replaces the connections and organisms of the previous run.
  * Usage: npm run db:import-interactions -- [--remote]
  * Without --remote, it writes to the local development database.
@@ -22,6 +22,7 @@ import {
   isUnmatchedName,
   listOrganismNames,
 } from "./organismIdentity.ts";
+import { seedOrganismsSql } from "./seedOrganismsSql.ts";
 import { listLinkedQids, parseTaxonLinks } from "./taxonLinks.ts";
 import { fetchWikidataQidsByTaxonName, fetchWikidataTaxa } from "./wikidataApi.ts";
 import { writeConnectionImport } from "./writeConnectionImport.ts";
@@ -31,9 +32,7 @@ const recordLimit = 20_000;
 const partnerLimit = 60;
 const concurrency = 8;
 
-const startOrganisms = queryD1<{ id: string; label: string }>(
-  `SELECT id, label FROM nodes WHERE kind = 'organism' AND source <> '${source}'`,
-);
+const startOrganisms = queryD1<{ id: string; label: string }>(seedOrganismsSql);
 const existingIdByName = new Map(startOrganisms.map(({ id, label }) => [label, id]));
 const startNames = new Set(startOrganisms.map(({ label }) => label));
 const records: GlobiRecord[] = [];

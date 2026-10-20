@@ -77,7 +77,8 @@ export function toConnectionDraft(record: GlobiRecord, identities: Map<string, O
   } satisfies GlobiConnectionDraft;
 }
 
-function toCoarserRank(first: string | null, second: string | null) {
+/** Picks the coarser of two ranks, ignoring ranks that are missing or unknown. */
+export function toCoarserRank(first: string | null, second: string | null) {
   const known = [first, second].filter((rank) => rank !== null && ranks.includes(rank));
   return known.sort((a, b) => ranks.indexOf(a ?? "") - ranks.indexOf(b ?? ""))[0] ?? null;
 }
