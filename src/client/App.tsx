@@ -1,16 +1,14 @@
-import { useState } from "react";
+import { Route, Routes } from "react-router";
 import type { GraphNode } from "../shared/graph";
-import { ConnectionList } from "./ConnectionList";
-import { NodeList } from "./NodeList";
+import { ConnectionsView } from "./ConnectionsView";
+import { NotFoundView } from "./NotFoundView";
 import { TaxonomyView } from "./taxonomy/TaxonomyView";
 import { ColorSchemeSwitcher } from "./theme/ColorSchemeSwitcher";
 import { useApiResource } from "./useApiResource";
-import { type View, ViewSwitcher } from "./ViewSwitcher";
+import { ViewNavigation } from "./ViewNavigation";
 
 export function App() {
   const nodesResource = useApiResource<{ nodes: GraphNode[] }>("/api/nodes");
-  const [selectedNodeId, setSelectedNodeId] = useState<string>();
-  const [view, setView] = useState<View>("connections");
 
   return (
     <main className="mx-auto max-w-4xl p-6 font-sans">
@@ -18,25 +16,21 @@ export function App() {
         <h1 className="font-semibold text-2xl">Multispecies ethnography</h1>
         <ColorSchemeSwitcher />
       </header>
-      <ViewSwitcher view={view} onChange={setView} />
+      <ViewNavigation />
       {nodesResource.status === "loading" && <p>Loading organisms…</p>}
       {nodesResource.status === "failed" && (
         <p role="alert">Could not load organisms: {nodesResource.error.message}</p>
       )}
-      {nodesResource.status === "loaded" && view === "connections" && (
-        <div className="grid gap-6 md:grid-cols-2">
-          <NodeList
-            nodes={nodesResource.data.nodes}
-            selectedNodeId={selectedNodeId}
-            onSelect={setSelectedNodeId}
+      {nodesResource.status === "loaded" && (
+        <Routes>
+          <Route path="/" element={<ConnectionsView nodes={nodesResource.data.nodes} />} />
+          <Route
+            path="/organisms/:nodeId"
+            element={<ConnectionsView nodes={nodesResource.data.nodes} />}
           />
-          {selectedNodeId && (
-            <ConnectionList nodeId={selectedNodeId} nodes={nodesResource.data.nodes} />
-          )}
-        </div>
-      )}
-      {nodesResource.status === "loaded" && view === "taxonomy" && (
-        <TaxonomyView nodes={nodesResource.data.nodes} />
+          <Route path="/taxonomy" element={<TaxonomyView nodes={nodesResource.data.nodes} />} />
+          <Route path="*" element={<NotFoundView />} />
+        </Routes>
       )}
     </main>
   );

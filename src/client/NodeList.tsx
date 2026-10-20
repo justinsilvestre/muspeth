@@ -1,14 +1,15 @@
 import clsx from "clsx";
+import { Link } from "react-router";
 import type { GraphNode } from "../shared/graph";
 import { nodeDisplayName } from "./nodeDisplayName";
+import { organismPath } from "./organismPath";
 
 type NodeListProps = {
   nodes: GraphNode[];
   selectedNodeId: string | undefined;
-  onSelect: (nodeId: string) => void;
 };
 
-export function NodeList({ nodes, selectedNodeId, onSelect }: NodeListProps) {
+export function NodeList({ nodes, selectedNodeId }: NodeListProps) {
   return (
     <section aria-labelledby="node-list-heading">
       <h2 id="node-list-heading" className="mb-2 font-medium text-lg">
@@ -17,12 +18,11 @@ export function NodeList({ nodes, selectedNodeId, onSelect }: NodeListProps) {
       <ul className="space-y-1">
         {nodes.map((node) => (
           <li key={node.id}>
-            <button
-              type="button"
-              aria-pressed={node.id === selectedNodeId}
-              onClick={() => onSelect(node.id)}
+            <Link
+              to={organismPath(node.id)}
+              aria-current={node.id === selectedNodeId ? "page" : undefined}
               className={clsx(
-                "w-full rounded px-3 py-2 text-left hover:bg-subtle",
+                "block w-full rounded px-3 py-2 text-left hover:bg-subtle",
                 node.id === selectedNodeId && "bg-selected hover:bg-selected",
               )}
             >
@@ -30,7 +30,7 @@ export function NodeList({ nodes, selectedNodeId, onSelect }: NodeListProps) {
               <span className="block text-muted text-sm">
                 <i>{node.label}</i> · {nodeDisplayName(node, "ja")}
               </span>
-            </button>
+            </Link>
           </li>
         ))}
       </ul>

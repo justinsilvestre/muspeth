@@ -23,7 +23,7 @@ export function GraphicsPanel({ settings, dispatch, onPreview }: GraphicsPanelPr
   });
 
   return (
-    <details className="absolute top-2 right-2 max-h-[calc(100%-1rem)] w-64 overflow-y-auto rounded border border-line bg-page/90 text-sm backdrop-blur">
+    <details className="absolute right-2 bottom-2 max-h-[calc(100%-1rem)] w-64 overflow-y-auto rounded border border-line bg-page/90 text-sm backdrop-blur">
       <summary className="cursor-pointer px-3 py-1.5">Graphics</summary>
       <div className="space-y-3 px-3 pb-3">
         <fieldset>

@@ -2,8 +2,7 @@ import { expect, test } from "@playwright/test";
 
 test.describe("viewing the taxonomic tree", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("/");
-    await page.getByRole("button", { name: "Taxonomic tree" }).click();
+    await page.goto("/taxonomy");
   });
 
   test("outlines the matsutake's lineage from its kingdom", async ({ page }) => {
@@ -15,6 +14,7 @@ test.describe("viewing the taxonomic tree", () => {
 
   test("places the organisms' labels on the 3D tree", async ({ page }) => {
     const label = page.getByTestId("tree-labels").locator("span", { hasText: /^matsutake$/ });
-    await expect(label).toHaveCSS("transform", /^matrix/);
+    // The scene's code loads lazily and takes a while to arrive unbundled from the dev server.
+    await expect(label).toHaveCSS("transform", /^matrix/, { timeout: 15_000 });
   });
 });

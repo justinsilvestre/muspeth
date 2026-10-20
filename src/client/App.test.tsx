@@ -1,4 +1,5 @@
 import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
+import { MemoryRouter } from "react-router";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { Connection, GraphNode } from "../shared/graph";
 import type { Taxon, TaxonPlacement } from "../shared/taxonomy";
@@ -63,6 +64,16 @@ function stubApi() {
   );
 }
 
+function renderApp(path = "/") {
+  return render(
+    <MemoryRouter initialEntries={[path]}>
+      <ColorSchemeProvider>
+        <App />
+      </ColorSchemeProvider>
+    </MemoryRouter>,
+  );
+}
+
 afterEach(() => {
   cleanup();
   localStorage.clear();
@@ -73,39 +84,63 @@ afterEach(() => {
 describe("App", () => {
   it("lists the organisms", async () => {
     stubApi();
-    render(<App />);
-    expect(await screen.findByRole("button", { name: /pinewood nematode/ })).toBeDefined();
+    renderApp();
+    expect(await screen.findByRole("link", { name: /pinewood nematode/ })).toBeDefined();
   });
 
-  describe("when an organism is selected", () => {
+  describe("when an organism is chosen", () => {
     it("shows its connections, with each end named", async () => {
       stubApi();
-      render(<App />);
-      fireEvent.click(await screen.findByRole("button", { name: /Japanese red pine/ }));
+      renderApp();
+      fireEvent.click(await screen.findByRole("link", { name: /Japanese red pine/ }));
       const connections = await screen.findByRole("region", { name: /Connections of/ });
       const [connection] = await within(connections).findAllByRole("listitem");
       expect(connection?.textContent).toMatch(/^pinewood nematode pathogenOf Japanese red pine/);
     });
   });
 
-  describe("when the taxonomic tree is chosen", () => {
+  describe("at an organism's address", () => {
+    it("shows that organism's connections", async () => {
+      stubApi();
+      renderApp("/organisms/pine");
+      expect(
+        await screen.findByRole("region", { name: "Connections of Japanese red pine" }),
+      ).toBeDefined();
+    });
+  });
+
+  describe("at the taxonomy's address", () => {
     it("outlines the organisms within their taxa", async () => {
       stubApi();
-      render(<App />);
-      fireEvent.click(await screen.findByRole("button", { name: "Taxonomic tree" }));
+      renderApp("/taxonomy");
       const outline = await screen.findByRole("list", { name: "Taxonomic tree outline" });
       expect(within(outline).getByText("genus Pinus").textContent).toMatch(/Japanese red pine$/);
+    });
+  });
+
+  describe("when the taxonomic tree is chosen", () => {
+    it("marks its link as the current page", async () => {
+      stubApi();
+      renderApp();
+      fireEvent.click(screen.getByRole("link", { name: "Taxonomic tree" }));
+      expect(
+        screen.getByRole("link", { name: "Taxonomic tree" }).getAttribute("aria-current"),
+      ).toBe("page");
+    });
+  });
+
+  describe("at an unknown address", () => {
+    it("says the page was not found", async () => {
+      stubApi();
+      renderApp("/nowhere");
+      expect(await screen.findByRole("heading", { name: "Page not found" })).toBeDefined();
     });
   });
 
   describe("when the dark color scheme is chosen", () => {
     it("marks the page as dark", async () => {
       stubApi();
-      render(
-        <ColorSchemeProvider>
-          <App />
-        </ColorSchemeProvider>,
-      );
+      renderApp();
       fireEvent.click(screen.getByRole("button", { name: "Dark" }));
       expect(document.documentElement.classList.contains("dark")).toBe(true);
     });
@@ -117,7 +152,7 @@ describe("App", () => {
         "fetch",
         vi.fn(async () => new Response(null, { status: 500 })),
       );
-      render(<App />);
+      renderApp();
       expect(await screen.findByRole("alert")).toBeDefined();
     });
   });
