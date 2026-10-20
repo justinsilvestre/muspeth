@@ -14,7 +14,7 @@ test.describe("viewing the taxonomic tree", () => {
   });
 
   test("places the organisms' labels on the 3D tree", async ({ page }) => {
-    const label = page.getByTestId("tree-labels").getByText("matsutake", { exact: true });
+    const label = page.getByTestId("tree-labels").locator("span", { hasText: /^matsutake$/ });
     await expect(label).toHaveCSS("transform", /^matrix/);
   });
 });

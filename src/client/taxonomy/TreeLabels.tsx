@@ -1,22 +1,21 @@
 import { useFrame } from "@react-three/fiber";
 import clsx from "clsx";
-import { type RefObject, useMemo } from "react";
+import { type RefObject, useMemo, useRef } from "react";
 import { Vector3 } from "three";
 import type { layoutTaxonTree } from "./layoutTaxonTree";
+import { pickVisibleLabels } from "./pickVisibleLabels";
 
 type Point = ReturnType<typeof layoutTaxonTree>["points"][number];
 type LabelsById = RefObject<Map<string, HTMLElement>>;
 
-/**
- * Lays one HTML label per point over the canvas.
- * Organisms and kingdoms are always labelled; other taxa only while their lineage is highlighted.
- */
-export function TreeLabelOverlay(props: {
+/** Lays one HTML label per point over the canvas, hidden until the tracker shows it. */
+export function TreeLabelOverlay({
+  points,
+  labelsById,
+}: {
   points: Point[];
-  lineageIds: Set<string>;
   labelsById: LabelsById;
 }) {
-  const { points, lineageIds, labelsById } = props;
   return (
     <div data-testid="tree-labels" className="pointer-events-none absolute inset-0 overflow-hidden">
       {points.map(({ node }) => (
@@ -26,14 +25,14 @@ export function TreeLabelOverlay(props: {
             if (element) labelsById.current.set(node.id, element);
             else labelsById.current.delete(node.id);
           }}
+          style={{ opacity: 0 }}
           className={clsx(
-            "absolute top-0 left-0 whitespace-nowrap transition-opacity",
+            "absolute top-0 left-0 whitespace-nowrap transition-opacity duration-300",
             node.rank === "organism" ? "font-medium text-sm" : "text-muted text-xs",
             node.rank === "organism" &&
               (node.isPlacementUncertain
                 ? "text-amber-700 italic dark:text-amber-400"
                 : "text-ink"),
-            !isAlwaysLabelled(node.rank) && !lineageIds.has(node.id) && "opacity-0",
           )}
         >
           {node.label}
@@ -51,30 +50,56 @@ export function TreeLabelOverlay(props: {
   );
 }
 
-/** Moves each label to its point's position on screen, once per frame. */
+/**
+ * Moves each label to its point's position on screen once per frame.
+ * It shows the highlighted lineage and the kingdoms, skipping any label that would overlap one with higher priority.
+ */
 export function TreeLabelTracker(props: {
   points: Point[];
   offsetY: number;
   labelsById: LabelsById;
+  lineageIds: Set<string>;
 }) {
-  const { points, offsetY, labelsById } = props;
+  const { points, offsetY, labelsById, lineageIds } = props;
   const projected = useMemo(() => new Vector3(), []);
+  const shownById = useRef(new Map<string, boolean>());
+  // Label text never changes, so each label is measured once, avoiding a layout pass per label per frame.
+  const sizesById = useRef(new Map<string, [width: number, height: number]>());
 
-  useFrame(({ camera, size }) => {
+  useFrame((state) => {
+    const candidates = [];
     for (const point of points) {
       const label = labelsById.current.get(point.node.id);
       if (!label) continue;
       projected.set(point.position[0], point.position[1] + offsetY, point.position[2]);
-      projected.project(camera);
-      const x = ((projected.x + 1) / 2) * size.width;
-      const y = ((1 - projected.y) / 2) * size.height;
+      projected.project(state.camera);
+      const x = ((projected.x + 1) / 2) * state.size.width;
+      const y = ((1 - projected.y) / 2) * state.size.height;
       label.style.transform = `translate(${x}px, ${y}px) translate(-50%, -150%)`;
+      const priority = rankPriority(point, lineageIds);
+      if (priority === null || projected.z > 1) continue;
+      const size = sizesById.current.get(point.node.id) ?? [label.offsetWidth, label.offsetHeight];
+      sizesById.current.set(point.node.id, size);
+      const [width, height] = size;
+      const rect = { left: x - width / 2, top: y - height * 1.5, width, height };
+      candidates.push({ id: point.node.id, rect, priority, depth: projected.z });
+    }
+    candidates.sort((a, b) => a.priority - b.priority || a.depth - b.depth);
+    const visibleIds = pickVisibleLabels(candidates);
+    for (const [id, label] of labelsById.current) {
+      const isShown = visibleIds.has(id);
+      if (shownById.current.get(id) === isShown) continue;
+      shownById.current.set(id, isShown);
+      label.style.opacity = isShown ? "1" : "0";
     }
   });
 
   return null;
 }
 
-function isAlwaysLabelled(rank: string) {
-  return rank === "organism" || rank === "kingdom";
+/** Returns how urgently a point needs its label, lowest first, or null if it should stay unlabelled. */
+function rankPriority(point: Point, lineageIds: Set<string>) {
+  if (lineageIds.has(point.node.id)) return 0;
+  if (point.node.rank === "kingdom") return 1;
+  return null;
 }

@@ -1,8 +1,14 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useReducer } from "react";
 import type { GraphNode } from "../../shared/graph";
 import type { Taxon, TaxonPlacement } from "../../shared/taxonomy";
 import { useApiResource } from "../useApiResource";
 import { buildTaxonTree } from "./buildTaxonTree";
+import { GraphicsPanel } from "./graphics/GraphicsPanel";
+import {
+  graphicsSettingsReducer,
+  readStoredGraphicsSettings,
+  storeGraphicsSettings,
+} from "./graphics/graphicsSettings";
 import { TaxonTreeOutline } from "./TaxonTreeOutline";
 
 const TaxonTreeScene = lazy(() => import("./TaxonTreeScene"));
@@ -30,12 +36,22 @@ export function TaxonomyView({ nodes }: { nodes: GraphNode[] }) {
 }
 
 function TaxonomyTree({ tree }: { tree: ReturnType<typeof buildTaxonTree> }) {
+  const [settings, dispatch] = useReducer(
+    graphicsSettingsReducer,
+    undefined,
+    readStoredGraphicsSettings,
+  );
+  useEffect(() => storeGraphicsSettings(settings), [settings]);
+
   return (
     <>
-      <div aria-hidden="true" className="h-[70vh] rounded border border-line bg-panel">
-        <Suspense fallback={<p className="p-3">Loading the tree…</p>}>
-          <TaxonTreeScene tree={tree} />
-        </Suspense>
+      <div className="relative h-[70vh] rounded border border-line bg-panel">
+        <div aria-hidden="true" className="h-full">
+          <Suspense fallback={<p className="p-3">Loading the tree…</p>}>
+            <TaxonTreeScene tree={tree} settings={settings} />
+          </Suspense>
+        </div>
+        <GraphicsPanel settings={settings} dispatch={dispatch} />
       </div>
       <TaxonTreeOutline tree={tree} />
     </>

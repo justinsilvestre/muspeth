@@ -1,51 +1,58 @@
 import type { ThreeEvent } from "@react-three/fiber";
 import { useEffect, useMemo } from "react";
 import { CatmullRomCurve3, Curve, TubeGeometry, Vector3 } from "three";
+import { type BranchShape, branchRadiusAt, tipTaper } from "./branchRadiusAt";
+import { FloatingLeaf } from "./FloatingLeaf";
+import { BarkMaterialView } from "./graphics/BarkMaterialView";
+import type { BarkMaterial } from "./graphics/barkMaterials";
 import type { BranchPath } from "./traceBranchPaths";
 
-const radiusAtRoot = 0.3;
-/** How much thinner the tree gets with each rank, as a fraction of the rank below. */
-const taperPerRank = 0.75;
 const radialSegments = 12;
+/** The radius of the invisible tube that catches the pointer, so even the finest twigs are easy to point at. */
+const pointerTargetRadius = 0.1;
 
 type BranchTubeProps = {
   path: BranchPath;
-  color: string;
-  /** Whether to round off the path's end, where thinner paths fork from it. */
-  isCapped: boolean;
+  shape: BranchShape;
+  material: BarkMaterial;
+  isHighlighted: boolean;
+  leaf: { color: string; size: number; gap: number };
   onPointerOver: (event: ThreeEvent<PointerEvent>) => void;
   onPointerOut: (event: ThreeEvent<PointerEvent>) => void;
 };
 
 /**
- * Returns the branch radius at the given height, measured in ranks above the root.
- * The tree thins by the same fraction with each rank, so it flares below the root and branches meet seamlessly at forks.
+ * Draws a path as a smooth, tapering tube that leaves its fork in the direction of the branch below it.
+ * A path ending at an organism narrows to a point and carries a floating leaf; a path ending at a fork is rounded off where its branches leave.
  */
-export function branchRadiusAt(height: number) {
-  return radiusAtRoot * taperPerRank ** height;
-}
-
-/** Draws a path as a smooth, tapering tube that leaves its fork in the direction of the branch below it. */
-export function BranchTube({
-  path,
-  color,
-  isCapped,
-  onPointerOver,
-  onPointerOut,
-}: BranchTubeProps) {
-  const geometry = useMemo(() => createTaperedTube(toSmoothCurve(path), path), [path]);
+export function BranchTube(props: BranchTubeProps) {
+  const { path, shape, material, isHighlighted, leaf } = props;
+  const endsAtOrganism = path.leafCount === 1;
+  const curve = useMemo(() => toSmoothCurve(path), [path]);
+  const geometry = useMemo(
+    () => createTaperedTube(curve, path, shape, endsAtOrganism),
+    [curve, path, shape, endsAtOrganism],
+  );
+  const pointerTarget = useMemo(
+    () => new TubeGeometry(curve, 4 * path.positions.length, pointerTargetRadius, 6),
+    [curve, path],
+  );
   useEffect(() => () => geometry.dispose(), [geometry]);
-  const end = path.positions.at(-1);
+  useEffect(() => () => pointerTarget.dispose(), [pointerTarget]);
+  const [tip, direction] = useMemo(() => [curve.getPointAt(1), curve.getTangentAt(1)], [curve]);
 
   return (
-    <group onPointerOver={onPointerOver} onPointerOut={onPointerOut}>
+    <group onPointerOver={props.onPointerOver} onPointerOut={props.onPointerOut}>
       <mesh geometry={geometry}>
-        <meshStandardMaterial color={color} roughness={0.9} />
+        <BarkMaterialView material={material} isHighlighted={isHighlighted} />
       </mesh>
-      {isCapped && end && (
-        <mesh position={end}>
-          <sphereGeometry args={[branchRadiusAt(end[1]), 12, 8]} />
-          <meshStandardMaterial color={color} roughness={0.9} />
+      <mesh geometry={pointerTarget} visible={false} />
+      {endsAtOrganism ? (
+        <FloatingLeaf id={path.endId} branchTip={tip} direction={direction} {...leaf} />
+      ) : (
+        <mesh position={tip}>
+          <sphereGeometry args={[branchRadiusAt(tip.y, shape), 12, 8]} />
+          <BarkMaterialView material={material} isHighlighted={isHighlighted} />
         </mesh>
       )}
     </group>
@@ -64,15 +71,23 @@ function toSmoothCurve({ positions, leadPosition }: BranchPath) {
 }
 
 /** Builds a tube of unit radius, then scales each ring of vertices to the radius at its height. */
-function createTaperedTube(curve: Curve<Vector3>, path: BranchPath) {
+function createTaperedTube(
+  curve: Curve<Vector3>,
+  path: BranchPath,
+  shape: BranchShape,
+  endsAtOrganism: boolean,
+) {
   const tubularSegments = 16 * path.positions.length;
+  const lastStretch = 1 / (path.positions.length - 1);
   const geometry = new TubeGeometry(curve, tubularSegments, 1, radialSegments);
   const vertices = geometry.getAttribute("position");
   const [center, vertex] = [new Vector3(), new Vector3()];
   for (let ring = 0; ring <= tubularSegments; ring++) {
     // TubeGeometry places its rings at evenly spaced lengths along the curve.
-    curve.getPointAt(ring / tubularSegments, center);
-    const radius = branchRadiusAt(center.y);
+    const along = ring / tubularSegments;
+    curve.getPointAt(along, center);
+    const taper = endsAtOrganism ? tipTaper(along, lastStretch) : 1;
+    const radius = branchRadiusAt(center.y, shape) * taper;
     for (let side = 0; side <= radialSegments; side++) {
       const index = ring * (radialSegments + 1) + side;
       vertex.fromBufferAttribute(vertices, index).sub(center).multiplyScalar(radius).add(center);
