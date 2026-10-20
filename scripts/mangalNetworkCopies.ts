@@ -60,11 +60,12 @@ function areCopies(first: Fingerprint, second: Fingerprint) {
  * then the oldest network in Mangal.
  */
 export function chooseCanonical(copies: MangalNetworkContent[]) {
-  const ranked = [...copies].sort(
-    (a, b) =>
-      compareScores(toPreferenceScores(b), toPreferenceScores(a)) || a.network.id - b.network.id,
-  );
-  return ranked[0];
+  return copies.reduce((best, copy) => (isPreferred(copy, best) ? copy : best));
+}
+
+function isPreferred(copy: MangalNetworkContent, other: MangalNetworkContent) {
+  const comparison = compareScores(toPreferenceScores(copy), toPreferenceScores(other));
+  return comparison > 0 || (comparison === 0 && copy.network.id < other.network.id);
 }
 
 function toPreferenceScores({ reference, nodes, interactions }: MangalNetworkContent) {
