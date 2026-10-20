@@ -12,7 +12,7 @@ import { toGlobiImportSql } from "./globiImportSql.ts";
 import {
   type GlobiRecord,
   type GlobiTaxon,
-  isReimport,
+  isExcludedDataset,
   orientRecord,
   selectPartnerNames,
 } from "./globiRecords.ts";
@@ -65,7 +65,7 @@ async function collectRecords(organismName: string) {
   const fetched = await fetchGlobiRecords(organismName, recordLimit);
   if (fetched.length === recordLimit)
     console.warn(`Only the first ${recordLimit} records of ${organismName} were read.`);
-  const kept = fetched.filter((record) => !isReimport(record)).map(orientRecord);
+  const kept = fetched.filter((record) => !isExcludedDataset(record)).map(orientRecord);
   const partnerNames = new Set(
     selectPartnerNames(kept, organismName, partnerLimit, (name) => startNames.has(name)),
   );

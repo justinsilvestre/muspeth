@@ -57,13 +57,6 @@ describe("toConnectionDraft", () => {
       "ambiguous_wikidata_id",
     ]);
   });
-
-  it("flags records that a language model generated", () => {
-    const record = makeRecord({ datasetId: "fkeck/gpt_interactions" });
-    expect(toConnectionDraft(record, identities).qualityFlags).toContain(
-      "generated_by_language_model",
-    );
-  });
 });
 
 describe("mergeConnections", () => {
@@ -87,12 +80,6 @@ describe("mergeConnections", () => {
   it("keeps both directions of a directed relation", () => {
     const drafts = [makeDraft(), makeDraft({ sourceNodeId: "b", targetNodeId: "a" })];
     expect(mergeConnections(drafts)).toHaveLength(2);
-  });
-
-  it("flags a merged interaction as generated only when every record was generated", () => {
-    const generated = makeDraft({ qualityFlags: ["generated_by_language_model"] });
-    const [merged] = mergeConnections([generated, makeDraft()]);
-    expect(merged?.qualityFlags).toEqual([]);
   });
 
   it("keeps the coarser taxonomic level", () => {
