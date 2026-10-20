@@ -1,16 +1,23 @@
 import type { Taxon, TaxonPlacement } from "../src/shared/taxonomy.ts";
 import { quoteSql } from "./quoteSql.ts";
 
-const ranks = ["kingdom", "phylum", "class", "order", "family", "genus", "species"] as const;
+export const ranks = ["kingdom", "phylum", "class", "order", "family", "genus", "species"] as const;
 const source = "gbif_backbone";
 const licence = "CC-BY-4.0";
 
 type Rank = (typeof ranks)[number];
 
 /** The parts of a GBIF species match response that the import uses. */
-export type GbifMatch = { matchType: string; status?: string } & Partial<
-  Record<Rank, string> & Record<`${Rank}Key`, number>
->;
+export type GbifMatch = {
+  matchType: string;
+  status?: string;
+  rank?: string;
+  confidence?: number;
+  /** The candidates GBIF weighed, listed when the match is requested with `verbose`. */
+  alternatives?: GbifMatch[];
+  /** Records that the match was chosen with outside help instead of from the name alone. */
+  hintedBy?: "globi_lineage";
+} & Partial<Record<Rank, string> & Record<`${Rank}Key`, number>>;
 
 /** Lists the matched lineage from kingdom down, skipping ranks GBIF leaves empty. */
 export function toTaxonRows(match: GbifMatch) {
@@ -39,6 +46,7 @@ function listQualityFlags(match: GbifMatch) {
     match.matchType === "FUZZY" && "fuzzy_name_match",
     match.matchType === "HIGHERRANK" && "higher_rank_match",
     match.status === "SYNONYM" && "synonym_name",
+    match.hintedBy === "globi_lineage" && "globi_lineage_hint",
   ].filter((flag) => flag !== false);
 }
 
