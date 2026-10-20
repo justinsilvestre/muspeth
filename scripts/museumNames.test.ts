@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { listSearchNames, mentionsName, pluralize } from "./museumNames.ts";
+import { listSearchNames, mentionsName, pluralize, toHeadword } from "./museumNames.ts";
 
 describe("listSearchNames", () => {
   const organism = {
@@ -53,5 +53,19 @@ describe("mentionsName", () => {
 
   it("does not find a name that has other letters before it", () => {
     expect(mentionsName("Carpine", "pine")).toBe(false);
+  });
+});
+
+describe("toHeadword", () => {
+  it("gives the last word of a name with several words", () => {
+    expect(toHeadword("Common Sunflower")).toBe("sunflower");
+  });
+
+  it("gives nothing for a name of one word", () => {
+    expect(toHeadword("sunflower")).toBeNull();
+  });
+
+  it("gives nothing when the last word is short", () => {
+    expect(toHeadword("red ox")).toBeNull();
   });
 });

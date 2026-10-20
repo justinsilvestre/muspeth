@@ -7,10 +7,31 @@ import { listMetSearchTerms, matchMetObject, toMetArtwork } from "./metObjects.t
 import { listSearchNames, type MuseumOrganism } from "./museumNames.ts";
 
 const concurrency = 4;
+const progressInterval = 50;
+
+/** Wraps a per-organism search so that it reports how many organisms are done. */
+function withProgress(
+  museum: string,
+  total: number,
+  search: (organism: MuseumOrganism) => Promise<ArtworkMatch[]>,
+) {
+  let done = 0;
+  return async (organism: MuseumOrganism) => {
+    const matches = await search(organism);
+    done++;
+    if (done % progressInterval === 0)
+      console.log(`${museum}: searched ${done} of ${total} organisms.`);
+    return matches;
+  };
+}
 
 /** Finds the Met's public domain objects whose subject tags match the organisms. */
 export async function collectMetMatches(organisms: MuseumOrganism[]) {
-  const perOrganism = await mapConcurrently(organisms, concurrency, collectMetMatchesFor);
+  const perOrganism = await mapConcurrently(
+    organisms,
+    concurrency,
+    withProgress("met", organisms.length, collectMetMatchesFor),
+  );
   return perOrganism.flat();
 }
 
@@ -33,7 +54,11 @@ async function collectMetMatchesFor(organism: MuseumOrganism) {
 
 /** Finds Cleveland's CC0 records with pictures whose titles mention the organisms' names. */
 export async function collectClevelandMatches(organisms: MuseumOrganism[]) {
-  const perOrganism = await mapConcurrently(organisms, concurrency, collectClevelandMatchesFor);
+  const perOrganism = await mapConcurrently(
+    organisms,
+    concurrency,
+    withProgress("cleveland", organisms.length, collectClevelandMatchesFor),
+  );
   return perOrganism.flat();
 }
 

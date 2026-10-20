@@ -1,5 +1,5 @@
 import { type Artwork, toYearInterval } from "./artworkDrafts.ts";
-import { normalizeName, pluralize, type SearchName } from "./museumNames.ts";
+import { normalizeName, pluralize, type SearchName, toHeadword } from "./museumNames.ts";
 
 /** The fields of a Met collection object that the import reads. */
 export type MetObject = {
@@ -22,10 +22,17 @@ const imageLicence = "CC0-1.0";
 
 /**
  * Lists the subject tags to search for. The Met's tags are plural common names, such as "Bees",
- * so each name is searched in both forms.
+ * so each common name is searched in both forms. The last word of a common name is searched too,
+ * since the tag may name the plain kind of organism, as "Sunflowers" does for "common sunflower".
+ * Such a tag counts only when its Wikidata item is the organism's own: see `matchMetObject`.
  */
 export function listMetSearchTerms(names: SearchName[]) {
-  return [...new Set(names.flatMap(({ name }) => [name, pluralize(name)]))];
+  const terms = names.flatMap(({ name, kind }) => {
+    if (kind === "scientific") return [name];
+    const headword = toHeadword(name);
+    return [name, pluralize(name), ...(headword ? [headword, pluralize(headword)] : [])];
+  });
+  return [...new Set(terms)];
 }
 
 /**

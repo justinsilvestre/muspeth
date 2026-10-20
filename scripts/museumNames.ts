@@ -14,6 +14,9 @@ export type SearchName = { name: string; kind: NameKind };
 /** Names shorter than this are too likely to match unrelated words. */
 const minNameLength = 4;
 
+/** Headwords are only ever matched by identifier, so they can be shorter, as in "honey bee". */
+const minHeadwordLength = 3;
+
 /** Lists the names to look for in museum records, without repeats and without very short names. */
 export function listSearchNames({ label, englishNames }: MuseumOrganism) {
   const names = [
@@ -26,6 +29,16 @@ export function listSearchNames({ label, englishNames }: MuseumOrganism) {
 
 export function normalizeName(name: string) {
   return name.trim().toLowerCase().replace(/\s+/g, " ");
+}
+
+/**
+ * Gives the last word of a common name with several words, for example "sunflower" for
+ * "common sunflower". Museums tag artworks with the plain name of a kind of organism.
+ */
+export function toHeadword(name: string) {
+  const words = normalizeName(name).split(" ");
+  const headword = words.at(-1) ?? "";
+  return words.length > 1 && headword.length >= minHeadwordLength ? headword : null;
 }
 
 /** Gives the English plural of a name in the usual way, as museum subject tags are plural. */

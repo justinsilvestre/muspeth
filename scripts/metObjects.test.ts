@@ -24,6 +24,17 @@ describe("listMetSearchTerms", () => {
   it("searches each name in singular and plural", () => {
     expect(listMetSearchTerms([bee])).toEqual(["bee", "bees"]);
   });
+
+  it("searches the last word of a longer common name", () => {
+    const sunflower = { name: "common sunflower", kind: "common" } as const;
+    expect(listMetSearchTerms([sunflower])).toContain("sunflowers");
+  });
+
+  it("searches a scientific name as it is", () => {
+    expect(listMetSearchTerms([{ name: "Apis mellifera", kind: "scientific" }])).toEqual([
+      "Apis mellifera",
+    ]);
+  });
 });
 
 describe("toMetArtwork", () => {
