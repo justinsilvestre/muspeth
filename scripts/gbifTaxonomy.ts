@@ -1,3 +1,4 @@
+import type { QualityFlag } from "../src/shared/qualityFlags.ts";
 import type { Taxon, TaxonPlacement } from "../src/shared/taxonomy.ts";
 import { quoteSql } from "./quoteSql.ts";
 
@@ -42,12 +43,13 @@ export function toTaxonPlacement(nodeId: string, match: GbifMatch) {
 }
 
 function listQualityFlags(match: GbifMatch) {
-  return [
+  const flags = [
     match.matchType === "FUZZY" && "fuzzy_name_match",
     match.matchType === "HIGHERRANK" && "higher_rank_match",
     match.status === "SYNONYM" && "synonym_name",
     match.hintedBy === "globi_lineage" && "globi_lineage_hint",
-  ].filter((flag) => flag !== false);
+  ] satisfies (QualityFlag | false)[];
+  return flags.filter((flag) => flag !== false);
 }
 
 /** Writes SQL that inserts the taxa and placements, replacing any earlier import of them. */

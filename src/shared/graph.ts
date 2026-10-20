@@ -1,3 +1,34 @@
+import type { QualityFlag } from "./qualityFlags";
+
+export const nodeKinds = [
+  "organism",
+  "compound",
+  "cultural_object",
+  "word",
+  "story_motif",
+  "recording",
+  "place",
+] as const;
+
+export const connectionKinds = [
+  "interaction",
+  "likeness",
+  "shared_substance",
+  "shared_culture",
+  "shared_words_and_stories",
+  "shared_place_and_sound",
+] as const;
+
+/**
+ * How a connection is known: reported by a study ("observed"), derived by us, for example from
+ * trait similarity ("computed"), or a meaning or use assigned by people ("attributed").
+ */
+export const connectionBases = ["observed", "computed", "attributed"] as const;
+
+export type NodeKind = (typeof nodeKinds)[number];
+export type ConnectionKind = (typeof connectionKinds)[number];
+export type ConnectionBasis = (typeof connectionBases)[number];
+
 /** A name for a node in one language, as a BCP 47 language tag. */
 export type NodeName = {
   language: string;
@@ -6,7 +37,7 @@ export type NodeName = {
 
 export type GraphNode = {
   id: string;
-  kind: string;
+  kind: NodeKind;
   label: string;
   names: NodeName[];
 };
@@ -28,11 +59,11 @@ export type Connection = {
   /** Whether the requested node is the source ("outgoing") or the target ("incoming") of the connection. */
   direction: "outgoing" | "incoming";
   neighborId: string;
-  kind: string;
+  kind: ConnectionKind;
   relation: string;
-  basis: string;
+  basis: ConnectionBasis;
   source: string;
   licence: string;
-  qualityFlags: string[];
+  qualityFlags: QualityFlag[];
   sources: ConnectionSource[];
 };

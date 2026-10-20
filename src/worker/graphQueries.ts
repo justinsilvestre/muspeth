@@ -6,9 +6,9 @@ type ConnectionRow = {
   id: number;
   source_node_id: string;
   target_node_id: string;
-  kind: string;
+  kind: Connection["kind"];
   relation: string;
-  basis: string;
+  basis: Connection["basis"];
   source: string;
   licence: string;
   quality_flags: string;
