@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { type SubstanceLink, toItemNodes, toSubstanceConnection } from "./substanceDrafts.ts";
+import {
+  dropUnlabelledLinks,
+  type SubstanceLink,
+  toItemNodes,
+  toSubstanceConnection,
+} from "./substanceDrafts.ts";
 
 const referenced = { workQids: ["Q7"], urls: [] };
 const compoundLink = {
@@ -80,5 +85,17 @@ describe("toItemNodes", () => {
 
   it("labels a node without names by its identifier", () => {
     expect(toItemNodes([compoundLink], new Map())[0]?.label).toBe("Q2");
+  });
+});
+
+describe("dropUnlabelledLinks", () => {
+  const labels = new Map([["Q3", [{ language: "en", name: "honey" }]]]);
+
+  it("keeps links to labelled items", () => {
+    expect(dropUnlabelledLinks([productLink], labels)).toEqual([productLink]);
+  });
+
+  it("drops links to items without labels", () => {
+    expect(dropUnlabelledLinks([compoundLink], labels)).toEqual([]);
   });
 });

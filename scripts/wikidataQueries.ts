@@ -6,6 +6,12 @@ export function listQids(nodeIds: string[]) {
   return nodeIds.flatMap((id) => (/^wikidata:Q\d+$/.test(id) ? [id.slice(9)] : []));
 }
 
+/** Keeps only items that have a label in one of the kept languages. */
+const labelledCompoundFilter = `FILTER EXISTS {
+    ?compound rdfs:label ?anyLabel.
+    FILTER(LANG(?anyLabel) IN (${labelLanguages.map((language) => `"${language}"`).join(", ")}))
+  }`;
+
 /** Counts the compounds that Wikidata says are found in each organism. */
 export function buildCompoundCountsQuery(organismQids: string[]) {
   return `SELECT ?organism (COUNT(DISTINCT ?compound) AS ?count) WHERE {
@@ -14,11 +20,12 @@ export function buildCompoundCountsQuery(organismQids: string[]) {
 } GROUP BY ?organism`;
 }
 
-/** Finds the compounds found in the given organisms and also in another of all the organisms. */
+/** Finds the labelled compounds found in the given organisms and also in another of all the organisms. */
 export function buildSharedCompoundsQuery(organismQids: string[], allOrganismQids: string[]) {
   return `SELECT ?organism ?compound WHERE {
   VALUES ?organism { ${toValues(organismQids)} }
   ?compound wdt:P703 ?organism.
+  ${labelledCompoundFilter}
   FILTER EXISTS {
     VALUES ?other { ${toValues(allOrganismQids)} }
     ?compound wdt:P703 ?other.
@@ -27,7 +34,7 @@ export function buildSharedCompoundsQuery(organismQids: string[], allOrganismQid
 }`;
 }
 
-/** Finds a few compounds found in the organism and in no other of all the organisms. */
+/** Finds a few labelled compounds found in the organism and in no other of all the organisms. */
 export function buildUnsharedCompoundsQuery(
   organismQid: string,
   allOrganismQids: string[],
@@ -35,6 +42,7 @@ export function buildUnsharedCompoundsQuery(
 ) {
   return `SELECT ?compound WHERE {
   ?compound wdt:P703 ${toValues([organismQid])}.
+  ${labelledCompoundFilter}
   FILTER NOT EXISTS {
     VALUES ?other { ${toValues(allOrganismQids)} }
     ?compound wdt:P703 ?other.

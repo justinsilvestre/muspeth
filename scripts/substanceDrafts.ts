@@ -95,3 +95,8 @@ export function toItemNodes(links: SubstanceLink[], labelsByQid: Map<string, Nod
 function toItemQid({ itemQid }: SubstanceLink) {
   return itemQid;
 }
+
+/** Leaves out links to items that have no label in any kept language, which would read as a bare identifier. */
+export function dropUnlabelledLinks(links: SubstanceLink[], labelsByQid: Map<string, NodeName[]>) {
+  return links.filter(({ itemQid }) => (labelsByQid.get(itemQid)?.length ?? 0) > 0);
+}

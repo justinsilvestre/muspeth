@@ -1,5 +1,6 @@
 import { limitSharedCompounds, type OrganismCompound } from "./compoundSelection.ts";
 import { fetchInBatches } from "./fetchInBatches.ts";
+import { mapConcurrently } from "./mapConcurrently.ts";
 import { runSparql, wikidataEndpoint } from "./sparqlClient.ts";
 import { toQid } from "./sparqlRows.ts";
 import type { SubstanceLink } from "./substanceDrafts.ts";
@@ -14,9 +15,11 @@ import { collectReferences, type StatementReference } from "./wikidataReferences
 
 /**
  * The most compounds kept for one organism among those found in at least one other graph organism.
- * It only matters for organisms with very long lists, such as humans, which have over 100,000.
+ * Compounds found in the most graph organisms come first, since they make the most shared paths.
+ * Fifteen keeps the graph to a few thousand compound connections for a few hundred organisms,
+ * and stops organisms with very long lists, such as humans with over 100,000, from dominating it.
  */
-const sharedCompoundLimit = 500;
+const sharedCompoundLimit = 15;
 
 /** The most compounds kept for one organism among those found in no other graph organism. */
 const unsharedCompoundLimit = 5;
@@ -25,6 +28,7 @@ const unsharedCompoundLimit = 5;
 const productLimit = 25;
 
 const organismBatchSize = 20;
+const queryConcurrency = 2;
 const productBatchSize = 50;
 
 /**
@@ -51,29 +55,38 @@ async function fetchUnsharedCompounds(organismQids: string[]) {
   const counts = await fetchInBatches(organismQids, 100, (batch) =>
     runSparql(wikidataEndpoint, buildCompoundCountsQuery(batch)),
   );
-  const pairs: OrganismCompound[] = [];
-  for (const organismQid of counts.map((row) => toQid(row.organism))) {
-    const rows = await runSparql(
-      wikidataEndpoint,
-      buildUnsharedCompoundsQuery(organismQid, organismQids, unsharedCompoundLimit),
-    );
-    pairs.push(...rows.map((row) => ({ organismQid, compoundQid: toQid(row.compound) })));
-  }
-  return pairs;
+  const pairsPerOrganism = await mapConcurrently(
+    counts.map((row) => toQid(row.organism)),
+    queryConcurrency,
+    async (organismQid) => {
+      const rows = await runSparql(
+        wikidataEndpoint,
+        buildUnsharedCompoundsQuery(organismQid, organismQids, unsharedCompoundLimit),
+      );
+      return rows.map((row) => ({ organismQid, compoundQid: toQid(row.compound) }));
+    },
+  );
+  return pairsPerOrganism.flat() satisfies OrganismCompound[];
 }
 
 async function fetchCompoundReferences(pairs: OrganismCompound[]) {
   const compoundsByOrganism = Map.groupBy(pairs, ({ organismQid }) => organismQid);
   const references = new Map<string, StatementReference>();
-  for (const [organismQid, organismPairs] of compoundsByOrganism) {
-    const compoundQids = organismPairs.map(({ compoundQid }) => compoundQid);
-    const rows = await fetchInBatches(compoundQids, 300, (batch) =>
-      runSparql(wikidataEndpoint, buildCompoundReferencesQuery(organismQid, batch)),
-    );
-    for (const [compoundQid, reference] of collectReferences(rows, (row) => toQid(row.compound))) {
-      references.set(`${organismQid} ${compoundQid}`, reference);
-    }
-  }
+  await mapConcurrently(
+    [...compoundsByOrganism],
+    queryConcurrency,
+    async ([organismQid, group]) => {
+      const compoundQids = group.map(({ compoundQid }) => compoundQid);
+      const rows = await fetchInBatches(compoundQids, 300, (batch) =>
+        runSparql(wikidataEndpoint, buildCompoundReferencesQuery(organismQid, batch)),
+      );
+      for (const [compoundQid, reference] of collectReferences(rows, (row) =>
+        toQid(row.compound),
+      )) {
+        references.set(`${organismQid} ${compoundQid}`, reference);
+      }
+    },
+  );
   return references;
 }
 
