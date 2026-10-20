@@ -6,7 +6,7 @@
  * Without --remote, it writes to the local development database.
  */
 import { executeD1Script, queryD1 } from "./d1.ts";
-import { fetchGlobiRecords, fetchWikidataQids } from "./globiApi.ts";
+import { fetchGlobiRecords, fetchTaxonLinks } from "./globiApi.ts";
 import { mergeConnections, toConnectionDraft } from "./globiConnections.ts";
 import { toGlobiImportSql } from "./globiImportSql.ts";
 import {
@@ -22,6 +22,7 @@ import {
   isUnmatchedName,
   listOrganismNames,
 } from "./organismIdentity.ts";
+import { listLinkedQids, parseTaxonLinks } from "./taxonLinks.ts";
 import { fetchWikidataQidsByTaxonName, fetchWikidataTaxa } from "./wikidataApi.ts";
 
 const recordLimit = 20_000;
@@ -34,8 +35,10 @@ const organisms = queryD1<{ id: string; label: string; is_start: number }>(
     OR NOT EXISTS (SELECT 1 FROM connections WHERE source_node_id = nodes.id OR target_node_id = nodes.id) AS is_start
   FROM nodes WHERE kind = 'organism'`,
 );
-const existingIdByName = new Map(organisms.map(({ id, label }) => [label, id]));
-const startNames = new Set(organisms.filter(({ is_start }) => is_start).map(({ label }) => label));
+const startOrganisms = organisms.filter(({ is_start }) => is_start);
+const previousNodeIds = organisms.filter(({ is_start }) => !is_start).map(({ id }) => id);
+const existingIdByName = new Map(startOrganisms.map(({ id, label }) => [label, id]));
+const startNames = new Set(startOrganisms.map(({ label }) => label));
 const records: GlobiRecord[] = [];
 for (const name of startNames) records.push(...(await collectRecords(name)));
 const taxa = new Map(
@@ -56,7 +59,7 @@ const nodes = [...taxa.values()].map((taxon) => ({
 const connections = mergeConnections(
   records.map((record) => toConnectionDraft(record, identities)),
 );
-executeD1Script(toGlobiImportSql(nodes, connections));
+executeD1Script(toGlobiImportSql(nodes, connections, previousNodeIds));
 console.log(
   `Stored ${connections.length} connections among ${new Set(nodes.map(({ id }) => id)).size} organisms.`,
 );
@@ -76,31 +79,33 @@ async function collectRecords(organismName: string) {
 }
 
 /**
- * Resolves new, matched names to Wikidata items through GloBI's taxon links, or else through
- * Wikidata's own scientific names.
+ * Resolves new, matched names to Wikidata items that bear the same scientific name, found through
+ * GloBI's taxon links and Wikidata's own scientific names.
  */
 async function chooseWikidataTaxa(candidates: GlobiTaxon[]) {
-  const unresolved = candidates.filter(
-    (taxon) => !existingIdByName.has(taxon.name) && !isUnmatchedName(taxon),
-  );
-  const qidsByName = new Map(
+  const names = candidates
+    .filter((taxon) => !existingIdByName.has(taxon.name) && !isUnmatchedName(taxon))
+    .map(({ name }) => name);
+  const linkedIdsByName = new Map(
     await mapConcurrently(
-      unresolved,
-      async (taxon) => [taxon.name, await fetchWikidataQids(taxon.name)] as const,
+      names,
+      async (name) => [name, parseTaxonLinks(await fetchTaxonLinks(name))] as const,
     ),
   );
-  const unlinkedNames = [...qidsByName]
-    .filter(([, qids]) => qids.length === 0)
-    .map(([name]) => name);
-  for (const [name, qids] of await fetchWikidataQidsByTaxonName(unlinkedNames)) {
-    qidsByName.set(name, qids);
-  }
+  const namesakeQidsByName = await fetchWikidataQidsByTaxonName(names);
+  const qidsByName = new Map(
+    names.map((name) => [
+      name,
+      [...listLinkedQids(linkedIdsByName.get(name) ?? []), ...(namesakeQidsByName.get(name) ?? [])],
+    ]),
+  );
   const wikidataTaxa = await fetchWikidataTaxa([...new Set([...qidsByName.values()].flat())]);
   return new Map(
     [...qidsByName].flatMap(([name, qids]) => {
       const choice = chooseWikidataTaxon(
         name,
         qids.flatMap((qid) => wikidataTaxa.get(qid) ?? []),
+        linkedIdsByName.get(name),
       );
       return choice ? [[name, choice] as const] : [];
     }),

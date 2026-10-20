@@ -4,10 +4,16 @@ const sparqlUrl = "https://query.wikidata.org/sparql";
 const labelLanguages = ["en", "ja", "zh", "ko", "fr", "de", "es"];
 const batchSize = 100;
 
-type Binding = { item: { value: string }; taxonName?: { value: string }; label?: LabelValue };
+type Binding = {
+  item: { value: string };
+  taxonName?: { value: string };
+  label?: LabelValue;
+  gbif?: { value: string };
+  ncbi?: { value: string };
+};
 type LabelValue = { value: string; "xml:lang": string };
 
-/** Fetches the scientific names and labels of Wikidata items. */
+/** Fetches the scientific names, labels, and GBIF and NCBI identifiers of Wikidata items. */
 export async function fetchWikidataTaxa(qids: string[]) {
   const taxa = new Map<string, WikidataTaxon>();
   for (let start = 0; start < qids.length; start += batchSize) {
@@ -36,9 +42,11 @@ export async function fetchWikidataQidsByTaxonName(names: string[]) {
 }
 
 function queryItems(qids: string[]) {
-  return runQuery(`SELECT ?item ?taxonName ?label WHERE {
+  return runQuery(`SELECT ?item ?taxonName ?label ?gbif ?ncbi WHERE {
     VALUES ?item { ${qids.map((qid) => `wd:${qid}`).join(" ")} }
     OPTIONAL { ?item wdt:P225 ?taxonName }
+    OPTIONAL { ?item wdt:P846 ?gbif }
+    OPTIONAL { ?item wdt:P685 ?ncbi }
     OPTIONAL { ?item rdfs:label ?label FILTER(LANG(?label) IN (${labelLanguages.map((language) => `"${language}"`).join(", ")})) }
   }`);
 }
@@ -57,16 +65,21 @@ async function runQuery(query: string) {
   return ((await response.json()) as { results: { bindings: Binding[] } }).results.bindings;
 }
 
-function addBinding(taxa: Map<string, WikidataTaxon>, { item, taxonName, label }: Binding) {
-  const qid = toQid(item);
-  const taxon = taxa.get(qid) ?? { qid, taxonNames: [], labels: [] };
-  if (taxonName && !taxon.taxonNames.includes(taxonName.value)) {
-    taxon.taxonNames.push(taxonName.value);
-  }
+function addBinding(taxa: Map<string, WikidataTaxon>, binding: Binding) {
+  const qid = toQid(binding.item);
+  const taxon = taxa.get(qid) ?? { qid, taxonNames: [], labels: [], externalIds: [] };
+  const { taxonName, label, gbif, ncbi } = binding;
+  if (taxonName) addOnce(taxon.taxonNames, taxonName.value);
+  if (gbif) addOnce(taxon.externalIds, `gbif:${gbif.value}`);
+  if (ncbi) addOnce(taxon.externalIds, `ncbi:${ncbi.value}`);
   if (label && !taxon.labels.some((existing) => existing.language === label["xml:lang"])) {
     taxon.labels.push({ language: label["xml:lang"], name: label.value });
   }
   taxa.set(qid, taxon);
+}
+
+function addOnce(values: string[], value: string) {
+  if (!values.includes(value)) values.push(value);
 }
 
 function toQid(item: Binding["item"]) {

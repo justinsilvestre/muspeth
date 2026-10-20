@@ -11,11 +11,20 @@ export type OrganismNode = { id: string; label: string; names: NodeName[] };
 /**
  * Writes SQL that replaces the connections of any earlier GloBI import and adds the organisms they
  * link, leaving organisms that are already stored unchanged.
+ * Nodes that an earlier GloBI import added and this one does not are removed.
  */
-export function toGlobiImportSql(nodes: OrganismNode[], connections: ConnectionDraft[]) {
+export function toGlobiImportSql(
+  nodes: OrganismNode[],
+  connections: ConnectionDraft[],
+  previousNodeIds: string[] = [],
+) {
   const uniqueNodes = [...new Map(nodes.map((node) => [node.id, node])).values()];
+  const staleIds = previousNodeIds.filter((id) => !uniqueNodes.some((node) => node.id === id));
   return [
     `DELETE FROM connections WHERE source = ${quoteSql(source)};`,
+    ...(staleIds.length > 0
+      ? [`DELETE FROM nodes WHERE id IN (${staleIds.map(quoteSql).join(", ")});`]
+      : []),
     ...uniqueNodes.map(toNodeSql),
     ...uniqueNodes.flatMap(({ id, names }) => names.map((name) => toNodeNameSql(id, name))),
     ...connections.map(toConnectionSql),
