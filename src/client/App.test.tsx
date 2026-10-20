@@ -1,0 +1,77 @@
+import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import type { Connection, GraphNode } from "../shared/graph";
+import { App } from "./App";
+
+const pine = {
+  id: "pine",
+  kind: "organism",
+  label: "Pinus densiflora",
+  names: [{ language: "en", name: "Japanese red pine" }],
+} satisfies GraphNode;
+
+const nematode = {
+  id: "nematode",
+  kind: "organism",
+  label: "Bursaphelenchus xylophilus",
+  names: [{ language: "en", name: "pinewood nematode" }],
+} satisfies GraphNode;
+
+const pathogenOfPine = {
+  id: 1,
+  direction: "incoming",
+  neighborId: "nematode",
+  kind: "interaction",
+  relation: "pathogenOf",
+  basis: "observed",
+  source: "test",
+  citation: null,
+  licence: "CC0-1.0",
+  qualityFlags: [],
+} satisfies Connection;
+
+function stubApi() {
+  vi.stubGlobal(
+    "fetch",
+    vi.fn(async (path: string) =>
+      Response.json(
+        path === "/api/nodes" ? { nodes: [pine, nematode] } : { connections: [pathogenOfPine] },
+      ),
+    ),
+  );
+}
+
+afterEach(() => {
+  cleanup();
+  vi.unstubAllGlobals();
+});
+
+describe("App", () => {
+  it("lists the organisms", async () => {
+    stubApi();
+    render(<App />);
+    expect(await screen.findByRole("button", { name: /pinewood nematode/ })).toBeDefined();
+  });
+
+  describe("when an organism is selected", () => {
+    it("shows its connections, with each end named", async () => {
+      stubApi();
+      render(<App />);
+      fireEvent.click(await screen.findByRole("button", { name: /Japanese red pine/ }));
+      const connections = await screen.findByRole("region", { name: /Connections of/ });
+      const [connection] = await within(connections).findAllByRole("listitem");
+      expect(connection?.textContent).toMatch(/^pinewood nematode pathogenOf Japanese red pine/);
+    });
+  });
+
+  describe("when the API fails", () => {
+    it("shows an error", async () => {
+      vi.stubGlobal(
+        "fetch",
+        vi.fn(async () => new Response(null, { status: 500 })),
+      );
+      render(<App />);
+      expect(await screen.findByRole("alert")).toBeDefined();
+    });
+  });
+});
