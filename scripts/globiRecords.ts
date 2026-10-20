@@ -86,13 +86,20 @@ export function parseGlobiTable(table: { columns: string[]; data: (string | null
       datasetId: read("study_source_id"),
       datasetCitation: read("study_source_citation"),
       studyCitation: read("study_citation"),
-      studyUrl: toStudyUrl(read("study_doi"), read("study_url")),
+      studyUrl: toStudyUrl(read("study_doi"), read("study_url"), read("study_source_citation")),
     } satisfies GlobiRecord;
   });
 }
 
-function toStudyUrl(doi: string | null, url: string | null) {
-  return doi ? `https://doi.org/${doi.replace(/^doi:/i, "")}` : url;
+/**
+ * Links the study through its DOI or URL, unless that link already appears in the dataset's
+ * citation: some datasets give their own DOI as the DOI of every study they hold.
+ */
+function toStudyUrl(doi: string | null, url: string | null, datasetCitation: string | null) {
+  const bareDoi = doi?.replace(/^doi:/i, "") ?? null;
+  const link = bareDoi ?? url;
+  if (!link || datasetCitation?.toLowerCase().includes(link.toLowerCase())) return null;
+  return bareDoi ? `https://doi.org/${bareDoi}` : url;
 }
 
 function readTaxon(read: (field: GlobiField) => string | null, side: "source" | "target") {

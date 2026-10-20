@@ -81,6 +81,29 @@ describe("parseGlobiTable", () => {
     const [record] = parseGlobiTable({ columns: [...globiFields], data });
     expect(record?.studyUrl).toBe("https://example.org/study");
   });
+
+  it("drops a study link that is the dataset's own DOI", () => {
+    const data = [
+      makeRow({
+        study_source_citation:
+          "Wardeh 2015. Scientific Data. https://doi.org/10.1038/SDATA.2015.49",
+        study_doi: "10.1038/sdata.2015.49",
+      }),
+    ];
+    const [record] = parseGlobiTable({ columns: [...globiFields], data });
+    expect(record?.studyUrl).toBeNull();
+  });
+
+  it("drops a study link that is the dataset's own URL", () => {
+    const data = [
+      makeRow({
+        study_source_citation: "MyCoPortal. https://mycoportal.org",
+        study_url: "https://mycoportal.org",
+      }),
+    ];
+    const [record] = parseGlobiTable({ columns: [...globiFields], data });
+    expect(record?.studyUrl).toBeNull();
+  });
 });
 
 describe("orientRecord", () => {
