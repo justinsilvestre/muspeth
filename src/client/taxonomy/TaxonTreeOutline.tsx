@@ -12,7 +12,7 @@ export function TaxonTreeOutline({ tree }: { tree: TaxonTreeNode }) {
 function TaxonTreeOutlineItem({ node }: { node: TaxonTreeNode }) {
   return (
     <li>
-      {node.rank === "organism" || node.rank === "root" ? node.label : `${node.rank} ${node.label}`}
+      {describeNode(node)}
       {node.children.length > 0 && (
         <ul>
           {node.children.map((child) => (
@@ -22,4 +22,10 @@ function TaxonTreeOutlineItem({ node }: { node: TaxonTreeNode }) {
       )}
     </li>
   );
+}
+
+function describeNode({ rank, label, isPlacementUncertain }: TaxonTreeNode) {
+  if (rank === "root") return label;
+  if (rank !== "organism") return `${rank} ${label}`;
+  return isPlacementUncertain ? `${label} (placement uncertain)` : label;
 }

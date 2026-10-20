@@ -43,6 +43,11 @@ describe("toTaxonPlacement", () => {
     expect(placement?.qualityFlags).toEqual(["synonym_name"]);
   });
 
+  it("flags a match chosen with a hint from GloBI's lineage", () => {
+    const placement = toTaxonPlacement("pine", { ...pineMatch, hintedBy: "globi_lineage" });
+    expect(placement?.qualityFlags).toEqual(["globi_lineage_hint"]);
+  });
+
   it("returns null when GBIF found no match", () => {
     expect(toTaxonPlacement("pine", { matchType: "NONE" })).toBeNull();
   });

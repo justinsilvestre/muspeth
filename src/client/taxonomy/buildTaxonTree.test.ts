@@ -36,7 +36,37 @@ describe("buildTaxonTree", () => {
     const [plantae] = buildTaxonTree(taxa, placements, nodes).children;
     const [pinus] = plantae?.children ?? [];
     expect(pinus?.children).toEqual([
-      { id: "pine", label: "Japanese red pine", rank: "organism", children: [] },
+      {
+        id: "pine",
+        label: "Japanese red pine",
+        rank: "organism",
+        children: [],
+        isPlacementUncertain: false,
+      },
     ]);
+  });
+
+  describe("when a placement is flagged", () => {
+    const placeWithFlags = (qualityFlags: string[]) => {
+      const placement = { nodeId: "pine", taxonId: "pinus", qualityFlags };
+      const [plantae] = buildTaxonTree(taxa, [placement], nodes).children;
+      return plantae?.children[0]?.children[0];
+    };
+
+    it("marks an organism placed on a higher rank than its own as uncertain", () => {
+      expect(placeWithFlags(["higher_rank_match"])?.isPlacementUncertain).toBe(true);
+    });
+
+    it("marks an organism placed with an outside hint as uncertain", () => {
+      expect(placeWithFlags(["globi_lineage_hint"])?.isPlacementUncertain).toBe(true);
+    });
+
+    it("marks an organism matched by a similar name as uncertain", () => {
+      expect(placeWithFlags(["fuzzy_name_match"])?.isPlacementUncertain).toBe(true);
+    });
+
+    it("keeps an organism known by a synonym certain", () => {
+      expect(placeWithFlags(["synonym_name"])?.isPlacementUncertain).toBe(false);
+    });
   });
 });

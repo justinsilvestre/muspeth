@@ -11,6 +11,7 @@ A an experiment in exploring connections between organisms and the things around
 | `src/shared/` | Types shared by the frontend and the API |
 | `db/migrations/` | D1 (SQLite) schema migrations |
 | `db/seed.sql` | A small hand-entered sample of the matsutake system |
+| `scripts/` | Reproducible imports from public data sources into the database |
 | `e2e/` | Playwright end-to-end tests |
 | `docs/` | Product documentation and research notes |
 
@@ -35,6 +36,25 @@ mise exec -- npm run db:seed
 ```
 
 The last two commands create and fill a local database under `.wrangler/`. Run `db:seed` only once, since it fails on a database that already holds the sample.
+
+## Importing data
+
+Two scripts grow the database from public sources. Run them in this order, since the second places every organism the first adds:
+
+```bash
+mise exec -- npm run db:import-interactions
+```
+
+```bash
+mise exec -- npm run db:import-taxa
+```
+
+| Command | Does |
+|---|---|
+| `npm run db:import-interactions` | Adds the organisms that the sample's organisms interact with, and those interactions, from [GloBI](https://www.globalbioticinteractions.org). It keeps at most 60 partners per organism. |
+| `npm run db:import-taxa` | Places every organism in the [GBIF backbone taxonomy](https://doi.org/10.15468/39omei). |
+
+Both scripts write to the local database, or to the deployed one when given `-- --remote`. Each can be re-run: it updates what its previous run wrote instead of duplicating it.
 
 ## Development
 
@@ -68,6 +88,7 @@ The app runs on Cloudflare's free tier: one Worker serves the frontend and the A
 4. Copy the printed `database_id` into `wrangler.jsonc`, then run `mise exec -- npm run typegen`.
 5. Deploy: `mise exec -- npm run deploy`.
 6. Seed the deployed database: `mise exec -- npx wrangler d1 execute muspeth --remote --file=db/seed.sql`.
+7. Import data into it: `mise exec -- npm run db:import-interactions -- --remote`, then `mise exec -- npm run db:import-taxa -- --remote`.
 
 The app is then live at `https://muspeth.<your-subdomain>.workers.dev`.
 

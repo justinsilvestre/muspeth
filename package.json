@@ -12,6 +12,7 @@
     "deploy": "npm run build && wrangler d1 migrations apply muspeth --remote && wrangler deploy",
     "db:migrate": "wrangler d1 migrations apply muspeth --local",
     "db:seed": "wrangler d1 execute muspeth --local --file=db/seed.sql",
+    "db:import-interactions": "node scripts/importGlobiInteractions.ts",
     "db:import-taxa": "node scripts/importGbifTaxa.ts",
     "typegen": "wrangler types src/worker/worker-configuration.d.ts",
     "typecheck": "npm run typegen && tsc -b",
