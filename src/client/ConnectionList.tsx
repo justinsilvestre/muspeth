@@ -33,12 +33,12 @@ export function ConnectionList({ nodeId, nodes }: ConnectionListProps) {
                 ? [nodeId, connection.neighborId]
                 : [connection.neighborId, nodeId];
             return (
-              <li key={connection.id} className="rounded border border-stone-200 px-3 py-2">
+              <li key={connection.id} className="rounded border border-line px-3 py-2">
                 <p>
                   {nameOf(sourceId)} <code className="text-sm">{connection.relation}</code>{" "}
                   {nameOf(targetId)}
                 </p>
-                <p className="text-sm text-stone-600">
+                <p className="text-muted text-sm">
                   {connection.kind} · {connection.basis} · {connection.licence}
                   {connection.qualityFlags.length > 0 &&
                     ` · flagged: ${connection.qualityFlags.join(", ")}`}

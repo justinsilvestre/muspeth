@@ -12,6 +12,8 @@
     "deploy": "npm run build && wrangler d1 migrations apply muspeth --remote && wrangler deploy",
     "db:migrate": "wrangler d1 migrations apply muspeth --local",
     "db:seed": "wrangler d1 execute muspeth --local --file=db/seed.sql",
+    "db:import-interactions": "node scripts/importGlobiInteractions.ts",
+    "db:import-taxa": "node scripts/importGbifTaxa.ts",
     "typegen": "wrangler types src/worker/worker-configuration.d.ts",
     "typecheck": "npm run typegen && tsc -b",
     "lint": "biome check",
@@ -27,10 +29,14 @@
     "*": "biome check --write --no-errors-on-unmatched --files-ignore-unknown=true"
   },
   "dependencies": {
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.2",
     "clsx": "^2.1.1",
     "hono": "^4.13.13",
     "react": "^19.3.1",
-    "react-dom": "^19.3.1"
+    "react-dom": "^19.3.1",
+    "react-router": "^8.5.0",
+    "three": "^0.186.1"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.15",
@@ -43,6 +49,7 @@
     "@types/node": "^24.19.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "@types/three": "^0.186.0",
     "@vitejs/plugin-react": "^6.1.2",
     "jsdom": "^30.1.3",
     "lint-staged": "^17.6.0",

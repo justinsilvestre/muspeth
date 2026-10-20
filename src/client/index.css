@@ -1,1 +1,42 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+  --page: var(--color-white);
+  --panel: var(--color-stone-50);
+  --subtle: var(--color-stone-100);
+  --selected: var(--color-stone-200);
+  --line: var(--color-stone-200);
+  --faint: var(--color-stone-400);
+  --muted: var(--color-stone-600);
+  --ink: var(--color-stone-900);
+}
+
+.dark {
+  color-scheme: dark;
+  --page: var(--color-stone-950);
+  --panel: var(--color-stone-900);
+  --subtle: var(--color-stone-800);
+  --selected: var(--color-stone-700);
+  --line: var(--color-stone-800);
+  --faint: var(--color-stone-500);
+  --muted: var(--color-stone-400);
+  --ink: var(--color-stone-100);
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-panel: var(--panel);
+  --color-subtle: var(--subtle);
+  --color-selected: var(--selected);
+  --color-line: var(--line);
+  --color-faint: var(--faint);
+  --color-muted: var(--muted);
+  --color-ink: var(--ink);
+}
+
+body {
+  @apply bg-page text-ink;
+}

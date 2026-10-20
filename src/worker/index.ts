@@ -1,5 +1,6 @@
 import { Hono } from "hono";
 import { findNode, listConnections, listNodes } from "./graphQueries";
+import { listTaxa, listTaxonPlacements } from "./taxonomyQueries";
 
 const app = new Hono<{ Bindings: Env }>()
   .basePath("/api")
@@ -11,6 +12,13 @@ const app = new Hono<{ Bindings: Env }>()
       return context.json({ error: "Node not found" }, 404);
     }
     return context.json({ connections: await listConnections(context.env.DB, nodeId) });
+  })
+  .get("/taxonomy", async (context) => {
+    const [taxa, placements] = await Promise.all([
+      listTaxa(context.env.DB),
+      listTaxonPlacements(context.env.DB),
+    ]);
+    return context.json({ taxa, placements });
   });
 
 export type App = typeof app;
