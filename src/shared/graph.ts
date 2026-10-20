@@ -62,6 +62,15 @@ export type Connection = {
   kind: ConnectionKind;
   relation: string;
   basis: ConnectionBasis;
+  /** The taxonomic rank that the source supports the connection at, for example "genus". */
+  taxonomicLevel: string | null;
+  weight: number | null;
+  /** A human-readable name of the place where the connection was recorded. */
+  place: string | null;
+  latitude: number | null;
+  longitude: number | null;
+  /** An ISO 8601 date, or an interval such as "1990/1992". */
+  date: string | null;
   source: string;
   licence: string;
   qualityFlags: QualityFlag[];

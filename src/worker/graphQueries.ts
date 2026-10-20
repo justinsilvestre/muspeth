@@ -9,6 +9,12 @@ type ConnectionRow = {
   kind: Connection["kind"];
   relation: string;
   basis: Connection["basis"];
+  taxonomic_level: string | null;
+  weight: number | null;
+  place: string | null;
+  latitude: number | null;
+  longitude: number | null;
+  date: string | null;
   source: string;
   licence: string;
   quality_flags: string;
@@ -76,6 +82,12 @@ function toConnection(row: ConnectionRow, nodeId: string, sources: ConnectionSou
     kind: row.kind,
     relation: row.relation,
     basis: row.basis,
+    taxonomicLevel: row.taxonomic_level,
+    weight: row.weight,
+    place: row.place,
+    latitude: row.latitude,
+    longitude: row.longitude,
+    date: row.date,
     source: row.source,
     licence: row.licence,
     qualityFlags: JSON.parse(row.quality_flags),

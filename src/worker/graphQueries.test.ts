@@ -52,6 +52,23 @@ describe("listConnections", () => {
     expect(connection?.qualityFlags).toEqual(["unmatched_name"]);
   });
 
+  it("includes where, when and at what taxonomic level the connection was recorded", async () => {
+    await insertSampleGraph();
+    await env.DB.prepare(
+      `INSERT INTO connections (id, source_node_id, target_node_id, kind, relation, basis, taxonomic_level, weight, place, latitude, longitude, date, source, licence)
+       VALUES (2, 'fungus', 'pine', 'interaction', 'eats', 'observed', 'genus', 0.5, 'Kyoto', 35.03, 135.78, '1990/1992', 'test', 'CC0-1.0')`,
+    ).run();
+    const [, connection] = await listConnections(env.DB, "pine");
+    expect(connection).toMatchObject({
+      taxonomicLevel: "genus",
+      weight: 0.5,
+      place: "Kyoto",
+      latitude: 35.03,
+      longitude: 135.78,
+      date: "1990/1992",
+    });
+  });
+
   it("includes each connection's studies", async () => {
     await insertSampleGraph();
     const [connection] = await listConnections(env.DB, "pine");
