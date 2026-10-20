@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseGeometry, toLatitudeLongitude } from "./mangalGeometry.ts";
+import { type MangalGeometry, parseGeometry, toLatitudeLongitude } from "./mangalGeometry.ts";
 
 const square = [
   [
@@ -34,7 +34,7 @@ describe("parseGeometry", () => {
 
 describe("toLatitudeLongitude", () => {
   it("reads a point's latitude from its second coordinate", () => {
-    const point = { type: "Point", coordinates: [138.38, 35.58] } as const;
+    const point = { type: "Point", coordinates: [138.38, 35.58] } satisfies MangalGeometry;
     expect(toLatitudeLongitude(point)).toEqual({ latitude: 35.58, longitude: 138.38 });
   });
 
