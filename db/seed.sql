@@ -1,11 +1,13 @@
--- A hand-entered sample of the matsutake system, used until real imports exist.
+-- A hand-entered sample of the matsutake system and the honey bee, from which the imports grow.
+-- The honey bee has no connections here: the GloBI import adds them.
 -- Every connection carries the 'hand_entered_sample' flag so it can be told apart from imported data.
 
-INSERT INTO nodes (id, kind, label) VALUES
-  ('wikidata:Q509308', 'organism', 'Tricholoma matsutake'),
-  ('wikidata:Q1044186', 'organism', 'Pinus densiflora'),
-  ('wikidata:Q1197786', 'organism', 'Bursaphelenchus xylophilus'),
-  ('wikidata:Q15859794', 'organism', 'Monochamus alternatus');
+INSERT INTO nodes (id, kind, label, source) VALUES
+  ('wikidata:Q509308', 'organism', 'Tricholoma matsutake', 'sample'),
+  ('wikidata:Q1044186', 'organism', 'Pinus densiflora', 'sample'),
+  ('wikidata:Q1197786', 'organism', 'Bursaphelenchus xylophilus', 'sample'),
+  ('wikidata:Q15859794', 'organism', 'Monochamus alternatus', 'sample'),
+  ('wikidata:Q30034', 'organism', 'Apis mellifera', 'sample');
 
 INSERT INTO node_names (node_id, language, name) VALUES
   ('wikidata:Q509308', 'en', 'matsutake'),
@@ -15,7 +17,14 @@ INSERT INTO node_names (node_id, language, name) VALUES
   ('wikidata:Q1197786', 'en', 'pinewood nematode'),
   ('wikidata:Q1197786', 'ja', 'マツノザイセンチュウ'),
   ('wikidata:Q15859794', 'en', 'Japanese pine sawyer'),
-  ('wikidata:Q15859794', 'ja', 'マツノマダラカミキリ');
+  ('wikidata:Q15859794', 'ja', 'マツノマダラカミキリ'),
+  ('wikidata:Q30034', 'de', 'Westliche Honigbiene'),
+  ('wikidata:Q30034', 'en', 'western honey bee'),
+  ('wikidata:Q30034', 'es', 'abeja doméstica'),
+  ('wikidata:Q30034', 'fr', 'abeille domestique'),
+  ('wikidata:Q30034', 'ja', 'セイヨウミツバチ'),
+  ('wikidata:Q30034', 'ko', '서양 꿀벌'),
+  ('wikidata:Q30034', 'zh', '西方蜜蜂');
 
 INSERT INTO connections
   (id, source_node_id, target_node_id, kind, relation, basis, taxonomic_level, source, licence, quality_flags)
@@ -63,10 +72,15 @@ INSERT INTO taxa (id, parent_id, rank, name, source, licence) VALUES
   ('gbif:1470', 'gbif:216', 'order', 'Coleoptera', 'gbif_backbone', 'CC-BY-4.0'),
   ('gbif:5602', 'gbif:1470', 'family', 'Cerambycidae', 'gbif_backbone', 'CC-BY-4.0'),
   ('gbif:7372826', 'gbif:5602', 'genus', 'Monochamus', 'gbif_backbone', 'CC-BY-4.0'),
-  ('gbif:4739415', 'gbif:7372826', 'species', 'Monochamus alternatus', 'gbif_backbone', 'CC-BY-4.0');
+  ('gbif:4739415', 'gbif:7372826', 'species', 'Monochamus alternatus', 'gbif_backbone', 'CC-BY-4.0'),
+  ('gbif:1457', 'gbif:216', 'order', 'Hymenoptera', 'gbif_backbone', 'CC-BY-4.0'),
+  ('gbif:4334', 'gbif:1457', 'family', 'Apidae', 'gbif_backbone', 'CC-BY-4.0'),
+  ('gbif:1334757', 'gbif:4334', 'genus', 'Apis', 'gbif_backbone', 'CC-BY-4.0'),
+  ('gbif:1341976', 'gbif:1334757', 'species', 'Apis mellifera', 'gbif_backbone', 'CC-BY-4.0');
 
 INSERT INTO taxon_placements (node_id, taxon_id) VALUES
   ('wikidata:Q509308', 'gbif:5241820'),
   ('wikidata:Q1044186', 'gbif:5285104'),
   ('wikidata:Q1197786', 'gbif:8848401'),
-  ('wikidata:Q15859794', 'gbif:4739415');
+  ('wikidata:Q15859794', 'gbif:4739415'),
+  ('wikidata:Q30034', 'gbif:1341976');
