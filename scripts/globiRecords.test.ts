@@ -27,7 +27,9 @@ function makeRecord(overrides: Partial<GlobiRecord> = {}) {
     relation: "hasPathogen",
     object: matsutake,
     datasetId: "globalbioticinteractions/eppo",
-    citation: "EPPO Global Database",
+    datasetCitation: "EPPO Global Database",
+    studyCitation: null,
+    studyUrl: null,
     ...overrides,
   } satisfies GlobiRecord;
 }
@@ -45,6 +47,8 @@ describe("parseGlobiTable", () => {
     target_taxon_common_names: "pine @en",
     study_citation: "A study.",
     study_source_citation: "A dataset.",
+    study_url: "https://example.org/study",
+    study_doi: "10.1000/study",
   });
 
   it("reads the rank of each taxon from the end of its rank path", () => {
@@ -57,15 +61,25 @@ describe("parseGlobiTable", () => {
     expect(record?.object.rank).toBeNull();
   });
 
-  it("prefers the dataset citation that GloBI asks users to cite", () => {
+  it("keeps the citation of the dataset that published the record", () => {
     const [record] = parseGlobiTable({ columns: [...globiFields], data: [row] });
-    expect(record?.citation).toBe("A dataset.");
+    expect(record?.datasetCitation).toBe("A dataset.");
   });
 
-  it("falls back to the study citation", () => {
-    const data = [makeRow({ interaction_type: "eats", study_citation: "A study." })];
+  it("keeps the citation of the study that reported the record", () => {
+    const [record] = parseGlobiTable({ columns: [...globiFields], data: [row] });
+    expect(record?.studyCitation).toBe("A study.");
+  });
+
+  it("links the study through its DOI", () => {
+    const [record] = parseGlobiTable({ columns: [...globiFields], data: [row] });
+    expect(record?.studyUrl).toBe("https://doi.org/10.1000/study");
+  });
+
+  it("links a study without a DOI through its URL", () => {
+    const data = [makeRow({ study_url: "https://example.org/study" })];
     const [record] = parseGlobiTable({ columns: [...globiFields], data });
-    expect(record?.citation).toBe("A study.");
+    expect(record?.studyUrl).toBe("https://example.org/study");
   });
 });
 

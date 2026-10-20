@@ -1,4 +1,5 @@
 import type { Connection, GraphNode } from "../shared/graph";
+import { ConnectionSources } from "./ConnectionSources";
 import { nodeDisplayName } from "./nodeDisplayName";
 import { useApiResource } from "./useApiResource";
 
@@ -43,6 +44,7 @@ export function ConnectionList({ nodeId, nodes }: ConnectionListProps) {
                   {connection.qualityFlags.length > 0 &&
                     ` · flagged: ${connection.qualityFlags.join(", ")}`}
                 </p>
+                <ConnectionSources connection={connection} />
               </li>
             );
           })}

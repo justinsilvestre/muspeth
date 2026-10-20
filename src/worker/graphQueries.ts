@@ -1,4 +1,4 @@
-import type { Connection, GraphNode, NodeName } from "../shared/graph";
+import type { Connection, ConnectionSource, GraphNode, NodeName } from "../shared/graph";
 
 type NodeRow = Omit<GraphNode, "names">;
 type NodeNameRow = NodeName & { node_id: string };
@@ -10,9 +10,16 @@ type ConnectionRow = {
   relation: string;
   basis: string;
   source: string;
-  citation: string | null;
   licence: string;
   quality_flags: string;
+};
+type ConnectionSourceRow = {
+  connection_id: number;
+  dataset_id: string | null;
+  dataset_citation: string | null;
+  study_citation: string | null;
+  study_url: string | null;
+  record_count: number | null;
 };
 
 export async function listNodes(db: D1Database) {
@@ -36,18 +43,31 @@ export async function findNode(db: D1Database, nodeId: string) {
   return db.prepare("SELECT id, kind, label FROM nodes WHERE id = ?").bind(nodeId).first<NodeRow>();
 }
 
-/** Lists every connection that has the given node at either end. */
+/** Lists every connection that has the given node at either end, with the studies behind each. */
 export async function listConnections(db: D1Database, nodeId: string) {
-  const { results } = await db
-    .prepare(
-      "SELECT * FROM connections WHERE source_node_id = ?1 OR target_node_id = ?1 ORDER BY id",
-    )
-    .bind(nodeId)
-    .all<ConnectionRow>();
-  return results.map((row) => toConnection(row, nodeId));
+  const [connections, sources] = await Promise.all([
+    db
+      .prepare(
+        "SELECT * FROM connections WHERE source_node_id = ?1 OR target_node_id = ?1 ORDER BY id",
+      )
+      .bind(nodeId)
+      .all<ConnectionRow>(),
+    db
+      .prepare(
+        `SELECT * FROM connection_sources WHERE connection_id IN
+          (SELECT id FROM connections WHERE source_node_id = ?1 OR target_node_id = ?1)
+        ORDER BY dataset_id, record_count DESC, rowid`,
+      )
+      .bind(nodeId)
+      .all<ConnectionSourceRow>(),
+  ]);
+  const sourcesByConnectionId = Map.groupBy(sources.results, (row) => row.connection_id);
+  return connections.results.map((row) =>
+    toConnection(row, nodeId, (sourcesByConnectionId.get(row.id) ?? []).map(toConnectionSource)),
+  );
 }
 
-function toConnection(row: ConnectionRow, nodeId: string) {
+function toConnection(row: ConnectionRow, nodeId: string, sources: ConnectionSource[]) {
   const isOutgoing = row.source_node_id === nodeId;
   return {
     id: row.id,
@@ -57,8 +77,18 @@ function toConnection(row: ConnectionRow, nodeId: string) {
     relation: row.relation,
     basis: row.basis,
     source: row.source,
-    citation: row.citation,
     licence: row.licence,
     qualityFlags: JSON.parse(row.quality_flags),
+    sources,
   } satisfies Connection;
+}
+
+function toConnectionSource(row: ConnectionSourceRow) {
+  return {
+    datasetId: row.dataset_id,
+    datasetCitation: row.dataset_citation,
+    studyCitation: row.study_citation,
+    studyUrl: row.study_url,
+    recordCount: row.record_count,
+  } satisfies ConnectionSource;
 }

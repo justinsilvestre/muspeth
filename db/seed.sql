@@ -18,16 +18,22 @@ INSERT INTO node_names (node_id, language, name) VALUES
   ('wikidata:Q15859794', 'ja', 'マツノマダラカミキリ');
 
 INSERT INTO connections
-  (source_node_id, target_node_id, kind, relation, basis, taxonomic_level, source, citation, licence, quality_flags)
+  (id, source_node_id, target_node_id, kind, relation, basis, taxonomic_level, source, licence, quality_flags)
 VALUES
-  ('wikidata:Q509308', 'wikidata:Q1044186', 'interaction', 'mutualistOf', 'observed', 'species',
-    'sample', 'Tsing, A. L. (2015). The Mushroom at the End of the World.', 'CC0-1.0', '["hand_entered_sample"]'),
-  ('wikidata:Q1197786', 'wikidata:Q1044186', 'interaction', 'pathogenOf', 'observed', 'species',
-    'sample', 'Tsing, A. L. (2015). The Mushroom at the End of the World.', 'CC0-1.0', '["hand_entered_sample"]'),
-  ('wikidata:Q15859794', 'wikidata:Q1197786', 'interaction', 'vectorOf', 'observed', 'species',
-    'sample', 'Tsing, A. L. (2015). The Mushroom at the End of the World.', 'CC0-1.0', '["hand_entered_sample"]'),
-  ('wikidata:Q15859794', 'wikidata:Q1044186', 'interaction', 'eats', 'observed', 'species',
-    'sample', 'Tsing, A. L. (2015). The Mushroom at the End of the World.', 'CC0-1.0', '["hand_entered_sample"]');
+  (1, 'wikidata:Q509308', 'wikidata:Q1044186', 'interaction', 'mutualistOf', 'observed', 'species',
+    'sample', 'CC0-1.0', '["hand_entered_sample"]'),
+  (2, 'wikidata:Q1197786', 'wikidata:Q1044186', 'interaction', 'pathogenOf', 'observed', 'species',
+    'sample', 'CC0-1.0', '["hand_entered_sample"]'),
+  (3, 'wikidata:Q15859794', 'wikidata:Q1197786', 'interaction', 'vectorOf', 'observed', 'species',
+    'sample', 'CC0-1.0', '["hand_entered_sample"]'),
+  (4, 'wikidata:Q15859794', 'wikidata:Q1044186', 'interaction', 'eats', 'observed', 'species',
+    'sample', 'CC0-1.0', '["hand_entered_sample"]');
+
+INSERT INTO connection_sources (connection_id, study_citation) VALUES
+  (1, 'Tsing, A. L. (2015). The Mushroom at the End of the World.'),
+  (2, 'Tsing, A. L. (2015). The Mushroom at the End of the World.'),
+  (3, 'Tsing, A. L. (2015). The Mushroom at the End of the World.'),
+  (4, 'Tsing, A. L. (2015). The Mushroom at the End of the World.');
 
 -- Lineages copied from the GBIF backbone taxonomy (https://doi.org/10.15468/39omei).
 INSERT INTO taxa (id, parent_id, rank, name, source, licence) VALUES

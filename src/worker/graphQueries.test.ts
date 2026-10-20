@@ -51,4 +51,28 @@ describe("listConnections", () => {
     const [connection] = await listConnections(env.DB, "pine");
     expect(connection?.qualityFlags).toEqual(["unmatched_name"]);
   });
+
+  it("includes each connection's studies", async () => {
+    await insertSampleGraph();
+    const [connection] = await listConnections(env.DB, "pine");
+    expect(connection?.sources).toEqual([
+      {
+        datasetId: "test/dataset",
+        datasetCitation: "A dataset.",
+        studyCitation: "A study.",
+        studyUrl: "https://doi.org/10.1000/study",
+        recordCount: 2,
+      },
+    ]);
+  });
+
+  it("gives an empty list of studies to a connection without any", async () => {
+    await insertSampleGraph();
+    await env.DB.prepare(
+      `INSERT INTO connections (id, source_node_id, target_node_id, kind, relation, basis, source, licence)
+       VALUES (2, 'fungus', 'pine', 'interaction', 'eats', 'observed', 'test', 'CC0-1.0')`,
+    ).run();
+    const [, connection] = await listConnections(env.DB, "pine");
+    expect(connection?.sources).toEqual([]);
+  });
 });

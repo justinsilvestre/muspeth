@@ -30,9 +30,24 @@ const pathogenOfPine = {
   relation: "pathogenOf",
   basis: "observed",
   source: "test",
-  citation: null,
   licence: "CC0-1.0",
   qualityFlags: [],
+  sources: [
+    {
+      datasetId: "test/eppo",
+      datasetCitation: "EPPO Global Database.",
+      studyCitation: "Mamiya 1983. doi:10.1146/annurev.py.21.090183.001221",
+      studyUrl: "https://doi.org/10.1146/annurev.py.21.090183.001221",
+      recordCount: 3,
+    },
+    {
+      datasetId: "test/eppo",
+      datasetCitation: "EPPO Global Database.",
+      studyCitation: "Futai 2013.",
+      studyUrl: "https://example.org/futai",
+      recordCount: 1,
+    },
+  ],
 } satisfies Connection;
 
 const pinus = {
@@ -96,6 +111,40 @@ describe("App", () => {
       const connections = await screen.findByRole("region", { name: /Connections of/ });
       const [connection] = await within(connections).findAllByRole("listitem");
       expect(connection?.textContent).toMatch(/^pinewood nematode pathogenOf Japanese red pine/);
+    });
+  });
+
+  describe("when a connection's sources are opened", () => {
+    it("links each citation's DOI", async () => {
+      stubApi();
+      renderApp("/organisms/pine");
+      fireEvent.click(await screen.findByText("Sources"));
+      expect(screen.getByRole("link", { name: /^doi:10\.1146/ }).getAttribute("href")).toBe(
+        "https://doi.org/10.1146/annurev.py.21.090183.001221",
+      );
+    });
+
+    it("names the dataset of each study once", async () => {
+      stubApi();
+      renderApp("/organisms/pine");
+      fireEvent.click(await screen.findByText("Sources"));
+      expect(screen.getAllByText(/EPPO Global Database/)).toHaveLength(1);
+    });
+
+    it("links a study whose citation has no link of its own", async () => {
+      stubApi();
+      renderApp("/organisms/pine");
+      fireEvent.click(await screen.findByText("Sources"));
+      expect(screen.getByRole("link", { name: "View study" }).getAttribute("href")).toBe(
+        "https://example.org/futai",
+      );
+    });
+
+    it("counts the records behind each study", async () => {
+      stubApi();
+      renderApp("/organisms/pine");
+      fireEvent.click(await screen.findByText("Sources"));
+      expect(screen.getByText(/Mamiya 1983/).closest("li")?.textContent).toMatch(/3 records$/);
     });
   });
 

@@ -1,3 +1,4 @@
+import type { ConnectionSource } from "../src/shared/graph.ts";
 import type { GlobiRecord } from "./globiRecords.ts";
 
 /** Ranks from coarsest to finest. Ranks missing here, such as "clade", are ignored. */
@@ -46,7 +47,7 @@ export type ConnectionDraft = {
   targetNodeId: string;
   relation: string;
   taxonomicLevel: string | null;
-  citations: string[];
+  sources: (ConnectionSource & { recordCount: number })[];
   qualityFlags: string[];
 };
 
@@ -60,7 +61,15 @@ export function toConnectionDraft(record: GlobiRecord, identities: Map<string, O
     targetNodeId: object.id,
     relation: record.relation,
     taxonomicLevel: toCoarserRank(record.subject.rank, record.object.rank),
-    citations: record.citation === null ? [] : [record.citation],
+    sources: [
+      {
+        datasetId: record.datasetId,
+        datasetCitation: record.datasetCitation,
+        studyCitation: record.studyCitation,
+        studyUrl: record.studyUrl,
+        recordCount: 1,
+      },
+    ],
     qualityFlags: [...new Set([...subject.qualityFlags, ...object.qualityFlags])],
   } satisfies ConnectionDraft;
 }
@@ -71,8 +80,8 @@ function toCoarserRank(first: string | null, second: string | null) {
 }
 
 /**
- * Merges drafts of the same interaction between the same two nodes, keeping every citation and
- * flag, and drops links from a node to itself.
+ * Merges drafts of the same interaction between the same two nodes, keeping every study and flag,
+ * and drops links from a node to itself.
  */
 export function mergeConnections(drafts: ConnectionDraft[]) {
   const merged = new Map<string, ConnectionDraft>();
@@ -95,7 +104,21 @@ function mergeDraftPair(first: ConnectionDraft, second: ConnectionDraft) {
   return {
     ...first,
     taxonomicLevel: toCoarserRank(first.taxonomicLevel, second.taxonomicLevel),
-    citations: [...new Set([...first.citations, ...second.citations])],
+    sources: mergeSources([...first.sources, ...second.sources]),
     qualityFlags: [...new Set([...first.qualityFlags, ...second.qualityFlags])],
   } satisfies ConnectionDraft;
+}
+
+/** Merges the records of each study within each dataset, adding up their counts. */
+function mergeSources(sources: ConnectionDraft["sources"]) {
+  const merged = new Map<string, ConnectionDraft["sources"][number]>();
+  for (const source of sources) {
+    const key = JSON.stringify([source.datasetId, source.studyCitation, source.studyUrl]);
+    const existing = merged.get(key);
+    merged.set(
+      key,
+      existing ? { ...existing, recordCount: existing.recordCount + source.recordCount } : source,
+    );
+  }
+  return [...merged.values()];
 }
