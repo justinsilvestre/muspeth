@@ -5,7 +5,17 @@ export type BranchShape = { trunkRadius: number; taperPerRank: number };
 const flarePerUnit = 0.08;
 
 /**
- * Returns the branch radius at the given height, measured in ranks above the root.
+ * Measures how far up the tree a point is, in ranks.
+ * A point on the trunk, which runs straight down from the root, counts by its negative height.
+ * Any other point counts by its distance from the root, which stays the same however far branches splay, even below the root.
+ */
+export function heightAlongTree([x, y, z]: [number, number, number]) {
+  const isOnTrunk = y < 0 && Math.hypot(x, z) < 1e-6;
+  return isOnTrunk ? y : Math.hypot(x, y, z);
+}
+
+/**
+ * Returns the branch radius at the given height along the tree, measured in ranks above the root.
  * Above the root, the tree thins by the same fraction with each rank, so branches meet seamlessly at forks.
  * Below it, the trunk widens only slightly toward its base.
  */

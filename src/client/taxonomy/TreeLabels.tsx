@@ -17,7 +17,10 @@ export function TreeLabelOverlay({
   labelsById: LabelsById;
 }) {
   return (
-    <div data-testid="tree-labels" className="pointer-events-none absolute inset-0 overflow-hidden">
+    <div
+      data-testid="tree-labels"
+      className="pointer-events-none absolute inset-0 select-none overflow-hidden"
+    >
       {points.map(({ node }) => (
         <span
           key={node.id}
@@ -28,6 +31,8 @@ export function TreeLabelOverlay({
           style={{ opacity: 0 }}
           className={clsx(
             "absolute top-0 left-0 whitespace-nowrap transition-opacity duration-300",
+            // A stroke in the page color, painted beneath the text, haloes each label against busy branches.
+            "[-webkit-text-stroke:3px_var(--color-page)] [paint-order:stroke_fill]",
             node.rank === "organism" ? "font-medium text-sm" : "text-muted text-xs",
             node.rank === "organism" &&
               (node.isPlacementUncertain

@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { DoubleSide, Quaternion, Shape, ShapeGeometry, Vector3 } from "three";
+import { hashToUnit } from "./hashToUnit";
 
 const leafLength = 0.32;
 const leafWidth = 0.13;
@@ -31,7 +32,8 @@ type FloatingLeafProps = {
 export function FloatingLeaf({ id, branchTip, direction, color, size, gap }: FloatingLeafProps) {
   const [position, quaternion] = useMemo(() => {
     const along = new Quaternion().setFromUnitVectors(up, direction);
-    const roll = new Quaternion().setFromAxisAngle(up, hashToAngle(id));
+    // Each leaf turns to its own fixed angle around its stem, so the leaves don't all face one way.
+    const roll = new Quaternion().setFromAxisAngle(up, hashToUnit(id, "leafRoll") * Math.PI);
     return [branchTip.clone().addScaledVector(direction, gap), along.multiply(roll)];
   }, [id, branchTip, direction, gap]);
 
@@ -40,11 +42,4 @@ export function FloatingLeaf({ id, branchTip, direction, color, size, gap }: Flo
       <meshStandardMaterial color={color} side={DoubleSide} roughness={0.6} />
     </mesh>
   );
-}
-
-/** Turns each leaf to its own fixed angle around its stem, so the leaves don't all face one way. */
-function hashToAngle(id: string) {
-  let hash = 0;
-  for (const character of id) hash = (hash * 31 + character.charCodeAt(0)) | 0;
-  return ((hash >>> 0) % 360) * (Math.PI / 180);
 }

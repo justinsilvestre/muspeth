@@ -1,10 +1,8 @@
 import type { ThreeEvent } from "@react-three/fiber";
 import { useEffect, useMemo } from "react";
-import { CatmullRomCurve3, Curve, TubeGeometry, Vector3 } from "three";
-import { type BranchShape, branchRadiusAt, tipTaper } from "./branchRadiusAt";
+import { CatmullRomCurve3, Curve, type Material, TubeGeometry, Vector3 } from "three";
+import { type BranchShape, branchRadiusAt, heightAlongTree, tipTaper } from "./branchRadiusAt";
 import { FloatingLeaf } from "./FloatingLeaf";
-import { BarkMaterialView } from "./graphics/BarkMaterialView";
-import type { BarkMaterial } from "./graphics/barkMaterials";
 import type { BranchPath } from "./traceBranchPaths";
 
 const radialSegments = 12;
@@ -14,8 +12,9 @@ const pointerTargetRadius = 0.1;
 type BranchTubeProps = {
   path: BranchPath;
   shape: BranchShape;
-  material: BarkMaterial;
-  isHighlighted: boolean;
+  material: Material;
+  /** The material that draws an ink outline around the branch, for styles that have one. */
+  outlineMaterial: Material | null;
   leaf: { color: string; size: number; gap: number };
   onPointerOver: (event: ThreeEvent<PointerEvent>) => void;
   onPointerOut: (event: ThreeEvent<PointerEvent>) => void;
@@ -26,7 +25,7 @@ type BranchTubeProps = {
  * A path ending at an organism narrows to a point and carries a floating leaf; a path ending at a fork is rounded off where its branches leave.
  */
 export function BranchTube(props: BranchTubeProps) {
-  const { path, shape, material, isHighlighted, leaf } = props;
+  const { path, shape, material, outlineMaterial, leaf } = props;
   const endsAtOrganism = path.leafCount === 1;
   const curve = useMemo(() => toSmoothCurve(path), [path]);
   const geometry = useMemo(
@@ -43,16 +42,14 @@ export function BranchTube(props: BranchTubeProps) {
 
   return (
     <group onPointerOver={props.onPointerOver} onPointerOut={props.onPointerOut}>
-      <mesh geometry={geometry}>
-        <BarkMaterialView material={material} isHighlighted={isHighlighted} />
-      </mesh>
+      <mesh geometry={geometry} material={material} />
+      {outlineMaterial && <mesh geometry={geometry} material={outlineMaterial} />}
       <mesh geometry={pointerTarget} visible={false} />
       {endsAtOrganism ? (
         <FloatingLeaf id={path.endId} branchTip={tip} direction={direction} {...leaf} />
       ) : (
-        <mesh position={tip}>
-          <sphereGeometry args={[branchRadiusAt(tip.y, shape), 12, 8]} />
-          <BarkMaterialView material={material} isHighlighted={isHighlighted} />
+        <mesh position={tip} material={material}>
+          <sphereGeometry args={[branchRadiusAt(heightAlongTree(tip.toArray()), shape), 12, 8]} />
         </mesh>
       )}
     </group>
@@ -70,7 +67,7 @@ function toSmoothCurve({ positions, leadPosition }: BranchPath) {
   return new CurveTail(curve, 1 / vectors.length);
 }
 
-/** Builds a tube of unit radius, then scales each ring of vertices to the radius at its height. */
+/** Builds a tube of unit radius, then scales each ring of vertices to the radius at its height along the tree. */
 function createTaperedTube(
   curve: Curve<Vector3>,
   path: BranchPath,
@@ -87,7 +84,7 @@ function createTaperedTube(
     const along = ring / tubularSegments;
     curve.getPointAt(along, center);
     const taper = endsAtOrganism ? tipTaper(along, lastStretch) : 1;
-    const radius = branchRadiusAt(center.y, shape) * taper;
+    const radius = branchRadiusAt(heightAlongTree(center.toArray()), shape) * taper;
     for (let side = 0; side <= radialSegments; side++) {
       const index = ring * (radialSegments + 1) + side;
       vertex.fromBufferAttribute(vertices, index).sub(center).multiplyScalar(radius).add(center);

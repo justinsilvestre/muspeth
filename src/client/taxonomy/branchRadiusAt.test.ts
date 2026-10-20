@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { branchRadiusAt, tipTaper } from "./branchRadiusAt";
+import { branchRadiusAt, heightAlongTree, tipTaper } from "./branchRadiusAt";
 
 const shape = { trunkRadius: 0.3, taperPerRank: 0.5 };
 
@@ -24,5 +24,19 @@ describe("tipTaper", () => {
 
   it("narrows the branch to a point at its very end", () => {
     expect(tipTaper(1, 0.25)).toBe(0);
+  });
+});
+
+describe("heightAlongTree", () => {
+  it("measures a point in the crown by its distance from the root", () => {
+    expect(heightAlongTree([3, 4, 0])).toBe(5);
+  });
+
+  it("measures a point on the trunk by its height below the root", () => {
+    expect(heightAlongTree([0, -2, 0])).toBe(-2);
+  });
+
+  it("measures a branch drooping below the root by its distance from the root", () => {
+    expect(heightAlongTree([4, -3, 0])).toBe(5);
   });
 });

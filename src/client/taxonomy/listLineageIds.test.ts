@@ -13,6 +13,10 @@ describe("listLineageIds", () => {
     expect(listLineageIds(parentIdsById, "species")).toEqual(new Set(["species", "genus", "root"]));
   });
 
+  it("lists the IDs from the node up to the root", () => {
+    expect([...listLineageIds(parentIdsById, "species")]).toEqual(["species", "genus", "root"]);
+  });
+
   it("is empty when no node is given", () => {
     expect(listLineageIds(parentIdsById, null).size).toBe(0);
   });

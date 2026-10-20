@@ -1,10 +1,11 @@
-import { lazy, Suspense, useEffect, useReducer } from "react";
+import { lazy, Suspense, useEffect, useReducer, useState } from "react";
 import type { GraphNode } from "../../shared/graph";
 import type { Taxon, TaxonPlacement } from "../../shared/taxonomy";
 import { useApiResource } from "../useApiResource";
 import { buildTaxonTree } from "./buildTaxonTree";
 import { GraphicsPanel } from "./graphics/GraphicsPanel";
 import {
+  type GraphicsSettings,
   graphicsSettingsReducer,
   readStoredGraphicsSettings,
   storeGraphicsSettings,
@@ -42,16 +43,17 @@ function TaxonomyTree({ tree }: { tree: ReturnType<typeof buildTaxonTree> }) {
     readStoredGraphicsSettings,
   );
   useEffect(() => storeGraphicsSettings(settings), [settings]);
+  const [preview, setPreview] = useState<Partial<GraphicsSettings> | null>(null);
 
   return (
     <>
       <div className="relative h-[70vh] rounded border border-line bg-panel">
         <div aria-hidden="true" className="h-full">
           <Suspense fallback={<p className="p-3">Loading the tree…</p>}>
-            <TaxonTreeScene tree={tree} settings={settings} />
+            <TaxonTreeScene tree={tree} settings={{ ...settings, ...preview }} />
           </Suspense>
         </div>
-        <GraphicsPanel settings={settings} dispatch={dispatch} />
+        <GraphicsPanel settings={settings} dispatch={dispatch} onPreview={setPreview} />
       </div>
       <TaxonTreeOutline tree={tree} />
     </>

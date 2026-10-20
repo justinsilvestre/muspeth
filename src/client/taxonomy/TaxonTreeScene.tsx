@@ -6,6 +6,8 @@ import { BranchTube } from "./BranchTube";
 import type { TaxonTreeNode } from "./buildTaxonTree";
 import { findBarkMaterial } from "./graphics/barkMaterials";
 import type { GraphicsSettings } from "./graphics/graphicsSettings";
+import { useBarkMaterials } from "./graphics/useBarkMaterials";
+import { LineageReadout } from "./LineageReadout";
 import { layoutTaxonTree } from "./layoutTaxonTree";
 import { listLineageIds } from "./listLineageIds";
 import { TreeLabelOverlay, TreeLabelTracker } from "./TreeLabels";
@@ -17,18 +19,33 @@ import { treePalettes } from "./treePalette";
  */
 export default function TaxonTreeScene(props: { tree: TaxonTreeNode; settings: GraphicsSettings }) {
   const { tree, settings } = props;
-  const { points, paths } = useMemo(() => layoutTaxonTree(tree), [tree]);
+  const { leafSpread, branchSplay, irregularity } = settings;
+  const { points, paths } = useMemo(
+    () => layoutTaxonTree(tree, { leafSpread, splay: branchSplay, irregularity }),
+    [tree, leafSpread, branchSplay, irregularity],
+  );
   const parentIdsById = useMemo(
     () => new Map(points.map((point) => [point.node.id, point.parentId])),
     [points],
   );
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const lineageIds = listLineageIds(parentIdsById, hoveredId);
+  const nodesById = useMemo(
+    () => new Map(points.map((point) => [point.node.id, point.node])),
+    [points],
+  );
+  const lineage = [...lineageIds]
+    .reverse()
+    .flatMap((id) => nodesById.get(id) ?? [])
+    .filter((node) => node.rank !== "root");
   const labelsById = useRef(new Map<string, HTMLElement>());
   const palette = treePalettes[useColorScheme().colorScheme];
   const { trunkRadius, taperPerRank } = settings;
   const shape = useMemo(() => ({ trunkRadius, taperPerRank }), [trunkRadius, taperPerRank]);
-  const material = findBarkMaterial(settings.barkMaterialId);
+  const barkMaterials = useBarkMaterials(
+    findBarkMaterial(settings.barkMaterialId),
+    settings.shading,
+  );
   const heights = paths.flatMap((path) => path.positions.map((position) => position[1]));
   const [bottom, top] = [Math.min(...heights), Math.max(...heights)];
   const offsetY = -(bottom + top) / 2;
@@ -73,8 +90,10 @@ export default function TaxonTreeScene(props: { tree: TaxonTreeNode; settings: G
               key={path.endId}
               path={path}
               shape={shape}
-              material={material}
-              isHighlighted={lineageIds.has(path.endId)}
+              material={
+                lineageIds.has(path.endId) ? barkMaterials.highlighted : barkMaterials.plain
+              }
+              outlineMaterial={barkMaterials.outline}
               leaf={{
                 color: lineageIds.has(path.endId) ? palette.leafHighlight : palette.leaf,
                 size: settings.leafSize,
@@ -94,6 +113,7 @@ export default function TaxonTreeScene(props: { tree: TaxonTreeNode; settings: G
         <OrbitControls autoRotate={hoveredId === null} autoRotateSpeed={0.5} enablePan={false} />
       </Canvas>
       <TreeLabelOverlay points={points} labelsById={labelsById} />
+      <LineageReadout lineage={lineage} />
     </div>
   );
 }
