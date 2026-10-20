@@ -18,6 +18,7 @@
     "db:import-substances-culture": "node scripts/importSubstancesAndCulture.ts",
     "db:import-words-motifs": "node scripts/importWordsMotifs.ts",
     "db:import-taxa": "node scripts/importGbifTaxa.ts",
+    "db:import-all": "npm run db:import-interactions && npm run db:import-networks && npm run db:import-likeness && npm run db:import-substances-culture && npm run db:import-words-motifs && npm run db:import-taxa",
     "typegen": "wrangler types src/worker/worker-configuration.d.ts",
     "typecheck": "npm run typegen && tsc -b",
     "lint": "biome check",
