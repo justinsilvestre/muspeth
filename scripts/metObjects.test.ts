@@ -30,6 +30,10 @@ describe("listMetSearchTerms", () => {
     expect(listMetSearchTerms([sunflower])).toContain("sunflowers");
   });
 
+  it("searches the names of ancestors in singular and plural", () => {
+    expect(listMetSearchTerms([], ["pine"])).toEqual(["pine", "pines"]);
+  });
+
   it("searches a scientific name as it is", () => {
     expect(listMetSearchTerms([{ name: "Apis mellifera", kind: "scientific" }])).toEqual([
       "Apis mellifera",
@@ -74,6 +78,14 @@ describe("matchMetObject", () => {
 
   it("matches by a tag that is the plural of a name", () => {
     expect(matchMetObject(makeObject(), "Q30034", [bee])).toEqual(bee);
+  });
+
+  it("matches by the item of a taxon above the organism", () => {
+    expect(matchMetObject(makeObject(), "Q30034", [], ["Q7391"])).toBe("ancestor");
+  });
+
+  it("prefers the organism's own item over an ancestor's", () => {
+    expect(matchMetObject(makeObject(), "Q7391", [], ["Q7391"])).toBe("id");
   });
 
   it("prefers the match by Wikidata item", () => {

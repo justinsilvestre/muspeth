@@ -1,9 +1,14 @@
+/** A taxon above an organism, up to its family, with the English names it goes by. */
+export type Ancestor = { qid: string; names: string[] };
+
 /** An organism of the graph, with the names that museum records may use for it. */
 export type MuseumOrganism = {
   id: string;
   /** The scientific name. */
   label: string;
   englishNames: string[];
+  /** The taxa above the organism from subgenus to family, when its Wikidata item is known. */
+  ancestors: Ancestor[];
 };
 
 /** How a name relates to its organism: the scientific name, or a name used in everyday English. */

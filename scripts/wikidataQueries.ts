@@ -107,6 +107,24 @@ export function buildWorksQuery(workQids: string[]) {
 }`;
 }
 
+/** Finds the English common names (property P1843) and English labels of taxa. */
+export function buildTaxonNamesQuery(taxonQids: string[]) {
+  return `SELECT ?taxon ?name WHERE {
+  VALUES ?taxon { ${toValues(taxonQids)} }
+  { ?taxon wdt:P1843 ?name. } UNION { ?taxon rdfs:label ?name. }
+  FILTER(LANG(?name) = "en")
+}`;
+}
+
+/** Finds the parent taxon (property P171) of each taxon, with the parent's rank when it has one. */
+export function buildParentsQuery(taxonQids: string[]) {
+  return `SELECT ?taxon ?parent ?rank WHERE {
+  VALUES ?taxon { ${toValues(taxonQids)} }
+  ?taxon wdt:P171 ?parent.
+  OPTIONAL { ?parent wdt:P105 ?rank. }
+}`;
+}
+
 function toValues(qids: string[]) {
   return qids
     .map((qid) => {

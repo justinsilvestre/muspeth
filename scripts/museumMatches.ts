@@ -39,14 +39,16 @@ async function collectMetMatchesFor(organism: MuseumOrganism) {
   const names = listSearchNames(organism);
   const qid = organism.id.match(/^wikidata:(Q\d+)$/)?.[1] ?? null;
   const objectIds = new Set<number>();
-  for (const term of listMetSearchTerms(names)) {
+  const ancestorNames = organism.ancestors.flatMap((ancestor) => ancestor.names);
+  const ancestorQids = organism.ancestors.map((ancestor) => ancestor.qid);
+  for (const term of listMetSearchTerms(names, ancestorNames)) {
     for (const objectId of await searchMetTags(term)) objectIds.add(objectId);
   }
   const matches: ArtworkMatch[] = [];
   for (const objectId of objectIds) {
     const object = await fetchMetObject(objectId);
     const artwork = object && toMetArtwork(object);
-    const by = object && matchMetObject(object, qid, names);
+    const by = object && matchMetObject(object, qid, names, ancestorQids);
     if (artwork && by) matches.push({ organismId: organism.id, artwork, by });
   }
   return matches;

@@ -13,6 +13,7 @@ import type { ConnectionDraft, NodeDraft } from "./graphDrafts.ts";
 import { clevelandMuseum, metMuseum, toMuseumImport } from "./museumImport.ts";
 import { collectClevelandMatches, collectMetMatches } from "./museumMatches.ts";
 import type { MuseumOrganism } from "./museumNames.ts";
+import { addWikidataNames } from "./museumOrganisms.ts";
 import { listQids } from "./wikidataQueries.ts";
 import { collectWikidataSubstances } from "./wikidataSubstanceImport.ts";
 import { writeConnectionImport } from "./writeConnectionImport.ts";
@@ -30,11 +31,17 @@ if (isWanted("wikidata")) {
   const qids = listQids(organisms.map(({ id }) => id));
   store("wikidata", await collectWikidataSubstances(qids));
 }
-if (isWanted("met")) {
-  store("met", toMuseumImport(await collectMetMatches(organisms), metMuseum));
-}
-if (isWanted("cleveland")) {
-  store("cleveland", toMuseumImport(await collectClevelandMatches(organisms), clevelandMuseum));
+if (isWanted("met") || isWanted("cleveland")) {
+  const namedOrganisms = await addWikidataNames(organisms);
+  if (isWanted("met")) {
+    store("met", toMuseumImport(await collectMetMatches(namedOrganisms), metMuseum));
+  }
+  if (isWanted("cleveland")) {
+    store(
+      "cleveland",
+      toMuseumImport(await collectClevelandMatches(namedOrganisms), clevelandMuseum),
+    );
+  }
 }
 
 function loadOrganisms() {
@@ -51,6 +58,7 @@ function loadOrganisms() {
     id,
     label,
     englishNames: (namesByNodeId.get(id) ?? []).map(({ name }) => name),
+    ancestors: [],
   })) satisfies MuseumOrganism[];
 }
 

@@ -5,7 +5,7 @@ import { createRequestSpacer } from "./requestSpacer.ts";
 const apiUrl = "https://collectionapi.metmuseum.org/public/collection";
 
 /** The most search results read for one tag. */
-const searchLimit = 40;
+const searchLimit = 20;
 
 /**
  * The Met asks for at most 80 requests a second, but its firewall has paused clients that came
@@ -13,8 +13,18 @@ const searchLimit = 40;
  */
 const waitForTurn = createRequestSpacer(250);
 
-/** Lists the objects with pictures whose subject tags match the term, best matches first. */
-export async function searchMetTags(term: string) {
+const searchesByTerm = new Map<string, Promise<number[]>>();
+
+/** Lists the objects with pictures whose subject tags match the term, remembering each search. */
+export function searchMetTags(term: string) {
+  const known = searchesByTerm.get(term);
+  if (known) return known;
+  const searched = runTagSearch(term);
+  searchesByTerm.set(term, searched);
+  return searched;
+}
+
+async function runTagSearch(term: string) {
   const url = new URL(`${apiUrl}/v1.1/search`);
   url.searchParams.set("tags", "true");
   url.searchParams.set("hasImages", "true");

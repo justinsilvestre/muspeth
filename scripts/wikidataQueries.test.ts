@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   buildCompoundCountsQuery,
+  buildParentsQuery,
   buildSharedCompoundsQuery,
   buildUnsharedCompoundsQuery,
   listQids,
@@ -33,5 +34,11 @@ describe("buildSharedCompoundsQuery", () => {
 describe("buildUnsharedCompoundsQuery", () => {
   it("limits the number of compounds", () => {
     expect(buildUnsharedCompoundsQuery("Q1", ["Q1", "Q2"], 5)).toContain("LIMIT 5");
+  });
+});
+
+describe("buildParentsQuery", () => {
+  it("asks for the parent of each taxon", () => {
+    expect(buildParentsQuery(["Q1", "Q2"])).toContain("VALUES ?taxon { wd:Q1 wd:Q2 }");
   });
 });

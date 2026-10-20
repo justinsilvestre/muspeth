@@ -9,18 +9,26 @@ export const artworksPerOrganism = 10;
 export type ArtworkMatch = {
   organismId: string;
   artwork: Artwork;
-  /** "id" when the museum's subject tag carries the organism's Wikidata item, else a name. */
-  by: "id" | { name: string; kind: NameKind };
+  /**
+   * "id" when the museum's subject tag carries the organism's Wikidata item, "ancestor" when it
+   * carries the item of a taxon above the organism, else a name.
+   */
+  by: "id" | "ancestor" | { name: string; kind: NameKind };
 };
 
-/** The flags that a match carries: any match by name is only a text match. */
+/**
+ * The flags that a match carries: a match by an ancestor's item is pushed down from a coarser
+ * taxon, and a match by name is only a text match.
+ */
 export function toMatchFlags({ by }: ArtworkMatch) {
-  return (by === "id" ? [] : ["text_match"]) satisfies QualityFlag[];
+  if (by === "id") return [] satisfies QualityFlag[];
+  if (by === "ancestor") return ["derived_from_coarser_level"] satisfies QualityFlag[];
+  return ["text_match"] satisfies QualityFlag[];
 }
 
 /**
  * Keeps the best `limit` artworks of each organism, each artwork once.
- * Matches by identifier come first, then scientific names, then longer common names, which are
+ * Matches by identifier come first, then by an ancestor's identifier, then scientific names, then longer common names, which are
  * less likely to mean something else than a short name like "pine" or "crane".
  */
 export function selectArtworkMatches(matches: ArtworkMatch[], limit = artworksPerOrganism) {
@@ -44,6 +52,7 @@ function compareMatches(a: ArtworkMatch, b: ArtworkMatch) {
 
 function toRank({ by }: ArtworkMatch) {
   if (by === "id") return 0;
-  if (by.kind === "scientific") return 1;
-  return by.name.includes(" ") ? 2 : 3;
+  if (by === "ancestor") return 1;
+  if (by.kind === "scientific") return 2;
+  return by.name.includes(" ") ? 3 : 4;
 }

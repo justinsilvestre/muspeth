@@ -6,6 +6,7 @@ describe("listSearchNames", () => {
     id: "x",
     label: "Pinus densiflora",
     englishNames: ["Japanese red pine", "pine"],
+    ancestors: [],
   };
 
   it("lists the scientific name first", () => {

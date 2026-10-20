@@ -24,15 +24,18 @@ const imageLicence = "CC0-1.0";
  * Lists the subject tags to search for. The Met's tags are plural common names, such as "Bees",
  * so each common name is searched in both forms. The last word of a common name is searched too,
  * since the tag may name the plain kind of organism, as "Sunflowers" does for "common sunflower".
- * Such a tag counts only when its Wikidata item is the organism's own: see `matchMetObject`.
+ * The names of taxa above the organism are searched too, as tags like "Bees" name a whole group.
+ * Such tags count only when their Wikidata item is the organism's or an ancestor's: see
+ * `matchMetObject`.
  */
-export function listMetSearchTerms(names: SearchName[]) {
+export function listMetSearchTerms(names: SearchName[], ancestorNames: string[] = []) {
   const terms = names.flatMap(({ name, kind }) => {
     if (kind === "scientific") return [name];
     const headword = toHeadword(name);
     return [name, pluralize(name), ...(headword ? [headword, pluralize(headword)] : [])];
   });
-  return [...new Set(terms)];
+  const ancestorTerms = ancestorNames.flatMap((name) => [name, pluralize(name)]);
+  return [...new Set([...terms, ...ancestorTerms])];
 }
 
 /**
@@ -60,11 +63,18 @@ function toCitation(object: MetObject) {
 
 /**
  * Finds how an object's subject tags match an organism: by the organism's Wikidata item, else by
- * the tag naming the organism, else not at all.
+ * the item of a taxon above it, else by the tag naming the organism, else not at all.
  */
-export function matchMetObject(object: MetObject, qid: string | null, names: SearchName[]) {
+export function matchMetObject(
+  object: MetObject,
+  qid: string | null,
+  names: SearchName[],
+  ancestorQids: string[] = [],
+) {
   const tags = object.tags ?? [];
-  if (qid && tags.some((tag) => tag.Wikidata_URL.endsWith(`/${qid}`))) return "id" as const;
+  const hasItem = (itemQid: string) => tags.some((tag) => tag.Wikidata_URL.endsWith(`/${itemQid}`));
+  if (qid && hasItem(qid)) return "id" as const;
+  if (ancestorQids.some(hasItem)) return "ancestor" as const;
   for (const { name, kind } of names) {
     const forms = [normalizeName(name), normalizeName(pluralize(name))];
     if (tags.some((tag) => forms.includes(normalizeName(tag.term)))) return { name, kind };

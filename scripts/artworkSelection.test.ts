@@ -17,11 +17,20 @@ describe("toMatchFlags", () => {
   it("does not flag a match by identifier", () => {
     expect(toMatchFlags(makeMatch("a", "id"))).toEqual([]);
   });
+
+  it("flags a match by an ancestor's identifier as derived from a coarser level", () => {
+    expect(toMatchFlags(makeMatch("a", "ancestor"))).toEqual(["derived_from_coarser_level"]);
+  });
 });
 
 describe("selectArtworkMatches", () => {
   it("keeps matches by identifier before matches by name", () => {
     const matches = [makeMatch("a", scientific), makeMatch("b", "id")];
+    expect(selectArtworkMatches(matches, 1).map(({ artwork }) => artwork.id)).toEqual(["b"]);
+  });
+
+  it("keeps matches by an ancestor's identifier before matches by name", () => {
+    const matches = [makeMatch("a", scientific), makeMatch("b", "ancestor")];
     expect(selectArtworkMatches(matches, 1).map(({ artwork }) => artwork.id)).toEqual(["b"]);
   });
 
