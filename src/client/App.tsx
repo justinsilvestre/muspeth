@@ -2,6 +2,8 @@ import { Route, Routes } from "react-router";
 import type { GraphNode } from "../shared/graph";
 import { ConnectionsView } from "./ConnectionsView";
 import { NotFoundView } from "./NotFoundView";
+import { PathsView } from "./paths/PathsView";
+import { PlacesView } from "./places/PlacesView";
 import { TaxonomyView } from "./taxonomy/TaxonomyView";
 import { ColorSchemeSwitcher } from "./theme/ColorSchemeSwitcher";
 import { useApiResource } from "./useApiResource";
@@ -28,6 +30,8 @@ export function App() {
             path="/organisms/:nodeId"
             element={<ConnectionsView nodes={nodesResource.data.nodes} />}
           />
+          <Route path="/paths" element={<PathsView nodes={nodesResource.data.nodes} />} />
+          <Route path="/places" element={<PlacesView nodes={nodesResource.data.nodes} />} />
           <Route path="/taxonomy" element={<TaxonomyView nodes={nodesResource.data.nodes} />} />
           <Route path="*" element={<NotFoundView />} />
         </Routes>
