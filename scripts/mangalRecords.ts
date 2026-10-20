@@ -61,7 +61,7 @@ export function parseNetwork(row: Row) {
     name: readString(row.name) ?? "",
     date: readDate(row.date),
     geometry: parseGeometry(row.geom),
-    description: readString(row.description) ?? "",
+    description: readString(row.description)?.trim() ?? "",
     datasetId: readNumber(row.dataset_id),
   } satisfies MangalNetwork;
 }
