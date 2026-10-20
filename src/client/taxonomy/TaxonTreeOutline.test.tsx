@@ -26,4 +26,18 @@ describe("TaxonTreeOutline", () => {
     renderTreeWithMite(false);
     expect(screen.getByText("mites")).toBeDefined();
   });
+
+  it("leaves out an organism named by the taxon it is placed on", () => {
+    const pine = { id: "pine", label: "Pinus densiflora", rank: "organism", children: [] };
+    const species = {
+      id: "densiflora",
+      label: "Pinus densiflora",
+      rank: "species",
+      children: [{ ...pine, isNamedByTaxon: true }],
+    };
+    render(
+      <TaxonTreeOutline tree={{ id: "life", label: "Life", rank: "root", children: [species] }} />,
+    );
+    expect(screen.queryByText("Pinus densiflora")).toBeNull();
+  });
 });

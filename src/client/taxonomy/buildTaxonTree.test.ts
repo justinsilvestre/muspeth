@@ -42,6 +42,7 @@ describe("buildTaxonTree", () => {
         rank: "organism",
         children: [],
         isPlacementUncertain: false,
+        isNamedByTaxon: false,
       },
     ]);
   });
@@ -67,6 +68,28 @@ describe("buildTaxonTree", () => {
 
     it("keeps an organism known by a synonym certain", () => {
       expect(placeWithFlags(["synonym_name"])?.isPlacementUncertain).toBe(false);
+    });
+  });
+
+  describe("when an organism has no English name", () => {
+    const placeOnSpecies = (qualityFlags: string[]) => {
+      const species = {
+        id: "densiflora",
+        parentId: null,
+        rank: "species",
+        name: "Pinus densiflora",
+      };
+      const placement = { nodeId: "pine", taxonId: "densiflora", qualityFlags };
+      const pine = { id: "pine", kind: "organism", label: "Pinus densiflora", names: [] };
+      return buildTaxonTree([species], [placement], [pine]).children[0]?.children[0];
+    };
+
+    it("marks an organism certainly placed on a taxon of the same name as named by it", () => {
+      expect(placeOnSpecies([])?.isNamedByTaxon).toBe(true);
+    });
+
+    it("keeps an uncertainly placed organism apart from a taxon of the same name", () => {
+      expect(placeOnSpecies(["fuzzy_name_match"])?.isNamedByTaxon).toBe(false);
     });
   });
 });

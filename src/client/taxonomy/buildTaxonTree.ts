@@ -11,6 +11,8 @@ export type TaxonTreeNode = {
   children: TaxonTreeNode[];
   /** Whether an organism may belong elsewhere in the tree than where it is placed. */
   isPlacementUncertain?: boolean;
+  /** Whether an organism is certainly placed on a taxon of the same name, so the taxon's label can stand for both. */
+  isNamedByTaxon?: boolean;
 };
 
 const rootId = "life";
@@ -26,14 +28,17 @@ export function buildTaxonTree(taxa: Taxon[], placements: TaxonPlacement[], node
   const placementsByTaxonId = Map.groupBy(placements, (placement) => placement.taxonId);
   const nodesById = new Map(nodes.map((node) => [node.id, node]));
 
-  const toLeaf = ({ nodeId, qualityFlags }: TaxonPlacement) => {
+  const toLeaf = (taxon: Taxon, { nodeId, qualityFlags }: TaxonPlacement) => {
     const node = nodesById.get(nodeId);
+    const label = node ? nodeDisplayName(node, "en") : nodeId;
+    const isPlacementUncertain = qualityFlags.some((flag) => uncertainPlacementFlags.has(flag));
     return {
       id: nodeId,
-      label: node ? nodeDisplayName(node, "en") : nodeId,
+      label,
       rank: "organism",
       children: [],
-      isPlacementUncertain: qualityFlags.some((flag) => uncertainPlacementFlags.has(flag)),
+      isPlacementUncertain,
+      isNamedByTaxon: label === taxon.name && !isPlacementUncertain,
     } satisfies TaxonTreeNode;
   };
   const toBranch = (taxon: Taxon): TaxonTreeNode => ({
@@ -42,7 +47,7 @@ export function buildTaxonTree(taxa: Taxon[], placements: TaxonPlacement[], node
     rank: taxon.rank,
     children: [
       ...(taxaByParentId.get(taxon.id) ?? []).map(toBranch),
-      ...(placementsByTaxonId.get(taxon.id) ?? []).map(toLeaf),
+      ...(placementsByTaxonId.get(taxon.id) ?? []).map((placement) => toLeaf(taxon, placement)),
     ],
   });
 
