@@ -15,4 +15,14 @@ test.describe("browsing connections", () => {
       page.getByRole("region", { name: "Connections of Japanese red pine" }),
     ).toBeVisible();
   });
+
+  test("shows the study behind a connection", async ({ page }) => {
+    await page.goto(`/organisms/${encodeURIComponent("wikidata:Q1197786")}`);
+    const connection = page
+      .getByRole("region", { name: "Connections of pinewood nematode" })
+      .getByRole("listitem")
+      .filter({ hasText: "pathogenOf Japanese red pine" });
+    await connection.getByText("Sources").click();
+    await expect(connection).toContainText("The Mushroom at the End of the World");
+  });
 });
