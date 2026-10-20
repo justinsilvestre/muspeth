@@ -1,4 +1,6 @@
+import { type ConnectionFilter, emptyConnectionFilter } from "../shared/connectionFilter";
 import type { Connection, ConnectionSource, GraphNode, NodeName } from "../shared/graph";
+import { connectionFilterSql } from "./connectionFilterSql";
 
 type NodeRow = Omit<GraphNode, "names">;
 type NodeNameRow = NodeName & { node_id: string };
@@ -49,22 +51,30 @@ export async function findNode(db: D1Database, nodeId: string) {
   return db.prepare("SELECT id, kind, label FROM nodes WHERE id = ?").bind(nodeId).first<NodeRow>();
 }
 
-/** Lists every connection that has the given node at either end, with the studies behind each. */
-export async function listConnections(db: D1Database, nodeId: string) {
+/**
+ * Lists every connection that has the given node at either end and passes the filter,
+ * with the studies behind each.
+ */
+export async function listConnections(
+  db: D1Database,
+  nodeId: string,
+  filter: ConnectionFilter = emptyConnectionFilter,
+) {
+  const condition = connectionFilterSql(filter);
+  const matching = `(source_node_id = ? OR target_node_id = ?) AND ${condition.sql}`;
+  const bindings = [nodeId, nodeId, ...condition.bindings];
   const [connections, sources] = await Promise.all([
     db
-      .prepare(
-        "SELECT * FROM connections WHERE source_node_id = ?1 OR target_node_id = ?1 ORDER BY id",
-      )
-      .bind(nodeId)
+      .prepare(`SELECT * FROM connections WHERE ${matching} ORDER BY id`)
+      .bind(...bindings)
       .all<ConnectionRow>(),
     db
       .prepare(
         `SELECT * FROM connection_sources WHERE connection_id IN
-          (SELECT id FROM connections WHERE source_node_id = ?1 OR target_node_id = ?1)
+          (SELECT id FROM connections WHERE ${matching})
         ORDER BY dataset_id, record_count DESC, rowid`,
       )
-      .bind(nodeId)
+      .bind(...bindings)
       .all<ConnectionSourceRow>(),
   ]);
   const sourcesByConnectionId = Map.groupBy(sources.results, (row) => row.connection_id);

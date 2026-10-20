@@ -1,6 +1,8 @@
 import { env } from "cloudflare:test";
 import { describe, expect, it } from "vitest";
+import { type ConnectionFilter, emptyConnectionFilter } from "../shared/connectionFilter";
 import { findNode, listConnections, listNodes } from "./graphQueries";
+import { insertConnections } from "./test/insertConnections";
 import { insertSampleGraph } from "./test/insertSampleGraph";
 
 describe("listNodes", () => {
@@ -91,5 +93,48 @@ describe("listConnections", () => {
     ).run();
     const [, connection] = await listConnections(env.DB, "pine");
     expect(connection?.sources).toEqual([]);
+  });
+
+  describe("with a filter", () => {
+    async function listIdsFiltered(fields: Partial<ConnectionFilter>) {
+      await insertConnections([
+        { id: 1, sourceNodeId: "a", targetNodeId: "b", qualityFlags: ["unmatched_name"] },
+        { id: 2, sourceNodeId: "c", targetNodeId: "a", kind: "likeness", basis: "computed" },
+        { id: 3, sourceNodeId: "a", targetNodeId: "d", source: "mangal" },
+        { id: 4, sourceNodeId: "a", targetNodeId: "e", qualityFlags: ["suspected_error"] },
+      ]);
+      const connections = await listConnections(env.DB, "a", {
+        ...emptyConnectionFilter,
+        ...fields,
+      });
+      return connections.map(({ id }) => id);
+    }
+
+    it("keeps only connections of the given kinds", async () => {
+      expect(await listIdsFiltered({ kinds: ["likeness"] })).toEqual([2]);
+    });
+
+    it("keeps only connections on the given bases", async () => {
+      expect(await listIdsFiltered({ bases: ["observed"] })).toEqual([1, 3, 4]);
+    });
+
+    it("keeps only connections from the given sources", async () => {
+      expect(await listIdsFiltered({ sources: ["mangal"] })).toEqual([3]);
+    });
+
+    it("keeps only connections that carry one of the given flags", async () => {
+      const flaggedWith = ["unmatched_name", "suspected_error"] as const;
+      expect(await listIdsFiltered({ flaggedWith: [...flaggedWith] })).toEqual([1, 4]);
+    });
+
+    it("leaves out connections that carry any of the given flags", async () => {
+      expect(await listIdsFiltered({ notFlaggedWith: ["suspected_error"] })).toEqual([1, 2, 3]);
+    });
+
+    it("combines its conditions", async () => {
+      expect(
+        await listIdsFiltered({ bases: ["observed"], notFlaggedWith: ["unmatched_name"] }),
+      ).toEqual([3, 4]);
+    });
   });
 });
