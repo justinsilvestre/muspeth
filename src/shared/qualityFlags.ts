@@ -18,6 +18,8 @@ export const qualityFlags = {
     "The record is likely wrong, for example because it is biologically implausible.",
   sampling_bias: "The source is known to over- or under-represent some organisms or places.",
   duplicate_network_copy: "The connection comes from a copy of a network also held elsewhere.",
+  text_match: "The connection was found by matching words in the source's text, not stated by it.",
+  uncertain_borrowing: "The source rates the word's borrowing as uncertain.",
 } satisfies Record<string, string>;
 
 export type QualityFlag = keyof typeof qualityFlags;
