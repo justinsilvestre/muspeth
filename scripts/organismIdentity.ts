@@ -52,15 +52,13 @@ export function identifyOrganism(
   existingNodeId?: string,
 ) {
   const isUnmatched = isUnmatchedName(taxon);
+  const flags = [
+    isUnmatched && "unmatched_name",
+    choice?.isAmbiguous && "ambiguous_wikidata_id",
+  ] satisfies (QualityFlag | false | undefined)[];
   return {
     id: existingNodeId ?? toNewNodeId(taxon, choice, isUnmatched),
-    qualityFlags: (
-      [isUnmatched && "unmatched_name", choice?.isAmbiguous && "ambiguous_wikidata_id"] satisfies (
-        | QualityFlag
-        | false
-        | undefined
-      )[]
-    ).filter((flag) => typeof flag === "string"),
+    qualityFlags: flags.filter((flag) => typeof flag === "string"),
   };
 }
 
