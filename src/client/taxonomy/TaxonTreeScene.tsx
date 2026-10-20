@@ -2,7 +2,7 @@ import { OrbitControls } from "@react-three/drei";
 import { Canvas, type ThreeEvent } from "@react-three/fiber";
 import { useMemo, useRef, useState } from "react";
 import { useColorScheme } from "../theme/useColorScheme";
-import { BranchTube, branchRadius } from "./BranchTube";
+import { BranchTube } from "./BranchTube";
 import type { TaxonTreeNode } from "./buildTaxonTree";
 import { layoutTaxonTree } from "./layoutTaxonTree";
 import { listLineageIds } from "./listLineageIds";
@@ -58,7 +58,7 @@ export default function TaxonTreeScene({ tree }: { tree: TaxonTreeNode }) {
               onPointerOver={hover(leaf.node.id)}
               onPointerOut={hover(null)}
             >
-              <sphereGeometry args={[branchRadius(1) * 3, 24, 16]} />
+              <sphereGeometry args={[0.15, 24, 16]} />
               <meshStandardMaterial
                 color={lineageIds.has(leaf.node.id) ? palette.leafHighlight : palette.leaf}
               />
