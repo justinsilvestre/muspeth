@@ -1,37 +1,76 @@
 import type { ThreeEvent } from "@react-three/fiber";
 import { useMemo } from "react";
-import { QuadraticBezierCurve3, Vector3 } from "three";
-import type { layoutTaxonTree } from "./layoutTaxonTree";
+import { CatmullRomCurve3, Curve, Vector3 } from "three";
+import type { BranchPath } from "./traceBranchPaths";
 
 type BranchTubeProps = {
-  branch: ReturnType<typeof layoutTaxonTree>["branches"][number];
-  isHighlighted: boolean;
+  path: BranchPath;
+  color: string;
+  /** Whether to round off the path's end, where thinner paths fork from it. */
+  isCapped: boolean;
   onPointerOver: (event: ThreeEvent<PointerEvent>) => void;
   onPointerOut: (event: ThreeEvent<PointerEvent>) => void;
 };
 
-/** Draws a branch that leaves its parent outward and bends upward toward its child, thinning with depth. */
+/**
+ * Gives a branch the cross-section of all the leaves it carries, as in the pipe model of tree growth.
+ * The trunk is therefore the thickest part, and each fork divides its thickness among its branches.
+ */
+export function branchRadius(leafCount: number) {
+  return 0.02 + 0.03 * Math.sqrt(leafCount);
+}
+
+/** Draws a path as a smooth tube that leaves its fork in the direction of the branch below it. */
 export function BranchTube({
-  branch,
-  isHighlighted,
+  path,
+  color,
+  isCapped,
   onPointerOver,
   onPointerOut,
 }: BranchTubeProps) {
-  const curve = useMemo(() => {
-    const from = new Vector3(...branch.from);
-    const to = new Vector3(...branch.to);
-    const bend = new Vector3(
-      from.x + (to.x - from.x) * 0.8,
-      from.y + (to.y - from.y) * 0.2,
-      from.z + (to.z - from.z) * 0.8,
-    );
-    return new QuadraticBezierCurve3(from, bend, to);
-  }, [branch]);
+  const curve = useMemo(() => toSmoothCurve(path), [path]);
+  const radius = branchRadius(path.leafCount);
+  const end = path.positions.at(-1);
 
   return (
-    <mesh onPointerOver={onPointerOver} onPointerOut={onPointerOut}>
-      <tubeGeometry args={[curve, 24, 0.1 * 0.8 ** branch.depth, 8]} />
-      <meshStandardMaterial color={isHighlighted ? "#a8714a" : "#6b4f3a"} roughness={0.9} />
-    </mesh>
+    <group onPointerOver={onPointerOver} onPointerOut={onPointerOut}>
+      <mesh>
+        <tubeGeometry args={[curve, 16 * path.positions.length, radius, 12]} />
+        <meshStandardMaterial color={color} roughness={0.9} />
+      </mesh>
+      {isCapped && end && (
+        <mesh position={end}>
+          <sphereGeometry args={[radius, 12, 8]} />
+          <meshStandardMaterial color={color} roughness={0.9} />
+        </mesh>
+      )}
+    </group>
   );
+}
+
+function toSmoothCurve({ positions, leadPosition }: BranchPath) {
+  const vectors = positions.map((position) => new Vector3(...position));
+  if (!leadPosition) return new CatmullRomCurve3(vectors, false, "centripetal");
+  const curve = new CatmullRomCurve3(
+    [new Vector3(...leadPosition), ...vectors],
+    false,
+    "centripetal",
+  );
+  return new CurveTail(curve, 1 / vectors.length);
+}
+
+/** The part of a curve after the given fraction of its parameter range. */
+class CurveTail extends Curve<Vector3> {
+  private readonly curve: Curve<Vector3>;
+  private readonly start: number;
+
+  constructor(curve: Curve<Vector3>, start: number) {
+    super();
+    this.curve = curve;
+    this.start = start;
+  }
+
+  override getPoint(t: number, target = new Vector3()) {
+    return this.curve.getPoint(this.start + t * (1 - this.start), target);
+  }
 }

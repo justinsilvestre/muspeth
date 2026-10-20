@@ -31,12 +31,8 @@ describe("layoutTaxonTree", () => {
     expect(findPoint("a1")?.parentId).toBe("a");
   });
 
-  it("joins every node but the root to its parent with a branch", () => {
-    expect(layoutTaxonTree(tree).branches).toHaveLength(4);
-  });
-
-  it("starts each branch at the parent's position", () => {
-    const branch = layoutTaxonTree(tree).branches.find((candidate) => candidate.childId === "a1");
-    expect(branch?.from).toEqual(findPoint("a")?.position);
+  it("stands the tree on a trunk below the root", () => {
+    const [trunk] = layoutTaxonTree(tree).paths;
+    expect(trunk?.positions[0]?.[1]).toBeLessThan(0);
   });
 });
