@@ -10,6 +10,7 @@ import { useBarkMaterials } from "./graphics/useBarkMaterials";
 import { LineageReadout } from "./LineageReadout";
 import { layoutTaxonTree } from "./layoutTaxonTree";
 import { listLineageIds } from "./listLineageIds";
+import { listRepeatedTaxonIds } from "./listRepeatedTaxonIds";
 import { TreeLabelOverlay, TreeLabelTracker } from "./TreeLabels";
 import { treePalettes } from "./treePalette";
 
@@ -38,6 +39,9 @@ export default function TaxonTreeScene(props: { tree: TaxonTreeNode; settings: G
     .reverse()
     .flatMap((id) => nodesById.get(id) ?? [])
     .filter((node) => node.rank !== "root");
+  // A taxon whose name its organism repeats goes unlabelled, so the name appears once.
+  const repeatedTaxonIds = listRepeatedTaxonIds(lineage);
+  const labelledLineageIds = new Set([...lineageIds].filter((id) => !repeatedTaxonIds.has(id)));
   const labelsById = useRef(new Map<string, HTMLElement>());
   const palette = treePalettes[useColorScheme().colorScheme];
   const { trunkRadius, taperPerRank } = settings;
@@ -108,7 +112,7 @@ export default function TaxonTreeScene(props: { tree: TaxonTreeNode; settings: G
           points={points}
           offsetY={offsetY}
           labelsById={labelsById}
-          lineageIds={lineageIds}
+          lineageIds={labelledLineageIds}
         />
         <OrbitControls autoRotate={hoveredId === null} autoRotateSpeed={0.5} enablePan={false} />
       </Canvas>

@@ -10,12 +10,14 @@ export function TaxonTreeOutline({ tree }: { tree: TaxonTreeNode }) {
 }
 
 function TaxonTreeOutlineItem({ node }: { node: TaxonTreeNode }) {
+  // An organism named by its taxon is already announced by the taxon's own item.
+  const listedChildren = node.children.filter((child) => !child.isNamedByTaxon);
   return (
     <li>
       {describeNode(node)}
-      {node.children.length > 0 && (
+      {listedChildren.length > 0 && (
         <ul>
-          {node.children.map((child) => (
+          {listedChildren.map((child) => (
             <TaxonTreeOutlineItem key={child.id} node={child} />
           ))}
         </ul>
