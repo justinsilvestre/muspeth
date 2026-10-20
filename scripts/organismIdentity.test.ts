@@ -17,11 +17,20 @@ const pineEntity = {
   qid: "Q1044186",
   taxonNames: ["Pinus densiflora"],
   labels: [{ language: "ja", name: "アカマツ" }],
+  externalIds: [],
 } satisfies WikidataTaxon;
 const otherEntity = {
   qid: "Q15889125",
   taxonNames: ["Pinus densiflora var. ussuriensis"],
   labels: [],
+  externalIds: [],
+};
+const hydrozoanEntity = { qid: "Q4005738", taxonNames: ["Amphinema"], labels: [], externalIds: [] };
+const fungusEntity = {
+  qid: "Q16528286",
+  taxonNames: ["Amphinema"],
+  labels: [],
+  externalIds: ["gbif:2554032", "ncbi:137744"],
 };
 
 describe("chooseWikidataTaxon", () => {
@@ -35,6 +44,10 @@ describe("chooseWikidataTaxon", () => {
     expect(chooseWikidataTaxon(pine.name, [pineEntity, twin])?.isAmbiguous).toBe(true);
   });
 
+  it("does not count an item given twice as ambiguous", () => {
+    expect(chooseWikidataTaxon(pine.name, [pineEntity, pineEntity])?.isAmbiguous).toBe(false);
+  });
+
   it("takes the oldest item among ambiguous matches", () => {
     const twin = { ...pineEntity, qid: "Q9" };
     expect(chooseWikidataTaxon(pine.name, [pineEntity, twin])?.taxon.qid).toBe("Q9");
@@ -42,6 +55,29 @@ describe("chooseWikidataTaxon", () => {
 
   it("returns null without candidates", () => {
     expect(chooseWikidataTaxon(pine.name, [])).toBeNull();
+  });
+
+  it("rejects items whose taxon names differ from the name", () => {
+    expect(chooseWikidataTaxon(pine.name, [otherEntity])).toBeNull();
+  });
+
+  describe("when several items share the name", () => {
+    const candidates = [hydrozoanEntity, fungusEntity];
+
+    it("prefers the item that GloBI links", () => {
+      const choice = chooseWikidataTaxon("Amphinema", candidates, ["wikidata:Q16528286"]);
+      expect(choice?.taxon.qid).toBe("Q16528286");
+    });
+
+    it("prefers the item that shares an identifier GloBI links", () => {
+      const choice = chooseWikidataTaxon("Amphinema", candidates, ["ncbi:137744"]);
+      expect(choice?.taxon.qid).toBe("Q16528286");
+    });
+
+    it("does not mark a choice settled by a linked identifier as ambiguous", () => {
+      const choice = chooseWikidataTaxon("Amphinema", candidates, ["gbif:2554032"]);
+      expect(choice?.isAmbiguous).toBe(false);
+    });
   });
 });
 

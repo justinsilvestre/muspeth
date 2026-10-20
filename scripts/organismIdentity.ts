@@ -8,20 +8,33 @@ export type WikidataTaxon = {
   /** The item's scientific names (property P225). */
   taxonNames: string[];
   labels: NodeName[];
+  /** The item's GBIF and NCBI identifiers, for example "gbif:2554032". */
+  externalIds: string[];
 };
 
 type WikidataChoice = { taxon: WikidataTaxon; isAmbiguous: boolean };
 
 /**
- * Picks the Wikidata item for a scientific name, preferring items whose taxon name matches it
- * exactly and, among several, the oldest item.
+ * Picks the Wikidata item for a scientific name among items whose taxon name matches it exactly.
+ * Among several, it prefers items that GloBI links to the name, then the oldest item.
  */
-export function chooseWikidataTaxon(name: string, candidates: WikidataTaxon[]) {
-  const exactMatches = candidates.filter((candidate) => candidate.taxonNames.includes(name));
-  const pool = exactMatches.length > 0 ? exactMatches : candidates;
+export function chooseWikidataTaxon(
+  name: string,
+  candidates: WikidataTaxon[],
+  linkedIds: string[] = [],
+) {
+  const namesakes = [
+    ...new Map(candidates.map((candidate) => [candidate.qid, candidate])).values(),
+  ].filter((candidate) => candidate.taxonNames.includes(name));
+  const linked = namesakes.filter((candidate) => isLinked(candidate, linkedIds));
+  const pool = linked.length > 0 ? linked : namesakes;
   const [taxon] = [...pool].sort((a, b) => toItemNumber(a) - toItemNumber(b));
   if (!taxon) return null;
   return { taxon, isAmbiguous: pool.length > 1 } satisfies WikidataChoice;
+}
+
+function isLinked({ qid, externalIds }: WikidataTaxon, linkedIds: string[]) {
+  return [`wikidata:${qid}`, ...externalIds].some((id) => linkedIds.includes(id));
 }
 
 function toItemNumber({ qid }: WikidataTaxon) {

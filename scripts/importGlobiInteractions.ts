@@ -6,7 +6,7 @@
  * Without --remote, it writes to the local development database.
  */
 import { executeD1Script, queryD1 } from "./d1.ts";
-import { fetchGlobiRecords, fetchWikidataQids } from "./globiApi.ts";
+import { fetchGlobiRecords, fetchTaxonLinks } from "./globiApi.ts";
 import { mergeConnections, toConnectionDraft } from "./globiConnections.ts";
 import { toGlobiImportSql } from "./globiImportSql.ts";
 import {
@@ -22,6 +22,7 @@ import {
   isUnmatchedName,
   listOrganismNames,
 } from "./organismIdentity.ts";
+import { listLinkedQids, parseTaxonLinks } from "./taxonLinks.ts";
 import { fetchWikidataQidsByTaxonName, fetchWikidataTaxa } from "./wikidataApi.ts";
 
 const recordLimit = 20_000;
@@ -76,31 +77,33 @@ async function collectRecords(organismName: string) {
 }
 
 /**
- * Resolves new, matched names to Wikidata items through GloBI's taxon links, or else through
- * Wikidata's own scientific names.
+ * Resolves new, matched names to Wikidata items that bear the same scientific name, found through
+ * GloBI's taxon links and Wikidata's own scientific names.
  */
 async function chooseWikidataTaxa(candidates: GlobiTaxon[]) {
-  const unresolved = candidates.filter(
-    (taxon) => !existingIdByName.has(taxon.name) && !isUnmatchedName(taxon),
-  );
-  const qidsByName = new Map(
+  const names = candidates
+    .filter((taxon) => !existingIdByName.has(taxon.name) && !isUnmatchedName(taxon))
+    .map(({ name }) => name);
+  const linkedIdsByName = new Map(
     await mapConcurrently(
-      unresolved,
-      async (taxon) => [taxon.name, await fetchWikidataQids(taxon.name)] as const,
+      names,
+      async (name) => [name, parseTaxonLinks(await fetchTaxonLinks(name))] as const,
     ),
   );
-  const unlinkedNames = [...qidsByName]
-    .filter(([, qids]) => qids.length === 0)
-    .map(([name]) => name);
-  for (const [name, qids] of await fetchWikidataQidsByTaxonName(unlinkedNames)) {
-    qidsByName.set(name, qids);
-  }
+  const namesakeQidsByName = await fetchWikidataQidsByTaxonName(names);
+  const qidsByName = new Map(
+    names.map((name) => [
+      name,
+      [...listLinkedQids(linkedIdsByName.get(name) ?? []), ...(namesakeQidsByName.get(name) ?? [])],
+    ]),
+  );
   const wikidataTaxa = await fetchWikidataTaxa([...new Set([...qidsByName.values()].flat())]);
   return new Map(
     [...qidsByName].flatMap(([name, qids]) => {
       const choice = chooseWikidataTaxon(
         name,
         qids.flatMap((qid) => wikidataTaxa.get(qid) ?? []),
+        linkedIdsByName.get(name),
       );
       return choice ? [[name, choice] as const] : [];
     }),
