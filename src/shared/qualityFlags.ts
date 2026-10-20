@@ -22,6 +22,8 @@ export const qualityFlags = {
     "The trait database lists the organism under a name that GBIF treats as the same taxon.",
   tied_nearest_neighbour:
     "Other organisms are exactly as alike in traits; a fixed rule picked this one among them.",
+  text_match: "The connection was found by matching words in the source's text, not stated by it.",
+  uncertain_borrowing: "The source rates the word's borrowing as uncertain.",
 } satisfies Record<string, string>;
 
 export type QualityFlag = keyof typeof qualityFlags;

@@ -1,0 +1,225 @@
+import type { ranks } from "./gbifTaxonomy.ts";
+
+/**
+ * A group of organisms that everyday words name, such as "bee" or "pine",
+ * placed on the taxon of the GBIF backbone that best fits the word.
+ * Where the word covers no single rank, the taxon is the narrowest one that holds what it names,
+ * so the link stays at a level the word supports.
+ * For example, "snake" is placed on Squamata, which also holds lizards.
+ * A few words are placed on what they usually name instead,
+ * such as "gourd" and "calabash" on the bottle gourd.
+ */
+export type FolkTaxon = {
+  taxon: { kingdom: string; rank: (typeof ranks)[number]; name: string };
+  /** The WOLD meanings, by parameter ID, whose words name the group. */
+  woldMeaningIds: string[];
+  /** Lowercase words or phrases that name the group in the English text of the Motif-Index. */
+  motifTerms: string[];
+};
+
+/** Lowercase phrases in the Motif-Index that contain a term but do not name an organism. */
+export const motifPhrasesToIgnore = [
+  "pine away",
+  "pines away",
+  "pined away",
+  "tea cup",
+  "tea cups",
+];
+
+const animal = (
+  rank: FolkTaxon["taxon"]["rank"],
+  name: string,
+  woldIds: string[],
+  terms: string[],
+) =>
+  ({
+    taxon: { kingdom: "Animalia", rank, name },
+    woldMeaningIds: woldIds,
+    motifTerms: terms,
+  }) satisfies FolkTaxon;
+const plant = (
+  rank: FolkTaxon["taxon"]["rank"],
+  name: string,
+  woldIds: string[],
+  terms: string[],
+) =>
+  ({
+    taxon: { kingdom: "Plantae", rank, name },
+    woldMeaningIds: woldIds,
+    motifTerms: terms,
+  }) satisfies FolkTaxon;
+
+/**
+ * The groups that the words and motifs are matched to.
+ * Terms that are common in other senses are left out,
+ * for example "bear", "fly", "sow", "corn", "ash", "palm" and "rose" on their own,
+ * and "fir", which the Motif-Index uses in Irish names.
+ */
+export const folkTaxa = [
+  animal("class", "Insecta", ["3-81"], ["insect", "insects"]),
+  animal("family", "Apidae", ["3-82"], ["bee", "bees", "honeybee", "honeybees"]),
+  animal("genus", "Bombus", [], ["bumblebee", "bumblebees", "bumble bee", "humble bee"]),
+  animal("family", "Vespidae", ["3-823"], ["wasp", "wasps", "hornet", "hornets"]),
+  animal("family", "Formicidae", ["3-817"], ["ant", "ants"]),
+  animal("order", "Coleoptera", [], ["beetle", "beetles"]),
+  animal("family", "Lampyridae", ["3-91"], ["firefly", "fireflies", "glow worm"]),
+  animal(
+    "order",
+    "Lepidoptera",
+    ["3-92", "3-99911"],
+    ["butterfly", "butterflies", "moth", "moths", "caterpillar", "caterpillars"],
+  ),
+  animal("order", "Orthoptera", ["3-93"], ["grasshopper", "grasshoppers", "locust", "locusts"]),
+  animal("order", "Blattodea", ["3-816"], ["cockroach", "cockroaches"]),
+  animal("family", "Culicidae", ["3-832"], ["mosquito", "mosquitoes", "mosquitos"]),
+  animal("family", "Muscidae", [], ["housefly", "houseflies", "house fly", "house flies"]),
+  animal("order", "Diptera", ["3-83"], []),
+  animal("order", "Siphonaptera", ["3-813"], ["flea", "fleas"]),
+  animal("family", "Pediculidae", ["3-99924"], ["louse", "lice"]),
+  animal("species", "Pediculus humanus", ["3-811", "3-8112"], []),
+  animal("order", "Araneae", ["3-818"], ["spider", "spiders"]),
+  animal("order", "Scorpiones", ["3-815"], ["scorpion", "scorpions"]),
+  animal("order", "Ixodida", ["3-835"], []),
+  animal("class", "Chilopoda", ["3-814"], ["centipede", "centipedes"]),
+  animal("class", "Gastropoda", ["3-94"], ["snail", "snails"]),
+  animal(
+    "class",
+    "Squamata",
+    ["3-85", "3-96"],
+    ["snake", "snakes", "serpent", "serpents", "lizard", "lizards"],
+  ),
+  animal("order", "Anura", ["3-95"], ["frog", "frogs", "toad", "toads"]),
+  animal("class", "Testudines", ["3-98"], ["turtle", "turtles", "tortoise", "tortoises"]),
+  animal("class", "Crocodylia", ["3-97"], ["crocodile", "crocodiles", "alligator", "alligators"]),
+  animal("genus", "Anguilla", ["3-665"], ["eel", "eels"]),
+  animal("class", "Aves", ["3-581"], ["bird", "birds"]),
+  animal(
+    "species",
+    "Gallus gallus",
+    ["3-5", "3-52", "3-54", "3-55"],
+    ["hen", "hens", "cock", "cocks", "chicken", "chickens", "rooster", "roosters"],
+  ),
+  animal("genus", "Anser", ["3-56"], ["goose", "geese"]),
+  animal("family", "Anatidae", ["3-57"], ["duck", "ducks"]),
+  animal("family", "Accipitridae", ["3-584", "3-585"], ["eagle", "eagles", "hawk", "hawks"]),
+  animal("family", "Ardeidae", ["3-583"], ["heron", "herons"]),
+  animal("family", "Laridae", ["3-582"], ["gull", "gulls", "seagull", "seagulls"]),
+  animal("order", "Strigiformes", ["3-596"], ["owl", "owls"]),
+  animal("genus", "Corvus", ["3-593"], ["crow", "crows", "raven", "ravens"]),
+  animal("family", "Columbidae", ["3-594"], ["dove", "doves", "pigeon", "pigeons"]),
+  animal("order", "Psittaciformes", ["3-592"], ["parrot", "parrots"]),
+  animal("genus", "Passer", ["3-99941"], ["sparrow", "sparrows"]),
+  animal("family", "Trochilidae", ["3-99919"], ["hummingbird", "hummingbirds", "humming bird"]),
+  animal("order", "Chiroptera", ["3-591"], ["bat", "bats"]),
+  animal(
+    "species",
+    "Canis lupus",
+    ["3-61", "3-71"],
+    ["dog", "dogs", "hound", "hounds", "wolf", "wolves"],
+  ),
+  animal("species", "Felis catus", ["3-62"], ["cat", "cats"]),
+  animal("genus", "Vulpes", ["3-74"], ["fox", "foxes"]),
+  animal("family", "Ursidae", ["3-73"], []),
+  animal("species", "Panthera leo", ["3-72"], ["lion", "lions", "lioness"]),
+  animal("species", "Panthera tigris", ["3-99942"], ["tiger", "tigers", "tigress"]),
+  animal("family", "Muridae", ["3-63"], ["mouse", "mice", "rat", "rats"]),
+  animal("family", "Sciuridae", ["3-869"], ["squirrel", "squirrels"]),
+  animal("genus", "Castor", ["3-873"], ["beaver", "beavers"]),
+  animal("family", "Leporidae", ["3-614", "3-863"], ["rabbit", "rabbits", "hare", "hares"]),
+  animal("family", "Cervidae", ["3-75"], ["deer", "stag", "stags"]),
+  animal("species", "Rangifer tarandus", ["3-871"], ["reindeer"]),
+  animal("species", "Alces alces", ["3-872"], ["moose"]),
+  animal(
+    "species",
+    "Equus caballus",
+    ["3-41", "3-42", "3-44", "3-45"],
+    ["horse", "horses", "mare", "mares", "stallion", "stallions", "colt", "foal"],
+  ),
+  animal("species", "Equus asinus", ["3-46"], ["ass", "asses", "donkey", "donkeys"]),
+  animal(
+    "species",
+    "Bos taurus",
+    ["3-2", "3-21", "3-22", "3-23", "3-24"],
+    ["cow", "cows", "bull", "bulls", "ox", "oxen", "calf", "calves", "cattle"],
+  ),
+  animal(
+    "species",
+    "Ovis aries",
+    ["3-25", "3-26", "3-28", "3-29"],
+    ["sheep", "ram", "rams", "ewe", "ewes", "lamb", "lambs"],
+  ),
+  animal("species", "Capra hircus", ["3-36", "3-37"], ["goat", "goats"]),
+  animal(
+    "species",
+    "Sus scrofa",
+    ["3-32", "3-34", "3-35"],
+    ["pig", "pigs", "swine", "boar", "boars", "hog", "hogs"],
+  ),
+  animal("genus", "Camelus", ["3-78"], ["camel", "camels"]),
+  animal("family", "Elephantidae", ["3-77"], ["elephant", "elephants"]),
+  plant("class", "Pinopsida", ["8-99914"], ["conifer", "conifers"]),
+  plant("genus", "Pinus", ["8-64"], ["pine", "pines", "pine cone", "pine cones"]),
+  plant("genus", "Abies", ["8-65"], ["fir tree", "fir trees"]),
+  plant("genus", "Larix", ["8-991"], ["larch", "larches"]),
+  plant("genus", "Picea", [], ["spruce", "spruces"]),
+  plant("genus", "Juniperus", [], ["juniper", "junipers"]),
+  plant("genus", "Quercus", ["8-61", "8-66"], ["oak", "oaks", "acorn", "acorns"]),
+  plant("genus", "Fagus", ["8-62"], ["beech", "beeches"]),
+  plant("genus", "Betula", ["8-63"], ["birch", "birches"]),
+  plant("genus", "Salix", ["8-99957"], ["willow", "willows"]),
+  plant("genus", "Fraxinus", ["8-99906"], ["ash tree", "ash trees"]),
+  plant("genus", "Malus", ["8-99905"], ["apple", "apples"]),
+  plant("genus", "Pyrus", ["8-99938"], ["pear", "pears"]),
+  plant("genus", "Vitis", ["8-67"], ["grape", "grapes", "grapevine", "grapevines"]),
+  plant("genus", "Citrus", ["8-83"], []),
+  plant("genus", "Rosa", [], ["roses", "rose bush", "rose bushes", "rose tree", "rosebush"]),
+  plant("genus", "Rubus", [], ["bramble", "brambles", "blackberry", "blackberries"]),
+  plant("species", "Rubus idaeus", [], ["raspberry", "raspberries"]),
+  plant("genus", "Fragaria", [], ["strawberry", "strawberries"]),
+  plant("genus", "Trifolium", [], ["clover"]),
+  plant("genus", "Urtica", ["8-97"], ["nettle", "nettles"]),
+  plant("family", "Poaceae", ["8-51"], []),
+  plant("genus", "Triticum", ["8-43"], ["wheat"]),
+  plant("species", "Hordeum vulgare", ["8-44"], ["barley"]),
+  plant("species", "Secale cereale", ["8-45"], ["rye"]),
+  plant("species", "Avena sativa", ["8-46"], ["oats"]),
+  plant("species", "Zea mays", ["8-47"], ["maize"]),
+  plant("genus", "Oryza", ["8-48"], ["rice"]),
+  plant("species", "Saccharum officinarum", ["8-941"], ["sugar cane", "sugarcane"]),
+  plant("species", "Fagopyrum esculentum", [], ["buckwheat"]),
+  plant("species", "Linum usitatissimum", [], ["flax"]),
+  plant("species", "Cannabis sativa", [], ["hemp"]),
+  plant("genus", "Gossypium", [], ["cotton"]),
+  plant("species", "Camellia sinensis", [], ["tea"]),
+  plant("species", "Nicotiana tabacum", ["8-68"], ["tobacco"]),
+  plant("genus", "Papaver", [], ["poppy", "poppies"]),
+  plant("species", "Helianthus annuus", [], ["sunflower", "sunflowers"]),
+  plant("genus", "Taraxacum", [], ["dandelion", "dandelions"]),
+  plant("family", "Arecaceae", ["8-81"], ["palm tree", "palm trees"]),
+  plant("species", "Cocos nucifera", ["8-82"], ["coconut", "coconuts", "coco nut", "coco nuts"]),
+  plant("genus", "Musa", ["8-84"], ["banana", "bananas"]),
+  plant("species", "Mangifera indica", ["8-9993"], ["mango", "mangoes", "mangos"]),
+  plant("species", "Ananas comosus", ["8-99939"], ["pineapple", "pineapples"]),
+  plant("species", "Lagenaria siceraria", ["8-93"], ["gourd", "gourds", "calabash", "calabashes"]),
+  plant("genus", "Cucurbita", ["8-931"], ["pumpkin", "pumpkins"]),
+  plant("species", "Cucumis melo", ["8-99932"], ["melon", "melons"]),
+  plant("species", "Cucumis sativus", [], ["cucumber", "cucumbers"]),
+  plant("species", "Citrullus lanatus", ["8-99954"], ["watermelon", "watermelons"]),
+  plant("species", "Ipomoea batatas", ["8-91"], ["sweet potato", "sweet potatoes"]),
+  plant("species", "Manihot esculenta", ["8-92"], ["cassava", "manioc"]),
+  plant("species", "Brassica rapa", ["8-99952"], ["turnip", "turnips"]),
+  plant("species", "Brassica oleracea", ["8-99908", "8-99924"], ["cabbage", "cabbages"]),
+  plant("species", "Daucus carota", ["8-9991"], ["carrot", "carrots"]),
+  plant("species", "Allium cepa", ["8-99935"], ["onion", "onions"]),
+  plant("species", "Pisum sativum", ["8-99937"], ["pea", "peas"]),
+  plant("species", "Glycine max", [], ["soybean", "soybeans", "soya bean"]),
+  plant("species", "Medicago sativa", [], ["alfalfa", "lucerne"]),
+  plant("species", "Achillea millefolium", [], ["yarrow"]),
+  plant("species", "Coriandrum sativum", [], ["coriander"]),
+  plant("species", "Foeniculum vulgare", [], ["fennel"]),
+  {
+    taxon: { kingdom: "Fungi", rank: "class", name: "Agaricomycetes" },
+    woldMeaningIds: ["8-98"],
+    motifTerms: ["mushroom", "mushrooms", "toadstool", "toadstools"],
+  },
+] satisfies FolkTaxon[];

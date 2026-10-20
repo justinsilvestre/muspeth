@@ -16,6 +16,7 @@
     "db:import-networks": "node scripts/importMangalNetworks.ts",
     "db:import-likeness": "node scripts/importTraitLikeness.ts",
     "db:import-taxa": "node scripts/importGbifTaxa.ts",
+    "db:import-words-motifs": "node scripts/importWordsMotifs.ts",
     "typegen": "wrangler types src/worker/worker-configuration.d.ts",
     "typecheck": "npm run typegen && tsc -b",
     "lint": "biome check",
