@@ -1,4 +1,5 @@
 import type { Taxon, TaxonPlacement } from "../src/shared/taxonomy.ts";
+import { quoteSql } from "./quoteSql.ts";
 
 const ranks = ["kingdom", "phylum", "class", "order", "family", "genus", "species"] as const;
 const source = "gbif_backbone";
@@ -48,17 +49,13 @@ export function toTaxonomySql(taxa: Taxon[], placements: TaxonPlacement[]) {
 }
 
 function toTaxonSql({ id, parentId, rank, name }: Taxon) {
-  const values = [id, parentId, rank, name, source, licence].map(quote).join(", ");
+  const values = [id, parentId, rank, name, source, licence].map(quoteSql).join(", ");
   return `INSERT INTO taxa (id, parent_id, rank, name, source, licence) VALUES (${values})
   ON CONFLICT (id) DO UPDATE SET parent_id = excluded.parent_id, rank = excluded.rank, name = excluded.name;`;
 }
 
 function toPlacementSql({ nodeId, taxonId, qualityFlags }: TaxonPlacement) {
-  const values = [nodeId, taxonId, JSON.stringify(qualityFlags)].map(quote).join(", ");
+  const values = [nodeId, taxonId, JSON.stringify(qualityFlags)].map(quoteSql).join(", ");
   return `INSERT INTO taxon_placements (node_id, taxon_id, quality_flags) VALUES (${values})
   ON CONFLICT (node_id) DO UPDATE SET taxon_id = excluded.taxon_id, quality_flags = excluded.quality_flags;`;
-}
-
-function quote(value: string | null) {
-  return value === null ? "NULL" : `'${value.replaceAll("'", "''")}'`;
 }
