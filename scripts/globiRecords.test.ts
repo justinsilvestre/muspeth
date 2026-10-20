@@ -1,0 +1,120 @@
+import { describe, expect, it } from "vitest";
+import {
+  type GlobiRecord,
+  globiFields,
+  isReimport,
+  orientRecord,
+  parseGlobiTable,
+  selectPartnerNames,
+} from "./globiRecords.ts";
+
+const pine = {
+  name: "Pinus densiflora",
+  externalId: "EOL:1033597",
+  rank: "species",
+  commonNames: null,
+};
+const matsutake = {
+  name: "Tricholoma matsutake",
+  externalId: "NCBI:40145",
+  rank: "species",
+  commonNames: null,
+};
+
+function makeRecord(overrides: Partial<GlobiRecord> = {}) {
+  return {
+    subject: pine,
+    relation: "hasPathogen",
+    object: matsutake,
+    datasetId: "globalbioticinteractions/eppo",
+    citation: "EPPO Global Database",
+    ...overrides,
+  } satisfies GlobiRecord;
+}
+
+function makeRow(values: Record<string, string | null>) {
+  return globiFields.map((field) => values[field] ?? null);
+}
+
+describe("parseGlobiTable", () => {
+  const row = makeRow({
+    source_taxon_name: "Pinus densiflora",
+    source_taxon_path_ranks: "|  | kingdom | genus | species",
+    interaction_type: "hasHost",
+    target_taxon_name: "Pinus",
+    target_taxon_common_names: "pine @en",
+    study_citation: "A study.",
+    study_source_citation: "A dataset.",
+  });
+
+  it("reads the rank of each taxon from the end of its rank path", () => {
+    const [record] = parseGlobiTable({ columns: [...globiFields], data: [row] });
+    expect(record?.subject.rank).toBe("species");
+  });
+
+  it("leaves the rank empty when the path has none", () => {
+    const [record] = parseGlobiTable({ columns: [...globiFields], data: [row] });
+    expect(record?.object.rank).toBeNull();
+  });
+
+  it("prefers the dataset citation that GloBI asks users to cite", () => {
+    const [record] = parseGlobiTable({ columns: [...globiFields], data: [row] });
+    expect(record?.citation).toBe("A dataset.");
+  });
+
+  it("falls back to the study citation", () => {
+    const data = [makeRow({ interaction_type: "eats", study_citation: "A study." })];
+    const [record] = parseGlobiTable({ columns: [...globiFields], data });
+    expect(record?.citation).toBe("A study.");
+  });
+});
+
+describe("orientRecord", () => {
+  it("rewrites a passive relation in its active form, swapping the taxa", () => {
+    const oriented = orientRecord(makeRecord());
+    expect(oriented).toMatchObject({ subject: matsutake, relation: "pathogenOf", object: pine });
+  });
+
+  it("points a host relation from the dependent organism to its host", () => {
+    const oriented = orientRecord(makeRecord({ relation: "hostOf" }));
+    expect(oriented).toMatchObject({ subject: matsutake, relation: "hasHost" });
+  });
+
+  it("keeps an active relation as it is", () => {
+    const record = makeRecord({ relation: "eats" });
+    expect(orientRecord(record)).toEqual(record);
+  });
+});
+
+describe("isReimport", () => {
+  it("recognises GloBI's copy of Mangal", () => {
+    expect(isReimport(makeRecord({ datasetId: "globalbioticinteractions/mangal" }))).toBe(true);
+  });
+
+  it("accepts other datasets", () => {
+    expect(isReimport(makeRecord())).toBe(false);
+  });
+});
+
+describe("selectPartnerNames", () => {
+  const records = [
+    makeRecord({ object: { ...matsutake, name: "A" }, datasetId: "one" }),
+    makeRecord({ object: { ...matsutake, name: "B" }, datasetId: "one" }),
+    makeRecord({ object: { ...matsutake, name: "B" }, datasetId: "two" }),
+    makeRecord({ object: { ...matsutake, name: "C" }, datasetId: "one" }),
+    makeRecord({ object: { ...matsutake, name: "C" }, datasetId: "one" }),
+  ];
+
+  it("ranks partners by distinct datasets, then by records", () => {
+    expect(selectPartnerNames(records, pine.name, 2, () => false)).toEqual(["B", "C"]);
+  });
+
+  it("keeps partners that must be kept beyond the limit", () => {
+    expect(selectPartnerNames(records, pine.name, 1, (name) => name === "A")).toEqual(["B", "A"]);
+  });
+
+  it("finds the partner on either side of a record", () => {
+    const swapped = [makeRecord({ subject: matsutake, object: pine })];
+    expect(selectPartnerNames(swapped, pine.name, 1, () => false)).toEqual([matsutake.name]);
+  });
+});
