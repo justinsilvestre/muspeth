@@ -1,7 +1,10 @@
 import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import type { RankedPath } from "../shared/findPaths";
 import type { Connection, GraphNode } from "../shared/graph";
+import type { GraphEdge } from "../shared/graphExport";
+import type { PlacedConnection } from "../shared/placeAndPeriodQuery";
 import type { Taxon, TaxonPlacement } from "../shared/taxonomy";
 import { App } from "./App";
 import { ColorSchemeProvider } from "./theme/useColorScheme";
@@ -69,20 +72,54 @@ const pinePlacement = {
   qualityFlags: [],
 } satisfies TaxonPlacement;
 
-const responsesByPath = {
+const pathogenEdge = {
+  id: 1,
+  sourceNodeId: "nematode",
+  targetNodeId: "pine",
+  kind: "interaction",
+  relation: "pathogenOf",
+  basis: "observed",
+  source: "test",
+  qualityFlags: [],
+} satisfies GraphEdge;
+
+const pathFromNematode = {
+  nodeIds: ["nematode", "pine"],
+  steps: [{ fromNodeId: "nematode", toNodeId: "pine", connections: [pathogenEdge] }],
+  kinds: ["interaction"],
+  cost: 1,
+} satisfies RankedPath;
+
+const pathogenInKyoto = {
+  ...pathogenEdge,
+  place: "Kyoto",
+  latitude: 35.03,
+  longitude: 135.78,
+  date: "1990/1992",
+  licence: "CC0-1.0",
+  distanceKm: null,
+} satisfies PlacedConnection;
+
+const responsesByPathname = {
   "/api/nodes": { nodes: [pine, nematode] },
+  "/api/sources": { sources: ["test"] },
+  "/api/paths": { paths: [pathFromNematode] },
+  "/api/connections": { connections: [pathogenInKyoto] },
   "/api/taxonomy": { taxa: [pinus], placements: [pinePlacement] },
 } satisfies Record<string, unknown>;
 
+/** Answers each API request with sample data, returning the stub so that tests can inspect requests. */
 function stubApi() {
-  vi.stubGlobal(
-    "fetch",
-    vi.fn(async (path: string) =>
-      Response.json(
-        responsesByPath[path as keyof typeof responsesByPath] ?? { connections: [pathogenOfPine] },
-      ),
-    ),
-  );
+  const fetch = vi.fn(async (path: string) => {
+    const pathname = path.split("?")[0] as keyof typeof responsesByPathname;
+    return Response.json(responsesByPathname[pathname] ?? { connections: [pathogenOfPine] });
+  });
+  vi.stubGlobal("fetch", fetch);
+  return fetch;
+}
+
+function listRequestedPaths(fetch: ReturnType<typeof stubApi>) {
+  return fetch.mock.calls.map(([path]) => path);
 }
 
 function renderApp(path = "/") {
@@ -161,6 +198,116 @@ describe("App", () => {
       expect(
         await screen.findByRole("region", { name: "Connections of Japanese red pine" }),
       ).toBeDefined();
+    });
+  });
+
+  describe("when a kind of connection is checked", () => {
+    it("asks for connections of that kind only", async () => {
+      const fetch = stubApi();
+      renderApp("/organisms/pine");
+      fireEvent.click(await screen.findByText("Filters"));
+      fireEvent.click(screen.getByRole("checkbox", { name: "likeness" }));
+      expect(listRequestedPaths(fetch)).toContain("/api/nodes/pine/connections?kind=likeness");
+    });
+  });
+
+  describe("when connections with a quality flag are hidden", () => {
+    it("asks for connections without that flag", async () => {
+      const fetch = stubApi();
+      renderApp("/organisms/pine");
+      fireEvent.click(await screen.findByText("Filters"));
+      fireEvent.change(screen.getByRole("combobox", { name: "suspected error" }), {
+        target: { value: "hide" },
+      });
+      expect(listRequestedPaths(fetch)).toContain(
+        "/api/nodes/pine/connections?notFlaggedWith=suspected_error",
+      );
+    });
+  });
+
+  describe("at an organism's address with filters", () => {
+    it("asks for the filtered connections", async () => {
+      const fetch = stubApi();
+      renderApp("/organisms/pine?basis=computed");
+      await screen.findByText("pathogenOf");
+      expect(listRequestedPaths(fetch)).toContain("/api/nodes/pine/connections?basis=computed");
+    });
+
+    it("keeps the filters when another organism is chosen", async () => {
+      stubApi();
+      renderApp("/organisms/pine?basis=computed");
+      const link = await screen.findByRole("link", { name: /pinewood nematode/ });
+      expect(link.getAttribute("href")).toBe("/organisms/nematode?basis=computed");
+    });
+  });
+
+  describe("at an address with an invalid filter", () => {
+    it("says what it could not read", async () => {
+      stubApi();
+      renderApp("/organisms/pine?kind=friendship");
+      expect((await screen.findByRole("alert")).textContent).toMatch(/Unknown kind "friendship"/);
+    });
+  });
+
+  describe("at the address of paths between two organisms", () => {
+    it("names the nodes along each path", async () => {
+      stubApi();
+      renderApp("/paths?from=nematode&to=pine");
+      const paths = await screen.findByRole("list", { name: "Paths" });
+      expect(within(paths).getByRole("heading").textContent).toBe(
+        "1. pinewood nematode → Japanese red pine",
+      );
+    });
+
+    it("states each step's connections", async () => {
+      stubApi();
+      renderApp("/paths?from=nematode&to=pine");
+      const steps = await screen.findByRole("list", { name: "Steps of path 1" });
+      expect(within(steps).getByRole("listitem").textContent).toMatch(
+        /^pinewood nematode pathogenOf Japanese red pine/,
+      );
+    });
+  });
+
+  describe("when two organisms are picked for a path", () => {
+    it("asks for the paths between them", async () => {
+      const fetch = stubApi();
+      renderApp("/paths");
+      fireEvent.change(await screen.findByRole("combobox", { name: "From" }), {
+        target: { value: "nematode" },
+      });
+      fireEvent.change(screen.getByRole("combobox", { name: "To" }), {
+        target: { value: "pine" },
+      });
+      expect(listRequestedPaths(fetch)).toContain("/api/paths?from=nematode&to=pine");
+    });
+  });
+
+  describe("at the address of a period", () => {
+    it("lists the connections recorded then, with where and when", async () => {
+      stubApi();
+      renderApp("/places?from=1990");
+      const connections = await screen.findByRole("list", {
+        name: "Connections by place and period",
+      });
+      expect(within(connections).getByRole("listitem").textContent).toContain(
+        "Kyoto · 35.03, 135.78 · 1990/1992",
+      );
+    });
+  });
+
+  describe("when a place is searched", () => {
+    it("asks for the connections near it", async () => {
+      const fetch = stubApi();
+      renderApp("/places");
+      fireEvent.change(await screen.findByRole("textbox", { name: "Latitude" }), {
+        target: { value: "35.01" },
+      });
+      fireEvent.change(screen.getByRole("textbox", { name: "Longitude" }), {
+        target: { value: "135.77" },
+      });
+      fireEvent.click(screen.getByRole("button", { name: "Search" }));
+      expect(listRequestedPaths(fetch)).toContain("/api/connections?near=35.01%2C135.77");
     });
   });
 

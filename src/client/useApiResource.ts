@@ -25,6 +25,12 @@ export function useApiResource<Data>(path: string) {
 
 async function fetchJson<Data>(path: string, signal: AbortSignal) {
   const response = await fetch(path, { signal });
-  if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+  if (!response.ok) throw new Error(await describeFailure(response));
   return (await response.json()) as Data;
+}
+
+/** Describes a failed response by the error the API gave, or else by its status. */
+async function describeFailure(response: Response) {
+  const body = (await response.json().catch(() => null)) as { error?: unknown } | null;
+  return typeof body?.error === "string" ? body.error : `${response.status} ${response.statusText}`;
 }
