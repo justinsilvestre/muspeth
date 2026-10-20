@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { Link } from "react-router";
 import type { GraphNode } from "../shared/graph";
-import { nodeDisplayName } from "./nodeDisplayName";
+import { findDistinctName } from "./nodeDisplayName";
 import { organismPath } from "./organismPath";
 
 type NodeListProps = {
@@ -26,14 +26,30 @@ export function NodeList({ nodes, selectedNodeId }: NodeListProps) {
                 node.id === selectedNodeId && "bg-selected hover:bg-selected",
               )}
             >
-              <span className="block">{nodeDisplayName(node, "en")}</span>
-              <span className="block text-muted text-sm">
-                <i>{node.label}</i> · {nodeDisplayName(node, "ja")}
-              </span>
+              <NodeNames node={node} />
             </Link>
           </li>
         ))}
       </ul>
     </section>
+  );
+}
+
+/** Shows the English name, the scientific label and the Japanese name, each only once. */
+function NodeNames({ node }: { node: GraphNode }) {
+  const englishName = findDistinctName(node, "en");
+  const japaneseName = findDistinctName(node, "ja");
+
+  return (
+    <>
+      <span className="block">{englishName ?? <i>{node.label}</i>}</span>
+      {(englishName || japaneseName) && (
+        <span className="block text-muted text-sm">
+          {englishName && <i>{node.label}</i>}
+          {englishName && japaneseName && " · "}
+          {japaneseName}
+        </span>
+      )}
+    </>
   );
 }
