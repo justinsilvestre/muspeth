@@ -20,6 +20,16 @@ describe("toGlobiImportSql", () => {
     expect(toGlobiImportSql([], [])).toMatch(/^DELETE FROM connections WHERE source = 'globi';/);
   });
 
+  it("removes nodes from an earlier GloBI import that this one no longer adds", () => {
+    expect(toGlobiImportSql([node], [], ["wikidata:Q1", "wikidata:Q20686564"])).toContain(
+      "DELETE FROM nodes WHERE id IN ('wikidata:Q20686564');",
+    );
+  });
+
+  it("removes no nodes when every earlier one is added again", () => {
+    expect(toGlobiImportSql([node], [], ["wikidata:Q1"])).not.toContain("DELETE FROM nodes");
+  });
+
   it("leaves existing nodes as they are", () => {
     expect(toGlobiImportSql([node], [])).toContain("ON CONFLICT (id) DO NOTHING");
   });

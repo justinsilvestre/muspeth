@@ -35,8 +35,10 @@ const organisms = queryD1<{ id: string; label: string; is_start: number }>(
     OR NOT EXISTS (SELECT 1 FROM connections WHERE source_node_id = nodes.id OR target_node_id = nodes.id) AS is_start
   FROM nodes WHERE kind = 'organism'`,
 );
-const existingIdByName = new Map(organisms.map(({ id, label }) => [label, id]));
-const startNames = new Set(organisms.filter(({ is_start }) => is_start).map(({ label }) => label));
+const startOrganisms = organisms.filter(({ is_start }) => is_start);
+const previousNodeIds = organisms.filter(({ is_start }) => !is_start).map(({ id }) => id);
+const existingIdByName = new Map(startOrganisms.map(({ id, label }) => [label, id]));
+const startNames = new Set(startOrganisms.map(({ label }) => label));
 const records: GlobiRecord[] = [];
 for (const name of startNames) records.push(...(await collectRecords(name)));
 const taxa = new Map(
@@ -57,7 +59,7 @@ const nodes = [...taxa.values()].map((taxon) => ({
 const connections = mergeConnections(
   records.map((record) => toConnectionDraft(record, identities)),
 );
-executeD1Script(toGlobiImportSql(nodes, connections));
+executeD1Script(toGlobiImportSql(nodes, connections, previousNodeIds));
 console.log(
   `Stored ${connections.length} connections among ${new Set(nodes.map(({ id }) => id)).size} organisms.`,
 );
