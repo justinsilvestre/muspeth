@@ -13,7 +13,7 @@ export type WikidataTaxon = {
   externalIds: string[];
 };
 
-type WikidataChoice = { taxon: WikidataTaxon; isAmbiguous: boolean };
+export type WikidataChoice = { taxon: WikidataTaxon; isAmbiguous: boolean };
 
 /**
  * Picks the Wikidata item for a scientific name among items whose taxon name matches it exactly.
