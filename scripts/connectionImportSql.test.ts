@@ -2,6 +2,14 @@ import { describe, expect, it } from "vitest";
 import { toConnectionImportSql } from "./connectionImportSql.ts";
 import type { ConnectionDraft, NodeDraft } from "./graphDrafts.ts";
 
+const study = {
+  datasetId: "globalbioticinteractions/eppo",
+  datasetCitation: "EPPO.",
+  studyCitation: "Mamiya 1983.",
+  studyUrl: "https://doi.org/10.1146/annurev.py.21.090183.001221",
+  recordCount: 3,
+};
+
 function makeNode(overrides: Partial<NodeDraft> = {}) {
   return {
     id: "wikidata:Q1",
@@ -22,15 +30,7 @@ function makeConnection(overrides: Partial<ConnectionDraft> = {}) {
     taxonomicLevel: "species",
     licence: "CC0-1.0",
     qualityFlags: ["unmatched_name"],
-    sources: [
-      {
-        datasetId: "globalbioticinteractions/eppo",
-        datasetCitation: "EPPO.",
-        studyCitation: "Mamiya 1983.",
-        studyUrl: "https://doi.org/10.1146/annurev.py.21.090183.001221",
-        recordCount: 3,
-      },
-    ],
+    sources: [study],
     ...overrides,
   } satisfies ConnectionDraft;
 }
@@ -67,7 +67,7 @@ describe("toConnectionImportSql", () => {
     });
 
     it("splits long lists of earlier nodes across statements", () => {
-      const previousIds = Array.from({ length: 501 }, (_, index) => `test:${index}`);
+      const previousIds = Array.from({ length: 5000 }, (_, index) => `test:${index}`);
       const sql = toConnectionImportSql("test", [], [], previousIds);
       expect(sql.match(/DELETE FROM nodes/g)).toHaveLength(2);
     });
@@ -137,6 +137,13 @@ describe("toConnectionImportSql", () => {
       expect(toConnectionImportSql("test", [], [makeConnection()])).toContain(
         "SELECT (SELECT MAX(id) FROM connections), studies.* FROM (VALUES ('globalbioticinteractions/eppo', 'EPPO.', 'Mamiya 1983.', 'https://doi.org/10.1146/annurev.py.21.090183.001221', 3)) AS studies;",
       );
+    });
+
+    it("splits a long list of studies across statements", () => {
+      const longStudy = { ...study, studyCitation: "A study.".repeat(2000) };
+      const connection = makeConnection({ sources: [longStudy, longStudy] });
+      const sql = toConnectionImportSql("test", [], [connection]);
+      expect(sql.match(/INSERT INTO connection_sources/g)).toHaveLength(2);
     });
 
     it("writes no sources for a connection without any", () => {

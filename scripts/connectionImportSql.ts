@@ -1,9 +1,12 @@
-import type { NodeName } from "../src/shared/graph.ts";
+import type { ConnectionSource, NodeName } from "../src/shared/graph.ts";
 import type { ConnectionDraft, NodeDraft } from "./graphDrafts.ts";
 import { quoteSql } from "./quoteSql.ts";
 
-/** Keeps each statement that lists node IDs well under D1's limit on statement length. */
-const nodeIdsPerStatement = 500;
+/**
+ * The most characters of listed values in one statement.
+ * It keeps statements under D1's limit of 100 kB even when every character takes three bytes.
+ */
+const maxListLength = 30_000;
 
 /**
  * Writes SQL that replaces what an earlier run of the same import wrote.
@@ -24,23 +27,30 @@ export function toConnectionImportSql(
   return [
     `DELETE FROM connection_sources WHERE connection_id IN (SELECT id FROM connections WHERE source = ${quoteSql(source)});`,
     `DELETE FROM connections WHERE source = ${quoteSql(source)};`,
-    ...splitIntoBatches(staleIds).flatMap((ids) => toStaleNodesSql(source, ids)),
+    ...splitIntoBatches(staleIds.map(quoteSql)).flatMap((ids) => toStaleNodesSql(source, ids)),
     ...uniqueNodes.map((node) => toNodeSql(source, node)),
     ...nodes.flatMap(({ id, names }) => names.map((name) => toNodeNameSql(id, name))),
     ...connections.flatMap((connection) => toConnectionSql(source, connection)),
   ].join("\n");
 }
 
-function splitIntoBatches(ids: string[]) {
+/** Groups SQL values so that each group can be listed in one statement. */
+function splitIntoBatches(values: string[]) {
   const batches: string[][] = [];
-  for (let start = 0; start < ids.length; start += nodeIdsPerStatement) {
-    batches.push(ids.slice(start, start + nodeIdsPerStatement));
+  let length = Infinity;
+  for (const value of values) {
+    if (length + value.length > maxListLength) {
+      batches.push([]);
+      length = 0;
+    }
+    batches.at(-1)?.push(value);
+    length += value.length;
   }
   return batches;
 }
 
-function toStaleNodesSql(source: string, ids: string[]) {
-  const isStale = `source = ${quoteSql(source)} AND id IN (${ids.map(quoteSql).join(", ")})`;
+function toStaleNodesSql(source: string, quotedIds: string[]) {
+  const isStale = `source = ${quoteSql(source)} AND id IN (${quotedIds.join(", ")})`;
   const isConnected =
     "connections.source_node_id = nodes.id OR connections.target_node_id = nodes.id";
   return [
@@ -83,7 +93,9 @@ function toConnectionSql(source: string, connection: ConnectionDraft) {
   return [
     `INSERT INTO connections (source_node_id, target_node_id, kind, relation, basis, taxonomic_level, weight, place, latitude, longitude, date, source, licence, quality_flags)
   VALUES (${values.map(quoteSql).join(", ")});`,
-    ...(connection.sources.length > 0 ? [toConnectionSourcesSql(connection)] : []),
+    ...splitIntoBatches(connection.sources.map(toConnectionSourceValues)).map(
+      toConnectionSourcesSql,
+    ),
   ];
 }
 
@@ -91,12 +103,18 @@ function toConnectionSql(source: string, connection: ConnectionDraft) {
  * Credits the studies to the connection inserted just before them.
  * SQLite gives a new row an ID one above the largest so far, so the largest ID is that connection's.
  */
-function toConnectionSourcesSql({ sources }: ConnectionDraft) {
-  const rows = sources.map((study) =>
-    [study.datasetId, study.datasetCitation, study.studyCitation, study.studyUrl, study.recordCount]
-      .map(quoteSql)
-      .join(", "),
-  );
+function toConnectionSourcesSql(rows: string[]) {
   return `INSERT INTO connection_sources (connection_id, dataset_id, dataset_citation, study_citation, study_url, record_count)
-  SELECT (SELECT MAX(id) FROM connections), studies.* FROM (VALUES (${rows.join("), (")})) AS studies;`;
+  SELECT (SELECT MAX(id) FROM connections), studies.* FROM (VALUES ${rows.join(", ")}) AS studies;`;
+}
+
+function toConnectionSourceValues(study: ConnectionSource) {
+  const values = [
+    study.datasetId,
+    study.datasetCitation,
+    study.studyCitation,
+    study.studyUrl,
+    study.recordCount,
+  ];
+  return `(${values.map(quoteSql).join(", ")})`;
 }
