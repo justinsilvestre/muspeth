@@ -1,7 +1,10 @@
 import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { Connection, GraphNode } from "../shared/graph";
+import type { Taxon, TaxonPlacement } from "../shared/taxonomy";
 import { App } from "./App";
+
+vi.mock("./taxonomy/TaxonTreeScene", () => ({ default: () => null }));
 
 const pine = {
   id: "pine",
@@ -30,12 +33,30 @@ const pathogenOfPine = {
   qualityFlags: [],
 } satisfies Connection;
 
+const pinus = {
+  id: "pinus",
+  parentId: null,
+  rank: "genus",
+  name: "Pinus",
+} satisfies Taxon;
+
+const pinePlacement = {
+  nodeId: "pine",
+  taxonId: "pinus",
+  qualityFlags: [],
+} satisfies TaxonPlacement;
+
+const responsesByPath = {
+  "/api/nodes": { nodes: [pine, nematode] },
+  "/api/taxonomy": { taxa: [pinus], placements: [pinePlacement] },
+} satisfies Record<string, unknown>;
+
 function stubApi() {
   vi.stubGlobal(
     "fetch",
     vi.fn(async (path: string) =>
       Response.json(
-        path === "/api/nodes" ? { nodes: [pine, nematode] } : { connections: [pathogenOfPine] },
+        responsesByPath[path as keyof typeof responsesByPath] ?? { connections: [pathogenOfPine] },
       ),
     ),
   );
@@ -61,6 +82,16 @@ describe("App", () => {
       const connections = await screen.findByRole("region", { name: /Connections of/ });
       const [connection] = await within(connections).findAllByRole("listitem");
       expect(connection?.textContent).toMatch(/^pinewood nematode pathogenOf Japanese red pine/);
+    });
+  });
+
+  describe("when the taxonomic tree is chosen", () => {
+    it("outlines the organisms within their taxa", async () => {
+      stubApi();
+      render(<App />);
+      fireEvent.click(await screen.findByRole("button", { name: "Taxonomic tree" }));
+      const outline = await screen.findByRole("list", { name: "Taxonomic tree outline" });
+      expect(within(outline).getByText("genus Pinus").textContent).toMatch(/Japanese red pine$/);
     });
   });
 
