@@ -15,7 +15,7 @@ export function TaxonomyView({ nodes }: { nodes: GraphNode[] }) {
       <h2 id="taxonomy-heading" className="mb-1 font-medium text-lg">
         Taxonomic tree
       </h2>
-      <p className="mb-3 text-sm text-stone-600">
+      <p className="mb-3 text-muted text-sm">
         Lineages from the GBIF backbone taxonomy (CC BY 4.0). Drag to turn the tree; scroll to zoom.
       </p>
       {resource.status === "loading" && <p>Loading the taxonomy…</p>}
@@ -32,7 +32,7 @@ export function TaxonomyView({ nodes }: { nodes: GraphNode[] }) {
 function TaxonomyTree({ tree }: { tree: ReturnType<typeof buildTaxonTree> }) {
   return (
     <>
-      <div aria-hidden="true" className="h-[70vh] rounded border border-stone-200 bg-stone-50">
+      <div aria-hidden="true" className="h-[70vh] rounded border border-line bg-panel">
         <Suspense fallback={<p className="p-3">Loading the tree…</p>}>
           <TaxonTreeScene tree={tree} />
         </Suspense>

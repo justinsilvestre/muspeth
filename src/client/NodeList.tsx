@@ -22,12 +22,12 @@ export function NodeList({ nodes, selectedNodeId, onSelect }: NodeListProps) {
               aria-pressed={node.id === selectedNodeId}
               onClick={() => onSelect(node.id)}
               className={clsx(
-                "w-full rounded px-3 py-2 text-left hover:bg-stone-100",
-                node.id === selectedNodeId && "bg-stone-200 hover:bg-stone-200",
+                "w-full rounded px-3 py-2 text-left hover:bg-subtle",
+                node.id === selectedNodeId && "bg-selected hover:bg-selected",
               )}
             >
               <span className="block">{nodeDisplayName(node, "en")}</span>
-              <span className="block text-sm text-stone-600">
+              <span className="block text-muted text-sm">
                 <i>{node.label}</i> · {nodeDisplayName(node, "ja")}
               </span>
             </button>

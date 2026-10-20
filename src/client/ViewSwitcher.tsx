@@ -14,7 +14,7 @@ type ViewSwitcherProps = {
 
 export function ViewSwitcher({ view, onChange }: ViewSwitcherProps) {
   return (
-    <nav aria-label="Views" className="mb-6 flex gap-1 border-stone-200 border-b">
+    <nav aria-label="Views" className="mb-6 flex gap-1 border-line border-b">
       {(Object.keys(viewLabels) as View[]).map((candidate) => (
         <button
           key={candidate}
@@ -24,8 +24,8 @@ export function ViewSwitcher({ view, onChange }: ViewSwitcherProps) {
           className={clsx(
             "-mb-px border-b-2 px-3 py-2",
             candidate === view
-              ? "border-stone-900 font-medium"
-              : "border-transparent text-stone-600 hover:text-stone-900",
+              ? "border-ink font-medium"
+              : "border-transparent text-muted hover:text-ink",
           )}
         >
           {viewLabels[candidate]}

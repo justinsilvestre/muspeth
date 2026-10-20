@@ -28,15 +28,13 @@ export function TreeLabelOverlay(props: {
           }}
           className={clsx(
             "absolute top-0 left-0 whitespace-nowrap transition-opacity",
-            node.rank === "organism"
-              ? "font-medium text-sm text-stone-900"
-              : "text-stone-600 text-xs",
+            node.rank === "organism" ? "font-medium text-ink text-sm" : "text-muted text-xs",
             !isAlwaysLabelled(node.rank) && !lineageIds.has(node.id) && "opacity-0",
           )}
         >
           {node.label}
           {node.rank !== "organism" && node.rank !== "root" && (
-            <span className="ml-1 text-stone-400">{node.rank}</span>
+            <span className="ml-1 text-faint">{node.rank}</span>
           )}
         </span>
       ))}

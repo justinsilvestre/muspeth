@@ -3,6 +3,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import type { Connection, GraphNode } from "../shared/graph";
 import type { Taxon, TaxonPlacement } from "../shared/taxonomy";
 import { App } from "./App";
+import { ColorSchemeProvider } from "./theme/useColorScheme";
 
 vi.mock("./taxonomy/TaxonTreeScene", () => ({ default: () => null }));
 
@@ -64,6 +65,8 @@ function stubApi() {
 
 afterEach(() => {
   cleanup();
+  localStorage.clear();
+  document.documentElement.classList.remove("dark");
   vi.unstubAllGlobals();
 });
 
@@ -92,6 +95,19 @@ describe("App", () => {
       fireEvent.click(await screen.findByRole("button", { name: "Taxonomic tree" }));
       const outline = await screen.findByRole("list", { name: "Taxonomic tree outline" });
       expect(within(outline).getByText("genus Pinus").textContent).toMatch(/Japanese red pine$/);
+    });
+  });
+
+  describe("when the dark color scheme is chosen", () => {
+    it("marks the page as dark", async () => {
+      stubApi();
+      render(
+        <ColorSchemeProvider>
+          <App />
+        </ColorSchemeProvider>,
+      );
+      fireEvent.click(screen.getByRole("button", { name: "Dark" }));
+      expect(document.documentElement.classList.contains("dark")).toBe(true);
     });
   });
 

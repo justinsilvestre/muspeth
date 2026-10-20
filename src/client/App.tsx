@@ -3,6 +3,7 @@ import type { GraphNode } from "../shared/graph";
 import { ConnectionList } from "./ConnectionList";
 import { NodeList } from "./NodeList";
 import { TaxonomyView } from "./taxonomy/TaxonomyView";
+import { ColorSchemeSwitcher } from "./theme/ColorSchemeSwitcher";
 import { useApiResource } from "./useApiResource";
 import { type View, ViewSwitcher } from "./ViewSwitcher";
 
@@ -12,8 +13,11 @@ export function App() {
   const [view, setView] = useState<View>("connections");
 
   return (
-    <main className="mx-auto max-w-4xl p-6 font-sans text-stone-900">
-      <h1 className="mb-4 font-semibold text-2xl">Multispecies ethnography</h1>
+    <main className="mx-auto max-w-4xl p-6 font-sans">
+      <header className="mb-4 flex items-center justify-between gap-4">
+        <h1 className="font-semibold text-2xl">Multispecies ethnography</h1>
+        <ColorSchemeSwitcher />
+      </header>
       <ViewSwitcher view={view} onChange={setView} />
       {nodesResource.status === "loading" && <p>Loading organisms…</p>}
       {nodesResource.status === "failed" && (
