@@ -1,14 +1,13 @@
 /**
  * Loads GloBI interaction records one step outward from the organisms that were not themselves
  * added by this import, adding the partner organisms as nodes.
- * Re-running it replaces the connections of the previous run.
+ * Re-running it replaces the connections and organisms of the previous run.
  * Usage: npm run db:import-interactions -- [--remote]
  * Without --remote, it writes to the local development database.
  */
-import { executeD1Script, queryD1 } from "./d1.ts";
+import { queryD1 } from "./d1.ts";
 import { fetchGlobiRecords, fetchTaxonLinks } from "./globiApi.ts";
 import { mergeConnections, toConnectionDraft } from "./globiConnections.ts";
-import { toGlobiImportSql } from "./globiImportSql.ts";
 import {
   type GlobiRecord,
   type GlobiTaxon,
@@ -16,6 +15,7 @@ import {
   orientRecord,
   selectPartnerNames,
 } from "./globiRecords.ts";
+import type { NodeDraft } from "./graphDrafts.ts";
 import {
   chooseWikidataTaxon,
   identifyOrganism,
@@ -24,19 +24,16 @@ import {
 } from "./organismIdentity.ts";
 import { listLinkedQids, parseTaxonLinks } from "./taxonLinks.ts";
 import { fetchWikidataQidsByTaxonName, fetchWikidataTaxa } from "./wikidataApi.ts";
+import { writeConnectionImport } from "./writeConnectionImport.ts";
 
+const source = "globi";
 const recordLimit = 20_000;
 const partnerLimit = 60;
 const concurrency = 8;
 
-const organisms = queryD1<{ id: string; label: string; is_start: number }>(
-  `SELECT id, label,
-    EXISTS (SELECT 1 FROM connections WHERE (source_node_id = nodes.id OR target_node_id = nodes.id) AND source <> 'globi')
-    OR NOT EXISTS (SELECT 1 FROM connections WHERE source_node_id = nodes.id OR target_node_id = nodes.id) AS is_start
-  FROM nodes WHERE kind = 'organism'`,
+const startOrganisms = queryD1<{ id: string; label: string }>(
+  `SELECT id, label FROM nodes WHERE kind = 'organism' AND source <> '${source}'`,
 );
-const startOrganisms = organisms.filter(({ is_start }) => is_start);
-const previousNodeIds = organisms.filter(({ is_start }) => !is_start).map(({ id }) => id);
 const existingIdByName = new Map(startOrganisms.map(({ id, label }) => [label, id]));
 const startNames = new Set(startOrganisms.map(({ label }) => label));
 const records: GlobiRecord[] = [];
@@ -51,15 +48,19 @@ const identities = new Map(
     identifyOrganism(taxon, choices.get(taxon.name) ?? null, existingIdByName.get(taxon.name)),
   ]),
 );
-const nodes = [...taxa.values()].map((taxon) => ({
-  id: identities.get(taxon.name)?.id ?? "",
-  label: taxon.name,
-  names: listOrganismNames(taxon, choices.get(taxon.name) ?? null),
-}));
+const nodes = [...taxa.values()].map(
+  (taxon) =>
+    ({
+      id: identities.get(taxon.name)?.id ?? "",
+      kind: "organism",
+      label: taxon.name,
+      names: listOrganismNames(taxon, choices.get(taxon.name) ?? null),
+    }) satisfies NodeDraft,
+);
 const connections = mergeConnections(
   records.map((record) => toConnectionDraft(record, identities)),
 );
-executeD1Script(toGlobiImportSql(nodes, connections, previousNodeIds));
+writeConnectionImport(source, nodes, connections);
 console.log(
   `Stored ${connections.length} connections among ${new Set(nodes.map(({ id }) => id)).size} organisms.`,
 );
