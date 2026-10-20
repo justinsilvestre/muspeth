@@ -21,13 +21,17 @@ export function toGlobiImportSql(
   const uniqueNodes = [...new Map(nodes.map((node) => [node.id, node])).values()];
   const staleIds = previousNodeIds.filter((id) => !uniqueNodes.some((node) => node.id === id));
   return [
+    `DELETE FROM connection_sources WHERE connection_id IN (SELECT id FROM connections WHERE source = ${quoteSql(source)});`,
     `DELETE FROM connections WHERE source = ${quoteSql(source)};`,
     ...(staleIds.length > 0
       ? [`DELETE FROM nodes WHERE id IN (${staleIds.map(quoteSql).join(", ")});`]
       : []),
     ...uniqueNodes.map(toNodeSql),
     ...uniqueNodes.flatMap(({ id, names }) => names.map((name) => toNodeNameSql(id, name))),
-    ...connections.map(toConnectionSql),
+    ...connections.flatMap((connection) => [
+      toConnectionSql(connection),
+      ...(connection.sources.length > 0 ? [toConnectionSourcesSql(connection)] : []),
+    ]),
   ].join("\n");
 }
 
@@ -50,10 +54,26 @@ function toConnectionSql(connection: ConnectionDraft) {
     "observed",
     connection.taxonomicLevel,
     source,
-    connection.citations.join("\n") || null,
     licence,
     JSON.stringify(connection.qualityFlags),
   ];
-  return `INSERT INTO connections (source_node_id, target_node_id, kind, relation, basis, taxonomic_level, source, citation, licence, quality_flags)
+  return `INSERT INTO connections (source_node_id, target_node_id, kind, relation, basis, taxonomic_level, source, licence, quality_flags)
   VALUES (${values.map(quoteSql).join(", ")});`;
+}
+
+/** Matches the sources to their connection, which merging leaves as the only one of its kind. */
+function toConnectionSourcesSql({
+  sourceNodeId,
+  targetNodeId,
+  relation,
+  sources,
+}: ConnectionDraft) {
+  const rows = sources.map((study) =>
+    [study.datasetId, study.datasetCitation, study.studyCitation, study.studyUrl, study.recordCount]
+      .map(quoteSql)
+      .join(", "),
+  );
+  return `INSERT INTO connection_sources (connection_id, dataset_id, dataset_citation, study_citation, study_url, record_count)
+  SELECT connections.id, studies.* FROM (VALUES (${rows.join("), (")})) AS studies, connections
+  WHERE connections.source = ${quoteSql(source)} AND connections.source_node_id = ${quoteSql(sourceNodeId)} AND connections.target_node_id = ${quoteSql(targetNodeId)} AND connections.relation = ${quoteSql(relation)};`;
 }

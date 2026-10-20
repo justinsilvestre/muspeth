@@ -2,6 +2,14 @@ import { describe, expect, it } from "vitest";
 import { type ConnectionDraft, mergeConnections, toConnectionDraft } from "./globiConnections.ts";
 import type { GlobiRecord } from "./globiRecords.ts";
 
+const study = {
+  datasetId: "one",
+  datasetCitation: "One.",
+  studyCitation: "A study.",
+  studyUrl: null,
+  recordCount: 1,
+};
+
 const pine = { name: "Pinus densiflora", externalId: "EOL:1", rank: "species", commonNames: null };
 const pines = { name: "Pinus", externalId: "NCBI:3337", rank: "genus", commonNames: null };
 const matsutake = {
@@ -22,7 +30,9 @@ function makeRecord(overrides: Partial<GlobiRecord> = {}) {
     relation: "symbiontOf",
     object: pine,
     datasetId: "globalbioticinteractions/globalfungi",
-    citation: "GlobalFungi.",
+    datasetCitation: "GlobalFungi.",
+    studyCitation: "Park 2020.",
+    studyUrl: "https://doi.org/10.3389/fmicb.2020.572706",
     ...overrides,
   } satisfies GlobiRecord;
 }
@@ -33,7 +43,7 @@ function makeDraft(overrides: Partial<ConnectionDraft> = {}) {
     targetNodeId: "b",
     relation: "eats",
     taxonomicLevel: "species",
-    citations: ["One."],
+    sources: [study],
     qualityFlags: [],
     ...overrides,
   } satisfies ConnectionDraft;
@@ -52,6 +62,18 @@ describe("toConnectionDraft", () => {
     expect(draft.taxonomicLevel).toBe("genus");
   });
 
+  it("credits the record's study and dataset", () => {
+    expect(toConnectionDraft(makeRecord(), identities).sources).toEqual([
+      {
+        datasetId: "globalbioticinteractions/globalfungi",
+        datasetCitation: "GlobalFungi.",
+        studyCitation: "Park 2020.",
+        studyUrl: "https://doi.org/10.3389/fmicb.2020.572706",
+        recordCount: 1,
+      },
+    ]);
+  });
+
   it("carries over the identification flags of either organism", () => {
     expect(toConnectionDraft(makeRecord(), identities).qualityFlags).toEqual([
       "ambiguous_wikidata_id",
@@ -64,9 +86,21 @@ describe("mergeConnections", () => {
     expect(mergeConnections([makeDraft(), makeDraft()])).toHaveLength(1);
   });
 
-  it("keeps each distinct citation", () => {
-    const [merged] = mergeConnections([makeDraft(), makeDraft({ citations: ["Two."] })]);
-    expect(merged?.citations).toEqual(["One.", "Two."]);
+  it("counts the records of a study that reports the interaction more than once", () => {
+    const [merged] = mergeConnections([makeDraft(), makeDraft()]);
+    expect(merged?.sources).toEqual([{ ...study, recordCount: 2 }]);
+  });
+
+  it("keeps each distinct study", () => {
+    const other = { ...study, studyCitation: "Another study." };
+    const [merged] = mergeConnections([makeDraft(), makeDraft({ sources: [other] })]);
+    expect(merged?.sources).toEqual([study, other]);
+  });
+
+  it("keeps one study reported in two datasets apart", () => {
+    const other = { ...study, datasetId: "two" };
+    const [merged] = mergeConnections([makeDraft(), makeDraft({ sources: [other] })]);
+    expect(merged?.sources).toHaveLength(2);
   });
 
   it("merges a symmetric relation recorded in both directions", () => {

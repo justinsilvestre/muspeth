@@ -12,6 +12,8 @@ export const globiFields = [
   "study_citation",
   "study_source_citation",
   "study_source_id",
+  "study_url",
+  "study_doi",
 ] as const;
 
 /**
@@ -67,7 +69,10 @@ export type GlobiRecord = {
   relation: string;
   object: GlobiTaxon;
   datasetId: string | null;
-  citation: string | null;
+  datasetCitation: string | null;
+  studyCitation: string | null;
+  /** A DOI resolver URL when the study has a DOI, otherwise the study's own address. */
+  studyUrl: string | null;
 };
 
 /** Converts GloBI's tabular JSON response into records. */
@@ -79,9 +84,15 @@ export function parseGlobiTable(table: { columns: string[]; data: (string | null
       relation: read("interaction_type") ?? "interactsWith",
       object: readTaxon(read, "target"),
       datasetId: read("study_source_id"),
-      citation: read("study_source_citation") ?? read("study_citation"),
+      datasetCitation: read("study_source_citation"),
+      studyCitation: read("study_citation"),
+      studyUrl: toStudyUrl(read("study_doi"), read("study_url")),
     } satisfies GlobiRecord;
   });
+}
+
+function toStudyUrl(doi: string | null, url: string | null) {
+  return doi ? `https://doi.org/${doi.replace(/^doi:/i, "")}` : url;
 }
 
 function readTaxon(read: (field: GlobiField) => string | null, side: "source" | "target") {
