@@ -22,6 +22,16 @@ describe("toArtworkNode", () => {
     expect(toArtworkNode(artwork).media).toEqual({
       url: "https://example.org/1.jpg",
       licence: "CC0-1.0",
+      credit: null,
+      pageUrl: "https://example.org/1",
+    });
+  });
+
+  it("credits the picture and links its own page when they are known", () => {
+    const credited = { ...artwork, imageCredit: "A. Photographer", imagePageUrl: "https://x/1" };
+    expect(toArtworkNode(credited).media).toMatchObject({
+      credit: "A. Photographer",
+      pageUrl: "https://x/1",
     });
   });
 

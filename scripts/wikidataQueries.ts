@@ -125,7 +125,8 @@ export function buildParentsQuery(taxonQids: string[]) {
 }`;
 }
 
-function toValues(qids: string[]) {
+/** Lists Wikidata items for a SPARQL VALUES clause, refusing anything but an item identifier. */
+export function toValues(qids: string[]) {
   return qids
     .map((qid) => {
       if (!/^Q\d+$/.test(qid)) throw new Error(`Not a Wikidata item identifier: ${qid}`);
