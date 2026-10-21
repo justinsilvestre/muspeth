@@ -9,6 +9,15 @@ test.describe("browsing connections", () => {
     ).toContainText(["pinewood nematode pathogenOf Japanese red pine"]);
   });
 
+  test("finds a node by a name in another language", async ({ page }) => {
+    await page.goto("/");
+    await page.getByRole("searchbox", { name: "Search nodes" }).fill("セイヨウミツバチ");
+    await page.getByRole("link", { name: /western honey bee/ }).click();
+    await expect(
+      page.getByRole("region", { name: "Connections of western honey bee" }),
+    ).toBeVisible();
+  });
+
   test("opens an organism's connections directly from its address", async ({ page }) => {
     await page.goto(`/organisms/${encodeURIComponent("wikidata:Q1044186")}`);
     await expect(
