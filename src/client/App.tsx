@@ -16,7 +16,8 @@ export function App() {
   );
 
   return (
-    <main className="mx-auto max-w-4xl p-6 font-sans">
+    // A view marked to fill the screen gets the height left below the header on wide screens.
+    <main className="mx-auto max-w-4xl p-6 font-sans md:has-[>[data-fills-screen]]:flex md:has-[>[data-fills-screen]]:h-dvh md:has-[>[data-fills-screen]]:flex-col md:has-[>[data-fills-screen]]:pb-0">
       <header className="mb-4 flex items-center justify-between gap-4">
         <h1 className="font-semibold text-2xl">Multispecies ethnography</h1>
         <ColorSchemeSwitcher />
