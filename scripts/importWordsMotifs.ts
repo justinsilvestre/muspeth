@@ -16,6 +16,7 @@ import { mapConcurrently } from "./mapConcurrently.ts";
 import { toMotifImport } from "./motifLinks.ts";
 import { toNameWordImport } from "./nameWordLinks.ts";
 import { linkFolkTaxon, type MatchedOrganism, toMatchedOrganism } from "./organismTaxa.ts";
+import { quoteSql } from "./quoteSql.ts";
 import {
   type Checklist,
   type GbifVernacularName,
@@ -38,9 +39,7 @@ const motifLimit = 25;
 const organisms = queryD1<{ id: string; label: string; connectionCount: number }>(
   `SELECT id, label, (SELECT COUNT(*) FROM connections
     WHERE (source_node_id = nodes.id OR target_node_id = nodes.id)
-      AND source NOT IN (${Object.values(sources)
-        .map((source) => `'${source}'`)
-        .join(", ")})
+      AND source NOT IN (${Object.values(sources).map(quoteSql).join(", ")})
   ) AS connectionCount FROM nodes WHERE kind = 'organism' ORDER BY id`,
 );
 const labelsById = new Map(organisms.map(({ id, label }) => [id, label]));
