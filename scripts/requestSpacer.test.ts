@@ -1,17 +1,30 @@
 import { describe, expect, it } from "vitest";
-import { createRequestSpacer } from "./requestSpacer.ts";
+import { scheduleTurn } from "./requestSpacer.ts";
 
-describe("createRequestSpacer", () => {
-  it("makes concurrent callers start at least one interval apart", async () => {
-    const waitForTurn = createRequestSpacer(30);
-    const starts: number[] = [];
-    await Promise.all(
-      [1, 2, 3].map(async () => {
-        await waitForTurn();
-        starts.push(Date.now());
-      }),
-    );
-    const gaps = starts.slice(1).map((start, index) => start - (starts[index] ?? 0));
-    expect(Math.min(...gaps)).toBeGreaterThanOrEqual(25);
+describe("scheduleTurn", () => {
+  describe("when the earliest next start has passed", () => {
+    it("lets the caller start without waiting", () => {
+      expect(scheduleTurn(1000, 900, 30).waitMilliseconds).toBe(0);
+    });
+
+    it("sets the next start one interval after now", () => {
+      expect(scheduleTurn(1000, 900, 30).nextStart).toBe(1030);
+    });
+  });
+
+  describe("when the earliest next start is still ahead", () => {
+    it("makes the caller wait until the earliest next start", () => {
+      expect(scheduleTurn(1000, 1020, 30).waitMilliseconds).toBe(20);
+    });
+
+    it("sets the next start one interval after the earliest next start", () => {
+      expect(scheduleTurn(1000, 1020, 30).nextStart).toBe(1050);
+    });
+  });
+
+  describe("when the earliest next start is now", () => {
+    it("lets the caller start without waiting", () => {
+      expect(scheduleTurn(1000, 1000, 30).waitMilliseconds).toBe(0);
+    });
   });
 });
