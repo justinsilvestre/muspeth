@@ -5,6 +5,7 @@ import { buildPathGraph } from "../shared/pathGraph";
 import { type PathQuery, type PathsResponse, pathNeighborLimit } from "../shared/pathQuery";
 import { connectionFilterSql } from "./connectionFilterSql";
 import { type GraphEdgeRow, graphEdgeColumns, toGraphEdge } from "./graphEdgeRow";
+import { type NodeMediaRow, toNodeMedia } from "./graphQueries";
 import { isOneOf } from "./sqlCondition";
 import type { SqlDatabase } from "./sqlDatabase";
 
@@ -13,7 +14,8 @@ import type { SqlDatabase } from "./sqlDatabase";
  * Every connection on a path of n steps touches a node fewer than n/2 steps from one end or the other.
  * From each node, the search follows at most `neighborLimit` neighbours, those with the fewest
  * connections first, since paths through nodes with many connections rank lower.
- * The result reports whether that limit left out any neighbour of a node the search followed.
+ * The result reports whether that limit left out any neighbour of a node the search followed,
+ * and gives the images of the nodes on the paths.
  */
 export async function findPathsBetween(
   db: SqlDatabase,
@@ -32,7 +34,8 @@ export async function findPathsBetween(
     maxSteps: query.maxSteps,
   });
   const truncated = expandedNodeIds.some((id) => (degrees.get(id) ?? 0) > neighborLimit);
-  return { paths, truncated } satisfies PathsResponse;
+  const media = await listNodeMedia(db, [...new Set(paths.flatMap(({ nodeIds }) => nodeIds))]);
+  return { paths, truncated, media } satisfies PathsResponse;
 }
 
 /**
@@ -115,6 +118,19 @@ async function countNeighbors(db: SqlDatabase, nodeIds: string[], filter: Connec
     .bind(...bySource.bindings, ...condition.bindings, ...byTarget.bindings, ...condition.bindings)
     .all<{ node_id: string; degree: number }>();
   return new Map(results.map(({ node_id, degree }) => [node_id, degree]));
+}
+
+/** Gives the images of the given nodes, keyed by node ID. Nodes without an image are left out. */
+async function listNodeMedia(db: SqlDatabase, nodeIds: string[]) {
+  const byId = isOneOf("id", nodeIds);
+  const { results } = await db
+    .prepare(
+      `SELECT id, media_url, media_licence, media_credit, media_page_url FROM nodes
+      WHERE media_url IS NOT NULL AND media_licence IS NOT NULL AND ${byId.sql}`,
+    )
+    .bind(...byId.bindings)
+    .all<NodeMediaRow>();
+  return Object.fromEntries(results.map((row) => [row.id, toNodeMedia(row)]));
 }
 
 function listNodeIds(edges: GraphEdge[]) {
