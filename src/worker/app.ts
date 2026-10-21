@@ -1,4 +1,5 @@
 import { type Context, Hono } from "hono";
+import { createMiddleware } from "hono/factory";
 import { parseConnectionFilter } from "../shared/connectionFilter";
 import { parsePathQuery } from "../shared/pathQuery";
 import { parsePlaceAndPeriodQuery } from "../shared/placeAndPeriodQuery";
@@ -13,9 +14,17 @@ import { listTaxa, listTaxonPlacements } from "./taxonomyQueries";
 type AppEnv = { Bindings: { DB: SqlDatabase } };
 type AppContext = Context<AppEnv>;
 
+/** Lets browsers reuse a successful answer for an hour, since the data changes only on deploy. */
+const cacheData = createMiddleware(async (context, next) => {
+  await next();
+  if (context.res.ok) context.header("Cache-Control", "public, max-age=3600");
+});
+
 const app = new Hono<AppEnv>()
   .basePath("/api")
   .get("/health", (context) => context.json({ ok: true }))
+  // Registered after the health check, so that it applies to every other route.
+  .use(cacheData)
   .get("/nodes", async (context) => context.json({ nodes: await listNodes(context.env.DB) }))
   .get("/nodes/:id/connections", async (context) => {
     const nodeId = context.req.param("id");
