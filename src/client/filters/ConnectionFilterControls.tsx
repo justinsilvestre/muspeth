@@ -1,5 +1,6 @@
 import { type ConnectionFilter, emptyConnectionFilter } from "../../shared/connectionFilter";
 import { connectionBases, connectionKinds } from "../../shared/graph";
+import { precomputedResponsePaths } from "../../shared/precomputedResponsePaths";
 import { sourceDisplayName } from "../sourceDisplayName";
 import { useApiResource } from "../useApiResource";
 import { CheckboxGroup } from "./CheckboxGroup";
@@ -12,7 +13,9 @@ type ConnectionFilterControlsProps = {
 
 /** Lets the reader narrow connections by kind, basis, source and quality flag. */
 export function ConnectionFilterControls({ filter, onChange }: ConnectionFilterControlsProps) {
-  const sourcesResource = useApiResource<{ sources: string[] }>("/api/sources");
+  const sourcesResource = useApiResource<{ sources: string[] }>(
+    precomputedResponsePaths["/api/sources"],
+  );
   const sources = sourcesResource.status === "loaded" ? sourcesResource.data.sources : [];
   const activeCount = Object.values(filter).reduce((count, values) => count + values.length, 0);
 

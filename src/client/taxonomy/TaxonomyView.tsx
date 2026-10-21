@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect, useReducer, useState } from "react";
 import type { GraphNode } from "../../shared/graph";
+import { precomputedResponsePaths } from "../../shared/precomputedResponsePaths";
 import type { Taxon, TaxonPlacement } from "../../shared/taxonomy";
 import { useApiResource } from "../useApiResource";
 import { buildTaxonTree } from "./buildTaxonTree";
@@ -15,7 +16,9 @@ import { TaxonTreeOutline } from "./TaxonTreeOutline";
 const TaxonTreeScene = lazy(() => import("./TaxonTreeScene"));
 
 export function TaxonomyView({ nodes }: { nodes: GraphNode[] }) {
-  const resource = useApiResource<{ taxa: Taxon[]; placements: TaxonPlacement[] }>("/api/taxonomy");
+  const resource = useApiResource<{ taxa: Taxon[]; placements: TaxonPlacement[] }>(
+    precomputedResponsePaths["/api/taxonomy"],
+  );
 
   return (
     <section aria-labelledby="taxonomy-heading">
