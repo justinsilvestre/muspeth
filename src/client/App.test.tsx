@@ -154,7 +154,7 @@ describe("App", () => {
       fireEvent.click(await screen.findByRole("link", { name: /Japanese red pine/ }));
       const connections = await screen.findByRole("region", { name: /Connections of/ });
       const [connection] = await within(connections).findAllByRole("listitem");
-      expect(connection?.textContent).toMatch(/^pinewood nematode pathogenOf Japanese red pine/);
+      expect(connection?.textContent).toMatch(/^pinewood nematode pathogen of Japanese red pine/);
     });
   });
 
@@ -230,15 +230,17 @@ describe("App", () => {
     it("asks for the filtered connections", async () => {
       const fetch = stubApi();
       renderApp("/organisms/pine?basis=computed");
-      await screen.findByText("pathogenOf");
+      await screen.findByText("pathogen of");
       expect(listRequestedPaths(fetch)).toContain("/api/nodes/pine/connections?basis=computed");
     });
 
     it("keeps the filters when another organism is chosen", async () => {
       stubApi();
       renderApp("/organisms/pine?basis=computed");
-      const link = await screen.findByRole("link", { name: /pinewood nematode/ });
-      expect(link.getAttribute("href")).toBe("/organisms/nematode?basis=computed");
+      const links = await screen.findAllByRole("link", { name: /pinewood nematode/ });
+      expect(links.map((link) => link.getAttribute("href"))).toContain(
+        "/organisms/nematode?basis=computed",
+      );
     });
   });
 
@@ -265,7 +267,7 @@ describe("App", () => {
       renderApp("/paths?from=nematode&to=pine");
       const steps = await screen.findByRole("list", { name: "Steps of path 1" });
       expect(within(steps).getByRole("listitem").textContent).toMatch(
-        /^pinewood nematode pathogenOf Japanese red pine/,
+        /^pinewood nematode pathogen of Japanese red pine/,
       );
     });
   });

@@ -1,14 +1,25 @@
+import { NodeLink } from "./NodeLink";
+import { relationLabel } from "./relationLabel";
+
 type ConnectionSentenceProps = {
-  sourceName: string;
+  sourceId: string;
   relation: string;
-  targetName: string;
+  targetId: string;
+  nameOf: (nodeId: string) => string;
 };
 
-/** States a connection as its source, relation and target, for example "pine mutualistOf matsutake". */
-export function ConnectionSentence({ sourceName, relation, targetName }: ConnectionSentenceProps) {
+/** States a connection as its source, relation and target, for example "pine mutualist of matsutake". */
+export function ConnectionSentence({
+  sourceId,
+  relation,
+  targetId,
+  nameOf,
+}: ConnectionSentenceProps) {
   return (
     <p>
-      {sourceName} <code className="text-sm">{relation}</code> {targetName}
+      <NodeLink nodeId={sourceId} name={nameOf(sourceId)} />{" "}
+      <span className="text-muted">{relationLabel(relation)}</span>{" "}
+      <NodeLink nodeId={targetId} name={nameOf(targetId)} />
     </p>
   );
 }

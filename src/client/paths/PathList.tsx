@@ -1,6 +1,9 @@
+import { Fragment } from "react";
 import type { RankedPath } from "../../shared/findPaths";
 import { maxPathSteps, type PathsResponse, pathNeighborLimit } from "../../shared/pathQuery";
+import { ConnectionMeta } from "../ConnectionMeta";
 import { ConnectionSentence } from "../ConnectionSentence";
+import { NodeLink } from "../NodeLink";
 import { termLabel } from "../termLabel";
 import { useApiResource } from "../useApiResource";
 
@@ -47,7 +50,14 @@ function PathItem({ path, rank, nameOf }: PathItemProps) {
   return (
     <li className="rounded border border-line px-3 py-2">
       <h3 className="font-medium">
-        {rank}. {path.nodeIds.map(nameOf).join(" → ")}
+        {rank}.{" "}
+        {path.nodeIds.map((nodeId, index) => (
+          // A node appears at most once in a path.
+          <Fragment key={nodeId}>
+            {index > 0 && " → "}
+            <NodeLink nodeId={nodeId} name={nameOf(nodeId)} />
+          </Fragment>
+        ))}
       </h3>
       <p className="mb-2 text-muted text-sm">
         {stepCount} · {path.kinds.map(termLabel).join(", ")} · cost {path.cost.toFixed(2)}
@@ -58,15 +68,12 @@ function PathItem({ path, rank, nameOf }: PathItemProps) {
             {step.connections.map((connection) => (
               <div key={connection.id}>
                 <ConnectionSentence
-                  sourceName={nameOf(connection.sourceNodeId)}
+                  sourceId={connection.sourceNodeId}
                   relation={connection.relation}
-                  targetName={nameOf(connection.targetNodeId)}
+                  targetId={connection.targetNodeId}
+                  nameOf={nameOf}
                 />
-                <p className="text-muted text-sm">
-                  {termLabel(connection.kind)} · {connection.basis} · {connection.source}
-                  {connection.qualityFlags.length > 0 &&
-                    ` · flagged: ${connection.qualityFlags.join(", ")}`}
-                </p>
+                <ConnectionMeta {...connection} />
               </div>
             ))}
           </li>

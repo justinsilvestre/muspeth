@@ -4,6 +4,8 @@ type CheckboxGroupProps<Term extends string> = {
   legend: string;
   terms: readonly Term[];
   checkedTerms: Term[];
+  /** Words for displaying a term; defaults to the term with its underscores replaced by spaces. */
+  labelOf?: (term: Term) => string;
   onChange: (checkedTerms: Term[]) => void;
 };
 
@@ -12,6 +14,7 @@ export function CheckboxGroup<Term extends string>({
   legend,
   terms,
   checkedTerms,
+  labelOf = termLabel,
   onChange,
 }: CheckboxGroupProps<Term>) {
   const toggle = (term: Term, isChecked: boolean) =>
@@ -29,7 +32,7 @@ export function CheckboxGroup<Term extends string>({
               checked={checkedTerms.includes(term)}
               onChange={(event) => toggle(term, event.target.checked)}
             />
-            {termLabel(term)}
+            {labelOf(term)}
           </label>
         ))}
       </div>

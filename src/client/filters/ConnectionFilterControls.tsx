@@ -1,5 +1,6 @@
 import { type ConnectionFilter, emptyConnectionFilter } from "../../shared/connectionFilter";
 import { connectionBases, connectionKinds } from "../../shared/graph";
+import { sourceDisplayName } from "../sourceDisplayName";
 import { useApiResource } from "../useApiResource";
 import { CheckboxGroup } from "./CheckboxGroup";
 import { QualityFlagChoices } from "./QualityFlagChoices";
@@ -37,6 +38,7 @@ export function ConnectionFilterControls({ filter, onChange }: ConnectionFilterC
           legend="Imported from"
           terms={sources}
           checkedTerms={filter.sources}
+          labelOf={sourceDisplayName}
           onChange={(checked) => onChange({ ...filter, sources: checked })}
         />
         <QualityFlagChoices filter={filter} onChange={onChange} />
