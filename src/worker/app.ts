@@ -2,12 +2,16 @@ import { type Context, Hono } from "hono";
 import { createMiddleware } from "hono/factory";
 import { parseConnectionFilter } from "../shared/connectionFilter";
 import { parsePathQuery } from "../shared/pathQuery";
-import { parsePlaceAndPeriodQuery } from "../shared/placeAndPeriodQuery";
+import {
+  parseOptionalPlaceAndPeriodQuery,
+  parsePlaceAndPeriodQuery,
+} from "../shared/placeAndPeriodQuery";
 import type { QueryParseResult } from "../shared/queryParameters";
 import { exportGraph, listConnectionSourceNames } from "./graphExportQueries";
 import { findNode, listConnectionMedia, listConnections, listNodes } from "./graphQueries";
 import { findPathsBetween } from "./pathQueries";
 import { listConnectionsByPlaceAndPeriod } from "./placeQueries";
+import { listDateSummaries, listPlaceSummaries } from "./placeSummaryQueries";
 import type { SqlDatabase } from "./sqlDatabase";
 import { listPlacedOrganismMedia, listTaxa, listTaxonPlacements } from "./taxonomyQueries";
 
@@ -43,6 +47,16 @@ const app = new Hono<AppEnv>()
     return context.json({
       connections: await listConnectionsByPlaceAndPeriod(context.env.DB, query.value),
     });
+  })
+  .get("/connections/places", async (context) => {
+    const query = parseOptionalPlaceAndPeriodQuery(searchParamsOf(context));
+    if (!query.ok) return badRequest(context, query);
+    return context.json({ places: await listPlaceSummaries(context.env.DB, query.value) });
+  })
+  .get("/connections/dates", async (context) => {
+    const query = parseOptionalPlaceAndPeriodQuery(searchParamsOf(context));
+    if (!query.ok) return badRequest(context, query);
+    return context.json({ dates: await listDateSummaries(context.env.DB, query.value) });
   })
   .get("/paths", async (context) => {
     const query = parsePathQuery(searchParamsOf(context));

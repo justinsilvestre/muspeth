@@ -30,3 +30,12 @@ export function packTimelineLanes(spans: YearSpan[], gap: number) {
 export function projectYear(domain: YearSpan, year: number, width: number) {
   return ((year - domain.start) / (domain.end - domain.start)) * width;
 }
+
+/** Narrows a timeline to a period, showing half the period's length again, and at least a year, on each side. */
+export function zoomTimelineDomain(whole: YearSpan, period: YearSpan) {
+  const margin = Math.max((period.end - period.start) / 2, 1);
+  return {
+    start: Math.max(whole.start, period.start - margin),
+    end: Math.min(whole.end, period.end + margin),
+  } satisfies YearSpan;
+}

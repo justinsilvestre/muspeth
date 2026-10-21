@@ -1,65 +1,81 @@
-import type { PlacedConnection } from "../../shared/placeAndPeriodQuery";
+import type { DateSummary } from "../../shared/placeAndPeriodSummary";
 import { KindBar } from "../graphics/KindBar";
 import { termLabel } from "../termLabel";
+import { useElementWidth } from "../useElementWidth";
+import { brushPeriod } from "./brushPeriod";
 import {
   chooseTimelineDomain,
   packTimelineLanes,
   projectYear,
   type YearSpan,
+  zoomTimelineDomain,
 } from "./layoutTimeline";
 import { listTimelineTicks } from "./listTimelineTicks";
 import { parseDateSpan } from "./parseDateSpan";
+import { useTimelineBrush } from "./useTimelineBrush";
 
-const width = 400;
 const laneHeight = 10;
 const maxLanes = 8;
 /** The least space, in pixels, between two spans that share a lane. */
 const gapPixels = 8;
 
-type DatedSpan = YearSpan & Pick<PlacedConnection, "kind"> & { date: string; count: number };
+type DatedSpan = YearSpan & DateSummary;
 
 type PeriodTimelineProps = {
   from: string | null;
   to: string | null;
-  connections: PlacedConnection[];
+  /** Every date to draw, which must include at least one that `parseDateSpan` can read. */
+  dates: DateSummary[];
+  onPick: (period: { from: string; to: string }) => void;
 };
 
-/** Draws the searched period and when each connection was recorded, as a dot for a day or a bar for a longer span. */
-export function PeriodTimeline({ from, to, connections }: PeriodTimelineProps) {
-  const dated = listDatedSpans(connections);
-  const [fromSpan, toSpan] = [from && parseDateSpan(from), to && parseDateSpan(to)];
-  const domain = chooseTimelineDomain([...dated, ...[fromSpan, toSpan].filter((span) => !!span)]);
+/**
+ * Draws when connections were recorded, as a dot for a day or a bar for a longer span, with the searched period shaded.
+ * Dragging across the timeline, or clicking it, searches the period chosen.
+ */
+export function PeriodTimeline({ from, to, dates, onPick }: PeriodTimelineProps) {
+  const [svgRef, width] = useElementWidth<SVGSVGElement>(400);
+  const allSpans = listDatedSpans(dates);
+  const [fromSpan, toSpan] = [from ? parseDateSpan(from) : null, to ? parseDateSpan(to) : null];
+  const whole = chooseTimelineDomain([...allSpans, fromSpan, toSpan].filter((span) => !!span));
+  const searched = from || to ? spanPeriod(fromSpan?.start, toSpan?.end, whole) : null;
+  const domain = searched ? zoomTimelineDomain(whole, searched) : whole;
+  const spans = allSpans.filter(({ start, end }) => end >= domain.start && start <= domain.end);
+  const { brushed, handlers } = useTimelineBrush(domain, (start, end) =>
+    onPick(brushPeriod(start, end)),
+  );
   const xOf = (year: number) => projectYear(domain, year, width);
-  const lanes = packTimelineLanes(dated, (gapPixels / width) * (domain.end - domain.start));
+  const lanes = packTimelineLanes(spans, (gapPixels / width) * (domain.end - domain.start));
   const laneCount = Math.min(Math.max(0, ...lanes) + 1, maxLanes);
   const axisY = 26 + laneCount * laneHeight;
-  const summary = summarizeTimeline(dated);
+  const shaded = brushed ?? searched;
+  const summary = summarizeTimeline(allSpans);
   return (
     <svg
+      ref={svgRef}
       role="img"
       aria-labelledby="period-timeline-title period-timeline-desc"
       viewBox={`0 0 ${width} ${axisY + 36}`}
-      className="h-auto w-full max-w-sm text-[11px]"
+      className="h-auto w-full cursor-crosshair touch-pan-y select-none text-[11px]"
+      {...handlers}
     >
-      <title id="period-timeline-title">Timeline of when the connections were recorded</title>
+      <title id="period-timeline-title">Timeline of when connections were recorded</title>
       <desc id="period-timeline-desc">{describeTimeline(summary, from, to)}</desc>
-      {(fromSpan || toSpan) && (
+      {shaded && (
         <g>
           <rect
-            x={xOf(fromSpan ? fromSpan.start : domain.start)}
-            width={
-              xOf(toSpan ? toSpan.end : domain.end) - xOf(fromSpan ? fromSpan.start : domain.start)
-            }
+            x={xOf(Math.min(shaded.start, shaded.end))}
+            width={Math.max(1, Math.abs(xOf(shaded.end) - xOf(shaded.start)))}
             y={4}
             height={axisY - 4}
             className="fill-subtle"
           />
-          <text x={xOf(fromSpan ? fromSpan.start : domain.start) + 4} y={15} className="fill-muted">
-            searched period
+          <text x={xOf(Math.min(shaded.start, shaded.end)) + 4} y={15} className="fill-muted">
+            {brushed ? "period to search" : "searched period"}
           </text>
         </g>
       )}
-      {dated.map((span, index) => {
+      {spans.map((span, index) => {
         const y = 26 + Math.min(lanes[index] ?? 0, maxLanes - 1) * laneHeight;
         return (
           <KindBar
@@ -79,7 +95,7 @@ export function PeriodTimeline({ from, to, connections }: PeriodTimelineProps) {
           <text
             x={xOf(year)}
             y={axisY + 15}
-            textAnchor={anchorTickLabel(xOf(year))}
+            textAnchor={anchorTickLabel(xOf(year), width)}
             className="fill-muted"
           >
             {label}
@@ -87,39 +103,40 @@ export function PeriodTimeline({ from, to, connections }: PeriodTimelineProps) {
         </g>
       ))}
       <text x={0} y={axisY + 32} className="fill-muted">
-        {summary}
+        {summary}. Drag across the timeline to search a period.
       </text>
     </svg>
   );
 }
 
+/** Spans the searched period, leaving an open end at the edge of the timeline. */
+function spanPeriod(start: number | undefined, end: number | undefined, domain: YearSpan) {
+  return { start: start ?? domain.start, end: end ?? domain.end } satisfies YearSpan;
+}
+
 /** Anchors a tick's label so that it stays inside the timeline when the tick lies near an edge. */
-function anchorTickLabel(x: number) {
+function anchorTickLabel(x: number, width: number) {
   const edgeMargin = 16;
   if (x < edgeMargin) return "start";
   return x > width - edgeMargin ? "end" : "middle";
 }
 
-/** Lists each distinct date and kind of connection once, as a span of years, with how many connections share it. */
-function listDatedSpans(connections: PlacedConnection[]) {
-  const spans = new Map<string, DatedSpan>();
-  for (const { date, kind } of connections) {
-    const span = date && parseDateSpan(date);
-    const key = `${date} ${kind}`;
-    if (span) spans.set(key, { ...span, date, kind, count: (spans.get(key)?.count ?? 0) + 1 });
-  }
-  return [...spans.values()];
+function listDatedSpans(dates: DateSummary[]) {
+  return dates.flatMap((summary) => {
+    const span = parseDateSpan(summary.date);
+    return span ? [{ ...summary, ...span } satisfies DatedSpan] : [];
+  });
 }
 
 /** Says how many connections were recorded on how many distinct dates, such as "200 connections recorded on 1 date". */
-function summarizeTimeline(dated: DatedSpan[]) {
-  const connectionCount = dated.reduce((total, { count }) => total + count, 0);
-  const dateCount = new Set(dated.map(({ date }) => date)).size;
+function summarizeTimeline(spans: DatedSpan[]) {
+  const connectionCount = spans.reduce((total, { count }) => total + count, 0);
+  const dateCount = new Set(spans.map(({ date }) => date)).size;
   const plural = (count: number, noun: string) => `${count} ${noun}${count === 1 ? "" : "s"}`;
   return `${plural(connectionCount, "connection")} recorded on ${plural(dateCount, "date")}`;
 }
 
 function describeTimeline(summary: string, from: string | null, to: string | null) {
-  const period = from || to ? `, within the period ${from ?? "…"} to ${to ?? "…"}` : "";
+  const period = from || to ? `, with the period ${from ?? "…"} to ${to ?? "…"} searched` : "";
   return `${summary}${period}.`;
 }
