@@ -15,7 +15,17 @@ export type NodeDraft = {
   label: string;
   names: NodeName[];
   /** A link to an image or recording of the node, under the media's own licence. */
-  media?: { url: string; licence: string };
+  media?: NodeMedia;
+};
+
+/** A link to an image or recording, with what its licence asks of those who show it. */
+export type NodeMedia = {
+  url: string;
+  licence: string;
+  /** The author or holder to credit, when the licence asks for credit. */
+  credit?: string | null;
+  /** The page that describes the media and its licence. */
+  pageUrl?: string | null;
 };
 
 /** A connection that an import adds to the graph, with the studies that support it. */

@@ -114,7 +114,9 @@ const responsesByPathname = {
 function stubApi() {
   const fetch = vi.fn(async (path: string) => {
     const pathname = path.split("?")[0] as keyof typeof responsesByPathname;
-    return Response.json(responsesByPathname[pathname] ?? { connections: [pathogenOfPine] });
+    return Response.json(
+      responsesByPathname[pathname] ?? { connections: [pathogenOfPine], media: {} },
+    );
   });
   vi.stubGlobal("fetch", fetch);
   return fetch;

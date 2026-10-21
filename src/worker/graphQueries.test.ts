@@ -1,7 +1,7 @@
 import { env } from "cloudflare:test";
 import { describe, expect, it } from "vitest";
 import { type ConnectionFilter, emptyConnectionFilter } from "../shared/connectionFilter";
-import { findNode, listConnections, listNodes } from "./graphQueries";
+import { findNode, listConnectionMedia, listConnections, listNodes } from "./graphQueries";
 import { insertConnections } from "./test/insertConnections";
 import { insertSampleGraph } from "./test/insertSampleGraph";
 
@@ -22,6 +22,44 @@ describe("listNodes", () => {
     await insertSampleGraph();
     const [, fungus] = await listNodes(env.DB);
     expect(fungus?.names).toEqual([]);
+  });
+});
+
+describe("listConnectionMedia", () => {
+  async function addPineImage() {
+    await env.DB.prepare(
+      `UPDATE nodes SET media_url = 'https://upload.wikimedia.org/pine.jpg', media_licence = 'CC-BY-SA-4.0',
+         media_credit = 'A. Photographer', media_page_url = 'https://commons.wikimedia.org/wiki/File:Pine.jpg'
+       WHERE id = 'pine'`,
+    ).run();
+  }
+
+  it("includes the image of the node itself", async () => {
+    await insertSampleGraph();
+    await addPineImage();
+    const media = await listConnectionMedia(env.DB, "pine");
+    expect(media).toEqual({
+      pine: {
+        url: "https://upload.wikimedia.org/pine.jpg",
+        licence: "CC-BY-SA-4.0",
+        credit: "A. Photographer",
+        pageUrl: "https://commons.wikimedia.org/wiki/File:Pine.jpg",
+      },
+    });
+  });
+
+  it("includes the images of the node's neighbours", async () => {
+    await insertSampleGraph();
+    await addPineImage();
+    const media = await listConnectionMedia(env.DB, "fungus");
+    expect(Object.keys(media)).toEqual(["pine"]);
+  });
+
+  it("leaves out the neighbours of connections that the filter hides", async () => {
+    await insertSampleGraph();
+    await addPineImage();
+    const filter = { ...emptyConnectionFilter, kinds: ["likeness"] } satisfies ConnectionFilter;
+    expect(await listConnectionMedia(env.DB, "fungus", filter)).toEqual({});
   });
 });
 

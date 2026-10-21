@@ -15,6 +15,10 @@ export type Artwork = {
   imageUrl: string;
   /** The licence of the picture, which can differ from the licence of the record. */
   imageLicence: string;
+  /** The author of the picture to credit, when its licence asks for credit. */
+  imageCredit?: string | null;
+  /** The page that describes the picture and its licence, when it differs from `url`. */
+  imagePageUrl?: string | null;
   /** An ISO 8601 year or interval of years in which the artwork was made. */
   date: string | null;
   /** A citation of the artwork. */
@@ -25,13 +29,18 @@ export type Artwork = {
 export type Museum = { datasetId: string; datasetCitation: string };
 
 /** Makes a node for an artwork, linking to its picture under the picture's own licence. */
-export function toArtworkNode({ id, title, imageUrl, imageLicence }: Artwork) {
+export function toArtworkNode(artwork: Artwork) {
   return {
-    id,
+    id: artwork.id,
     kind: "cultural_object",
-    label: title,
+    label: artwork.title,
     names: [],
-    media: { url: imageUrl, licence: imageLicence },
+    media: {
+      url: artwork.imageUrl,
+      licence: artwork.imageLicence,
+      credit: artwork.imageCredit ?? null,
+      pageUrl: artwork.imagePageUrl ?? artwork.url,
+    },
   } satisfies NodeDraft;
 }
 

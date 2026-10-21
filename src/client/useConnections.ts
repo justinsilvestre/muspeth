@@ -1,9 +1,13 @@
 import { type ConnectionFilter, writeConnectionFilter } from "../shared/connectionFilter";
-import type { Connection } from "../shared/graph";
+import type { Connection, NodeMedia } from "../shared/graph";
 import { apiPath } from "./apiPath";
 import { useApiResource } from "./useApiResource";
 
-type ConnectionsResponse = { connections: Connection[] };
+type ConnectionsResponse = {
+  connections: Connection[];
+  /** The images of the node and its neighbours, keyed by node ID. */
+  media: Record<string, NodeMedia>;
+};
 type LoadedConnections = { path: string; data: ConnectionsResponse };
 
 /**
