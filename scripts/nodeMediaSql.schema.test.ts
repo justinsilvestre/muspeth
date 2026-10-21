@@ -66,10 +66,15 @@ describe("toNodeMediaSql run against the schema", () => {
 
   it("keeps the media when the import that added the node runs again", () => {
     const db = openDatabase();
-    const bee = { id: "bee", kind: "organism", label: "Apis mellifera", names: [] };
-    db.exec(toConnectionImportSql("sample", [bee satisfies NodeDraft], []));
+    const bee = {
+      id: "bee",
+      kind: "organism",
+      label: "Apis mellifera",
+      names: [],
+    } satisfies NodeDraft;
+    db.exec(toConnectionImportSql("sample", [bee], []));
     db.exec(toNodeMediaSql("photos", [beePhoto]));
-    db.exec(toConnectionImportSql("sample", [bee satisfies NodeDraft], []));
+    db.exec(toConnectionImportSql("sample", [bee], []));
     expect(readMedia(db, "bee")?.media_source).toBe("photos");
   });
 });
