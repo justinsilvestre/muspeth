@@ -10,12 +10,11 @@ function placeOf(layout: ReturnType<typeof layoutPathBraid>, nodeId: string) {
 }
 
 describe("layoutPathBraid", () => {
-  it("puts the ends at either side, on the lane of the best path", () => {
+  it("puts the ends at either side, midway between the outer lanes", () => {
     const layout = layOut("a b z", "a c z");
-    const lane = placeOf(layout, "b")?.lane;
     expect([placeOf(layout, "a"), placeOf(layout, "z")]).toEqual([
-      { nodeId: "a", x: 0, lane },
-      { nodeId: "z", x: 1, lane },
+      { nodeId: "a", x: 0, lane: 0.5 },
+      { nodeId: "z", x: 1, lane: 0.5 },
     ]);
   });
 

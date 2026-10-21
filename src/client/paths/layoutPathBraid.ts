@@ -11,7 +11,7 @@ type BraidLink = { nodeIds: [string, string]; pathIndexes: number[] };
 /**
  * Lays out several paths between the same two nodes as one drawing, in which each node and each link appears once.
  * The paths are taken best first.
- * The ends sit at either side on the lane of the best path, so that the best path runs straight.
+ * The ends sit at either side, midway between the outer lanes, so that the drawing is balanced.
  * Each later path keeps the nodes it shares with better paths where those paths put them,
  * and its own nodes go on a lane beside the path it shares the most nodes with.
  */
@@ -19,7 +19,7 @@ export function layoutPathBraid(routes: Route[]) {
   const lanes = assignLanes(routes);
   const placed = new Map<string, BraidNode>();
   routes.forEach(({ nodeIds }, index) => {
-    placeEnds(nodeIds, lanes[0] ?? 0, placed);
+    placeEnds(nodeIds, (routes.length - 1) / 2, placed);
     placeMiddleNodes(nodeIds, lanes[index] ?? 0, placed);
   });
   return { nodes: [...placed.values()], links: listLinks(routes), laneCount: routes.length };
