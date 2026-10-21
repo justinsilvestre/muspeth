@@ -1,6 +1,7 @@
 import { type ConnectionFilter, emptyConnectionFilter } from "../shared/connectionFilter";
 import type { Connection, ConnectionSource, GraphNode, NodeMedia, NodeName } from "../shared/graph";
 import { connectionFilterSql } from "./connectionFilterSql";
+import type { SqlDatabase } from "./sqlDatabase";
 
 type NodeRow = Omit<GraphNode, "names">;
 type NodeNameRow = NodeName & { node_id: string };
@@ -37,7 +38,7 @@ type ConnectionSourceRow = {
   record_count: number | null;
 };
 
-export async function listNodes(db: D1Database) {
+export async function listNodes(db: SqlDatabase) {
   const [nodes, names] = await Promise.all([
     db.prepare("SELECT id, kind, label FROM nodes ORDER BY label").all<NodeRow>(),
     db
@@ -54,7 +55,7 @@ export async function listNodes(db: D1Database) {
   );
 }
 
-export async function findNode(db: D1Database, nodeId: string) {
+export async function findNode(db: SqlDatabase, nodeId: string) {
   return db.prepare("SELECT id, kind, label FROM nodes WHERE id = ?").bind(nodeId).first<NodeRow>();
 }
 
@@ -63,7 +64,7 @@ export async function findNode(db: D1Database, nodeId: string) {
  * with the studies behind each.
  */
 export async function listConnections(
-  db: D1Database,
+  db: SqlDatabase,
   nodeId: string,
   filter: ConnectionFilter = emptyConnectionFilter,
 ) {
@@ -95,7 +96,7 @@ export async function listConnections(
  * keyed by node ID. Nodes without an image are left out.
  */
 export async function listConnectionMedia(
-  db: D1Database,
+  db: SqlDatabase,
   nodeId: string,
   filter: ConnectionFilter = emptyConnectionFilter,
 ) {

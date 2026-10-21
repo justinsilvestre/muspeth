@@ -1,4 +1,4 @@
-import { queryD1 } from "./d1.ts";
+import { queryDatabase } from "./database.ts";
 import { quoteSql } from "./quoteSql.ts";
 
 type OrganismRow = { id: string; label: string };
@@ -10,7 +10,9 @@ type OrganismRow = { id: string; label: string };
  * Where several organisms share a label, the seed's organism wins, then the one with the first id.
  */
 export function loadOrganismIdsByLabel(excludedSources: string[]) {
-  return toOrganismIdsByLabel(queryD1<OrganismRow>(toOrganismsOutsideSourcesSql(excludedSources)));
+  return toOrganismIdsByLabel(
+    queryDatabase<OrganismRow>(toOrganismsOutsideSourcesSql(excludedSources)),
+  );
 }
 
 /** Selects the organisms outside the given sources, in the order of preference among namesakes. */

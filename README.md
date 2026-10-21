@@ -9,7 +9,8 @@ An experiment in exploring connections between organisms and the things around t
 | `src/client/` | React frontend, styled with Tailwind |
 | `src/worker/` | Cloudflare Worker: a Hono API under `/api`, which also serves the frontend |
 | `src/shared/` | Types and pure logic shared by the frontend and the API, including the path search |
-| `db/migrations/` | D1 (SQLite) schema migrations |
+| `db/muspeth.sqlite` | The database: a SQLite file that the imports write to and each deploy ships |
+| `db/migrations/` | SQLite schema migrations |
 | `db/seed.sql` | A small hand-entered sample: the matsutake system and the honey bee |
 | `scripts/` | Reproducible imports from public data sources into the database |
 | `e2e/` | Playwright end-to-end tests |
@@ -23,15 +24,17 @@ Install Node 24.22.0, the version pinned in `package.json`, then:
 npm install
 ```
 
+The database comes with the repository in `db/muspeth.sqlite`. To start instead from a database that holds only the sample, create one in a new file. Then set the same `DATABASE_PATH` when running the dev server or the imports.
+
 ```bash
-npm run db:migrate
+DATABASE_PATH=db/empty.local.sqlite npm run db:migrate
 ```
 
 ```bash
-npm run db:seed
+DATABASE_PATH=db/empty.local.sqlite npm run db:seed
 ```
 
-The last two commands create and fill a local database under `.wrangler/`. Run `db:seed` only once, since it fails on a database that already holds the sample.
+Files ending in `.local.sqlite` are ignored by Git. Run `db:seed` only once on a file, since it fails on a database that already holds the sample.
 
 ## Importing data
 
@@ -53,7 +56,9 @@ The order matters: GloBI starts from the sample's organisms, the next imports wo
 | `npm run db:import-images` | Links images from [Wikimedia Commons](https://commons.wikimedia.org) to the organisms that have a Wikidata item: the organism's own image, and works that [Wikidata](https://www.wikidata.org) says depict the organism or its genus, added as artworks (at most 10 per organism). Each image is linked, not copied, with its licence, author and Commons page, and images without a known free licence are left out. |
 | `npm run db:import-taxa` | Places every organism in the [GBIF backbone taxonomy](https://doi.org/10.15468/39omei). |
 
-Each script writes to the local database, or to the deployed one when given `-- --remote`; `db:import-all` writes only to the local one. Each can be re-run: it replaces what its previous run wrote instead of duplicating it. Each node records the import that added it in `nodes.source`, and hand-entered nodes belong to `sample`. Re-running an import removes only the nodes that no other import or the sample still uses. Matches by text, links pushed down from a coarser taxonomic group, and other doubtful records are kept and carry quality flags (`src/shared/qualityFlags.ts`).
+Each script writes to `db/muspeth.sqlite`, or to the file that `DATABASE_PATH` names. Commit the updated file to publish the data: the next deploy ships it. Each script can be re-run: it replaces what its previous run wrote instead of duplicating it. Each node records the import that added it in `nodes.source`, and hand-entered nodes belong to `sample`. Re-running an import removes only the nodes that no other import or the sample still uses. Matches by text, links pushed down from a coarser taxonomic group, and other doubtful records are kept and carry quality flags (`src/shared/qualityFlags.ts`).
+
+To change the schema, add a numbered migration to `db/migrations/`, apply it with `npm run db:migrate`, and commit the migrated `db/muspeth.sqlite` along with it. A test fails while the file lacks a migration.
 
 A new import builds `NodeDraft`s and `ConnectionDraft`s (`scripts/graphDrafts.ts`) and stores them with `writeConnectionImport` (`scripts/writeConnectionImport.ts`), under its own source key.
 
@@ -63,7 +68,7 @@ A new import builds `NodeDraft`s and `ConnectionDraft`s (`scripts/graphDrafts.ts
 npm run dev
 ```
 
-This serves the app at http://localhost:5173, with the API running in the local Workers runtime.
+This serves the app at http://localhost:5173, with the API running in the local Workers runtime. The API loads the database once, so restart the dev server after changing the database.
 
 The API's query endpoints are `GET /api/nodes/:id/connections`, `GET /api/paths?from=&to=`, `GET /api/connections?near=lat,lon&radiusKm=&from=&to=` and `GET /api/graph`. Each takes the repeatable filter parameters `kind`, `basis`, `source`, `flaggedWith` and `notFlaggedWith`. `src/shared/findPaths.ts` ranks paths without a server, for example over the output of `/api/graph`.
 
@@ -81,17 +86,13 @@ Playwright's WebKit build no longer runs on macOS 14. On that system, run only t
 
 ## Deployment
 
-The app runs on Cloudflare's free tier: one Worker serves the frontend and the API, and the data lives in a D1 database.
+The app runs on Cloudflare's free tier: one Worker serves the frontend and the API. The build adds `db/muspeth.sqlite` to the static assets, and the Worker loads it into memory on its first request and answers every query from there. The file is not served to the public.
 
 ### First deployment
 
 1. Create a free account at https://dash.cloudflare.com/sign-up.
 2. Log in from the terminal: `npx wrangler login`.
-3. Create the database: `npx wrangler d1 create muspeth`.
-4. Copy the printed `database_id` into `wrangler.jsonc`, then run `npm run typegen`.
-5. Deploy: `npm run deploy`.
-6. Seed the deployed database: `npx wrangler d1 execute muspeth --remote --file=db/seed.sql`.
-7. Import data into it by running each import in the order of `db:import-all`, adding `-- --remote` to each.
+3. Deploy: `npm run deploy`.
 
 The app is then live at `https://muspeth.<your-subdomain>.workers.dev`.
 
@@ -99,7 +100,7 @@ The app is then live at `https://muspeth.<your-subdomain>.workers.dev`.
 
 Every push to `main` deploys automatically once CI passes. To enable this, add two repository secrets on GitHub:
 - `CLOUDFLARE_ACCOUNT_ID`, shown on the Workers overview page of the Cloudflare dashboard;
-- `CLOUDFLARE_API_TOKEN`, created from the "Edit Cloudflare Workers" template with the **Account › D1 › Edit** permission added.
+- `CLOUDFLARE_API_TOKEN`, created from the "Edit Cloudflare Workers" template.
 
 Without these secrets, the deploy job is skipped.
 

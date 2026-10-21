@@ -6,12 +6,11 @@
  *   "wikidata-images".
  * Images are linked, not copied, each under the licence and credit that Commons gives it.
  * Re-running it replaces what its previous run wrote.
- * Usage: npm run db:import-images -- [--remote]
- * Without --remote, it writes to the local development database.
+ * Usage: npm run db:import-images
  */
 import { fetchCommonsFiles } from "./commonsApi.ts";
 import { toCommonsMedia } from "./commonsMedia.ts";
-import { queryD1 } from "./d1.ts";
+import { queryDatabase } from "./database.ts";
 import { toMuseumImport } from "./museumImport.ts";
 import { toOrganismPhotoLinks } from "./organismPhotos.ts";
 import { toQid } from "./sparqlRows.ts";
@@ -79,7 +78,9 @@ writeNodeMedia("wikidata-images", links);
 console.log(`wikidata-images: linked images to ${links.length} organisms.`);
 
 async function loadOrganisms() {
-  const rows = queryD1<{ id: string }>("SELECT id FROM nodes WHERE kind = 'organism' ORDER BY id");
+  const rows = queryDatabase<{ id: string }>(
+    "SELECT id FROM nodes WHERE kind = 'organism' ORDER BY id",
+  );
   const qids = listQids(rows.map(({ id }) => id));
   const ancestorQidsByQid = await fetchAncestorQids(qids);
   const ranks = await fetchTaxonRanks([...ancestorQidsByQid.values()].flat());

@@ -2,10 +2,9 @@
  * Loads GloBI interaction records one step outward from the seed's organisms, adding the partner
  * organisms as nodes.
  * Re-running it replaces the connections and organisms of the previous run.
- * Usage: npm run db:import-interactions -- [--remote]
- * Without --remote, it writes to the local development database.
+ * Usage: npm run db:import-interactions
  */
-import { queryD1 } from "./d1.ts";
+import { queryDatabase } from "./database.ts";
 import { fetchGlobiRecords, fetchTaxonLinks } from "./globiApi.ts";
 import { mergeConnections, toConnectionDraft } from "./globiConnections.ts";
 import {
@@ -33,7 +32,7 @@ const source = "globi";
 const recordLimit = 20_000;
 const partnerLimit = 60;
 
-const startOrganisms = queryD1<{ id: string; label: string }>(seedOrganismsSql);
+const startOrganisms = queryDatabase<{ id: string; label: string }>(seedOrganismsSql);
 const existingIdByName = loadOrganismIdsByLabel([source]);
 const startNames = new Set(startOrganisms.map(({ label }) => label));
 const records: GlobiRecord[] = [];

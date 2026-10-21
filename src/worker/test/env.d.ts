@@ -1,9 +1,12 @@
-import type { D1Migration } from "cloudflare:test";
+import type { SqlDatabase } from "../sqlDatabase";
 
 declare global {
   namespace Cloudflare {
     interface Env {
-      TEST_MIGRATIONS: D1Migration[];
+      /** The contents of each migration file, in order. */
+      TEST_MIGRATIONS: string[];
+      /** An empty database with every migration applied, replaced before each test. */
+      DB: SqlDatabase;
     }
   }
 }
