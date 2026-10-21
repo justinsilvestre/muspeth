@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { contradictsGbif, findGbifKey, toGbifTaxon } from "./gbifTaxon.ts";
+import {
+  contradictsGbif,
+  findBackboneKey,
+  findGbifKey,
+  isTrustedKeyMatch,
+  toExactMatch,
+  toGbifTaxon,
+} from "./gbifTaxon.ts";
 
 const fungusItem = {
   qid: "Q16528286",
@@ -36,32 +43,99 @@ describe("contradictsGbif", () => {
   });
 });
 
+describe("toExactMatch", () => {
+  it("reads the key of a lookup by key as the matched key", () => {
+    expect(toExactMatch({ key: 8191482 }).usageKey).toBe(8191482);
+  });
+
+  it("counts a lookup by key as an exact match", () => {
+    expect(toExactMatch({ key: 8191482 }).matchType).toBe("EXACT");
+  });
+
+  it("reads the accepted key of a synonym", () => {
+    expect(toExactMatch({ key: 1, acceptedKey: 2 }).acceptedUsageKey).toBe(2);
+  });
+
+  it("calls any kind of synonym a synonym, as a name match does", () => {
+    expect(toExactMatch({ key: 1, taxonomicStatus: "HOMOTYPIC_SYNONYM" }).status).toBe("SYNONYM");
+  });
+
+  it("keeps any other status", () => {
+    expect(toExactMatch({ key: 1, taxonomicStatus: "DOUBTFUL" }).status).toBe("DOUBTFUL");
+  });
+
+  it("keeps the lineage", () => {
+    expect(toExactMatch({ key: 1, genus: "Pinus", genusKey: 2684241 })).toMatchObject({
+      genus: "Pinus",
+      genusKey: 2684241,
+    });
+  });
+});
+
+describe("isTrustedKeyMatch", () => {
+  it("trusts an accepted usage", () => {
+    const wheat = toExactMatch({
+      key: 7795888,
+      canonicalName: "Triticum aestivum",
+      taxonomicStatus: "ACCEPTED",
+    });
+    expect(isTrustedKeyMatch(wheat)).toBe(true);
+  });
+
+  it("distrusts a usage that GBIF doubts, such as a superseded key for wheat", () => {
+    const wheat = toExactMatch({
+      key: 2706391,
+      canonicalName: "Triticum aestivum",
+      taxonomicStatus: "DOUBTFUL",
+    });
+    expect(isTrustedKeyMatch(wheat)).toBe(false);
+  });
+});
+
 describe("toGbifTaxon", () => {
   it("reads the key of a name match", () => {
     expect(toGbifTaxon({ usageKey: 8191482, matchType: "EXACT" })?.key).toBe(8191482);
   });
 
-  it("reads the key of a lookup by key", () => {
-    expect(toGbifTaxon({ key: 8191482 })?.key).toBe(8191482);
-  });
-
-  it("counts a lookup by key as an exact match", () => {
-    expect(toGbifTaxon({ key: 8191482 })?.matchType).toBe("EXACT");
-  });
-
-  it("recognizes a synonym in a name match", () => {
-    expect(toGbifTaxon({ usageKey: 1, status: "SYNONYM" })?.isSynonym).toBe(true);
-  });
-
-  it("recognizes a synonym in a lookup by key", () => {
-    expect(toGbifTaxon({ key: 1, taxonomicStatus: "HOMOTYPIC_SYNONYM" })?.isSynonym).toBe(true);
+  it("recognizes a synonym", () => {
+    expect(toGbifTaxon({ usageKey: 1, matchType: "EXACT", status: "SYNONYM" })?.isSynonym).toBe(
+      true,
+    );
   });
 
   it("reads the accepted key of a synonym", () => {
-    expect(toGbifTaxon({ usageKey: 1, acceptedUsageKey: 2 })?.acceptedKey).toBe(2);
+    expect(toGbifTaxon({ usageKey: 1, matchType: "EXACT", acceptedUsageKey: 2 })?.acceptedKey).toBe(
+      2,
+    );
   });
 
   it("returns null when nothing matched", () => {
     expect(toGbifTaxon({ matchType: "NONE" })).toBeNull();
+  });
+});
+
+describe("toExactMatch", () => {
+  describe("when the usage is misapplied", () => {
+    it("reads it as a synonym", () => {
+      expect(toExactMatch({ key: 1, acceptedKey: 2, taxonomicStatus: "MISAPPLIED" }).status).toBe(
+        "SYNONYM",
+      );
+    });
+  });
+});
+
+describe("findBackboneKey", () => {
+  const backbone = "d7dddbf4-2cf0-4f39-9b2a-bb099caae36c";
+
+  it("keeps the key of a backbone usage", () => {
+    expect(findBackboneKey({ key: 1, datasetKey: backbone })).toBe(1);
+  });
+
+  it("replaces the key of another checklist's usage with its backbone key", () => {
+    expect(findBackboneKey({ key: 1, datasetKey: "other", nubKey: 9 })).toBe(9);
+  });
+
+  it("returns null for another checklist's usage without a backbone key", () => {
+    expect(findBackboneKey({ key: 1, datasetKey: "other" })).toBeNull();
   });
 });

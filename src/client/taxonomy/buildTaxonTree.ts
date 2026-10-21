@@ -21,6 +21,7 @@ const uncertainPlacementFlags = new Set<QualityFlag>([
   "higher_rank_match",
   "globi_lineage_hint",
   "fuzzy_name_match",
+  "doubtful_usage",
 ]);
 
 /** Assembles the taxa into one tree, with each placed organism as a leaf. */

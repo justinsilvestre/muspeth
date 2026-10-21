@@ -17,22 +17,18 @@ An experiment in exploring connections between organisms and the things around t
 
 ## Setup
 
-Install [Mise](https://mise.jdx.dev), then:
+Install Node 24.22.0, the version pinned in `package.json`, then:
 
 ```bash
-mise install
+npm install
 ```
 
 ```bash
-mise exec -- npm install
+npm run db:migrate
 ```
 
 ```bash
-mise exec -- npm run db:migrate
-```
-
-```bash
-mise exec -- npm run db:seed
+npm run db:seed
 ```
 
 The last two commands create and fill a local database under `.wrangler/`. Run `db:seed` only once, since it fails on a database that already holds the sample.
@@ -42,7 +38,7 @@ The last two commands create and fill a local database under `.wrangler/`. Run `
 Six scripts grow the database from public sources. Run them all, in order, with:
 
 ```bash
-mise exec -- npm run db:import-all
+npm run db:import-all
 ```
 
 The order matters: GloBI starts from the sample's organisms, the next imports work on the organisms already present, and the taxa import runs last so that it places every organism the others add.
@@ -63,7 +59,7 @@ A new import builds `NodeDraft`s and `ConnectionDraft`s (`scripts/graphDrafts.ts
 ## Development
 
 ```bash
-mise exec -- npm run dev
+npm run dev
 ```
 
 This serves the app at http://localhost:5173, with the API running in the local Workers runtime.
@@ -78,7 +74,7 @@ The API's query endpoints are `GET /api/nodes/:id/connections`, `GET /api/paths?
 | `npm test` | Runs unit tests, with Worker tests inside the Workers runtime |
 | `npm run test:e2e` | Runs Playwright tests against a separately seeded dev server |
 
-Run each through `mise exec --` unless Mise is activated in your shell. A pre-commit hook formats and lints staged files. In VS Code, install the recommended Biome extension to format on save.
+A pre-commit hook formats and lints staged files. In VS Code, install the recommended Biome extension to format on save.
 
 Playwright's WebKit build no longer runs on macOS 14. On that system, run only the Chromium tests locally with `npm run test:e2e -- --project=chromium`. CI runs all browsers.
 
@@ -89,12 +85,12 @@ The app runs on Cloudflare's free tier: one Worker serves the frontend and the A
 ### First deployment
 
 1. Create a free account at https://dash.cloudflare.com/sign-up.
-2. Log in from the terminal: `mise exec -- npx wrangler login`.
-3. Create the database: `mise exec -- npx wrangler d1 create muspeth`.
-4. Copy the printed `database_id` into `wrangler.jsonc`, then run `mise exec -- npm run typegen`.
-5. Deploy: `mise exec -- npm run deploy`.
-6. Seed the deployed database: `mise exec -- npx wrangler d1 execute muspeth --remote --file=db/seed.sql`.
-7. Import data into it: `mise exec -- npm run db:import-interactions -- --remote`, then `mise exec -- npm run db:import-taxa -- --remote`.
+2. Log in from the terminal: `npx wrangler login`.
+3. Create the database: `npx wrangler d1 create muspeth`.
+4. Copy the printed `database_id` into `wrangler.jsonc`, then run `npm run typegen`.
+5. Deploy: `npm run deploy`.
+6. Seed the deployed database: `npx wrangler d1 execute muspeth --remote --file=db/seed.sql`.
+7. Import data into it by running each import in the order of `db:import-all`, adding `-- --remote` to each.
 
 The app is then live at `https://muspeth.<your-subdomain>.workers.dev`.
 

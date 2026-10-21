@@ -6,7 +6,8 @@ import { sourceDisplayName } from "./sourceDisplayName";
 import { termLabel } from "./termLabel";
 
 export type ConnectionMetaProps = {
-  kind: ConnectionKind;
+  /** The kind of connection, left out where a heading already names it. */
+  kind?: ConnectionKind;
   basis: ConnectionBasis;
   source: string;
   licence: string;
@@ -23,7 +24,8 @@ export function ConnectionMeta({
 }: ConnectionMetaProps) {
   return (
     <p className="text-muted text-sm">
-      {termLabel(kind)} · {basis} · {sourceDisplayName(source)} · <Licence licence={licence} />
+      {kind && `${termLabel(kind)} · `}
+      {basis} · {sourceDisplayName(source)} · <Licence licence={licence} />
       {flags.length > 0 && (
         <>
           {" · flagged: "}

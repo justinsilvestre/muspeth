@@ -67,6 +67,10 @@ describe("buildTaxonTree", () => {
       expect(placeWithFlags(["fuzzy_name_match"])?.isPlacementUncertain).toBe(true);
     });
 
+    it("marks an organism placed on a taxon that GBIF doubts as uncertain", () => {
+      expect(placeWithFlags(["doubtful_usage"])?.isPlacementUncertain).toBe(true);
+    });
+
     it("keeps an organism known by a synonym certain", () => {
       expect(placeWithFlags(["synonym_name"])?.isPlacementUncertain).toBe(false);
     });
