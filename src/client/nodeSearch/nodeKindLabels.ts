@@ -10,3 +10,14 @@ export const nodeKindLabels = {
   recording: "recording",
   place: "place",
 } as const satisfies Record<NodeKind, string>;
+
+/** Names a group of nodes of each kind, starting with a capital letter. */
+export const nodeKindPluralLabels = {
+  organism: "Organisms",
+  compound: "Compounds",
+  cultural_object: "Artworks",
+  word: "Words",
+  story_motif: "Story motifs",
+  recording: "Recordings",
+  place: "Places",
+} as const satisfies Record<NodeKind, string>;

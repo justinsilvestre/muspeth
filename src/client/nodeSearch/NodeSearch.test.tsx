@@ -40,10 +40,19 @@ afterEach(cleanup);
 
 describe("NodeSearch", () => {
   describe("before anything is searched", () => {
-    it("offers the starting points", () => {
+    it("offers each kind that has nodes", () => {
+      renderSearch();
+      expect(screen.getAllByRole("button").map((button) => button.textContent)).toEqual([
+        "Organisms · 1",
+        "Compounds · 1",
+      ]);
+    });
+
+    it("links examples of each kind", () => {
       renderSearch();
       expect(screen.getAllByRole("link").map((link) => link.textContent)).toEqual([
-        "matsutakeorganismTricholoma matsutake",
+        "matsutake",
+        "1-octen-3-ol",
       ]);
     });
   });
@@ -68,10 +77,30 @@ describe("NodeSearch", () => {
     it("keeps only nodes of that kind", () => {
       renderSearch();
       search("o");
-      fireEvent.change(screen.getByRole("combobox", { name: "Kind" }), {
-        target: { value: "compound" },
-      });
+      fireEvent.click(screen.getByRole("radio", { name: /compound/ }));
       expect(screen.getAllByRole("link")).toHaveLength(1);
+    });
+
+    it("counts the matches of each kind", () => {
+      renderSearch();
+      search("matsu");
+      expect(screen.getByRole("radio", { name: /compound/ }).parentElement?.textContent).toBe(
+        "compound0",
+      );
+    });
+  });
+
+  describe("when a kind is chosen from the overview", () => {
+    it("lists the nodes of that kind", () => {
+      renderSearch();
+      fireEvent.click(screen.getByRole("button", { name: /Compounds/ }));
+      expect(screen.getByRole("link").textContent).toContain("1-octen-3-ol");
+    });
+
+    it("moves focus to the kind's choice", () => {
+      renderSearch();
+      fireEvent.click(screen.getByRole("button", { name: /Compounds/ }));
+      expect(document.activeElement).toBe(screen.getByRole("radio", { name: /compound/ }));
     });
   });
 
