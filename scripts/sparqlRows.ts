@@ -17,3 +17,8 @@ export function toSparqlRows(bindings: SparqlBinding[]) {
 export function toQid(address: string | undefined) {
   return address?.split("/").at(-1) ?? "";
 }
+
+/** Tells whether an identifier names a Wikidata item, as opposed to a lexeme, sense or property. */
+export function isItemQid(id: string) {
+  return /^Q\d+$/.test(id);
+}

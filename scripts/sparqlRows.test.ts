@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { toQid, toSparqlRows } from "./sparqlRows.ts";
+import { isItemQid, toQid, toSparqlRows } from "./sparqlRows.ts";
 
 describe("toSparqlRows", () => {
   it("keeps only the values of each binding", () => {
@@ -16,5 +16,15 @@ describe("toQid", () => {
 
   it("reads nothing from a missing address", () => {
     expect(toQid(undefined)).toBe("");
+  });
+});
+
+describe("isItemQid", () => {
+  it("accepts an item identifier", () => {
+    expect(isItemQid("Q30034")).toBe(true);
+  });
+
+  it("rejects a lexeme sense identifier", () => {
+    expect(isItemQid("L1375480-S1")).toBe(false);
   });
 });

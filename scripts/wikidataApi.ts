@@ -1,7 +1,7 @@
 import { fetchInBatches } from "./fetchInBatches.ts";
 import type { WikidataTaxon } from "./organismIdentity.ts";
 import { runSparql, wikidataEndpoint } from "./sparqlClient.ts";
-import { type SparqlRow, toQid } from "./sparqlRows.ts";
+import { isItemQid, type SparqlRow, toQid } from "./sparqlRows.ts";
 import {
   buildQidsByGbifKeyQuery,
   buildQidsByTaxonNameQuery,
@@ -38,7 +38,9 @@ export async function fetchWikidataQidsByGbifKey(keys: number[]) {
 
 function groupQids<Key>(pairs: (readonly [Key, string])[]) {
   const qidsByKey = new Map<Key, string[]>();
-  for (const [key, qid] of pairs) qidsByKey.set(key, [...(qidsByKey.get(key) ?? []), qid]);
+  for (const [key, qid] of pairs) {
+    if (isItemQid(qid)) qidsByKey.set(key, [...(qidsByKey.get(key) ?? []), qid]);
+  }
   return qidsByKey;
 }
 
