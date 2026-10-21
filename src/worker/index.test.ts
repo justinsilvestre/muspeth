@@ -30,6 +30,16 @@ describe("the API", () => {
       expect(connections).toHaveLength(1);
     });
 
+    it("gives the images of the node and its neighbours", async () => {
+      await insertSampleGraph();
+      await env.DB.prepare(
+        "UPDATE nodes SET media_url = 'https://upload.wikimedia.org/f.jpg', media_licence = 'CC0-1.0' WHERE id = 'fungus'",
+      ).run();
+      const response = await app.request("/api/nodes/pine/connections", {}, env);
+      const { media } = await response.json<{ media: Record<string, unknown> }>();
+      expect(Object.keys(media)).toEqual(["fungus"]);
+    });
+
     it("responds with 404 for an unknown node", async () => {
       const response = await app.request("/api/nodes/unknown/connections", {}, env);
       expect(response.status).toBe(404);
