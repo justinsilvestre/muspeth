@@ -108,15 +108,15 @@ describe("PathList", () => {
 
     it("explains how paths are ranked", async () => {
       await renderPathThroughKyoto();
-      expect(screen.getByText(/rank higher/).textContent).toMatch(
-        /avoid hubs.*cross more kinds of connection rank higher/,
+      expect(screen.getByText(/listed first/).textContent).toMatch(
+        /fewer neighbours.*mix kinds of connection, are listed first/,
       );
     });
 
     it("gives the reasons for the path's rank", async () => {
       await renderPathThroughKyoto();
-      expect(screen.getByText(/^2 steps/).textContent).toMatch(
-        /^2 steps · crosses 1 kind of connection · avoids hubs · score 2\.00/,
+      expect(screen.getByText(/^2 steps/).textContent).toBe(
+        "2 steps · crosses 1 kind of connection · avoids hubs",
       );
     });
 
