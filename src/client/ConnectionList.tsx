@@ -39,7 +39,7 @@ export function ConnectionList({ nodeId, nodes, filter, onFilterChange }: Connec
             </p>
           </Reloadable>
         </div>
-        {media && <NodeFigure media={media} name={nameOf(nodeId)} />}
+        {media && <NodeFigure media={media} kind={kindOf(nodeId)} name={nameOf(nodeId)} />}
       </header>
       <ConnectionFilterControls filter={filter} onChange={onFilterChange} />
       {resource.status === "loading" && <p>Loading connections…</p>}
