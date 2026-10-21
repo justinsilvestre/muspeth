@@ -17,11 +17,14 @@ export function listNodeDetails(node: GraphNode, isNameShared: boolean, matchedN
   const displayName = nodeDisplayName(node, "en");
   const scientificName = node.kind === "organism" ? node.label : undefined;
   const language = node.kind === "word" ? findWordLanguage(node) : undefined;
-  const shownTexts = [displayName, scientificName];
+  const shownTexts = [displayName, scientificName].map((text) => text?.toLowerCase());
   const details = [
     { text: scientificName === displayName ? undefined : scientificName, isScientific: true },
     { text: language, isScientific: false },
-    { text: shownTexts.includes(matchedName) ? undefined : matchedName, isScientific: false },
+    {
+      text: shownTexts.includes(matchedName?.toLowerCase()) ? undefined : matchedName,
+      isScientific: false,
+    },
     { text: isNameShared ? node.id : undefined, isScientific: false },
   ];
   return details.filter((detail): detail is NodeDetail => Boolean(detail.text));

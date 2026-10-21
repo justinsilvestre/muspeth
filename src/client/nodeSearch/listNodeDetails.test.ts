@@ -45,6 +45,10 @@ describe("listNodeDetails", () => {
     expect(listNodeDetails(pine, false, "Japanese red pine")).toHaveLength(1);
   });
 
+  it("leaves out the matched name when it differs from the display name only in letter case", () => {
+    expect(listNodeDetails(pine, false, "japanese RED pine")).toHaveLength(1);
+  });
+
   it("gives the node's ID when its display name is shared", () => {
     expect(listNodeDetails(matsu, true).at(-1)).toEqual({
       text: "word:ja:マツ",
