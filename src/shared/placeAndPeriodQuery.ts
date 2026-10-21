@@ -25,7 +25,6 @@ export type PlacedConnection = GraphEdge & {
   latitude: number | null;
   longitude: number | null;
   date: string | null;
-  licence: string;
   distanceKm: number | null;
 };
 

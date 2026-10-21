@@ -21,11 +21,18 @@ export function QualityFlagChoices({ filter, onChange }: QualityFlagChoicesProps
   return (
     <fieldset>
       <legend className="mb-1 font-medium">Quality flags</legend>
-      <div className="grid grid-cols-[1fr_auto] items-center gap-x-3 gap-y-1">
+      <div className="grid grid-cols-[1fr_auto] items-center gap-x-3 gap-y-2">
         {(Object.entries(qualityFlags) as [QualityFlag, string][]).map(([flag, meaning]) => (
-          <label key={flag} className="contents">
-            <span title={meaning}>{termLabel(flag)}</span>
+          <div key={flag} className="contents">
+            <div>
+              <span id={`flag-${flag}`}>{termLabel(flag)}</span>
+              <span id={`flag-${flag}-meaning`} className="block text-muted text-xs">
+                {meaning}
+              </span>
+            </div>
             <select
+              aria-labelledby={`flag-${flag}`}
+              aria-describedby={`flag-${flag}-meaning`}
               className="rounded border border-line bg-page px-1 py-0.5"
               value={qualityFlagChoiceOf(filter, flag)}
               onChange={(event) => choose(flag, event.target.value)}
@@ -36,7 +43,7 @@ export function QualityFlagChoices({ filter, onChange }: QualityFlagChoicesProps
                 </option>
               ))}
             </select>
-          </label>
+          </div>
         ))}
       </div>
     </fieldset>

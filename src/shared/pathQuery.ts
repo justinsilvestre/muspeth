@@ -5,6 +5,12 @@ import { parseQuery, readNumber, readRequiredString } from "./queryParameters";
 /** The longest path the API searches for, which bounds how much of the graph it loads. */
 export const maxPathSteps = 4;
 
+/**
+ * How many neighbours of each node a path search follows at most.
+ * It bounds the connections loaded around a node with very many neighbours, such as a common word.
+ */
+export const pathNeighborLimit = 100;
+
 /** Which paths to find, read from a query such as `?from=a&to=b&limit=5&maxSteps=3`. */
 export type PathQuery = {
   fromId: string;
@@ -14,7 +20,11 @@ export type PathQuery = {
   filter: ConnectionFilter;
 };
 
-export type PathsResponse = { paths: RankedPath[] };
+export type PathsResponse = {
+  paths: RankedPath[];
+  /** Whether the search left out some neighbours of a node with more than `pathNeighborLimit` of them. */
+  truncated: boolean;
+};
 
 export function parsePathQuery(params: URLSearchParams) {
   const filter = parseConnectionFilter(params);

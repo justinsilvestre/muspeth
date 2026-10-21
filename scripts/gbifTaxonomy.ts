@@ -11,6 +11,11 @@ type Rank = (typeof ranks)[number];
 /** The parts of a GBIF species match response that the import uses. */
 export type GbifMatch = {
   matchType: string;
+  usageKey?: number;
+  /** The key of the accepted taxon when the matched name is a synonym. */
+  acceptedUsageKey?: number;
+  canonicalName?: string;
+  /** For example "ACCEPTED", "DOUBTFUL" or "SYNONYM". */
   status?: string;
   rank?: string;
   confidence?: number;
@@ -47,6 +52,7 @@ function listQualityFlags(match: GbifMatch) {
     match.matchType === "FUZZY" && "fuzzy_name_match",
     match.matchType === "HIGHERRANK" && "higher_rank_match",
     match.status === "SYNONYM" && "synonym_name",
+    match.status === "DOUBTFUL" && "doubtful_usage",
     match.hintedBy === "globi_lineage" && "globi_lineage_hint",
   ] satisfies (QualityFlag | false)[];
   return flags.filter((flag) => flag !== false);

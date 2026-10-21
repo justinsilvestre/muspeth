@@ -43,6 +43,11 @@ describe("toTaxonPlacement", () => {
     expect(placement?.qualityFlags).toEqual(["synonym_name"]);
   });
 
+  it("flags a taxon that GBIF doubts", () => {
+    const placement = toTaxonPlacement("pine", { ...pineMatch, status: "DOUBTFUL" });
+    expect(placement?.qualityFlags).toEqual(["doubtful_usage"]);
+  });
+
   it("flags a match chosen with a hint from GloBI's lineage", () => {
     const placement = toTaxonPlacement("pine", { ...pineMatch, hintedBy: "globi_lineage" });
     expect(placement?.qualityFlags).toEqual(["globi_lineage_hint"]);

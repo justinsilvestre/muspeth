@@ -1,15 +1,18 @@
-import type { PlacedConnection } from "../../shared/placeAndPeriodQuery";
+import type { PlaceAndPeriodQuery, PlacedConnection } from "../../shared/placeAndPeriodQuery";
+import { ConnectionMeta } from "../ConnectionMeta";
 import { ConnectionSentence } from "../ConnectionSentence";
-import { termLabel } from "../termLabel";
 import { useApiResource } from "../useApiResource";
+import { PlacedConnectionGraphics } from "./PlacedConnectionGraphics";
 
 type PlacedConnectionListProps = {
   params: URLSearchParams;
+  /** The query that `params` holds, already read. */
+  query: PlaceAndPeriodQuery;
   nameOf: (nodeId: string) => string;
 };
 
 /** Lists the connections recorded near a place or within a period, with where and when each was. */
-export function PlacedConnectionList({ params, nameOf }: PlacedConnectionListProps) {
+export function PlacedConnectionList({ params, query, nameOf }: PlacedConnectionListProps) {
   const resource = useApiResource<{ connections: PlacedConnection[] }>(
     `/api/connections?${params}`,
   );
@@ -22,23 +25,23 @@ export function PlacedConnectionList({ params, nameOf }: PlacedConnectionListPro
     return <p className="text-muted">No connections were recorded there and then.</p>;
   }
   return (
-    <ul aria-label="Connections by place and period" className="space-y-2">
-      {resource.data.connections.map((connection) => (
-        <li key={connection.id} className="rounded border border-line px-3 py-2">
-          <ConnectionSentence
-            sourceName={nameOf(connection.sourceNodeId)}
-            relation={connection.relation}
-            targetName={nameOf(connection.targetNodeId)}
-          />
-          <p className="text-sm">{describePlaceAndDate(connection)}</p>
-          <p className="text-muted text-sm">
-            {termLabel(connection.kind)} · {connection.basis} · {connection.source}
-            {connection.qualityFlags.length > 0 &&
-              ` · flagged: ${connection.qualityFlags.join(", ")}`}
-          </p>
-        </li>
-      ))}
-    </ul>
+    <>
+      <PlacedConnectionGraphics query={query} connections={resource.data.connections} />
+      <ul aria-label="Connections by place and period" className="space-y-2">
+        {resource.data.connections.map((connection) => (
+          <li key={connection.id} className="rounded border border-line px-3 py-2">
+            <ConnectionSentence
+              sourceId={connection.sourceNodeId}
+              relation={connection.relation}
+              targetId={connection.targetNodeId}
+              nameOf={nameOf}
+            />
+            <p className="text-sm">{describePlaceAndDate(connection)}</p>
+            <ConnectionMeta {...connection} />
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }
 

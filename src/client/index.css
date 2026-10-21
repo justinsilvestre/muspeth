@@ -12,6 +12,12 @@
   --faint: var(--color-stone-400);
   --muted: var(--color-stone-600);
   --ink: var(--color-stone-900);
+  --kind-interaction: var(--color-emerald-600);
+  --kind-likeness: var(--color-blue-600);
+  --kind-shared-substance: var(--color-amber-600);
+  --kind-shared-culture: var(--color-rose-600);
+  --kind-shared-words-and-stories: var(--color-violet-600);
+  --kind-shared-place-and-sound: var(--color-cyan-600);
 }
 
 .dark {
@@ -24,6 +30,12 @@
   --faint: var(--color-stone-500);
   --muted: var(--color-stone-400);
   --ink: var(--color-stone-100);
+  --kind-interaction: var(--color-emerald-400);
+  --kind-likeness: var(--color-blue-400);
+  --kind-shared-substance: var(--color-amber-400);
+  --kind-shared-culture: var(--color-rose-400);
+  --kind-shared-words-and-stories: var(--color-violet-400);
+  --kind-shared-place-and-sound: var(--color-cyan-400);
 }
 
 @theme inline {
@@ -35,8 +47,19 @@
   --color-faint: var(--faint);
   --color-muted: var(--muted);
   --color-ink: var(--ink);
+  --color-kind-interaction: var(--kind-interaction);
+  --color-kind-likeness: var(--kind-likeness);
+  --color-kind-shared-substance: var(--kind-shared-substance);
+  --color-kind-shared-culture: var(--kind-shared-culture);
+  --color-kind-shared-words-and-stories: var(--kind-shared-words-and-stories);
+  --color-kind-shared-place-and-sound: var(--kind-shared-place-and-sound);
 }
 
 body {
   @apply bg-page text-ink;
+}
+
+/* MapLibre styles its attribution for light pages only. */
+.dark .maplibregl-ctrl.maplibregl-ctrl-attrib {
+  @apply bg-panel/80 text-muted;
 }

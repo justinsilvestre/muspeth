@@ -16,6 +16,8 @@ export type RankedPath = {
   steps: PathStep[];
   /** The kinds of connection the path crosses, in the order it first crosses them. */
   kinds: ConnectionKind[];
+  /** How many distinct neighbours each node of the path has, in the order of `nodeIds`. */
+  neighborCounts: number[];
   cost: number;
 };
 
@@ -60,7 +62,15 @@ export function findPaths(
   // Since the estimate never overstates the remaining cost, complete paths come out cheapest first.
   let order = 0;
   const frontier = new MinHeap<PartialPath>((a, b) => a.estimate - b.estimate || a.order - b.order);
-  frontier.push({ nodeIds: [fromId], steps: [], kinds: [], cost: 0, estimate: 0, order });
+  frontier.push({
+    nodeIds: [fromId],
+    steps: [],
+    kinds: [],
+    neighborCounts: [graph.degreeOf(fromId)],
+    cost: 0,
+    estimate: 0,
+    order,
+  });
   const paths: RankedPath[] = [];
   for (let expansions = 0; paths.length < limit && expansions < maxExpansions; ) {
     const path = frontier.pop();
@@ -76,7 +86,7 @@ export function findPaths(
       if (remainingSteps === undefined || path.nodeIds.includes(neighborId)) continue;
       if (path.steps.length + 1 + remainingSteps > maxSteps) continue;
       const step = { fromNodeId: nodeId, toNodeId: neighborId, connections };
-      const next = extendPath(path, step, stepCost(graph, toId, path, step));
+      const next = extendPath(path, step, graph, stepCost(graph, toId, path, step));
       frontier.push({
         ...next,
         estimate: next.cost + remainingSteps * newKindCostFactor,
@@ -95,15 +105,16 @@ function stepCost(graph: PathGraph, toId: string, path: RankedPath, step: PathSt
   return crossesNewKind ? entryCost * newKindCostFactor : entryCost;
 }
 
-function extendPath(path: RankedPath, step: PathStep, cost: number) {
+function extendPath(path: RankedPath, step: PathStep, graph: PathGraph, cost: number) {
   return {
     nodeIds: [...path.nodeIds, step.toNodeId],
     steps: [...path.steps, step],
     kinds: [...new Set([...path.kinds, ...step.connections.map(({ kind }) => kind)])],
+    neighborCounts: [...path.neighborCounts, graph.degreeOf(step.toNodeId)],
     cost: path.cost + cost,
   } satisfies RankedPath;
 }
 
-function toRankedPath({ nodeIds, steps, kinds, cost }: PartialPath) {
-  return { nodeIds, steps, kinds, cost } satisfies RankedPath;
+function toRankedPath({ nodeIds, steps, kinds, neighborCounts, cost }: PartialPath) {
+  return { nodeIds, steps, kinds, neighborCounts, cost } satisfies RankedPath;
 }

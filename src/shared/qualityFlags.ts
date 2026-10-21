@@ -9,6 +9,8 @@ export const qualityFlags = {
   fuzzy_name_match: "GBIF matched an organism's name only approximately.",
   higher_rank_match: "GBIF matched an organism only to a taxon above its own rank.",
   synonym_name: "GBIF lists an organism's name as a synonym of another.",
+  doubtful_usage:
+    "GBIF doubts the taxon it matched, often because it has since replaced that record.",
   globi_lineage_hint: "GBIF's match was chosen using the lineage that GloBI gives for the name.",
   derived_from_coarser_level:
     "The connection was pushed down from the coarser taxonomic level its source reports.",
