@@ -12,7 +12,7 @@ It is meant as shared material for several creative pieces, not as a single prod
 
 The graph starts from a small seed set of organisms and grows outward one or two steps from it. It does not try to hold every source in full. Candidate seeds:
 - the matsutake system: matsutake, red pine, pinewood nematode and sawyer beetle;
-- one Kyoto pollination network;
+- one Japanese pollination network. Mangal holds no Kyoto network, so we use Makoto Kato's two surveys there, at Mt. Kushigata and Mt. Yufu. The Kibune (Kyoto) network is available only from Web of Life;
 - the honey bee.
 
 ## Data model
