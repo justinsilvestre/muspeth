@@ -23,6 +23,16 @@ test.describe("on a wide screen", () => {
     expect(await measureColumnBottom(connections)).toBeLessThanOrEqual(500);
   });
 
+  test("keeps the page itself from scrolling", async ({ page }) => {
+    // A short screen makes the columns' content, including text hidden for all but screen readers, taller than the screen.
+    await page.setViewportSize({ width: 1100, height: 250 });
+    await page.goto(matsutakePath);
+    await page.getByRole("button", { name: /Organisms/ }).click();
+    await expect(page.getByRole("radio", { name: /organism/ })).toBeChecked();
+    const pageHeight = await page.evaluate(() => document.documentElement.scrollHeight);
+    expect(pageHeight).toBeLessThanOrEqual(250);
+  });
+
   test("shows a node's connections from their start after going back", async ({ page }) => {
     // A short screen lets the few connections of the test nodes scroll.
     await page.setViewportSize({ width: 1100, height: 250 });
