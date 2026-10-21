@@ -4,7 +4,7 @@ import { parsePathQuery } from "../shared/pathQuery";
 import { parsePlaceAndPeriodQuery } from "../shared/placeAndPeriodQuery";
 import type { QueryParseResult } from "../shared/queryParameters";
 import { exportGraph, listConnectionSourceNames } from "./graphExportQueries";
-import { findNode, listConnections, listNodes } from "./graphQueries";
+import { findNode, listConnectionMedia, listConnections, listNodes } from "./graphQueries";
 import { findPathsBetween } from "./pathQueries";
 import { listConnectionsByPlaceAndPeriod } from "./placeQueries";
 import type { SqlDatabase } from "./sqlDatabase";
@@ -22,9 +22,11 @@ const app = new Hono<AppEnv>()
     const filter = parseConnectionFilter(searchParamsOf(context));
     if (!filter.ok) return badRequest(context, filter);
     if (!(await findNode(context.env.DB, nodeId))) return notFound(context, "Node not found");
-    return context.json({
-      connections: await listConnections(context.env.DB, nodeId, filter.value),
-    });
+    const [connections, media] = await Promise.all([
+      listConnections(context.env.DB, nodeId, filter.value),
+      listConnectionMedia(context.env.DB, nodeId, filter.value),
+    ]);
+    return context.json({ connections, media });
   })
   .get("/connections", async (context) => {
     const query = parsePlaceAndPeriodQuery(searchParamsOf(context));

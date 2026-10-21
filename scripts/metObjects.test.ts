@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { listMetSearchTerms, type MetObject, matchMetObject, toMetArtwork } from "./metObjects.ts";
+import { type MetObject, matchMetObject, toMetArtwork } from "./metObjects.ts";
 
 function makeObject(changes: Partial<MetObject> = {}) {
   return {
@@ -19,27 +19,6 @@ function makeObject(changes: Partial<MetObject> = {}) {
   } satisfies MetObject;
 }
 const bee = { name: "bee", kind: "common" } as const;
-
-describe("listMetSearchTerms", () => {
-  it("searches each name in singular and plural", () => {
-    expect(listMetSearchTerms([bee])).toEqual(["bee", "bees"]);
-  });
-
-  it("searches the last word of a longer common name", () => {
-    const sunflower = { name: "common sunflower", kind: "common" } as const;
-    expect(listMetSearchTerms([sunflower])).toContain("sunflowers");
-  });
-
-  it("searches the names of ancestors in singular and plural", () => {
-    expect(listMetSearchTerms([], ["pine"])).toEqual(["pine", "pines"]);
-  });
-
-  it("searches a scientific name as it is", () => {
-    expect(listMetSearchTerms([{ name: "Apis mellifera", kind: "scientific" }])).toEqual([
-      "Apis mellifera",
-    ]);
-  });
-});
 
 describe("toMetArtwork", () => {
   it("links to the picture under CC0", () => {
@@ -86,8 +65,13 @@ describe("matchMetObject", () => {
     expect(matchMetObject(makeObject(), "Q7391", [])).toBe("id");
   });
 
-  it("matches by a tag that is the plural of a name", () => {
-    expect(matchMetObject(makeObject(), "Q30034", [bee])).toEqual(bee);
+  it("matches by a tag without a Wikidata item that is the plural of a name", () => {
+    const object = makeObject({ tags: [{ term: "Bees", Wikidata_URL: "" }] });
+    expect(matchMetObject(object, "Q30034", [bee])).toEqual(bee);
+  });
+
+  it("does not match by name a tag whose Wikidata item is another's", () => {
+    expect(matchMetObject(makeObject(), "Q30034", [bee])).toBeNull();
   });
 
   it("matches by the item of a taxon above the organism", () => {

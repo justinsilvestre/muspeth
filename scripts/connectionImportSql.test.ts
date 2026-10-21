@@ -61,6 +61,10 @@ describe("toConnectionImportSql", () => {
       );
     });
 
+    it("removes the media that the same import linked", () => {
+      expect(toConnectionImportSql("test", [], [])).toContain("WHERE media_source = 'test';");
+    });
+
     it("removes no nodes when every earlier one is added again", () => {
       const sql = toConnectionImportSql("test", [makeNode()], [], ["wikidata:Q1"]);
       expect(sql).not.toContain("DELETE FROM nodes");
@@ -81,7 +85,7 @@ describe("toConnectionImportSql", () => {
   describe("on adding nodes", () => {
     it("records the import as the node's source", () => {
       expect(toConnectionImportSql("test", [makeNode()], [])).toContain(
-        "VALUES ('wikidata:Q1', 'organism', 'Pinus o''densiflora', 'test', NULL, NULL)",
+        "VALUES ('wikidata:Q1', 'organism', 'Pinus o''densiflora', 'test')",
       );
     });
 
@@ -91,12 +95,23 @@ describe("toConnectionImportSql", () => {
       );
     });
 
-    it("links the node's media under the media's own licence", () => {
+    it("leaves the media of a node drafted without media", () => {
+      expect(toConnectionImportSql("test", [makeNode()], [])).toContain(
+        "DO UPDATE SET label = excluded.label WHERE",
+      );
+    });
+
+    it("links the node's media under the media's own licence and credit", () => {
       const node = makeNode({
-        media: { url: "https://example.org/pine.jpg", licence: "CC-BY-4.0" },
+        media: {
+          url: "https://example.org/pine.jpg",
+          licence: "CC-BY-4.0",
+          credit: "A. Painter",
+          pageUrl: "https://example.org/pine",
+        },
       });
       expect(toConnectionImportSql("test", [node], [])).toContain(
-        "'test', 'https://example.org/pine.jpg', 'CC-BY-4.0')",
+        "'test', 'https://example.org/pine.jpg', 'CC-BY-4.0', 'A. Painter', 'https://example.org/pine', 'test')",
       );
     });
 

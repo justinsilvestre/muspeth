@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { Connection } from "../shared/graph";
 import { ConnectionRow } from "./ConnectionRow";
 import { groupConnectionsByKind } from "./groupConnectionsByKind";
@@ -11,10 +12,16 @@ type ConnectionGroupsProps = {
   nodeId: string;
   connections: Connection[];
   nameOf: (nodeId: string) => string;
+  renderThumbnail: (nodeId: string) => ReactNode;
 };
 
 /** Lists a node's connections under collapsible kinds, each divided by relation. */
-export function ConnectionGroups({ nodeId, connections, nameOf }: ConnectionGroupsProps) {
+export function ConnectionGroups({
+  nodeId,
+  connections,
+  nameOf,
+  renderThumbnail,
+}: ConnectionGroupsProps) {
   const opensEveryKind = connections.length <= openKindsLimit;
   return (
     <div className="space-y-2">
@@ -34,6 +41,7 @@ export function ConnectionGroups({ nodeId, connections, nameOf }: ConnectionGrou
               {...relationGroup}
               nodeName={nameOf(nodeId)}
               nameOf={nameOf}
+              renderThumbnail={renderThumbnail}
               isCounted={kindGroup.relationGroups.length > 1}
             />
           ))}
@@ -49,6 +57,7 @@ type RelationGroupProps = {
   connections: Connection[];
   nodeName: string;
   nameOf: (nodeId: string) => string;
+  renderThumbnail: (nodeId: string) => ReactNode;
   isCounted: boolean;
 };
 
@@ -58,6 +67,7 @@ function RelationGroup({
   connections,
   nodeName,
   nameOf,
+  renderThumbnail,
   isCounted,
 }: RelationGroupProps) {
   return (
@@ -73,6 +83,7 @@ function RelationGroup({
             connection={connection}
             nodeName={nodeName}
             nameOf={nameOf}
+            thumbnail={renderThumbnail(connection.neighborId)}
           />
         ))}
       </ul>

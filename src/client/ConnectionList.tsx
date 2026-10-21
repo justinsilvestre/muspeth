@@ -3,8 +3,11 @@ import type { ReactNode } from "react";
 import type { ConnectionFilter } from "../shared/connectionFilter";
 import type { GraphNode } from "../shared/graph";
 import { ConnectionGroups } from "./ConnectionGroups";
+import { createNodeKindReader } from "./createNodeKindReader";
 import { createNodeNamer } from "./createNodeNamer";
 import { ConnectionFilterControls } from "./filters/ConnectionFilterControls";
+import { NodeFigure } from "./media/NodeFigure";
+import { NodeThumbnail } from "./media/NodeThumbnail";
 import { useConnections } from "./useConnections";
 
 type ConnectionListProps = {
@@ -17,19 +20,27 @@ type ConnectionListProps = {
 export function ConnectionList({ nodeId, nodes, filter, onFilterChange }: ConnectionListProps) {
   const resource = useConnections(nodeId, filter);
   const nameOf = createNodeNamer(nodes);
+  const kindOf = createNodeKindReader(nodes);
   const connections = resource.status === "loaded" ? resource.data.connections : [];
+  const mediaById = resource.status === "loaded" ? resource.data.media : {};
+  const media = mediaById[nodeId];
   const isReloading = resource.status === "loaded" && resource.isReloading;
 
   return (
     <section aria-labelledby="connection-list-heading">
-      <h2 id="connection-list-heading" className="font-medium text-lg">
-        Connections of {nameOf(nodeId)}
-      </h2>
-      <Reloadable isReloading={isReloading}>
-        <p className="mb-2 min-h-5 text-muted text-sm">
-          {resource.status === "loaded" && countConnections(connections.length)}
-        </p>
-      </Reloadable>
+      <header className="mb-2 flex items-start justify-between gap-4">
+        <div className="min-w-0">
+          <h2 id="connection-list-heading" className="font-medium text-lg">
+            Connections of {nameOf(nodeId)}
+          </h2>
+          <Reloadable isReloading={isReloading}>
+            <p className="min-h-5 text-muted text-sm">
+              {resource.status === "loaded" && countConnections(connections.length)}
+            </p>
+          </Reloadable>
+        </div>
+        {media && <NodeFigure media={media} name={nameOf(nodeId)} />}
+      </header>
       <ConnectionFilterControls filter={filter} onChange={onFilterChange} />
       {resource.status === "loading" && <p>Loading connections…</p>}
       {resource.status === "failed" && (
@@ -40,7 +51,14 @@ export function ConnectionList({ nodeId, nodes, filter, onFilterChange }: Connec
           {connections.length === 0 && (
             <p className="text-muted">No connections pass these filters.</p>
           )}
-          <ConnectionGroups nodeId={nodeId} connections={connections} nameOf={nameOf} />
+          <ConnectionGroups
+            nodeId={nodeId}
+            connections={connections}
+            nameOf={nameOf}
+            renderThumbnail={(neighborId) => (
+              <NodeThumbnail media={mediaById[neighborId]} kind={kindOf(neighborId)} />
+            )}
+          />
         </Reloadable>
       )}
     </section>
