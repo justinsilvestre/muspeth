@@ -1,21 +1,15 @@
+import type { GbifMatch } from "./gbifTaxonomy.ts";
 import type { WikidataTaxon } from "./organismIdentity.ts";
 
-/** A GBIF name usage, as returned by GBIF's species lookup or its name match. */
-export type GbifUsage = {
-  key?: number;
-  usageKey?: number;
+/** A GBIF name usage, as GBIF's lookup by key returns it. */
+export type GbifUsage = Omit<
+  GbifMatch,
+  "matchType" | "usageKey" | "acceptedUsageKey" | "status"
+> & {
+  key: number;
   acceptedKey?: number;
-  acceptedUsageKey?: number;
-  canonicalName?: string;
-  rank?: string;
-  status?: string;
+  /** For example "ACCEPTED", "DOUBTFUL" or "HOMOTYPIC_SYNONYM". */
   taxonomicStatus?: string;
-  matchType?: string;
-  kingdom?: string;
-  phylum?: string;
-  class?: string;
-  genus?: string;
-  species?: string;
 };
 
 /** What GBIF says about an organism, whether it was looked up by key or matched by name. */
@@ -36,22 +30,42 @@ export type GbifTaxon = {
   species: string | null;
 };
 
-/** Reads a GBIF usage, or returns null when GBIF found nothing. */
-export function toGbifTaxon(usage: GbifUsage) {
-  const key = usage.usageKey ?? usage.key;
-  if (key === undefined || usage.matchType === "NONE") return null;
+/** Reads a usage looked up by key as an exact match of its name. */
+export function toExactMatch({ key, acceptedKey, taxonomicStatus, ...usage }: GbifUsage) {
+  return {
+    ...usage,
+    matchType: "EXACT",
+    usageKey: key,
+    acceptedUsageKey: acceptedKey,
+    status: taxonomicStatus?.includes("SYNONYM") ? "SYNONYM" : taxonomicStatus,
+  } satisfies GbifMatch;
+}
+
+/**
+ * Tells whether a usage looked up by key can stand for an organism.
+ * It cannot when GBIF doubts the usage, as it does for many keys that it has replaced
+ * but that other databases, such as Wikidata, still cite.
+ */
+export function isTrustedKeyMatch(match: GbifMatch) {
+  return match.status !== "DOUBTFUL";
+}
+
+/** Reads a GBIF match, or returns null when GBIF found nothing. */
+export function toGbifTaxon(match: GbifMatch) {
+  const key = match.usageKey;
+  if (key === undefined || match.matchType === "NONE") return null;
   return {
     key,
-    acceptedKey: usage.acceptedUsageKey ?? usage.acceptedKey ?? null,
-    canonicalName: usage.canonicalName ?? null,
-    rank: usage.rank ?? null,
-    isSynonym: (usage.status ?? usage.taxonomicStatus ?? "").includes("SYNONYM"),
-    matchType: usage.matchType ?? "EXACT",
-    kingdom: usage.kingdom ?? null,
-    phylum: usage.phylum ?? null,
-    class: usage.class ?? null,
-    genus: usage.genus ?? null,
-    species: usage.species ?? null,
+    acceptedKey: match.acceptedUsageKey ?? null,
+    canonicalName: match.canonicalName ?? null,
+    rank: match.rank ?? null,
+    isSynonym: (match.status ?? "").includes("SYNONYM"),
+    matchType: match.matchType,
+    kingdom: match.kingdom ?? null,
+    phylum: match.phylum ?? null,
+    class: match.class ?? null,
+    genus: match.genus ?? null,
+    species: match.species ?? null,
   } satisfies GbifTaxon;
 }
 

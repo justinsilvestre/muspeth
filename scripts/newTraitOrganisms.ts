@@ -1,5 +1,5 @@
-import { matchGbifName } from "./gbifSpeciesApi.ts";
-import type { GbifTaxon } from "./gbifTaxon.ts";
+import { fetchGbifMatch } from "./gbifApi.ts";
+import { type GbifTaxon, toGbifTaxon } from "./gbifTaxon.ts";
 import type { TraitNode } from "./likenessConnections.ts";
 import { mapConcurrently } from "./mapConcurrently.ts";
 import { identifyOrganism, type WikidataTaxon } from "./organismIdentity.ts";
@@ -32,7 +32,7 @@ export async function identifyNewTraitOrganisms<Traits>(
   existingIdByLabel: Map<string, string>,
 ) {
   const lookups = await mapConcurrently(records, async (record) => {
-    const match = await matchGbifName(record.name, record.gbifHints);
+    const match = toGbifTaxon(await fetchGbifMatch(record.name, record.gbifHints));
     const gbif = match?.matchType === "EXACT" ? match : null;
     return {
       record,

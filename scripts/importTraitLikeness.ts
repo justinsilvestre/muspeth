@@ -7,15 +7,18 @@
  * Without --remote, it writes to the local development database.
  */
 import { queryD1 } from "./d1.ts";
-import { classifyGraphOrganisms } from "./graphOrganismTaxa.ts";
-import { importLikeness } from "./likenessImport.ts";
+import { toGbifTaxon } from "./gbifTaxon.ts";
+import { type GraphOrganism, importLikeness } from "./likenessImport.ts";
 import { loadOrganismIdsByLabel } from "./loadOrganismIdsByLabel.ts";
+import { matchGraphOrganisms } from "./matchGraphOrganism.ts";
 import { eltonTraits, fungalTraits } from "./traitDatabases.ts";
 import { traitStartOrganismsSql } from "./traitStartOrganismsSql.ts";
 
 const organisms = queryD1<{ id: string; label: string }>(traitStartOrganismsSql);
 const existingIdByLabel = loadOrganismIdsByLabel([eltonTraits.source, fungalTraits.source]);
-const classified = await classifyGraphOrganisms(organisms);
+const classified = (await matchGraphOrganisms(organisms)).map(
+  ({ node, match }) => ({ ...node, gbif: toGbifTaxon(match) }) satisfies GraphOrganism,
+);
 console.log(
   `Found ${classified.filter(({ gbif }) => gbif).length} of ${organisms.length} organisms in GBIF.`,
 );
