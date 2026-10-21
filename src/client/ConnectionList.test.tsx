@@ -2,7 +2,7 @@ import { cleanup, render, screen, within } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { type ConnectionFilter, emptyConnectionFilter } from "../shared/connectionFilter";
-import type { Connection, GraphNode } from "../shared/graph";
+import type { Connection, GraphNode, NodeMedia } from "../shared/graph";
 import { ConnectionList } from "./ConnectionList";
 
 afterEach(() => {
@@ -58,10 +58,21 @@ const eatenByConnection = {
   qualityFlags: [],
 } satisfies Connection;
 
-function stubConnections(connections: Connection[]) {
+function stubConnections(connections: Connection[], media: Record<string, NodeMedia> = {}) {
   vi.stubGlobal("fetch", async (path: string) =>
-    Response.json(path.startsWith("/api/sources") ? { sources: ["mangal"] } : { connections }),
+    Response.json(
+      path.startsWith("/api/sources") ? { sources: ["mangal"] } : { connections, media },
+    ),
   );
+}
+
+function imageOf(name: string) {
+  return {
+    url: `https://upload.wikimedia.org/${name}.jpg`,
+    licence: "CC0-1.0",
+    credit: null,
+    pageUrl: null,
+  } satisfies NodeMedia;
 }
 
 function renderConnectionsOfFungus(filter: ConnectionFilter = emptyConnectionFilter) {
@@ -143,7 +154,24 @@ describe("ConnectionList", () => {
     expect(groups.map((group) => group.closest("details")?.open)).toEqual([true, false]);
   });
 
+  it("shows the node's image beside the heading", async () => {
+    stubConnections([hostConnection], { fungus: imageOf("fungus") });
+    renderConnectionsOfFungus();
+    expect((await screen.findByRole("img", { name: "matsutake" })).getAttribute("src")).toBe(
+      "https://upload.wikimedia.org/fungus.jpg",
+    );
+  });
+
   describe("in a connection", () => {
+    it("shows the neighbour's image", async () => {
+      stubConnections([hostConnection], { pine: imageOf("pine") });
+      renderConnectionsOfFungus();
+      const connection = await screen.findByRole("listitem");
+      expect(connection.querySelector("img")?.getAttribute("src")).toBe(
+        "https://upload.wikimedia.org/pine.jpg",
+      );
+    });
+
     it("states the relation in words, with the node's own name as plain text", async () => {
       stubConnections([hostConnection]);
       renderConnectionsOfFungus();
