@@ -40,14 +40,42 @@ const pathThroughKyoto = {
   cost: 2,
 } satisfies RankedPath;
 
-async function renderPathThroughKyoto() {
-  vi.stubGlobal("fetch", async () => Response.json({ paths: [pathThroughKyoto] }));
+/** A direct path from matsutake to pine, with a connection stated each way. */
+const directPath = {
+  nodeIds: ["a", "c"],
+  steps: [
+    {
+      fromNodeId: "a",
+      toNodeId: "c",
+      connections: [
+        { ...edge, id: 3, sourceNodeId: "c", targetNodeId: "a", relation: "symbiontOf" },
+        { ...edge, id: 4, sourceNodeId: "a", targetNodeId: "c", relation: "mutualistOf" },
+        { ...edge, id: 5, sourceNodeId: "c", targetNodeId: "a", relation: "hostOf" },
+      ],
+    },
+  ],
+  kinds: ["shared_place_and_sound"],
+  neighborCounts: [1, 1],
+  cost: 1,
+} satisfies RankedPath;
+
+async function renderPaths(paths: RankedPath[]) {
+  vi.stubGlobal("fetch", async () => Response.json({ paths }));
   render(
     <MemoryRouter initialEntries={["/paths?from=a&to=c&source=mangal"]}>
       <PathList params={new URLSearchParams("from=a&to=c&source=mangal")} nameOf={nameOf} />
     </MemoryRouter>,
   );
+  return screen.findByRole("list", { name: "Paths" });
+}
+
+async function renderPathThroughKyoto() {
+  await renderPaths([pathThroughKyoto]);
   return within(await screen.findByRole("heading"));
+}
+
+async function findStepsOfPath(rank: number) {
+  return within(await screen.findByRole("list", { name: `Steps of path ${rank}` }));
 }
 
 describe("PathList", () => {
@@ -71,6 +99,52 @@ describe("PathList", () => {
       expect(screen.getAllByText(/Mangal/)[0]?.textContent).toBe(
         "shared place and sound · observed · Mangal · CC BY 4.0",
       );
+    });
+
+    it("explains how paths are ranked", async () => {
+      await renderPathThroughKyoto();
+      expect(screen.getByText(/rank higher/).textContent).toMatch(
+        /avoid hubs.*cross more kinds of connection rank higher/,
+      );
+    });
+
+    it("gives the reasons for the path's rank", async () => {
+      await renderPathThroughKyoto();
+      expect(screen.getByText(/^2 steps/).textContent).toMatch(
+        /^2 steps · crosses 1 kind of connection · avoids hubs · score 2\.00/,
+      );
+    });
+
+    it("labels the kinds of connection the path crosses", async () => {
+      await renderPathThroughKyoto();
+      const kinds = screen.getByRole("list", { name: "Kinds of connection in path 1" });
+      expect(
+        within(kinds)
+          .getAllByRole("listitem")
+          .map((item) => item.textContent),
+      ).toEqual(["shared place and sound"]);
+    });
+
+    it("names the node each step enters", async () => {
+      await renderPathThroughKyoto();
+      const steps = await findStepsOfPath(1);
+      expect(
+        steps.getAllByRole("listitem").map((step) => step.textContent?.match(/to \w+$/)?.[0]),
+      ).toEqual(["to Kyoto", "to pine"]);
+    });
+  });
+
+  describe("when a step has several connections", () => {
+    it("shows first the connection stated in the direction of the path", async () => {
+      await renderPaths([directPath]);
+      const steps = await findStepsOfPath(1);
+      expect(steps.getByRole("listitem").textContent).toMatch(/^matsutake mutualist of pine/);
+    });
+
+    it("folds the other connections behind a disclosure", async () => {
+      await renderPaths([directPath]);
+      const steps = await findStepsOfPath(1);
+      expect(steps.getByText("+2 more connections").tagName).toBe("SUMMARY");
     });
   });
 
