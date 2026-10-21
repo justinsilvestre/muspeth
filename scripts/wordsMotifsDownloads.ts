@@ -1,3 +1,4 @@
+import { cachedFetch } from "./cachedFetch.ts";
 import { parseCsv } from "./parseCsv.ts";
 import { userAgent } from "./userAgent.ts";
 import type { WoldTables } from "./woldWords.ts";
@@ -26,7 +27,7 @@ export function fetchMotifIndexRows() {
 }
 
 async function fetchCsv(url: string) {
-  const response = await fetch(url, { headers });
+  const response = await cachedFetch(url, { headers });
   if (!response.ok) throw new Error(`Download responded ${response.status} for ${url}`);
   return parseCsv(await response.text());
 }

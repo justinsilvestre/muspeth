@@ -51,6 +51,7 @@ export default defineConfig(async () => ({
           name: "scripts",
           include: ["scripts/**/*.test.ts"],
           environment: "node",
+          env: { API_CACHE: "off" },
         },
       },
     ],

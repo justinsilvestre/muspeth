@@ -1,3 +1,5 @@
+import { cachedFetch } from "./cachedFetch.ts";
+
 const maxAttempts = 4;
 const retryableStatuses = [429, 502, 503, 504];
 
@@ -7,7 +9,7 @@ const retryableStatuses = [429, 502, 503, 504];
  */
 export async function fetchWithRetry(url: string | URL, init?: RequestInit) {
   for (let attempt = 1; ; attempt++) {
-    const response = await fetch(url, init);
+    const response = await cachedFetch(url, init);
     if (attempt === maxAttempts || !retryableStatuses.includes(response.status)) return response;
     await sleep(Number(response.headers.get("retry-after") ?? attempt * 5) * 1000);
   }

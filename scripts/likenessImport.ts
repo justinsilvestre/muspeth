@@ -1,3 +1,4 @@
+import { cachedFetch } from "./cachedFetch.ts";
 import { fetchGbifSynonymNames } from "./gbifApi.ts";
 import type { GbifTaxon } from "./gbifTaxon.ts";
 import { type TraitNode, toLikenessConnections } from "./likenessConnections.ts";
@@ -56,7 +57,7 @@ export async function importLikeness<Traits>(
 async function downloadRecords<Traits>({ tables }: TraitDatabase<Traits>) {
   const parsedTables = await Promise.all(
     tables.map(async ({ url, encoding, parse }) => {
-      const response = await fetch(url, { headers });
+      const response = await cachedFetch(url, { headers });
       if (!response.ok) throw new Error(`${url} responded ${response.status}`);
       return parse(new TextDecoder(encoding).decode(await response.arrayBuffer()));
     }),
