@@ -28,6 +28,7 @@ describe("exportGraph", () => {
         relation: "relatedTo",
         basis: "observed",
         source: "test",
+        licence: "CC0-1.0",
         qualityFlags: ["unmatched_name"],
       },
     ]);

@@ -1,3 +1,4 @@
+/// <reference lib="dom" />
 import { expect, test } from "@playwright/test";
 
 const matsutakePath = `/organisms/${encodeURIComponent("wikidata:Q509308")}`;

@@ -1,11 +1,11 @@
 import { type ConnectionFilter, writeConnectionFilter } from "../shared/connectionFilter";
 import type { Connection, GraphNode } from "../shared/graph";
 import { apiPath } from "./apiPath";
+import { ConnectionMeta } from "./ConnectionMeta";
 import { ConnectionSentence } from "./ConnectionSentence";
 import { ConnectionSources } from "./ConnectionSources";
 import { createNodeNamer } from "./createNodeNamer";
 import { ConnectionFilterControls } from "./filters/ConnectionFilterControls";
-import { termLabel } from "./termLabel";
 import { useApiResource } from "./useApiResource";
 
 type ConnectionListProps = {
@@ -47,15 +47,12 @@ export function ConnectionList({ nodeId, nodes, filter, onFilterChange }: Connec
             return (
               <li key={connection.id} className="rounded border border-line px-3 py-2">
                 <ConnectionSentence
-                  sourceName={nameOf(sourceId)}
+                  sourceId={sourceId}
                   relation={connection.relation}
-                  targetName={nameOf(targetId)}
+                  targetId={targetId}
+                  nameOf={nameOf}
                 />
-                <p className="text-muted text-sm">
-                  {termLabel(connection.kind)} · {connection.basis} · {connection.licence}
-                  {connection.qualityFlags.length > 0 &&
-                    ` · flagged: ${connection.qualityFlags.join(", ")}`}
-                </p>
+                <ConnectionMeta {...connection} />
                 <ConnectionSources connection={connection} />
               </li>
             );

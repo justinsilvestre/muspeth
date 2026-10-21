@@ -1,6 +1,6 @@
 import type { PlacedConnection } from "../../shared/placeAndPeriodQuery";
+import { ConnectionMeta } from "../ConnectionMeta";
 import { ConnectionSentence } from "../ConnectionSentence";
-import { termLabel } from "../termLabel";
 import { useApiResource } from "../useApiResource";
 
 type PlacedConnectionListProps = {
@@ -26,16 +26,13 @@ export function PlacedConnectionList({ params, nameOf }: PlacedConnectionListPro
       {resource.data.connections.map((connection) => (
         <li key={connection.id} className="rounded border border-line px-3 py-2">
           <ConnectionSentence
-            sourceName={nameOf(connection.sourceNodeId)}
+            sourceId={connection.sourceNodeId}
             relation={connection.relation}
-            targetName={nameOf(connection.targetNodeId)}
+            targetId={connection.targetNodeId}
+            nameOf={nameOf}
           />
           <p className="text-sm">{describePlaceAndDate(connection)}</p>
-          <p className="text-muted text-sm">
-            {termLabel(connection.kind)} · {connection.basis} · {connection.source}
-            {connection.qualityFlags.length > 0 &&
-              ` · flagged: ${connection.qualityFlags.join(", ")}`}
-          </p>
+          <ConnectionMeta {...connection} />
         </li>
       ))}
     </ul>

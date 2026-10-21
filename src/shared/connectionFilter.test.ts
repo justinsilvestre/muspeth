@@ -16,6 +16,7 @@ const flaggedInteraction = {
   relation: "eats",
   basis: "observed",
   source: "globi",
+  licence: "CC0-1.0",
   qualityFlags: ["unmatched_name"],
 } satisfies GraphEdge;
 
