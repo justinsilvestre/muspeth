@@ -3,6 +3,7 @@ import type { NodeKind } from "../../shared/graph";
 import { maxPathSteps, type PathsResponse, pathNeighborLimit } from "../../shared/pathQuery";
 import { useApiResource } from "../useApiResource";
 import { createPathNodeDescriber } from "./createPathNodeDescriber";
+import { groupPathVariants } from "./groupPathVariants";
 import { listLegendKinds } from "./listLegendKinds";
 import { NodeDetails } from "./NodeDetails";
 import { PathBraid } from "./PathBraid";
@@ -20,7 +21,7 @@ type PathResultsProps = {
 
 /**
  * Shows the best paths between two nodes drawn together, with the details of the path or node the reader selects.
- * The best path is selected at first.
+ * Paths that differ only by one node are shown as one path with variants. The best path is selected at first.
  */
 export function PathResults({ params, nameOf, kindOf }: PathResultsProps) {
   const resource = useApiResource<PathsResponse>(`/api/paths?${params}`);
@@ -33,27 +34,29 @@ export function PathResults({ params, nameOf, kindOf }: PathResultsProps) {
   const { paths, truncated, media } = resource.data;
   if (paths.length === 0) return <NoPathNotice truncated={truncated} />;
   const describeNode = createPathNodeDescriber({ nameOf, kindOf }, paths, media);
-  const selectedPath = "pathIndex" in selection ? paths[selection.pathIndex] : undefined;
+  const groups = groupPathVariants(paths);
+  const selectedGroup = "pathIndex" in selection ? groups[selection.pathIndex] : undefined;
   return (
     <div className="space-y-3">
-      <PathSelector paths={paths} selection={selection} onSelect={setSelection} />
+      <PathSelector groups={groups} selection={selection} onSelect={setSelection} />
       <PathBraid
-        paths={paths}
+        groups={groups}
         describeNode={describeNode}
         selection={selection}
         onSelect={setSelection}
       />
       <PathLegend {...listLegendKinds(paths, kindOf)} />
       <div className="rounded border border-line bg-panel px-4 py-3">
-        {selectedPath && (
+        {selectedGroup && (
           <PathDetails
-            path={selectedPath}
-            rank={"pathIndex" in selection ? selection.pathIndex + 1 : 0}
+            group={selectedGroup}
+            rank={groups.indexOf(selectedGroup) + 1}
             nameOf={nameOf}
+            onSelectNode={(nodeId) => setSelection({ nodeId })}
           />
         )}
         {"nodeId" in selection && (
-          <NodeDetails nodeId={selection.nodeId} paths={paths} describeNode={describeNode} />
+          <NodeDetails nodeId={selection.nodeId} groups={groups} describeNode={describeNode} />
         )}
       </div>
     </div>

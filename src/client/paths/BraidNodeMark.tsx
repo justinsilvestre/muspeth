@@ -9,22 +9,37 @@ import { termLabel } from "../termLabel";
 import { countNeighbors, type DescribePathNode } from "./createPathNodeDescriber";
 
 type BraidNodeMarkProps = {
-  node: ReturnType<DescribePathNode>;
+  /** The node, with the names of the nodes that other paths pass through in its place, if any. */
+  node: ReturnType<DescribePathNode> & { variantNames: string[] };
   at: Point;
-  /** Whether the node is one of the two the reader chose, which are drawn with a heavier outline. */
-  isEnd: boolean;
+  look: {
+    /** Whether the node is one of the two the reader chose, which are drawn with a heavier outline. */
+    isEnd: boolean;
+    labelLength: number;
+    labelSide: "above" | "below";
+  };
   selection: { isLit: boolean; isSelected: boolean; onSelect: () => void };
 };
 
 /**
  * Draws a node of the path drawing as its image, or else the shape of its kind, with its name above.
  * Nodes with more neighbours are drawn larger.
+ * A node that other paths replace with nodes of their own is drawn as a stack, and its label counts the others.
  */
-export function BraidNodeMark({ node, at, isEnd, selection }: BraidNodeMarkProps) {
+export function BraidNodeMark({ node, at, look, selection }: BraidNodeMarkProps) {
   const clipId = useId();
+  const { isEnd, labelLength, labelSide } = look;
   const radius = Math.max(sizeByNeighbors(node.neighborCount), isEnd ? 12 : 0);
   const image = node.kind !== "recording" ? node.media : undefined;
-  const description = `${node.name}, ${termLabel(node.kind ?? "node")}, ${countNeighbors(node.neighborCount)}`;
+  const variantCount = node.variantNames.length;
+  const description =
+    variantCount > 0
+      ? `${node.name}, or ${node.variantNames.join(", ")}, ${termLabel(node.kind ?? "node")}`
+      : `${node.name}, ${termLabel(node.kind ?? "node")}, ${countNeighbors(node.neighborCount)}`;
+  const label =
+    variantCount > 0
+      ? `${truncateLabel(node.name, labelLength - 3)} +${variantCount}`
+      : truncateLabel(node.name, labelLength);
   return (
     // biome-ignore lint/a11y/useSemanticElements: SVG has no button element, so a group takes the role.
     <g
@@ -72,11 +87,11 @@ export function BraidNodeMark({ node, at, isEnd, selection }: BraidNodeMarkProps
       )}
       <text
         x={at.x}
-        y={at.y - radius - 7}
+        y={labelSide === "below" ? at.y + radius + 16 : at.y - radius - (variantCount > 0 ? 13 : 7)}
         textAnchor="middle"
         className={clsx("fill-ink", (isEnd || selection.isSelected) && "font-medium")}
       >
-        {truncateLabel(node.name, 20)}
+        {label}
       </text>
     </g>
   );

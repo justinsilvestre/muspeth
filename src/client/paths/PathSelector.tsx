@@ -1,22 +1,22 @@
 import clsx from "clsx";
-import type { RankedPath } from "../../shared/findPaths";
+import type { PathGroup } from "./groupPathVariants";
 import type { PathSelection } from "./pathSelection";
 
 type PathSelectorProps = {
-  paths: RankedPath[];
+  groups: PathGroup[];
   selection: PathSelection;
   onSelect: (selection: PathSelection) => void;
 };
 
-/** Lists the paths found, best first, as buttons that select a path. */
-export function PathSelector({ paths, selection, onSelect }: PathSelectorProps) {
+/** Lists the paths found, best first, as buttons that select a path, counting the variants of each. */
+export function PathSelector({ groups, selection, onSelect }: PathSelectorProps) {
   return (
     <ol aria-label="Paths" className="flex flex-wrap gap-1.5">
-      {paths.map((path, index) => {
+      {groups.map(({ paths }, index) => {
         const isSelected = "pathIndex" in selection && selection.pathIndex === index;
-        const steps = path.steps.length;
+        const steps = paths[0]?.steps.length ?? 0;
         return (
-          <li key={path.nodeIds.join(" ")}>
+          <li key={paths[0]?.nodeIds.join(" ")}>
             <button
               type="button"
               aria-pressed={isSelected}
@@ -27,6 +27,7 @@ export function PathSelector({ paths, selection, onSelect }: PathSelectorProps) 
               )}
             >
               Path {index + 1} · {steps} {steps === 1 ? "step" : "steps"}
+              {paths.length > 1 && ` · ${paths.length} variants`}
             </button>
           </li>
         );

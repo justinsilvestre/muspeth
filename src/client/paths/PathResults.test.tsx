@@ -129,6 +129,33 @@ describe("PathResults", () => {
     });
   });
 
+  describe("when paths differ only by one node", () => {
+    const pathThroughOsaka = {
+      ...pathThroughKyoto,
+      nodeIds: ["a", "o", "c"],
+      steps: [
+        { fromNodeId: "a", toNodeId: "o", connections: [{ ...edge, id: 6, targetNodeId: "o" }] },
+        {
+          fromNodeId: "o",
+          toNodeId: "c",
+          connections: [{ ...edge, id: 7, sourceNodeId: "o", targetNodeId: "c" }],
+        },
+      ],
+    } satisfies RankedPath;
+
+    it("offers them as one path with variants", async () => {
+      const paths = await renderPaths([pathThroughKyoto, pathThroughOsaka]);
+      expect(within(paths).getByRole("button").textContent).toBe("Path 1 · 2 steps · 2 variants");
+    });
+
+    it("names the other nodes of the variants", async () => {
+      await renderPaths([pathThroughKyoto, pathThroughOsaka]);
+      expect(screen.getByText(/^Also through/).parentElement?.textContent).toBe(
+        "Also through o in place of Kyoto.",
+      );
+    });
+  });
+
   describe("when the reader selects a node", () => {
     async function selectKyoto() {
       await renderPaths([pathThroughKyoto, directPath]);

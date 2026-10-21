@@ -1,23 +1,23 @@
 import { Link, useSearchParams } from "react-router";
-import type { RankedPath } from "../../shared/findPaths";
 import { MediaCredit } from "../media/MediaCredit";
 import { NodeThumbnail } from "../media/NodeThumbnail";
 import { NodeLink } from "../NodeLink";
 import { termLabel } from "../termLabel";
 import { countNeighbors, type DescribePathNode } from "./createPathNodeDescriber";
+import type { PathGroup } from "./groupPathVariants";
 
 type NodeDetailsProps = {
   nodeId: string;
-  paths: RankedPath[];
+  groups: PathGroup[];
   describeNode: DescribePathNode;
 };
 
 /** Describes a node of the paths found, and offers to start a new search from it or to it. */
-export function NodeDetails({ nodeId, paths, describeNode }: NodeDetailsProps) {
+export function NodeDetails({ nodeId, groups, describeNode }: NodeDetailsProps) {
   const [searchParams] = useSearchParams();
   const { name, kind, media, neighborCount } = describeNode(nodeId);
-  const ranks = paths.flatMap(({ nodeIds }, index) =>
-    nodeIds.includes(nodeId) ? [index + 1] : [],
+  const ranks = groups.flatMap(({ paths }, index) =>
+    paths.some(({ nodeIds }) => nodeIds.includes(nodeId)) ? [index + 1] : [],
   );
   const searchFrom = (end: "from" | "to") => {
     const next = new URLSearchParams(searchParams);
