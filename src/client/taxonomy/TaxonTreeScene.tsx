@@ -1,5 +1,5 @@
 import { Environment, Lightformer, OrbitControls } from "@react-three/drei";
-import { Canvas, type ThreeEvent } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import { useMemo, useRef, useState } from "react";
 import { resizeCommonsImage } from "../media/resizeCommonsImage";
 import { useColorScheme } from "../theme/useColorScheme";
@@ -14,6 +14,7 @@ import { listLineageIds } from "./listLineageIds";
 import { listRepeatedTaxonIds } from "./listRepeatedTaxonIds";
 import { TreeLabelOverlay, TreeLabelTracker } from "./TreeLabels";
 import { treePalettes } from "./treePalette";
+import { useLeafMaterials } from "./useLeafMaterials";
 
 /**
  * Renders the taxonomic tree as a slowly turning 3D form that the viewer can rotate and zoom.
@@ -54,20 +55,21 @@ export default function TaxonTreeScene(props: { tree: TaxonTreeNode; settings: G
     findBarkMaterial(settings.barkMaterialId),
     settings.shading,
   );
+  const leafMaterials = useLeafMaterials(palette);
+  const { leafSize, leafGap } = settings;
+  const leafStyle = useMemo(
+    () => ({ materials: leafMaterials, size: leafSize, gap: leafGap }),
+    [leafMaterials, leafSize, leafGap],
+  );
   const heights = paths.flatMap((path) => path.positions.map((position) => position[1]));
   const [bottom, top] = [Math.min(...heights), Math.max(...heights)];
   const offsetY = -(bottom + top) / 2;
   const size = top - bottom;
 
-  /** Highlights the given lineage for the nearest object under the pointer only. */
-  const hover = (id: string | null) => (event: ThreeEvent<PointerEvent>) => {
-    event.stopPropagation();
-    setHoveredId(id);
-  };
-
   return (
     <div className="relative h-full">
-      <Canvas camera={{ position: [size, size * 0.3, size], fov: 50 }}>
+      {/* Rendering at most 1.5 device pixels per CSS pixel spares high-density screens much of the shading work. */}
+      <Canvas camera={{ position: [size, size * 0.3, size], fov: 50 }} dpr={[1, 1.5]}>
         <ambientLight intensity={0.4} />
         <directionalLight position={[5, 12, 4]} intensity={1.2} />
         {/* Soft studio lights, generated locally, give metals and gloss something to reflect. */}
@@ -98,21 +100,13 @@ export default function TaxonTreeScene(props: { tree: TaxonTreeNode; settings: G
               key={path.endId}
               path={path}
               shape={shape}
-              material={
-                lineageIds.has(path.endId) ? barkMaterials.highlighted : barkMaterials.plain
+              barkMaterials={barkMaterials}
+              leafStyle={leafStyle}
+              isHighlighted={lineageIds.has(path.endId)}
+              leafImageUrl={
+                settings.showsLeafImages ? findLeafImageUrl(nodesById.get(path.endId)) : undefined
               }
-              outlineMaterial={barkMaterials.outline}
-              leaf={{
-                color: lineageIds.has(path.endId) ? palette.leafHighlight : palette.leaf,
-                isHighlighted: lineageIds.has(path.endId),
-                size: settings.leafSize,
-                gap: settings.leafGap,
-                imageUrl: settings.showsLeafImages
-                  ? findLeafImageUrl(nodesById.get(path.endId))
-                  : undefined,
-              }}
-              onPointerOver={hover(path.endId)}
-              onPointerOut={hover(null)}
+              onHover={setHoveredId}
             />
           ))}
         </group>
@@ -124,7 +118,7 @@ export default function TaxonTreeScene(props: { tree: TaxonTreeNode; settings: G
         />
         <OrbitControls autoRotate={hoveredId === null} autoRotateSpeed={0.5} enablePan={false} />
       </Canvas>
-      <TreeLabelOverlay points={points} labelsById={labelsById} />
+      <TreeLabelOverlay points={points} labelsById={labelsById} lineageIds={labelledLineageIds} />
       <LineageReadout lineage={lineage} />
     </div>
   );
