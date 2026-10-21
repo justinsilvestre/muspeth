@@ -8,13 +8,13 @@ test.describe("finding connections by place and period", () => {
     await page.getByRole("button", { name: "Search" }).click();
     await expect(
       page.getByRole("list", { name: "Connections by place and period" }).getByRole("listitem"),
-    ).toHaveText([/recordedAt Kyoto.*0\.0 km away/, /recordedAt Kyoto.*2\.4 km away/]);
+    ).toHaveText([/recorded at Kyoto.*0\.0 km away/, /recorded at Kyoto.*2\.4 km away/]);
   });
 
   test("lists the connections recorded within a period", async ({ page }) => {
     await page.goto("/places?from=2005&to=2005");
     await expect(
       page.getByRole("list", { name: "Connections by place and period" }).getByRole("listitem"),
-    ).toHaveText([/^western honey bee visitsFlowersOf Japanese red pineSapporo/]);
+    ).toHaveText([/^western honey bee visits flowers of Japanese red pineSapporo/]);
   });
 });

@@ -13,7 +13,6 @@ type PlacedConnectionRow = GraphEdgeRow & {
   latitude: number | null;
   longitude: number | null;
   date: string | null;
-  licence: string;
 };
 
 const kmPerDegreeOfLatitude = 111.19;
@@ -41,7 +40,7 @@ export async function listConnectionsByPlaceAndPeriod(db: D1Database, query: Pla
   const limit = query.near ? -1 : query.limit;
   const { results } = await db
     .prepare(
-      `SELECT ${graphEdgeColumns}, place, latitude, longitude, date, licence FROM connections
+      `SELECT ${graphEdgeColumns}, place, latitude, longitude, date FROM connections
        WHERE ${condition.sql} ORDER BY ${toYearSql(dateStartSql)}, date, id LIMIT ?`,
     )
     .bind(...condition.bindings, limit)
@@ -51,14 +50,14 @@ export async function listConnectionsByPlaceAndPeriod(db: D1Database, query: Pla
 }
 
 function toPlacedConnection(row: PlacedConnectionRow, near: Coordinates | null) {
-  const { place, latitude, longitude, date, licence } = row;
+  const { place, latitude, longitude, date } = row;
   const distance =
     near && latitude !== null && longitude !== null
       ? distanceKm(near, { latitude, longitude })
       : null;
   return {
     ...toGraphEdge(row),
-    ...{ place, latitude, longitude, date, licence },
+    ...{ place, latitude, longitude, date },
     distanceKm: distance,
   } satisfies PlacedConnection;
 }

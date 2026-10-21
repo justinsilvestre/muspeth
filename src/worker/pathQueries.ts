@@ -2,16 +2,10 @@ import type { ConnectionFilter } from "../shared/connectionFilter";
 import { findPaths } from "../shared/findPaths";
 import type { GraphEdge } from "../shared/graphExport";
 import { buildPathGraph } from "../shared/pathGraph";
-import type { PathQuery } from "../shared/pathQuery";
+import { type PathQuery, pathNeighborLimit } from "../shared/pathQuery";
 import { connectionFilterSql } from "./connectionFilterSql";
 import { type GraphEdgeRow, graphEdgeColumns, toGraphEdge } from "./graphEdgeRow";
 import { isOneOf } from "./sqlCondition";
-
-/**
- * How many neighbours of each node a path search follows at most.
- * It bounds the connections loaded around a node with very many neighbours, such as a common word.
- */
-export const defaultNeighborLimit = 100;
 
 /**
  * Finds the best paths between two nodes, loading only the part of the graph they can pass through.
@@ -22,7 +16,7 @@ export const defaultNeighborLimit = 100;
 export async function findPathsBetween(
   db: D1Database,
   query: PathQuery,
-  neighborLimit = defaultNeighborLimit,
+  neighborLimit = pathNeighborLimit,
 ) {
   const ends = [query.fromId, query.toId];
   const edges = await loadEdgesAround(ends, Math.ceil(query.maxSteps / 2), (frontier) =>

@@ -5,11 +5,19 @@ const fromHoneyBeeToMatsutake = `/paths?from=${encodeURIComponent("wikidata:Q300
 test.describe("finding paths between two nodes", () => {
   test("ranks the path through a quiet place first", async ({ page }) => {
     await page.goto("/paths");
-    await page.getByRole("combobox", { name: "From" }).selectOption({ label: "western honey bee" });
-    await page.getByRole("combobox", { name: "To" }).selectOption({ label: "matsutake" });
+    await page.getByRole("combobox", { name: "From" }).fill("honey");
+    await page.getByRole("option", { name: /western honey bee/ }).click();
+    await page.getByRole("combobox", { name: "To" }).fill("マツタケ");
+    await page.getByRole("combobox", { name: "To" }).press("Enter");
     await expect(page.getByRole("list", { name: "Paths" }).getByRole("heading").first()).toHaveText(
       "1. western honey bee → Kyoto → matsutake",
     );
+  });
+
+  test("exchanges the two ends", async ({ page }) => {
+    await page.goto(fromHoneyBeeToMatsutake);
+    await page.getByRole("button", { name: "Swap From and To" }).click();
+    await expect(page.getByRole("combobox", { name: "From" })).toHaveValue("matsutake");
   });
 
   test("states the kind and basis of each step", async ({ page }) => {
