@@ -9,6 +9,7 @@ const sourceNames: Record<string, string> = {
   sample: "Hand-entered sample",
   thompson_motifs: "Thompson's Motif-Index",
   wikidata: "Wikidata",
+  "wikidata-depictions": "Wikidata depictions",
   wold: "World Loanword Database",
 };
 

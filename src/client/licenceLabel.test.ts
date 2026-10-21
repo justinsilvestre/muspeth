@@ -5,6 +5,7 @@ describe("licenceLabel", () => {
   it.each([
     ["CC0-1.0", "CC0 1.0"],
     ["CC-BY-4.0", "CC BY 4.0"],
+    ["CC-BY-SA-3.0", "CC BY-SA 3.0"],
     ["LicenseRef-web-of-life-attribution", "Web of Life attribution"],
     ["MIT", "MIT"],
   ])("names %s as %s", (licence, label) => {
@@ -19,6 +20,10 @@ describe("licenceLink", () => {
 
   it("links CC BY to its deed", () => {
     expect(licenceLink("CC-BY-4.0")).toBe("https://creativecommons.org/licenses/by/4.0/");
+  });
+
+  it("links another Creative Commons licence to its deed", () => {
+    expect(licenceLink("CC-BY-SA-2.5")).toBe("https://creativecommons.org/licenses/by-sa/2.5/");
   });
 
   it("has no link for a licence without a known deed", () => {
