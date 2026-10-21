@@ -9,7 +9,7 @@ import { findNode, listConnectionMedia, listConnections, listNodes } from "./gra
 import { findPathsBetween } from "./pathQueries";
 import { listConnectionsByPlaceAndPeriod } from "./placeQueries";
 import type { SqlDatabase } from "./sqlDatabase";
-import { listTaxa, listTaxonPlacements } from "./taxonomyQueries";
+import { listPlacedOrganismMedia, listTaxa, listTaxonPlacements } from "./taxonomyQueries";
 
 type AppEnv = { Bindings: { DB: SqlDatabase } };
 type AppContext = Context<AppEnv>;
@@ -61,11 +61,12 @@ const app = new Hono<AppEnv>()
     context.json({ sources: await listConnectionSourceNames(context.env.DB) }),
   )
   .get("/taxonomy", async (context) => {
-    const [taxa, placements] = await Promise.all([
+    const [taxa, placements, media] = await Promise.all([
       listTaxa(context.env.DB),
       listTaxonPlacements(context.env.DB),
+      listPlacedOrganismMedia(context.env.DB),
     ]);
-    return context.json({ taxa, placements });
+    return context.json({ taxa, placements, media });
   })
   .onError((error, context) => {
     console.error(error);

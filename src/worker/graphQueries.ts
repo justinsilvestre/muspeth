@@ -22,7 +22,7 @@ type ConnectionRow = {
   licence: string;
   quality_flags: string;
 };
-type NodeMediaRow = {
+export type NodeMediaRow = {
   id: string;
   media_url: string;
   media_licence: string;
@@ -114,7 +114,7 @@ export async function listConnectionMedia(
   return Object.fromEntries(rows.results.map((row) => [row.id, toNodeMedia(row)]));
 }
 
-function toNodeMedia(row: NodeMediaRow) {
+export function toNodeMedia(row: NodeMediaRow) {
   return {
     url: row.media_url,
     licence: row.media_licence,
