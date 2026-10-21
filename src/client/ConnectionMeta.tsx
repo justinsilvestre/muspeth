@@ -42,9 +42,13 @@ export function ConnectionMeta({
 
 function Licence({ licence }: { licence: string }) {
   const link = licenceLink(licence);
-  return link ? (
-    <ExternalLink href={link}>{licenceLabel(licence)}</ExternalLink>
-  ) : (
-    licenceLabel(licence)
+  return (
+    <span className="whitespace-nowrap">
+      {link ? (
+        <ExternalLink href={link}>{licenceLabel(licence)}</ExternalLink>
+      ) : (
+        licenceLabel(licence)
+      )}
+    </span>
   );
 }
