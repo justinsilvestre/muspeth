@@ -1,6 +1,7 @@
 import { Environment, Lightformer, OrbitControls } from "@react-three/drei";
 import { Canvas, type ThreeEvent } from "@react-three/fiber";
 import { useMemo, useRef, useState } from "react";
+import { resizeCommonsImage } from "../media/resizeCommonsImage";
 import { useColorScheme } from "../theme/useColorScheme";
 import { BranchTube } from "./BranchTube";
 import type { TaxonTreeNode } from "./buildTaxonTree";
@@ -100,8 +101,12 @@ export default function TaxonTreeScene(props: { tree: TaxonTreeNode; settings: G
               outlineMaterial={barkMaterials.outline}
               leaf={{
                 color: lineageIds.has(path.endId) ? palette.leafHighlight : palette.leaf,
+                isHighlighted: lineageIds.has(path.endId),
                 size: settings.leafSize,
                 gap: settings.leafGap,
+                imageUrl: settings.showsLeafImages
+                  ? findLeafImageUrl(nodesById.get(path.endId))
+                  : undefined,
               }}
               onPointerOver={hover(path.endId)}
               onPointerOut={hover(null)}
@@ -120,4 +125,8 @@ export default function TaxonTreeScene(props: { tree: TaxonTreeNode; settings: G
       <LineageReadout lineage={lineage} />
     </div>
   );
+}
+
+function findLeafImageUrl(node: TaxonTreeNode | undefined) {
+  return node?.media && resizeCommonsImage(node.media.url, 250);
 }

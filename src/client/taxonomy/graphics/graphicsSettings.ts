@@ -10,6 +10,8 @@ export type GraphicsSettings = {
   taperPerRank: number;
   /** A multiple of the leaves' standard size. */
   leafSize: number;
+  /** Whether the leaves of organisms with an image show that image. */
+  showsLeafImages: boolean;
   /** The space between each branch tip and its leaf. */
   leafGap: number;
   /** How far leaves spread from the crown's rim across its width, from 0 to 1. */
@@ -30,6 +32,7 @@ export const defaultGraphicsSettings = {
   trunkRadius: 0.65,
   taperPerRank: 0.58,
   leafSize: 1,
+  showsLeafImages: true,
   leafGap: 0.06,
   leafSpread: 1,
   branchSplay: 0.5,
