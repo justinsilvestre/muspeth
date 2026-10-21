@@ -1,3 +1,5 @@
+import { isItemQid } from "./sparqlRows.ts";
+
 /** Languages whose labels are kept for organisms, compounds and products. */
 const labelLanguages = ["en", "ja", "zh", "ko", "fr", "de", "es"];
 
@@ -161,7 +163,7 @@ export function buildParentsQuery(taxonQids: string[]) {
 function toValues(qids: string[]) {
   return qids
     .map((qid) => {
-      if (!/^Q\d+$/.test(qid)) throw new Error(`Not a Wikidata item identifier: ${qid}`);
+      if (!isItemQid(qid)) throw new Error(`Not a Wikidata item identifier: ${qid}`);
       return `wd:${qid}`;
     })
     .join(" ");
