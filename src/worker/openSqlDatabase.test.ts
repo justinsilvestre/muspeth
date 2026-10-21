@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { openSqlDatabase } from "./sqlDatabase";
+import { openSqlDatabase } from "./openSqlDatabase";
 
 async function openWithBirds() {
   const db = await openSqlDatabase();

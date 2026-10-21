@@ -3,6 +3,7 @@ import { MemoryRouter, Route, Routes } from "react-router";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { type ConnectionFilter, emptyConnectionFilter } from "../shared/connectionFilter";
 import type { Connection, GraphNode, NodeMedia } from "../shared/graph";
+import { precomputedResponsePaths } from "../shared/precomputedResponsePaths";
 import { ConnectionList } from "./ConnectionList";
 
 afterEach(() => {
@@ -61,7 +62,9 @@ const eatenByConnection = {
 function stubConnections(connections: Connection[], media: Record<string, NodeMedia> = {}) {
   vi.stubGlobal("fetch", async (path: string) =>
     Response.json(
-      path.startsWith("/api/sources") ? { sources: ["mangal"] } : { connections, media },
+      path === precomputedResponsePaths["/api/sources"]
+        ? { sources: ["mangal"] }
+        : { connections, media },
     ),
   );
 }
