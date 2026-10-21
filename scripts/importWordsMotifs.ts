@@ -9,10 +9,9 @@
  */
 import { queryD1 } from "./d1.ts";
 import { folkTaxa } from "./folkTaxa.ts";
-import { fetchChecklist, fetchGbifMatch, fetchVernacularNames } from "./gbifApi.ts";
-import { chooseAlternative, readGlobiLineage } from "./gbifLineageHints.ts";
-import { fetchGlobiTaxonPaths } from "./globiApi.ts";
+import { fetchChecklist, fetchVernacularNames } from "./gbifApi.ts";
 import { mapConcurrently } from "./mapConcurrently.ts";
+import { matchGraphOrganisms } from "./matchGraphOrganism.ts";
 import { toMotifImport } from "./motifLinks.ts";
 import { toNameWordImport } from "./nameWordLinks.ts";
 import { linkFolkTaxon, type MatchedOrganism, toMatchedOrganism } from "./organismTaxa.ts";
@@ -30,7 +29,6 @@ import { writeConnectionImport } from "./writeConnectionImport.ts";
 
 const sources = { names: "gbif_vernacular", wold: "wold", motifs: "thompson_motifs" };
 const concurrency = 8;
-const globiPathLimit = 1000;
 const nameLimits = { perLanguage: 2, total: 60 };
 const pushDownLimit = 3;
 const containedLimit = 100;
@@ -43,8 +41,8 @@ const organisms = queryD1<{ id: string; label: string; connectionCount: number }
   ) AS connectionCount FROM nodes WHERE kind = 'organism' ORDER BY id`,
 );
 const labelsById = new Map(organisms.map(({ id, label }) => [id, label]));
-const matched = (await mapConcurrently(organisms, matchOrganism, concurrency)).flatMap(
-  (organism) => organism ?? [],
+const matched = (await matchGraphOrganisms(organisms)).flatMap(
+  ({ node, match }) => toMatchedOrganism(node.id, match, node.connectionCount) ?? [],
 );
 console.log(`Matched ${matched.length} of ${organisms.length} organisms exactly in GBIF.`);
 const folkLinks = folkTaxa
@@ -59,15 +57,6 @@ writeConnectionImport(sources.motifs, motifs.nodes, motifs.connections);
 console.log(
   `Stored ${wold.connections.length} WOLD, ${names.connections.length} vernacular-name and ${motifs.connections.length} motif connections for ${folkLinks.length} folk taxa.`,
 );
-
-/** Matches an organism's name exactly, settling a name shared across kingdoms by GloBI's lineage. */
-async function matchOrganism({ id, label, connectionCount }: (typeof organisms)[number]) {
-  const match = await fetchGbifMatch(label, { verbose: "true" });
-  if (match.matchType !== "NONE") return toMatchedOrganism(id, match, connectionCount);
-  const lineage = readGlobiLineage(label, await fetchGlobiTaxonPaths(label, globiPathLimit));
-  const alternative = chooseAlternative(match, lineage);
-  return alternative ? toMatchedOrganism(id, alternative, connectionCount) : null;
-}
 
 async function collectNames(organismsToName: MatchedOrganism[]) {
   const recordsByOrganism = await mapConcurrently(

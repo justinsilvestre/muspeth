@@ -1,26 +1,22 @@
 /**
  * Matches every organism node against the GBIF backbone taxonomy and stores the matched lineages.
- * When GBIF cannot match a name on its own, for example a genus name used in several kingdoms,
- * the lineage that GloBI's records give for the name settles the match.
+ * A node is matched through its own GBIF identifier where it has one, and otherwise through its
+ * name. When GBIF cannot match a name on its own, for example a genus name used in several
+ * kingdoms, the lineage that GloBI's records give for the name settles the match.
  * Usage: npm run db:import-taxa -- [--remote]
  * Without --remote, it writes to the local development database.
  */
 import type { Taxon, TaxonPlacement } from "../src/shared/taxonomy.ts";
 import { executeD1Script, queryD1 } from "./d1.ts";
-import { fetchGbifMatch } from "./gbifApi.ts";
-import { chooseAlternative, readGlobiLineage, toAncestorMatch } from "./gbifLineageHints.ts";
 import { toTaxonomySql, toTaxonPlacement, toTaxonRows } from "./gbifTaxonomy.ts";
-import { fetchGlobiTaxonPaths } from "./globiApi.ts";
-
-const globiPathLimit = 1000;
+import { matchGraphOrganisms } from "./matchGraphOrganism.ts";
 
 const taxa: Taxon[] = [];
 const placements: TaxonPlacement[] = [];
 const organisms = queryD1<{ id: string; label: string }>(
   "SELECT id, label FROM nodes WHERE kind = 'organism'",
 );
-for (const organism of organisms) {
-  const match = await matchName(organism.label);
+for (const { node: organism, match } of await matchGraphOrganisms(organisms)) {
   const placement = toTaxonPlacement(organism.id, match);
   if (!placement) console.warn(`No GBIF match for ${organism.label} (${organism.id})`);
   else placements.push(placement);
@@ -30,26 +26,3 @@ executeD1Script(toTaxonomySql(taxa, placements));
 console.log(
   `Placed ${placements.length} organisms in ${new Set(taxa.map((taxon) => taxon.id)).size} taxa.`,
 );
-
-/**
- * Matches a name on its own, or else picks the alternative that fits GloBI's lineage for it,
- * or else matches its nearest ancestor in that lineage that GBIF knows.
- */
-async function matchName(name: string) {
-  const match = await fetchGbifMatch(name, { verbose: "true" });
-  if (match.matchType !== "NONE") return match;
-  const lineage = readGlobiLineage(name, await fetchGlobiTaxonPaths(name, globiPathLimit));
-  return (
-    chooseAlternative(match, lineage) ??
-    (await matchNearestAncestor(lineage.ancestorNames)) ??
-    match
-  );
-}
-
-async function matchNearestAncestor(ancestorNames: string[]) {
-  for (const name of ancestorNames) {
-    const match = await fetchGbifMatch(name, { strict: "true" });
-    if (match.matchType === "EXACT") return toAncestorMatch(match);
-  }
-  return null;
-}

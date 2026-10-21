@@ -1,5 +1,5 @@
 import { fetchGbifSynonymNames } from "./gbifApi.ts";
-import type { GraphOrganism } from "./graphOrganismTaxa.ts";
+import type { GbifTaxon } from "./gbifTaxon.ts";
 import { type TraitNode, toLikenessConnections } from "./likenessConnections.ts";
 import { identifyNewTraitOrganisms } from "./newTraitOrganisms.ts";
 import type { TraitDatabase } from "./traitDatabases.ts";
@@ -9,6 +9,9 @@ import { userAgent } from "./userAgent.ts";
 import { writeConnectionImport } from "./writeConnectionImport.ts";
 
 const headers = { "user-agent": userAgent };
+
+/** An organism node in the graph, with what GBIF says about it. */
+export type GraphOrganism = { id: string; label: string; gbif: GbifTaxon | null };
 
 /**
  * Links each graph organism that a trait database describes to its nearest neighbours in trait
@@ -21,7 +24,7 @@ export async function importLikeness<Traits>(
   existingIdByLabel: Map<string, string>,
 ) {
   const records = await downloadRecords(database);
-  const graphNodesByName = await matchGraphOrganisms(database, organisms, records);
+  const graphNodesByName = await groupByTraitName(database, organisms, records);
   const neighboursByName = new Map(
     records
       .filter(({ name }) => graphNodesByName.has(name))
@@ -62,7 +65,7 @@ async function downloadRecords<Traits>({ tables }: TraitDatabase<Traits>) {
 }
 
 /** Groups the graph's organisms under the names of the trait records they match. */
-async function matchGraphOrganisms<Traits>(
+async function groupByTraitName<Traits>(
   database: TraitDatabase<Traits>,
   organisms: GraphOrganism[],
   records: { name: string }[],
@@ -70,7 +73,7 @@ async function matchGraphOrganisms<Traits>(
   const listedNames = new Set(records.map(({ name }) => name));
   const nodesByName = new Map<string, TraitNode[]>();
   for (const organism of organisms) {
-    const match = await matchGraphOrganism(database, organism, listedNames);
+    const match = await findListedTraitName(database, organism, listedNames);
     if (!match) continue;
     const node = { nodeId: organism.id, qualityFlags: match.qualityFlags } satisfies TraitNode;
     nodesByName.set(match.name, [...(nodesByName.get(match.name) ?? []), node]);
@@ -78,7 +81,7 @@ async function matchGraphOrganisms<Traits>(
   return nodesByName;
 }
 
-async function matchGraphOrganism<Traits>(
+async function findListedTraitName<Traits>(
   database: TraitDatabase<Traits>,
   { label, gbif }: GraphOrganism,
   listedNames: Set<string>,
