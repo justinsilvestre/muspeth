@@ -106,7 +106,7 @@ const pathogenInKyoto = {
 const responsesByPathname = {
   [precomputedResponsePaths["/api/nodes"]]: { nodes: [pine, nematode] },
   [precomputedResponsePaths["/api/sources"]]: { sources: ["test"] },
-  "/api/paths": { paths: [pathFromNematode], truncated: false },
+  "/api/paths": { paths: [pathFromNematode], truncated: false, media: {} },
   "/api/connections": { connections: [pathogenInKyoto] },
   "/api/connections/dates": { dates: [{ date: "1990/1992", kind: "interaction", count: 1 }] },
   "/api/connections/places": {
@@ -274,13 +274,16 @@ describe("App", () => {
   });
 
   describe("at the address of paths between two organisms", () => {
-    it("names the nodes along each path", async () => {
+    it("draws the nodes along the paths", async () => {
       stubApi();
       renderApp("/paths?from=nematode&to=pine");
-      const paths = await screen.findByRole("list", { name: "Paths" });
-      expect(within(paths).getByRole("heading").textContent).toBe(
-        "1. pinewood nematode → Japanese red pine",
-      );
+      await screen.findByRole("list", { name: "Paths" });
+      expect(
+        screen.getAllByRole("button", { name: /neighbours?$/ }).map((node) => node.ariaLabel),
+      ).toEqual([
+        "pinewood nematode, organism, 1 neighbour",
+        "Japanese red pine, organism, 1 neighbour",
+      ]);
     });
 
     it("states each step's connections", async () => {

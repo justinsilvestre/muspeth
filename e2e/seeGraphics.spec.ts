@@ -6,10 +6,10 @@ test.describe("the graphics of the Paths view", () => {
     await expect(page.getByRole("img", { name: /^How paths work/ })).toBeVisible();
   });
 
-  test("draw the paths of an example search as chains", async ({ page }) => {
+  test("draw the paths of an example search together", async ({ page }) => {
     await page.goto("/paths");
     await page.getByRole("link", { name: /matsutake → Japanese red pine/i }).click();
-    await expect(page.getByRole("img", { name: /^Path 1 drawn as a chain/ })).toBeVisible();
+    await expect(page.getByRole("button", { name: /^Japanese red pine,/ })).toBeVisible();
   });
 });
 

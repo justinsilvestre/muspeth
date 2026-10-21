@@ -1,6 +1,7 @@
 import { createInterface } from "node:readline";
 import { Readable } from "node:stream";
 import type { ReadableStream } from "node:stream/web";
+import { cachedFetch } from "./cachedFetch.ts";
 import { addToMetTagIndex, createMetTagIndex } from "./metTagIndex.ts";
 import { readCsvRecords } from "./parseCsv.ts";
 import { userAgent } from "./userAgent.ts";
@@ -14,7 +15,7 @@ const csvUrl =
 
 /** Reads the Met's open access CSV as it downloads, indexing the subject tags of its objects. */
 export async function loadMetTagIndex() {
-  const response = await fetch(csvUrl, { headers: { "user-agent": userAgent } });
+  const response = await cachedFetch(csvUrl, { headers: { "user-agent": userAgent } });
   if (!response.ok || !response.body) {
     throw new Error(`Download responded ${response.status} for ${csvUrl}`);
   }

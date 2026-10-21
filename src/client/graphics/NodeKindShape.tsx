@@ -3,10 +3,20 @@ import type { Point } from "./Point";
 
 const size = 7;
 
+type NodeKindShapeProps = {
+  kind: NodeKind | undefined;
+  at: Point;
+  /** How far the mark reaches from its centre, roughly. The line width stays the same at any size. */
+  radius?: number;
+};
+
 /** Draws an SVG mark whose shape stands for a kind of node, centred on a point. */
-export function NodeKindShape({ kind, at }: { kind: NodeKind | undefined; at: Point }) {
+export function NodeKindShape({ kind, at, radius = size }: NodeKindShapeProps) {
   return (
-    <g transform={`translate(${at.x} ${at.y})`} className="fill-page stroke-[1.75] stroke-ink">
+    <g
+      transform={`translate(${at.x} ${at.y}) scale(${radius / size})`}
+      className="fill-page stroke-[1.75] stroke-ink *:[vector-effect:non-scaling-stroke]"
+    >
       {drawShape(kind)}
     </g>
   );
