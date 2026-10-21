@@ -37,6 +37,7 @@ test.describe("finding connections by place and period", () => {
   test("searches a period brushed on the timeline", async ({ page }) => {
     await page.goto("/places");
     const timeline = page.getByRole("img", { name: /^Timeline of when/ });
+    await timeline.scrollIntoViewIfNeeded();
     const box = await timeline.boundingBox();
     if (!box) throw new Error("The timeline is not shown");
     await page.mouse.move(box.x + 2, box.y + 30);
