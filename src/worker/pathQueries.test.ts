@@ -13,7 +13,7 @@ function query(fromId: string, toId: string, fields: Partial<PathQuery> = {}) {
 }
 
 async function routesBetween(fromId: string, toId: string, fields: Partial<PathQuery> = {}) {
-  const paths = await findPathsBetween(env.DB, query(fromId, toId, fields));
+  const { paths } = await findPathsBetween(env.DB, query(fromId, toId, fields));
   return paths.map((path) => path.nodeIds.join(" "));
 }
 
@@ -66,8 +66,44 @@ describe("findPathsBetween", () => {
 
     it("follows only the neighbours with the fewest connections", async () => {
       await insertTwoRoutes();
-      const paths = await findPathsBetween(env.DB, query("a", "z"), 1);
+      const { paths } = await findPathsBetween(env.DB, query("a", "z"), 1);
       expect(paths.map((path) => path.nodeIds.join(" "))).toEqual(["a quiet z"]);
+    });
+
+    it("counts the connections that remain after some are removed", async () => {
+      await insertTwoRoutes();
+      await env.DB.prepare("DELETE FROM connections WHERE id >= 100").run();
+      const { paths } = await findPathsBetween(env.DB, query("a", "z"), 1);
+      expect(paths.map((path) => path.nodeIds.join(" "))).toEqual(["a busy z"]);
+    });
+
+    it("counts the connections that a node gains when they change ends", async () => {
+      await insertTwoRoutes();
+      await env.DB.prepare(
+        "UPDATE connections SET source_node_id = 'quiet' WHERE source_node_id = 'busy' AND id >= 100",
+      ).run();
+      const { paths } = await findPathsBetween(env.DB, query("a", "z"), 1);
+      expect(paths.map((path) => path.nodeIds.join(" "))).toEqual(["a busy z"]);
+    });
+
+    it("reports that it left out some neighbours", async () => {
+      await insertTwoRoutes();
+      const { truncated } = await findPathsBetween(env.DB, query("a", "z"), 1);
+      expect(truncated).toBe(true);
+    });
+  });
+
+  describe("when no node it searches has more neighbours than the limit", () => {
+    it("reports that it followed every neighbour", async () => {
+      await insertConnections(chain(["a", "b", "c", "d", "e", "f"], 1));
+      const { truncated } = await findPathsBetween(env.DB, query("a", "f"), 2);
+      expect(truncated).toBe(false);
+    });
+
+    it("ignores a node with many neighbours beyond the searched part of the graph", async () => {
+      await insertConnections([...chain(["a", "b", "c", "far"], 1), ...spokes("far", 3, 100)]);
+      const { truncated } = await findPathsBetween(env.DB, query("a", "c", { maxSteps: 2 }), 2);
+      expect(truncated).toBe(false);
     });
   });
 
@@ -80,6 +116,7 @@ describe("findPathsBetween", () => {
     ]);
     const { edges } = await exportGraph(env.DB, emptyConnectionFilter);
     const expected = findPaths(buildPathGraph(edges), "a", "z");
-    expect(await findPathsBetween(env.DB, query("a", "z"))).toEqual(expected);
+    const { paths } = await findPathsBetween(env.DB, query("a", "z"));
+    expect(paths).toEqual(expected);
   });
 });

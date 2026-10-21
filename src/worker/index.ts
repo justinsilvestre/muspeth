@@ -3,6 +3,7 @@ import { parseConnectionFilter } from "../shared/connectionFilter";
 import { parsePathQuery } from "../shared/pathQuery";
 import { parsePlaceAndPeriodQuery } from "../shared/placeAndPeriodQuery";
 import type { QueryParseResult } from "../shared/queryParameters";
+import { isDailyLimitError, secondsUntilLimitReset } from "./dailyLimitError";
 import { exportGraph, listConnectionSourceNames } from "./graphExportQueries";
 import { findNode, listConnections, listNodes } from "./graphQueries";
 import { findPathsBetween } from "./pathQueries";
@@ -10,6 +11,9 @@ import { listConnectionsByPlaceAndPeriod } from "./placeQueries";
 import { listTaxa, listTaxonPlacements } from "./taxonomyQueries";
 
 type AppContext = Context<{ Bindings: Env }>;
+
+const dailyLimitMessage =
+  "The database has reached its daily usage limit. Please try again after midnight UTC.";
 
 const app = new Hono<{ Bindings: Env }>()
   .basePath("/api")
@@ -37,7 +41,7 @@ const app = new Hono<{ Bindings: Env }>()
     const ends = [query.value.fromId, query.value.toId];
     const nodes = await Promise.all(ends.map((id) => findNode(context.env.DB, id)));
     if (nodes.includes(null)) return notFound(context, "Node not found");
-    return context.json({ paths: await findPathsBetween(context.env.DB, query.value) });
+    return context.json(await findPathsBetween(context.env.DB, query.value));
   })
   .get("/graph", async (context) => {
     const filter = parseConnectionFilter(searchParamsOf(context));
@@ -53,6 +57,12 @@ const app = new Hono<{ Bindings: Env }>()
       listTaxonPlacements(context.env.DB),
     ]);
     return context.json({ taxa, placements });
+  })
+  .onError((error, context) => {
+    console.error(error);
+    if (!isDailyLimitError(error)) return context.text("Internal Server Error", 500);
+    context.header("Retry-After", String(secondsUntilLimitReset(new Date())));
+    return context.json({ error: dailyLimitMessage }, 503);
   });
 
 function searchParamsOf(context: AppContext) {

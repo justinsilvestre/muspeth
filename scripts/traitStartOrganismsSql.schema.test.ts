@@ -34,8 +34,22 @@ function listStartIds(db: DatabaseSync) {
     .map(({ id }) => id);
 }
 
+function listIndexesSearched(db: DatabaseSync) {
+  return db
+    .prepare(`EXPLAIN QUERY PLAN ${traitStartOrganismsSql}`)
+    .all()
+    .flatMap(({ detail }) => String(detail).match(/(?<=SEARCH connections USING INDEX )\w+/) ?? []);
+}
+
 describe("traitStartOrganismsSql run against the schema", () => {
   it("selects the seed's organisms and those with an interaction, whatever their source", () => {
     expect(listStartIds(openDatabase())).toEqual(["bee", "clover"]);
+  });
+
+  it("looks up each organism's connections by the indexes on their ends", () => {
+    expect(listIndexesSearched(openDatabase())).toEqual([
+      "connections_source_node_id",
+      "connections_target_node_id",
+    ]);
   });
 });

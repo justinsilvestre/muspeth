@@ -28,13 +28,7 @@ export function PathList({ params, nameOf, kindOf }: PathListProps) {
     return <p role="alert">Could not find paths: {resource.error.message}</p>;
   }
   if (resource.data.paths.length === 0) {
-    return (
-      <p role="status" className="text-muted">
-        No path of up to {maxPathSteps} steps was found. Since the search follows at most{" "}
-        {pathNeighborLimit} neighbours of each node, a path may still exist through a node with more
-        than {pathNeighborLimit} neighbours.
-      </p>
-    );
+    return <NoPathNotice truncated={resource.data.truncated} />;
   }
   const { paths } = resource.data;
   return (
@@ -55,6 +49,22 @@ export function PathList({ params, nameOf, kindOf }: PathListProps) {
         ))}
       </ol>
     </>
+  );
+}
+
+function NoPathNotice({ truncated }: Pick<PathsResponse, "truncated">) {
+  return (
+    <p role="status" className="text-muted">
+      {truncated ? (
+        <>
+          No path of up to {maxPathSteps} steps was found. Since the search follows at most{" "}
+          {pathNeighborLimit} neighbours of each node, a path may still exist through a node with
+          more than {pathNeighborLimit} neighbours.
+        </>
+      ) : (
+        <>These two nodes are not connected by any path of up to {maxPathSteps} steps.</>
+      )}
+    </p>
   );
 }
 

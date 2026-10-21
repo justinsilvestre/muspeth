@@ -142,4 +142,34 @@ describe("the API", () => {
       expect(placements).toHaveLength(1);
     });
   });
+
+  describe("when D1 has reached its daily limit", () => {
+    const exhaustedEnv = {
+      DB: {
+        prepare() {
+          throw new Error(
+            "D1_ERROR: Your account has exceeded D1's free tier daily row read limit. Upgrade to a paid plan or wait until tomorrow (midnight UTC) to continue.",
+          );
+        },
+      },
+    };
+
+    it("responds with 503", async () => {
+      const response = await app.request("/api/nodes", {}, exhaustedEnv);
+      expect(response.status).toBe(503);
+    });
+
+    it("says when to retry", async () => {
+      const response = await app.request("/api/nodes", {}, exhaustedEnv);
+      expect(Number(response.headers.get("Retry-After"))).toBeGreaterThan(0);
+    });
+
+    it("explains the failure", async () => {
+      const response = await app.request("/api/nodes", {}, exhaustedEnv);
+      expect(await response.json()).toEqual({
+        error:
+          "The database has reached its daily usage limit. Please try again after midnight UTC.",
+      });
+    });
+  });
 });

@@ -6,8 +6,13 @@
  * Other kinds of connection do not count, since imports such as the words import link any organism
  * in the graph, including those that the likeness import itself added, and counting them would
  * grow the graph by a ring of neighbours on every run.
+ * The indexes are named because SQLite would otherwise search by kind, reading every interaction
+ * once for each organism.
  */
 export const traitStartOrganismsSql = `SELECT id, label FROM nodes WHERE kind = 'organism' AND (
-  source = 'sample' OR EXISTS (SELECT 1 FROM connections WHERE kind = 'interaction'
-    AND (source_node_id = nodes.id OR target_node_id = nodes.id))
+  source = 'sample'
+  OR EXISTS (SELECT 1 FROM connections INDEXED BY connections_source_node_id
+    WHERE source_node_id = nodes.id AND kind = 'interaction')
+  OR EXISTS (SELECT 1 FROM connections INDEXED BY connections_target_node_id
+    WHERE target_node_id = nodes.id AND kind = 'interaction')
 ) ORDER BY id`;

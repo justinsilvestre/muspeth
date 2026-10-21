@@ -1,6 +1,9 @@
+import { lazy, Suspense } from "react";
 import type { PlaceAndPeriodQuery, PlacedConnection } from "../../shared/placeAndPeriodQuery";
 import { PeriodTimeline } from "./PeriodTimeline";
-import { PlacePlot } from "./PlacePlot";
+
+// The map's library is large, so it loads only when a map is first shown.
+const PlaceMap = lazy(() => import("./PlaceMap").then(({ PlaceMap }) => ({ default: PlaceMap })));
 
 type PlacedConnectionGraphicsProps = {
   query: PlaceAndPeriodQuery;
@@ -14,7 +17,9 @@ export function PlacedConnectionGraphics({ query, connections }: PlacedConnectio
   return (
     <div className="grid items-start gap-4 sm:grid-cols-2">
       {(query.near || hasPlaces) && (
-        <PlacePlot near={query.near} radiusKm={query.radiusKm} connections={connections} />
+        <Suspense fallback={<div className="h-80 rounded border border-line bg-panel" />}>
+          <PlaceMap near={query.near} radiusKm={query.radiusKm} connections={connections} />
+        </Suspense>
       )}
       {hasDates && <PeriodTimeline from={query.from} to={query.to} connections={connections} />}
     </div>

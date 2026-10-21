@@ -105,7 +105,7 @@ const pathogenInKyoto = {
 const responsesByPathname = {
   "/api/nodes": { nodes: [pine, nematode] },
   "/api/sources": { sources: ["test"] },
-  "/api/paths": { paths: [pathFromNematode] },
+  "/api/paths": { paths: [pathFromNematode], truncated: false },
   "/api/connections": { connections: [pathogenInKyoto] },
   "/api/taxonomy": { taxa: [pinus], placements: [pinePlacement] },
 } satisfies Record<string, unknown>;
@@ -356,7 +356,7 @@ describe("App", () => {
     it("marks the page as dark", async () => {
       stubApi();
       renderApp();
-      fireEvent.click(screen.getByRole("button", { name: "Dark" }));
+      fireEvent.click(screen.getByRole("button", { name: "Dark", hidden: true }));
       expect(document.documentElement.classList.contains("dark")).toBe(true);
     });
   });

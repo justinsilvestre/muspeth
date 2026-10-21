@@ -61,7 +61,7 @@ const directPath = {
 } satisfies RankedPath;
 
 async function renderPaths(paths: RankedPath[]) {
-  vi.stubGlobal("fetch", async () => Response.json({ paths }));
+  vi.stubGlobal("fetch", async () => Response.json({ paths, truncated: false }));
   render(
     <MemoryRouter initialEntries={["/paths?from=a&to=c&source=mangal"]}>
       <PathList
@@ -154,16 +154,30 @@ describe("PathList", () => {
   });
 
   describe("when the search finds no path", () => {
-    it("says that a path may still exist through a node with many neighbours", async () => {
-      vi.stubGlobal("fetch", async () => Response.json({ paths: [] }));
+    function renderNoPath(truncated: boolean) {
+      vi.stubGlobal("fetch", async () => Response.json({ paths: [], truncated }));
       render(
         <MemoryRouter>
           <PathList params={new URLSearchParams("from=a&to=b")} nameOf={nameOf} kindOf={kindOf} />
         </MemoryRouter>,
       );
-      expect((await screen.findByRole("status")).textContent).toMatch(
-        /may still exist through a node with more than 100 neighbours/,
-      );
+      return screen.findByRole("status");
+    }
+
+    describe("after leaving out some neighbours", () => {
+      it("says that a path may still exist through a node with many neighbours", async () => {
+        expect((await renderNoPath(true)).textContent).toMatch(
+          /may still exist through a node with more than 100 neighbours/,
+        );
+      });
+    });
+
+    describe("after following every neighbour", () => {
+      it("says that the nodes are not connected within the step limit", async () => {
+        expect((await renderNoPath(false)).textContent).toBe(
+          "These two nodes are not connected by any path of up to 4 steps.",
+        );
+      });
     });
   });
 });
