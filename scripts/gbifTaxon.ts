@@ -41,6 +41,15 @@ export function toExactMatch({ key, acceptedKey, taxonomicStatus, ...usage }: Gb
   } satisfies GbifMatch;
 }
 
+/**
+ * Tells whether a usage looked up by key can stand for an organism.
+ * It cannot when GBIF doubts the usage, as it does for many keys that it has replaced
+ * but that other databases, such as Wikidata, still cite.
+ */
+export function isTrustedKeyMatch(match: GbifMatch) {
+  return match.status !== "DOUBTFUL";
+}
+
 /** Reads a GBIF match, or returns null when GBIF found nothing. */
 export function toGbifTaxon(match: GbifMatch) {
   const key = match.usageKey;

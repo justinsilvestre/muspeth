@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { contradictsGbif, findGbifKey, toExactMatch, toGbifTaxon } from "./gbifTaxon.ts";
+import {
+  contradictsGbif,
+  findGbifKey,
+  isTrustedKeyMatch,
+  toExactMatch,
+  toGbifTaxon,
+} from "./gbifTaxon.ts";
 
 const fungusItem = {
   qid: "Q16528286",
@@ -62,6 +68,26 @@ describe("toExactMatch", () => {
       genus: "Pinus",
       genusKey: 2684241,
     });
+  });
+});
+
+describe("isTrustedKeyMatch", () => {
+  it("trusts an accepted usage", () => {
+    const wheat = toExactMatch({
+      key: 7795888,
+      canonicalName: "Triticum aestivum",
+      taxonomicStatus: "ACCEPTED",
+    });
+    expect(isTrustedKeyMatch(wheat)).toBe(true);
+  });
+
+  it("distrusts a usage that GBIF doubts, such as a superseded key for wheat", () => {
+    const wheat = toExactMatch({
+      key: 2706391,
+      canonicalName: "Triticum aestivum",
+      taxonomicStatus: "DOUBTFUL",
+    });
+    expect(isTrustedKeyMatch(wheat)).toBe(false);
   });
 });
 
