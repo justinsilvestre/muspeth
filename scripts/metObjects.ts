@@ -51,9 +51,18 @@ export function toMetArtwork(object: MetObject) {
     url: object.objectURL,
     imageUrl: object.primaryImageSmall,
     imageLicence,
-    date: toYearInterval(object.objectBeginDate, object.objectEndDate),
+    date: toMetDate(object),
     citation: toCitation(object),
   } satisfies Artwork;
+}
+
+/**
+ * Dates an object by its years,
+ * or not at all when the Met gives 0 for both, as it does for undated objects.
+ */
+function toMetDate({ objectBeginDate, objectEndDate }: MetObject) {
+  if (objectBeginDate === 0 && objectEndDate === 0) return null;
+  return toYearInterval(objectBeginDate, objectEndDate);
 }
 
 function toCitation(object: MetObject) {

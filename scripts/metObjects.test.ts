@@ -53,6 +53,16 @@ describe("toMetArtwork", () => {
     expect(toMetArtwork(makeObject())?.date).toBe("1895/1905");
   });
 
+  it("leaves an undated artwork without a date", () => {
+    const undated = makeObject({ objectBeginDate: 0, objectEndDate: 0 });
+    expect(toMetArtwork(undated)?.date).toBeNull();
+  });
+
+  it("keeps a year 0 that ends a dated span", () => {
+    const span = makeObject({ objectBeginDate: -100, objectEndDate: 0 });
+    expect(toMetArtwork(span)?.date).toBe("-0100/0000");
+  });
+
   it("uses the Met's number when the object has no Wikidata item", () => {
     expect(toMetArtwork(makeObject())?.id).toBe("met:45734");
   });
