@@ -132,6 +132,12 @@ function renderApp(path = "/") {
   );
 }
 
+async function searchForNode(query: string) {
+  fireEvent.change(await screen.findByRole("searchbox", { name: "Search nodes" }), {
+    target: { value: query },
+  });
+}
+
 afterEach(() => {
   cleanup();
   localStorage.clear();
@@ -140,9 +146,10 @@ afterEach(() => {
 });
 
 describe("App", () => {
-  it("lists the organisms", async () => {
+  it("finds a node by name", async () => {
     stubApi();
     renderApp();
+    await searchForNode("nematode");
     expect(await screen.findByRole("link", { name: /pinewood nematode/ })).toBeDefined();
   });
 
@@ -150,6 +157,7 @@ describe("App", () => {
     it("shows its connections, with each end named", async () => {
       stubApi();
       renderApp();
+      await searchForNode("red pine");
       fireEvent.click(await screen.findByRole("link", { name: /Japanese red pine/ }));
       const connections = await screen.findByRole("region", { name: /Connections of/ });
       const [connection] = await within(connections).findAllByRole("listitem");
@@ -236,6 +244,7 @@ describe("App", () => {
     it("keeps the filters when another organism is chosen", async () => {
       stubApi();
       renderApp("/organisms/pine?basis=computed");
+      await searchForNode("nematode");
       const link = await screen.findByRole("link", { name: /pinewood nematode/ });
       expect(link.getAttribute("href")).toBe("/organisms/nematode?basis=computed");
     });

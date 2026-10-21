@@ -1,10 +1,10 @@
 import type { GraphNode, NodeKind } from "../../shared/graph";
 import { nodeDisplayName } from "../nodeDisplayName";
 
-/** A node found by a search, with the name or label that matched the query best. */
+/** A node found by a search, with the name or label that matched the query best, if any. */
 export type NodeMatch = {
   node: GraphNode;
-  matchedName: string;
+  matchedName?: string;
 };
 
 type IndexedNode = {
@@ -48,7 +48,7 @@ export function searchNodes(index: NodeSearchIndex, query: string, kind?: NodeKi
 function listByDisplayName(entries: IndexedNode[]) {
   return entries
     .toSorted((a, b) => collator.compare(a.displayName, b.displayName))
-    .map(({ node, displayName }) => ({ node, matchedName: displayName }) satisfies NodeMatch);
+    .map(({ node }) => ({ node, matchedName: undefined }) satisfies NodeMatch);
 }
 
 /** Returns the entry's best matching term with its quality, or nothing when no term matches. */
