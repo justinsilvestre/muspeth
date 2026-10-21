@@ -1,5 +1,6 @@
 import { type ConnectionFilter, parseConnectionFilter } from "./connectionFilter";
 import { defaultPathSearchOptions, type RankedPath } from "./findPaths";
+import type { NodeMedia } from "./graph";
 import { parseQuery, readNumber, readRequiredString } from "./queryParameters";
 
 /** The longest path the API searches for, which bounds how much of the graph it loads. */
@@ -24,6 +25,8 @@ export type PathsResponse = {
   paths: RankedPath[];
   /** Whether the search left out some neighbours of a node with more than `pathNeighborLimit` of them. */
   truncated: boolean;
+  /** The images of the nodes on the paths, keyed by node ID. Nodes without an image are left out. */
+  media: Record<string, NodeMedia>;
 };
 
 export function parsePathQuery(params: URLSearchParams) {

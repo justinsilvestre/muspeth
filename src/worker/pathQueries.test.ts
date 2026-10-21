@@ -107,6 +107,15 @@ describe("findPathsBetween", () => {
     });
   });
 
+  it("gives the images of the nodes on its paths, keyed by node ID", async () => {
+    await insertConnections([...chain(["a", "b", "c"], 1), ...chain(["c", "off"], 3)]);
+    await env.DB.exec(
+      "UPDATE nodes SET media_url = 'https://upload.wikimedia.org/f.jpg', media_licence = 'CC0-1.0' WHERE id IN ('b', 'off')",
+    );
+    const { media } = await findPathsBetween(env.DB, query("a", "c"));
+    expect(Object.keys(media)).toEqual(["b"]);
+  });
+
   it("ranks paths as a search over the whole graph would", async () => {
     await insertConnections([
       ...chain(["a", "hub", "c", "z"], 1),

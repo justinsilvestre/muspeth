@@ -9,8 +9,8 @@ test.describe("finding paths between two nodes", () => {
     await page.getByRole("option", { name: /western honey bee/ }).click();
     await page.getByRole("combobox", { name: "To" }).fill("マツタケ");
     await page.getByRole("combobox", { name: "To" }).press("Enter");
-    await expect(page.getByRole("list", { name: "Paths" }).getByRole("heading").first()).toHaveText(
-      "1. western honey bee → Kyoto → matsutake",
+    await expect(page.getByRole("list", { name: "Steps of path 1" })).toContainText(
+      "recorded at Kyoto",
     );
   });
 
@@ -29,10 +29,7 @@ test.describe("finding paths between two nodes", () => {
 
   test("leaves out paths through connections whose flag is hidden", async ({ page }) => {
     await page.goto(`${fromHoneyBeeToMatsutake}&notFlaggedWith=suspected_error`);
-    const headings = page.getByRole("list", { name: "Paths" }).getByRole("heading");
-    await expect(headings.first()).toBeVisible();
-    await expect(headings.filter({ hasText: "western honey bee → Japanese red pine" })).toHaveCount(
-      0,
-    );
+    await expect(page.getByRole("list", { name: "Steps of path 1" })).toBeVisible();
+    await expect(page.locator("svg title", { hasText: "visits flowers of" })).toHaveCount(0);
   });
 });

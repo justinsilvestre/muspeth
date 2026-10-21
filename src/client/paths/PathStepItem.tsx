@@ -4,7 +4,6 @@ import { ConnectionMeta } from "../ConnectionMeta";
 import { ConnectionSentence } from "../ConnectionSentence";
 import { KindMark } from "../KindMark";
 import { foldStepConnections } from "./foldStepConnections";
-import { PathNode } from "./PathNode";
 
 type PathStepItemProps = {
   step: PathStep;
@@ -12,14 +11,14 @@ type PathStepItemProps = {
 };
 
 /**
- * Shows one step of a path as a connection followed by the node the step enters.
+ * Shows one step of a path as a connection, marked with the colour of its kind.
  * The step's other connections are folded behind a disclosure.
  */
 export function PathStepItem({ step, nameOf }: PathStepItemProps) {
   const { shown, folded } = foldStepConnections(step);
   return (
     <li>
-      <div className="flex gap-3 pl-[3px]">
+      <div className="flex gap-3">
         {shown && <KindMark kind={shown.kind} shape="rail" />}
         <div className="min-w-0 py-2">
           {shown && <StepConnection connection={shown} nameOf={nameOf} />}
@@ -37,7 +36,6 @@ export function PathStepItem({ step, nameOf }: PathStepItemProps) {
           )}
         </div>
       </div>
-      <PathNode name={nameOf(step.toNodeId)} lead="to" />
     </li>
   );
 }
