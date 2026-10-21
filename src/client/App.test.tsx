@@ -5,6 +5,7 @@ import type { RankedPath } from "../shared/findPaths";
 import type { Connection, GraphNode } from "../shared/graph";
 import type { GraphEdge } from "../shared/graphExport";
 import type { PlacedConnection } from "../shared/placeAndPeriodQuery";
+import { precomputedResponsePaths } from "../shared/precomputedResponsePaths";
 import type { Taxon, TaxonPlacement } from "../shared/taxonomy";
 import { App } from "./App";
 import { ColorSchemeProvider } from "./theme/useColorScheme";
@@ -103,11 +104,19 @@ const pathogenInKyoto = {
 } satisfies PlacedConnection;
 
 const responsesByPathname = {
-  "/api/nodes": { nodes: [pine, nematode] },
-  "/api/sources": { sources: ["test"] },
+  [precomputedResponsePaths["/api/nodes"]]: { nodes: [pine, nematode] },
+  [precomputedResponsePaths["/api/sources"]]: { sources: ["test"] },
   "/api/paths": { paths: [pathFromNematode], truncated: false },
   "/api/connections": { connections: [pathogenInKyoto] },
-  "/api/taxonomy": { taxa: [pinus], placements: [pinePlacement], media: {} },
+  "/api/connections/dates": { dates: [{ date: "1990/1992", kind: "interaction", count: 1 }] },
+  "/api/connections/places": {
+    places: [{ place: "Kyoto", latitude: 35.03, longitude: 135.78, kind: "interaction", count: 1 }],
+  },
+  [precomputedResponsePaths["/api/taxonomy"]]: {
+    taxa: [pinus],
+    placements: [pinePlacement],
+    media: {},
+  },
 } satisfies Record<string, unknown>;
 
 /** Answers each API request with sample data, returning the stub so that tests can inspect requests. */
@@ -323,6 +332,45 @@ describe("App", () => {
       });
       fireEvent.click(screen.getByRole("button", { name: "Search" }));
       expect(listRequestedPaths(fetch)).toContain("/api/connections?near=35.01%2C135.77");
+    });
+  });
+
+  describe("at the address of places and periods", () => {
+    it("asks for every place where connections were recorded within the period", async () => {
+      const fetch = stubApi();
+      renderApp("/places?near=35,135&from=1990");
+      await screen.findByRole("list", { name: "Connections by place and period" });
+      expect(listRequestedPaths(fetch)).toContain("/api/connections/places?from=1990");
+    });
+
+    it("asks for every date on which connections were recorded near the place", async () => {
+      const fetch = stubApi();
+      renderApp("/places?near=35,135&from=1990");
+      await screen.findByRole("list", { name: "Connections by place and period" });
+      expect(listRequestedPaths(fetch)).toContain("/api/connections/dates?near=35%2C135");
+    });
+
+    it("searches a wider radius chosen on the slider", async () => {
+      const fetch = stubApi();
+      renderApp("/places?near=35,135");
+      fireEvent.change(await screen.findByRole("slider", { name: /^Within/ }), {
+        target: { value: "7" },
+      });
+      expect(listRequestedPaths(fetch)).toContain("/api/connections?near=35%2C135&radiusKm=250");
+    });
+
+    it("searches a connection's date anywhere when its date is followed", async () => {
+      const fetch = stubApi();
+      renderApp("/places?near=35,135");
+      fireEvent.click(await screen.findByRole("link", { name: "Search 1990/1992 anywhere" }));
+      expect(listRequestedPaths(fetch)).toContain("/api/connections?from=1990&to=1992");
+    });
+
+    it("searches any time once the period is cleared", async () => {
+      const fetch = stubApi();
+      renderApp("/places?near=35,135&from=1990");
+      fireEvent.click(await screen.findByRole("button", { name: "Search any time" }));
+      expect(listRequestedPaths(fetch)).toContain("/api/connections?near=35%2C135");
     });
   });
 

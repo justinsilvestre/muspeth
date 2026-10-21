@@ -13,6 +13,7 @@ An experiment in exploring connections between organisms and the things around t
 | `db/migrations/` | SQLite schema migrations |
 | `db/seed.sql` | A small hand-entered sample: the matsutake system and the honey bee |
 | `scripts/` | Reproducible imports from public data sources into the database |
+| `build/` | Build steps that run in Node, such as precomputing API responses |
 | `e2e/` | Playwright end-to-end tests |
 | `docs/` | Product documentation and research notes |
 
@@ -71,7 +72,7 @@ npm run dev
 
 This serves the app at http://localhost:5173, with the API running in the local Workers runtime. The API loads the database once, so restart the dev server after changing the database.
 
-The API's query endpoints are `GET /api/nodes/:id/connections`, `GET /api/paths?from=&to=`, `GET /api/connections?near=lat,lon&radiusKm=&from=&to=` and `GET /api/graph`. Each takes the repeatable filter parameters `kind`, `basis`, `source`, `flaggedWith` and `notFlaggedWith`. `src/shared/findPaths.ts` ranks paths without a server, for example over the output of `/api/graph`.
+The API's query endpoints are `GET /api/nodes/:id/connections`, `GET /api/paths?from=&to=`, `GET /api/connections?near=lat,lon&radiusKm=&from=&to=`, `GET /api/connections/places?from=&to=` and `GET /api/connections/dates?near=lat,lon&radiusKm=`, which count connections at each place within a period and on each date near a place, and `GET /api/graph`. Each takes the repeatable filter parameters `kind`, `basis`, `source`, `flaggedWith` and `notFlaggedWith`. `src/shared/findPaths.ts` ranks paths without a server, for example over the output of `/api/graph`.
 
 | Command | Does |
 |---|---|
@@ -88,6 +89,8 @@ Playwright's WebKit build no longer runs on macOS 14. On that system, run only t
 ## Deployment
 
 The app runs on Cloudflare's free tier: one Worker serves the frontend and the API. The build adds `db/muspeth.sqlite` to the static assets, and the Worker loads it into memory on its first request and answers every query from there. The file is not served to the public.
+
+The responses of `/api/nodes`, `/api/taxonomy` and `/api/sources` depend only on the deployed data, so the build also writes them to static files under `/precomputed/` (`src/shared/precomputedResponsePaths.ts`), and the frontend reads those instead. A page load therefore usually reaches the Worker only when it needs connections or paths. Other API responses carry `Cache-Control: public, max-age=3600`, so for up to an hour after a deploy a browser may still show data from the previous one.
 
 ### First deployment
 

@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { DoubleSide, Quaternion, Shape, ShapeGeometry, Vector3 } from "three";
 import { hashToUnit } from "./hashToUnit";
+import type { useLeafMaterials } from "./useLeafMaterials";
 import { useSquareTexture } from "./useSquareTexture";
 
 const plainLeafGeometry = createLeafGeometry(0.13, 0.32);
@@ -11,17 +12,22 @@ const up = new Vector3(0, 1, 0);
 /** How much a highlighted image leaf grows, since a tint alone is hard to see on a photograph. */
 const highlightGrowth = 1.3;
 
+/** How every leaf in the tree looks, apart from its highlight and its image. */
+export type LeafStyle = {
+  materials: ReturnType<typeof useLeafMaterials>;
+  /** A multiple of the leaf's standard size. */
+  size: number;
+  /** The space between the branch tip and the leaf's stem end. */
+  gap: number;
+};
+
 type FloatingLeafProps = {
   id: string;
   branchTip: Vector3;
   /** The unit direction the branch is heading at its tip. */
   direction: Vector3;
-  color: string;
+  style: LeafStyle;
   isHighlighted: boolean;
-  /** A multiple of the leaf's standard size. */
-  size: number;
-  /** The space between the branch tip and the leaf's stem end. */
-  gap: number;
   /** An image to draw on the leaf in place of its color. */
   imageUrl?: string;
 };
@@ -31,7 +37,8 @@ type FloatingLeafProps = {
  * A leaf given an image shows it once it loads, and is plain until then or if it fails to load.
  */
 export function FloatingLeaf(props: FloatingLeafProps) {
-  const { id, branchTip, direction, color, isHighlighted, size, gap } = props;
+  const { id, branchTip, direction, style, isHighlighted } = props;
+  const { materials, size, gap } = style;
   const texture = useSquareTexture(props.imageUrl);
   const [position, quaternion] = useMemo(() => {
     const along = new Quaternion().setFromUnitVectors(up, direction);
@@ -42,9 +49,13 @@ export function FloatingLeaf(props: FloatingLeafProps) {
 
   if (!texture) {
     return (
-      <mesh geometry={plainLeafGeometry} position={position} quaternion={quaternion} scale={size}>
-        <meshStandardMaterial color={color} side={DoubleSide} roughness={0.6} />
-      </mesh>
+      <mesh
+        geometry={plainLeafGeometry}
+        material={isHighlighted ? materials.highlighted : materials.plain}
+        position={position}
+        quaternion={quaternion}
+        scale={size}
+      />
     );
   }
   // A new key gives the image leaf its own material, since three.js compiles a material's shader once, before it has a map.
@@ -60,7 +71,7 @@ export function FloatingLeaf(props: FloatingLeafProps) {
         map={texture}
         side={DoubleSide}
         roughness={0.8}
-        emissive={color}
+        emissive={materials.highlightColor}
         emissiveIntensity={isHighlighted ? 0.3 : 0}
       />
     </mesh>

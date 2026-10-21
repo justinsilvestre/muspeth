@@ -1,21 +1,34 @@
 import { type Context, Hono } from "hono";
+import { createMiddleware } from "hono/factory";
 import { parseConnectionFilter } from "../shared/connectionFilter";
 import { parsePathQuery } from "../shared/pathQuery";
-import { parsePlaceAndPeriodQuery } from "../shared/placeAndPeriodQuery";
+import {
+  parseOptionalPlaceAndPeriodQuery,
+  parsePlaceAndPeriodQuery,
+} from "../shared/placeAndPeriodQuery";
 import type { QueryParseResult } from "../shared/queryParameters";
 import { exportGraph, listConnectionSourceNames } from "./graphExportQueries";
 import { findNode, listConnectionMedia, listConnections, listNodes } from "./graphQueries";
 import { findPathsBetween } from "./pathQueries";
 import { listConnectionsByPlaceAndPeriod } from "./placeQueries";
+import { listDateSummaries, listPlaceSummaries } from "./placeSummaryQueries";
 import type { SqlDatabase } from "./sqlDatabase";
 import { listPlacedOrganismMedia, listTaxa, listTaxonPlacements } from "./taxonomyQueries";
 
 type AppEnv = { Bindings: { DB: SqlDatabase } };
 type AppContext = Context<AppEnv>;
 
+/** Lets browsers reuse a successful answer for an hour, since the data changes only on deploy. */
+const cacheData = createMiddleware(async (context, next) => {
+  await next();
+  if (context.res.ok) context.header("Cache-Control", "public, max-age=3600");
+});
+
 const app = new Hono<AppEnv>()
   .basePath("/api")
   .get("/health", (context) => context.json({ ok: true }))
+  // Registered after the health check, so that it applies to every other route.
+  .use(cacheData)
   .get("/nodes", async (context) => context.json({ nodes: await listNodes(context.env.DB) }))
   .get("/nodes/:id/connections", async (context) => {
     const nodeId = context.req.param("id");
@@ -34,6 +47,16 @@ const app = new Hono<AppEnv>()
     return context.json({
       connections: await listConnectionsByPlaceAndPeriod(context.env.DB, query.value),
     });
+  })
+  .get("/connections/places", async (context) => {
+    const query = parseOptionalPlaceAndPeriodQuery(searchParamsOf(context));
+    if (!query.ok) return badRequest(context, query);
+    return context.json({ places: await listPlaceSummaries(context.env.DB, query.value) });
+  })
+  .get("/connections/dates", async (context) => {
+    const query = parseOptionalPlaceAndPeriodQuery(searchParamsOf(context));
+    if (!query.ok) return badRequest(context, query);
+    return context.json({ dates: await listDateSummaries(context.env.DB, query.value) });
   })
   .get("/paths", async (context) => {
     const query = parsePathQuery(searchParamsOf(context));

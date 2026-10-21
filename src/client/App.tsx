@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router";
 import type { GraphNode } from "../shared/graph";
+import { precomputedResponsePaths } from "../shared/precomputedResponsePaths";
 import { ConnectionsView } from "./ConnectionsView";
 import { NotFoundView } from "./NotFoundView";
 import { PathsView } from "./paths/PathsView";
@@ -10,7 +11,9 @@ import { useApiResource } from "./useApiResource";
 import { ViewNavigation } from "./ViewNavigation";
 
 export function App() {
-  const nodesResource = useApiResource<{ nodes: GraphNode[] }>("/api/nodes");
+  const nodesResource = useApiResource<{ nodes: GraphNode[] }>(
+    precomputedResponsePaths["/api/nodes"],
+  );
 
   return (
     <main className="mx-auto max-w-4xl p-6 font-sans">

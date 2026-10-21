@@ -6,10 +6,28 @@ import { insertSampleGraph } from "./test/insertSampleGraph";
 import { insertSampleTaxonomy } from "./test/insertSampleTaxonomy";
 
 describe("the API", () => {
+  describe("caching", () => {
+    it("lets browsers reuse a successful answer, since the data changes only on deploy", async () => {
+      await insertSampleGraph();
+      const response = await app.request("/api/nodes/pine/connections", {}, env);
+      expect(response.headers.get("Cache-Control")).toBe("public, max-age=3600");
+    });
+
+    it("keeps browsers from caching an error", async () => {
+      const response = await app.request("/api/nodes/missing/connections", {}, env);
+      expect(response.headers.get("Cache-Control")).toBeNull();
+    });
+  });
+
   describe("GET /api/health", () => {
     it("reports that the API is up", async () => {
       const response = await app.request("/api/health", {}, env);
       expect(await response.json()).toEqual({ ok: true });
+    });
+
+    it("keeps browsers from caching the answer", async () => {
+      const response = await app.request("/api/health", {}, env);
+      expect(response.headers.get("Cache-Control")).toBeNull();
     });
   });
 
@@ -94,6 +112,49 @@ describe("the API", () => {
     it("responds with 400 without a place or period", async () => {
       const response = await app.request("/api/connections", {}, env);
       expect(response.status).toBe(400);
+    });
+  });
+
+  describe("GET /api/connections/places", () => {
+    it("counts the connections at each place, with no place or period given", async () => {
+      await insertConnections([
+        { id: 1, sourceNodeId: "a", targetNodeId: "b", latitude: 35.03, longitude: 135.78 },
+        { id: 2, sourceNodeId: "a", targetNodeId: "c", latitude: 35.03, longitude: 135.78 },
+      ]);
+      const response = await app.request("/api/connections/places", {}, env);
+      const { places } = await response.json<{ places: { count: number }[] }>();
+      expect(places.map(({ count }) => count)).toEqual([2]);
+    });
+
+    it("responds with 400 for an invalid period", async () => {
+      const response = await app.request("/api/connections/places?from=1992&to=1990", {}, env);
+      expect(response.status).toBe(400);
+    });
+  });
+
+  describe("GET /api/connections/dates", () => {
+    it("counts the connections on each date near a place", async () => {
+      await insertConnections([
+        {
+          id: 1,
+          sourceNodeId: "a",
+          targetNodeId: "b",
+          latitude: 35.03,
+          longitude: 135.78,
+          date: "1990",
+        },
+        {
+          id: 2,
+          sourceNodeId: "a",
+          targetNodeId: "c",
+          latitude: 43.06,
+          longitude: 141.35,
+          date: "1990",
+        },
+      ]);
+      const response = await app.request("/api/connections/dates?near=35.01,135.77", {}, env);
+      const { dates } = await response.json<{ dates: { count: number }[] }>();
+      expect(dates.map(({ count }) => count)).toEqual([1]);
     });
   });
 

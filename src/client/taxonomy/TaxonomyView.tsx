@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect, useReducer, useState } from "react";
 import type { GraphNode, NodeMedia } from "../../shared/graph";
+import { precomputedResponsePaths } from "../../shared/precomputedResponsePaths";
 import type { Taxon, TaxonPlacement } from "../../shared/taxonomy";
 import { useApiResource } from "../useApiResource";
 import { buildTaxonTree } from "./buildTaxonTree";
@@ -19,7 +20,7 @@ export function TaxonomyView({ nodes }: { nodes: GraphNode[] }) {
     taxa: Taxon[];
     placements: TaxonPlacement[];
     media: Record<string, NodeMedia>;
-  }>("/api/taxonomy");
+  }>(precomputedResponsePaths["/api/taxonomy"]);
 
   return (
     <section aria-labelledby="taxonomy-heading">

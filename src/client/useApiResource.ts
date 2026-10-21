@@ -45,3 +45,8 @@ async function describeFailure(response: Response) {
   const body = (await response.json().catch(() => null)) as { error?: unknown } | null;
   return typeof body?.error === "string" ? body.error : `${response.status} ${response.statusText}`;
 }
+
+/** Returns the data loaded, or while new data loads, the data loaded before it. */
+export function readLatestData<Data>(resource: ApiResource<Data>) {
+  return resource.status === "failed" ? undefined : findLoadedData(resource)?.data;
+}

@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { parsePlaceAndPeriodQuery } from "./placeAndPeriodQuery";
+import {
+  formatNearParam,
+  parseOptionalPlaceAndPeriodQuery,
+  parsePlaceAndPeriodQuery,
+} from "./placeAndPeriodQuery";
 
 function parse(query: string) {
   return parsePlaceAndPeriodQuery(new URLSearchParams(query));
@@ -78,5 +82,22 @@ describe("parsePlaceAndPeriodQuery", () => {
 
   it("rejects an invalid connection filter", () => {
     expect(parse("from=1990&kind=friendship").ok).toBe(false);
+  });
+});
+
+describe("parseOptionalPlaceAndPeriodQuery", () => {
+  it("accepts a query with neither place nor period", () => {
+    expect(parseOptionalPlaceAndPeriodQuery(new URLSearchParams("kind=likeness")).ok).toBe(true);
+  });
+
+  it("still rejects a period that ends before it starts", () => {
+    const params = new URLSearchParams("from=1992&to=1990");
+    expect(parseOptionalPlaceAndPeriodQuery(params).ok).toBe(false);
+  });
+});
+
+describe("formatNearParam", () => {
+  it("rounds each coordinate to three decimal places", () => {
+    expect(formatNearParam({ latitude: 35.012345, longitude: -135.77 })).toBe("35.012,-135.77");
   });
 });

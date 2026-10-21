@@ -1,18 +1,16 @@
-import type { PlaceAndPeriodQuery, PlacedConnection } from "../../shared/placeAndPeriodQuery";
+import type { PlacedConnection } from "../../shared/placeAndPeriodQuery";
 import { ConnectionMeta } from "../ConnectionMeta";
 import { ConnectionSentence } from "../ConnectionSentence";
 import { useApiResource } from "../useApiResource";
-import { PlacedConnectionGraphics } from "./PlacedConnectionGraphics";
+import { PlaceAndDateLinks } from "./PlaceAndDateLinks";
 
 type PlacedConnectionListProps = {
   params: URLSearchParams;
-  /** The query that `params` holds, already read. */
-  query: PlaceAndPeriodQuery;
   nameOf: (nodeId: string) => string;
 };
 
 /** Lists the connections recorded near a place or within a period, with where and when each was. */
-export function PlacedConnectionList({ params, query, nameOf }: PlacedConnectionListProps) {
+export function PlacedConnectionList({ params, nameOf }: PlacedConnectionListProps) {
   const resource = useApiResource<{ connections: PlacedConnection[] }>(
     `/api/connections?${params}`,
   );
@@ -25,34 +23,19 @@ export function PlacedConnectionList({ params, query, nameOf }: PlacedConnection
     return <p className="text-muted">No connections were recorded there and then.</p>;
   }
   return (
-    <>
-      <PlacedConnectionGraphics query={query} connections={resource.data.connections} />
-      <ul aria-label="Connections by place and period" className="space-y-2">
-        {resource.data.connections.map((connection) => (
-          <li key={connection.id} className="rounded border border-line px-3 py-2">
-            <ConnectionSentence
-              sourceId={connection.sourceNodeId}
-              relation={connection.relation}
-              targetId={connection.targetNodeId}
-              nameOf={nameOf}
-            />
-            <p className="text-sm">{describePlaceAndDate(connection)}</p>
-            <ConnectionMeta {...connection} />
-          </li>
-        ))}
-      </ul>
-    </>
+    <ul aria-label="Connections by place and period" className="space-y-2">
+      {resource.data.connections.map((connection) => (
+        <li key={connection.id} className="rounded border border-line px-3 py-2">
+          <ConnectionSentence
+            sourceId={connection.sourceNodeId}
+            relation={connection.relation}
+            targetId={connection.targetNodeId}
+            nameOf={nameOf}
+          />
+          <PlaceAndDateLinks connection={connection} params={params} />
+          <ConnectionMeta {...connection} />
+        </li>
+      ))}
+    </ul>
   );
-}
-
-function describePlaceAndDate(connection: PlacedConnection) {
-  const { place, latitude, longitude, date, distanceKm } = connection;
-  return [
-    place ?? "Unnamed place",
-    latitude !== null && longitude !== null && `${latitude}, ${longitude}`,
-    date,
-    distanceKm !== null && `${distanceKm.toFixed(1)} km away`,
-  ]
-    .filter(Boolean)
-    .join(" · ");
 }

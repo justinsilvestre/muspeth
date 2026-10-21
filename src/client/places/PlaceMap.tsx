@@ -1,13 +1,13 @@
 import "maplibre-gl/dist/maplibre-gl.css";
-import type { Map as MapLibreMap } from "maplibre-gl";
-import { useEffect, useRef, useState } from "react";
-import type { ConnectionKind } from "../../shared/graph";
-import type { Coordinates, PlacedConnection } from "../../shared/placeAndPeriodQuery";
+import type { Map as MapLibreMap, MapMouseEvent } from "maplibre-gl";
+import { useEffect, useEffectEvent, useRef, useState } from "react";
+import { type Coordinates, formatNearParam } from "../../shared/placeAndPeriodQuery";
+import type { PlaceSummary } from "../../shared/placeAndPeriodSummary";
 import { KindMark } from "../KindMark";
 import { termLabel } from "../termLabel";
 import type { ColorScheme } from "../theme/colorSchemePreference";
 import { useColorScheme } from "../theme/useColorScheme";
-import { createPlaceMap } from "./createPlaceMap";
+import { createPlaceMap, fitBoundsOptions, showSearchArea } from "./createPlaceMap";
 import { formatLatitude, formatLongitude } from "./formatCoordinates";
 import { MapMarker } from "./MapMarker";
 import { chooseMapBounds } from "./placeMapGeometry";
@@ -15,58 +15,80 @@ import { chooseMapBounds } from "./placeMapGeometry";
 type PlaceMapProps = {
   near: Coordinates | null;
   radiusKm: number;
-  connections: PlacedConnection[];
+  places: PlaceSummary[];
+  /** Searches near a point that was clicked on the map or chosen from its marks. */
+  onPick: (near: Coordinates) => void;
 };
-
-type PlacedGroup = Coordinates & { kind: ConnectionKind; place: string | null; count: number };
 
 const styleUrlByScheme = {
   light: "https://tiles.openfreemap.org/styles/positron",
   dark: "https://tiles.openfreemap.org/styles/dark",
 } satisfies Record<ColorScheme, string>;
 
-/** Maps where connections were recorded, about the searched place and its radius or across every place found. */
-export function PlaceMap({ near, radiusKm, connections }: PlaceMapProps) {
+/** Maps where connections were recorded and the area searched, and searches wherever it is clicked. */
+export function PlaceMap({ near, radiusKm, places, onPick }: PlaceMapProps) {
   const { colorScheme } = useColorScheme();
   const containerRef = useRef<HTMLDivElement>(null);
   const [map, setMap] = useState<MapLibreMap | null>(null);
+  const [isStyleLoaded, setIsStyleLoaded] = useState(false);
   const [hasFailed, setHasFailed] = useState(false);
-  const groups = groupByPlaceAndKind(connections);
-  const boundsKey = JSON.stringify(chooseMapBounds(near, radiusKm, groups));
+  const boundsKey = JSON.stringify(chooseMapBounds(near, radiusKm, places));
   const [latitude, longitude] = [near?.latitude, near?.longitude];
+  // The search area last chosen on the map, which needs no refitting since it is already in view.
+  const pickedAreaRef = useRef<string | null>(null);
+  const pick = (picked: Coordinates) => {
+    pickedAreaRef.current = `${formatNearParam(picked)} ${radiusKm}`;
+    onPick(picked);
+  };
+  const readBounds = useEffectEvent(() => JSON.parse(boundsKey));
+  const pickClickedPoint = useEffectEvent(({ lngLat, originalEvent }: MapMouseEvent) => {
+    // A click on a mark also reaches the map, but the mark handles it.
+    if (originalEvent.target instanceof Element && originalEvent.target.closest("button")) return;
+    pick({ latitude: lngLat.lat, longitude: lngLat.lng });
+  });
+  const wasPickedOnMap = useEffectEvent(
+    () => !!near && `${formatNearParam(near)} ${radiusKm}` === pickedAreaRef.current,
+  );
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
-    const centre =
-      latitude !== undefined && longitude !== undefined ? { latitude, longitude } : null;
-    const created = createPlaceMap(
-      container,
-      styleUrlByScheme[colorScheme],
-      JSON.parse(boundsKey),
-      centre && { centre, radiusKm },
-    );
+    const created = createPlaceMap(container, styleUrlByScheme[colorScheme], readBounds());
     if (!created) return setHasFailed(true);
-    created.once("load", () => setMap(created));
+    created.on("style.load", () => setIsStyleLoaded(true));
+    created.on("click", pickClickedPoint);
+    setMap(created);
     return () => {
       setMap(null);
+      setIsStyleLoaded(false);
       created.remove();
     };
-  }, [colorScheme, boundsKey, latitude, longitude, radiusKm]);
+  }, [colorScheme]);
 
-  const count = groups.reduce((total, group) => total + group.count, 0);
+  useEffect(() => {
+    const bounds = JSON.parse(boundsKey);
+    if (map && bounds && !wasPickedOnMap()) map.fitBounds(bounds, fitBoundsOptions);
+  }, [map, boundsKey]);
+
+  useEffect(() => {
+    if (!map || !isStyleLoaded) return;
+    const centre =
+      latitude !== undefined && longitude !== undefined ? { latitude, longitude } : null;
+    showSearchArea(map, centre && { centre, radiusKm });
+  }, [map, isStyleLoaded, latitude, longitude, radiusKm]);
+
   return (
-    <div
-      role="img"
-      aria-labelledby="place-map-title place-map-desc"
+    <section
+      aria-labelledby="place-map-title"
+      aria-describedby="place-map-desc"
       className="relative h-80 w-full overflow-hidden rounded border border-line bg-panel"
     >
-      <span id="place-map-title" className="sr-only">
-        Map of where the connections were recorded
-      </span>
-      <span id="place-map-desc" className="sr-only">
-        {describeMap(count, near, radiusKm)}
-      </span>
+      <h3 id="place-map-title" className="sr-only">
+        Map of where connections were recorded
+      </h3>
+      <p id="place-map-desc" className="sr-only">
+        {describeMap(places, near, radiusKm)}
+      </p>
       <div ref={containerRef} className="size-full" />
       {hasFailed && (
         <p className="absolute inset-0 grid place-items-center p-4 text-center text-muted text-sm">
@@ -79,21 +101,38 @@ export function PlaceMap({ near, radiusKm, connections }: PlaceMapProps) {
         </MapMarker>
       )}
       {map &&
-        groups.map((group) => (
+        places.map((summary) => (
           <MapMarker
-            key={`${group.latitude} ${group.longitude} ${group.kind}`}
+            key={`${summary.latitude} ${summary.longitude} ${summary.kind}`}
             map={map}
-            at={group}
+            at={summary}
           >
-            <span
-              title={`${group.place ?? "Unnamed place"}: ${group.count} × ${termLabel(group.kind)}`}
-              className="flex rounded-full bg-page p-0.5 shadow"
-            >
-              <KindMark kind={group.kind} shape="dot" />
-            </span>
+            <PlaceSummaryMark summary={summary} onPick={pick} />
           </MapMarker>
         ))}
-    </div>
+    </section>
+  );
+}
+
+function PlaceSummaryMark({
+  summary,
+  onPick,
+}: {
+  summary: PlaceSummary;
+  onPick: (near: Coordinates) => void;
+}) {
+  const { place, kind, count, latitude, longitude } = summary;
+  const label = `${place ?? "Unnamed place"}: ${count} × ${termLabel(kind)}`;
+  return (
+    <button
+      type="button"
+      title={label}
+      aria-label={`Search near ${label}`}
+      onClick={() => onPick({ latitude, longitude })}
+      className="flex cursor-pointer rounded-full bg-page p-0.5 shadow"
+    >
+      <KindMark kind={kind} shape="dot" />
+    </button>
   );
 }
 
@@ -105,20 +144,11 @@ function SearchedPlaceMark() {
   );
 }
 
-/** Gathers connections recorded at the same place and of the same kind, so that each is marked once. */
-function groupByPlaceAndKind(connections: PlacedConnection[]) {
-  const groups = new Map<string, PlacedGroup>();
-  for (const { latitude, longitude, kind, place } of connections) {
-    if (latitude === null || longitude === null) continue;
-    const key = `${latitude} ${longitude} ${kind}`;
-    const count = (groups.get(key)?.count ?? 0) + 1;
-    groups.set(key, { latitude, longitude, kind, place, count });
-  }
-  return [...groups.values()];
-}
-
-function describeMap(count: number, near: Coordinates | null, radiusKm: number) {
-  const marked = `${count} ${count === 1 ? "connection" : "connections"} marked`;
-  if (!near) return `${marked} on a map of the places found.`;
-  return `${marked} within ${radiusKm} km of ${formatLatitude(near.latitude)}, ${formatLongitude(near.longitude)}.`;
+function describeMap(places: PlaceSummary[], near: Coordinates | null, radiusKm: number) {
+  const count = places.reduce((total, summary) => total + summary.count, 0);
+  const marked = `${count} ${count === 1 ? "connection" : "connections"} marked at ${places.length} ${places.length === 1 ? "place" : "places"}`;
+  const searched = near
+    ? `, around a search area of ${radiusKm} km about ${formatLatitude(near.latitude)}, ${formatLongitude(near.longitude)}`
+    : "";
+  return `${marked}${searched}. Click the map, or choose a mark, to search near it.`;
 }
