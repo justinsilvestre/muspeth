@@ -71,14 +71,12 @@ async function loadEdgesTouching(
           FROM frontier JOIN connections ON target_node_id = frontier.node_id WHERE ${condition.sql}
       ),
       ranked AS (
-        SELECT node_id, neighbor_id, ROW_NUMBER() OVER (PARTITION BY node_id ORDER BY
-          (SELECT COUNT(*) FROM connections WHERE source_node_id = neighbor_id)
-            + (SELECT COUNT(*) FROM connections WHERE target_node_id = neighbor_id),
-          neighbor_id) AS position
-        FROM (SELECT DISTINCT node_id, neighbor_id FROM touching)
+        SELECT touching.id, DENSE_RANK() OVER (PARTITION BY node_id ORDER BY
+          nodes.connection_count, neighbor_id) AS position
+        FROM touching JOIN nodes ON nodes.id = neighbor_id
       )
       SELECT ${graphEdgeColumns} FROM connections WHERE id IN (
-        SELECT touching.id FROM touching JOIN ranked USING (node_id, neighbor_id) WHERE position <= ?
+        SELECT id FROM ranked WHERE position <= ?
       ) ORDER BY id`,
     )
     .bind(JSON.stringify(nodeIds), ...condition.bindings, ...condition.bindings, neighborLimit)
