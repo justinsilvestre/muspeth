@@ -1,4 +1,5 @@
-import { type GbifUsage, toExactMatch } from "./gbifTaxon.ts";
+import { fetchWithRetry } from "./fetchWithRetry.ts";
+import { findBackboneKey, type GbifUsage, toExactMatch } from "./gbifTaxon.ts";
 import type { GbifMatch } from "./gbifTaxonomy.ts";
 import { userAgent } from "./userAgent.ts";
 import { type Checklist, type GbifVernacularName, toSpdxLicence } from "./vernacularNames.ts";
@@ -17,12 +18,24 @@ export async function fetchGbifMatch(scientificName: string, options: Record<str
 }
 
 /**
- * Looks up a GBIF taxon by its key, read as an exact match.
- * Returns null when GBIF no longer has the key.
+ * Looks up a GBIF backbone taxon by its key, read as an exact match.
+ * A key from another checklist is replaced by the backbone key that GBIF gives for it.
+ * Returns null when GBIF no longer has the key, or when the key has no backbone taxon.
  */
 export async function fetchGbifMatchByKey(key: number) {
-  const usage = (await fetchJsonOrNull(new URL(`${apiUrl}/species/${key}`))) as GbifUsage | null;
-  return usage && toExactMatch(usage);
+  const usage = await fetchUsage(key);
+  if (!usage) return null;
+  const backboneKey = findBackboneKey(usage);
+  if (backboneKey === null) return null;
+  if (backboneKey === usage.key) return toExactMatch(usage);
+  const backboneUsage = await fetchUsage(backboneKey);
+  return backboneUsage && findBackboneKey(backboneUsage) === backboneUsage.key
+    ? toExactMatch(backboneUsage)
+    : null;
+}
+
+async function fetchUsage(key: number) {
+  return (await fetchJsonOrNull(new URL(`${apiUrl}/species/${key}`))) as GbifUsage | null;
 }
 
 /** Lists the scientific names that GBIF treats as synonyms of a taxon. */
@@ -63,7 +76,7 @@ async function fetchJson(url: URL) {
 }
 
 async function fetchJsonOrNull(url: URL) {
-  const response = await fetch(url, { headers });
+  const response = await fetchWithRetry(url, { headers });
   if (response.status === 404) return null;
   if (!response.ok) throw new Error(`GBIF responded ${response.status} for ${url}`);
   return (await response.json()) as unknown;

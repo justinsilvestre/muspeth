@@ -10,7 +10,13 @@ export type GbifUsage = Omit<
   acceptedKey?: number;
   /** For example "ACCEPTED", "DOUBTFUL" or "HOMOTYPIC_SYNONYM". */
   taxonomicStatus?: string;
+  /** The checklist that holds the usage. */
+  datasetKey?: string;
+  /** For a usage in another checklist, the key of the matching backbone taxon. */
+  nubKey?: number;
 };
+
+export const gbifBackboneDatasetKey = "d7dddbf4-2cf0-4f39-9b2a-bb099caae36c";
 
 /** What GBIF says about an organism, whether it was looked up by key or matched by name. */
 export type GbifTaxon = {
@@ -37,8 +43,21 @@ export function toExactMatch({ key, acceptedKey, taxonomicStatus, ...usage }: Gb
     matchType: "EXACT",
     usageKey: key,
     acceptedUsageKey: acceptedKey,
-    status: taxonomicStatus?.includes("SYNONYM") ? "SYNONYM" : taxonomicStatus,
+    status: isSynonymStatus(taxonomicStatus) ? "SYNONYM" : taxonomicStatus,
   } satisfies GbifMatch;
+}
+
+function isSynonymStatus(taxonomicStatus = "") {
+  return taxonomicStatus.includes("SYNONYM") || taxonomicStatus === "MISAPPLIED";
+}
+
+/**
+ * Finds the key of the backbone taxon that a usage stands for: its own key when the backbone
+ * holds it, else the backbone key that GBIF gives for it, else null.
+ */
+export function findBackboneKey({ key, datasetKey, nubKey }: GbifUsage) {
+  if (datasetKey === undefined || datasetKey === gbifBackboneDatasetKey) return key;
+  return nubKey ?? null;
 }
 
 /**
