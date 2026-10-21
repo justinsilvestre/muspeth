@@ -17,4 +17,20 @@ test.describe("finding connections by place and period", () => {
       page.getByRole("list", { name: "Connections by place and period" }).getByRole("listitem"),
     ).toHaveText([/^western honey bee visits flowers of Japanese red pineSapporo/]);
   });
+
+  test("searches near a point clicked on the map", async ({ page }) => {
+    await page.goto("/places");
+    const map = page.getByRole("region", { name: /^Map of where/ });
+    await expect(map.getByRole("button", { name: /^Search near Sapporo/ })).toBeVisible();
+    await map.locator("canvas").click({ position: { x: 20, y: 20 } });
+    await expect(page).toHaveURL(/near=/);
+  });
+
+  test("searches near a place chosen from its mark on the map", async ({ page }) => {
+    await page.goto("/places?from=2005");
+    await page.getByRole("button", { name: /^Search near Sapporo/ }).click();
+    await expect(
+      page.getByRole("list", { name: "Connections by place and period" }).getByRole("listitem"),
+    ).toHaveText([/recorded at Sapporo|Sapporo.*0\.0 km away/]);
+  });
 });

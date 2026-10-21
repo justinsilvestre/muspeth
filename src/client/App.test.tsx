@@ -107,6 +107,9 @@ const responsesByPathname = {
   "/api/sources": { sources: ["test"] },
   "/api/paths": { paths: [pathFromNematode], truncated: false },
   "/api/connections": { connections: [pathogenInKyoto] },
+  "/api/connections/places": {
+    places: [{ place: "Kyoto", latitude: 35.03, longitude: 135.78, kind: "interaction", count: 1 }],
+  },
   "/api/taxonomy": { taxa: [pinus], placements: [pinePlacement] },
 } satisfies Record<string, unknown>;
 
@@ -321,6 +324,15 @@ describe("App", () => {
       });
       fireEvent.click(screen.getByRole("button", { name: "Search" }));
       expect(listRequestedPaths(fetch)).toContain("/api/connections?near=35.01%2C135.77");
+    });
+  });
+
+  describe("at the address of places and periods", () => {
+    it("asks for every place where connections were recorded within the period", async () => {
+      const fetch = stubApi();
+      renderApp("/places?near=35,135&from=1990");
+      await screen.findByRole("list", { name: "Connections by place and period" });
+      expect(listRequestedPaths(fetch)).toContain("/api/connections/places?from=1990");
     });
   });
 

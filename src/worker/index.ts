@@ -1,13 +1,17 @@
 import { type Context, Hono } from "hono";
 import { parseConnectionFilter } from "../shared/connectionFilter";
 import { parsePathQuery } from "../shared/pathQuery";
-import { parsePlaceAndPeriodQuery } from "../shared/placeAndPeriodQuery";
+import {
+  parseOptionalPlaceAndPeriodQuery,
+  parsePlaceAndPeriodQuery,
+} from "../shared/placeAndPeriodQuery";
 import type { QueryParseResult } from "../shared/queryParameters";
 import { isDailyLimitError, secondsUntilLimitReset } from "./dailyLimitError";
 import { exportGraph, listConnectionSourceNames } from "./graphExportQueries";
 import { findNode, listConnections, listNodes } from "./graphQueries";
 import { findPathsBetween } from "./pathQueries";
 import { listConnectionsByPlaceAndPeriod } from "./placeQueries";
+import { listPlaceSummaries } from "./placeSummaryQueries";
 import { listTaxa, listTaxonPlacements } from "./taxonomyQueries";
 
 type AppContext = Context<{ Bindings: Env }>;
@@ -34,6 +38,11 @@ const app = new Hono<{ Bindings: Env }>()
     return context.json({
       connections: await listConnectionsByPlaceAndPeriod(context.env.DB, query.value),
     });
+  })
+  .get("/connections/places", async (context) => {
+    const query = parseOptionalPlaceAndPeriodQuery(searchParamsOf(context));
+    if (!query.ok) return badRequest(context, query);
+    return context.json({ places: await listPlaceSummaries(context.env.DB, query.value) });
   })
   .get("/paths", async (context) => {
     const query = parsePathQuery(searchParamsOf(context));

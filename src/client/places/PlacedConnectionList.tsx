@@ -2,7 +2,7 @@ import type { PlaceAndPeriodQuery, PlacedConnection } from "../../shared/placeAn
 import { ConnectionMeta } from "../ConnectionMeta";
 import { ConnectionSentence } from "../ConnectionSentence";
 import { useApiResource } from "../useApiResource";
-import { PlacedConnectionGraphics } from "./PlacedConnectionGraphics";
+import { PeriodTimeline } from "./PeriodTimeline";
 
 type PlacedConnectionListProps = {
   params: URLSearchParams;
@@ -26,7 +26,9 @@ export function PlacedConnectionList({ params, query, nameOf }: PlacedConnection
   }
   return (
     <>
-      <PlacedConnectionGraphics query={query} connections={resource.data.connections} />
+      {resource.data.connections.some(({ date }) => date !== null) && (
+        <PeriodTimeline from={query.from} to={query.to} connections={resource.data.connections} />
+      )}
       <ul aria-label="Connections by place and period" className="space-y-2">
         {resource.data.connections.map((connection) => (
           <li key={connection.id} className="rounded border border-line px-3 py-2">

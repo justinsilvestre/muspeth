@@ -33,6 +33,15 @@ const isoDatePattern = /^-?\d{4}(-\d{2}(-\d{2})?)?$/;
 
 /** Reads a query such as `?near=35.0,135.7&radiusKm=20&from=1990&to=1992`, with a connection filter. */
 export function parsePlaceAndPeriodQuery(params: URLSearchParams) {
+  return parsePlaceAndPeriod(params, true);
+}
+
+/** Reads a query as `parsePlaceAndPeriodQuery` does, but accepts one with neither place nor period. */
+export function parseOptionalPlaceAndPeriodQuery(params: URLSearchParams) {
+  return parsePlaceAndPeriod(params, false);
+}
+
+function parsePlaceAndPeriod(params: URLSearchParams, isPlaceOrPeriodRequired: boolean) {
   const filter = parseConnectionFilter(params);
   if (!filter.ok) return filter;
   return parseQuery(() => {
@@ -44,9 +53,15 @@ export function parsePlaceAndPeriodQuery(params: URLSearchParams) {
       limit: Math.round(readNumber(params, "limit", [1, 1000], 200)),
       filter: filter.value,
     } satisfies PlaceAndPeriodQuery;
-    checkPlaceOrPeriod(query);
+    checkPlaceOrPeriod(query, isPlaceOrPeriodRequired);
     return query;
   });
+}
+
+/** Writes a place as the value of the `near` parameter, rounded to about a hundred metres. */
+export function formatNearParam({ latitude, longitude }: Coordinates) {
+  const round = (degrees: number) => String(Number(degrees.toFixed(3)));
+  return `${round(latitude)},${round(longitude)}`;
 }
 
 function readCoordinates(text: string | null) {
@@ -73,8 +88,8 @@ function readIsoDate(text: string | null, name: string) {
   return text;
 }
 
-function checkPlaceOrPeriod({ near, from, to }: PlaceAndPeriodQuery) {
-  if (!near && !from && !to) {
+function checkPlaceOrPeriod({ near, from, to }: PlaceAndPeriodQuery, isRequired: boolean) {
+  if (isRequired && !near && !from && !to) {
     throw new InvalidQueryError("Give a place (near) or a period (from, to)");
   }
   if (from && to && isAfterEndOf(from, to)) {
