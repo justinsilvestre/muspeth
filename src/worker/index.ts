@@ -37,7 +37,7 @@ const app = new Hono<{ Bindings: Env }>()
     const ends = [query.value.fromId, query.value.toId];
     const nodes = await Promise.all(ends.map((id) => findNode(context.env.DB, id)));
     if (nodes.includes(null)) return notFound(context, "Node not found");
-    return context.json({ paths: await findPathsBetween(context.env.DB, query.value) });
+    return context.json(await findPathsBetween(context.env.DB, query.value));
   })
   .get("/graph", async (context) => {
     const filter = parseConnectionFilter(searchParamsOf(context));

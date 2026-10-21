@@ -2,7 +2,7 @@ import type { ConnectionFilter } from "../shared/connectionFilter";
 import { findPaths } from "../shared/findPaths";
 import type { GraphEdge } from "../shared/graphExport";
 import { buildPathGraph } from "../shared/pathGraph";
-import { type PathQuery, pathNeighborLimit } from "../shared/pathQuery";
+import { type PathQuery, type PathsResponse, pathNeighborLimit } from "../shared/pathQuery";
 import { connectionFilterSql } from "./connectionFilterSql";
 import { type GraphEdgeRow, graphEdgeColumns, toGraphEdge } from "./graphEdgeRow";
 import { isOneOf } from "./sqlCondition";
@@ -12,6 +12,7 @@ import { isOneOf } from "./sqlCondition";
  * Every connection on a path of n steps touches a node fewer than n/2 steps from one end or the other.
  * From each node, the search follows at most `neighborLimit` neighbours, those with the fewest
  * connections first, since paths through nodes with many connections rank lower.
+ * The result reports whether that limit left out any neighbour of a node the search followed.
  */
 export async function findPathsBetween(
   db: D1Database,
@@ -19,18 +20,24 @@ export async function findPathsBetween(
   neighborLimit = pathNeighborLimit,
 ) {
   const ends = [query.fromId, query.toId];
-  const edges = await loadEdgesAround(ends, Math.ceil(query.maxSteps / 2), (frontier) =>
-    loadEdgesTouching(db, frontier, query.filter, neighborLimit),
+  const { edges, expandedNodeIds } = await loadEdgesAround(
+    ends,
+    Math.ceil(query.maxSteps / 2),
+    (frontier) => loadEdgesTouching(db, frontier, query.filter, neighborLimit),
   );
   const degrees = await countNeighbors(db, listNodeIds(edges), query.filter);
-  const graph = buildPathGraph(edges, degrees);
-  return findPaths(graph, query.fromId, query.toId, {
+  const paths = findPaths(buildPathGraph(edges, degrees), query.fromId, query.toId, {
     limit: query.limit,
     maxSteps: query.maxSteps,
   });
+  const truncated = expandedNodeIds.some((id) => (degrees.get(id) ?? 0) > neighborLimit);
+  return { paths, truncated } satisfies PathsResponse;
 }
 
-/** Loads the connections of the given nodes, then those of their neighbours, for `rounds` rounds. */
+/**
+ * Loads the connections of the given nodes, then those of their neighbours, for `rounds` rounds.
+ * Also lists the nodes whose connections it loaded.
+ */
 async function loadEdgesAround(
   nodeIds: string[],
   rounds: number,
@@ -38,15 +45,18 @@ async function loadEdgesAround(
 ) {
   const edgesById = new Map<number, GraphEdge>();
   const seenNodeIds = new Set(nodeIds);
+  const expandedNodeIds: string[] = [];
   let frontier = nodeIds;
   for (let round = 0; round < rounds && frontier.length > 0; round++) {
     const edges = await loadTouching(frontier);
+    expandedNodeIds.push(...frontier);
     for (const edge of edges) edgesById.set(edge.id, edge);
     frontier = listNodeIds(edges).filter((id) => !seenNodeIds.has(id));
     for (const id of frontier) seenNodeIds.add(id);
   }
   // Ordering by ID builds the same adjacency list as the whole graph would, so ties break alike.
-  return [...edgesById.values()].sort((a, b) => a.id - b.id);
+  const edges = [...edgesById.values()].sort((a, b) => a.id - b.id);
+  return { edges, expandedNodeIds };
 }
 
 /**

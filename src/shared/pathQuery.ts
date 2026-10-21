@@ -20,7 +20,11 @@ export type PathQuery = {
   filter: ConnectionFilter;
 };
 
-export type PathsResponse = { paths: RankedPath[] };
+export type PathsResponse = {
+  paths: RankedPath[];
+  /** Whether the search left out some neighbours of a node with more than `pathNeighborLimit` of them. */
+  truncated: boolean;
+};
 
 export function parsePathQuery(params: URLSearchParams) {
   const filter = parseConnectionFilter(params);
