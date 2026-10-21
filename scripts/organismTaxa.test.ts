@@ -1,11 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { FolkTaxon } from "./folkTaxa.ts";
-import {
-  type GbifKeyedMatch,
-  linkFolkTaxon,
-  type MatchedOrganism,
-  toMatchedOrganism,
-} from "./organismTaxa.ts";
+import type { GbifMatch } from "./gbifTaxonomy.ts";
+import { linkFolkTaxon, type MatchedOrganism, toMatchedOrganism } from "./organismTaxa.ts";
 
 const bees = {
   taxon: { kingdom: "Animalia", rank: "family", name: "Apidae" },
@@ -13,7 +9,7 @@ const bees = {
   motifTerms: ["bee"],
 } satisfies FolkTaxon;
 
-function makeMatch(overrides: Partial<GbifKeyedMatch> = {}) {
+function makeMatch(overrides: Partial<GbifMatch> = {}) {
   return {
     matchType: "EXACT",
     rank: "SPECIES",
@@ -23,7 +19,7 @@ function makeMatch(overrides: Partial<GbifKeyedMatch> = {}) {
     genus: "Apis",
     species: "Apis mellifera",
     ...overrides,
-  } satisfies GbifKeyedMatch;
+  } satisfies GbifMatch;
 }
 
 function makeOrganism(overrides: Partial<MatchedOrganism> = {}) {

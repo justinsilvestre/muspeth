@@ -11,6 +11,11 @@ type Rank = (typeof ranks)[number];
 /** The parts of a GBIF species match response that the import uses. */
 export type GbifMatch = {
   matchType: string;
+  usageKey?: number;
+  /** The key of the accepted taxon when the matched name is a synonym. */
+  acceptedUsageKey?: number;
+  canonicalName?: string;
+  /** For example "ACCEPTED", "DOUBTFUL" or "SYNONYM". */
   status?: string;
   rank?: string;
   confidence?: number;

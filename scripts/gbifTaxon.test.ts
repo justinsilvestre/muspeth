@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { contradictsGbif, findGbifKey, toGbifTaxon } from "./gbifTaxon.ts";
+import { contradictsGbif, findGbifKey, toExactMatch, toGbifTaxon } from "./gbifTaxon.ts";
 
 const fungusItem = {
   qid: "Q16528286",
@@ -36,29 +36,50 @@ describe("contradictsGbif", () => {
   });
 });
 
+describe("toExactMatch", () => {
+  it("reads the key of a lookup by key as the matched key", () => {
+    expect(toExactMatch({ key: 8191482 }).usageKey).toBe(8191482);
+  });
+
+  it("counts a lookup by key as an exact match", () => {
+    expect(toExactMatch({ key: 8191482 }).matchType).toBe("EXACT");
+  });
+
+  it("reads the accepted key of a synonym", () => {
+    expect(toExactMatch({ key: 1, acceptedKey: 2 }).acceptedUsageKey).toBe(2);
+  });
+
+  it("calls any kind of synonym a synonym, as a name match does", () => {
+    expect(toExactMatch({ key: 1, taxonomicStatus: "HOMOTYPIC_SYNONYM" }).status).toBe("SYNONYM");
+  });
+
+  it("keeps any other status", () => {
+    expect(toExactMatch({ key: 1, taxonomicStatus: "DOUBTFUL" }).status).toBe("DOUBTFUL");
+  });
+
+  it("keeps the lineage", () => {
+    expect(toExactMatch({ key: 1, genus: "Pinus", genusKey: 2684241 })).toMatchObject({
+      genus: "Pinus",
+      genusKey: 2684241,
+    });
+  });
+});
+
 describe("toGbifTaxon", () => {
   it("reads the key of a name match", () => {
     expect(toGbifTaxon({ usageKey: 8191482, matchType: "EXACT" })?.key).toBe(8191482);
   });
 
-  it("reads the key of a lookup by key", () => {
-    expect(toGbifTaxon({ key: 8191482 })?.key).toBe(8191482);
-  });
-
-  it("counts a lookup by key as an exact match", () => {
-    expect(toGbifTaxon({ key: 8191482 })?.matchType).toBe("EXACT");
-  });
-
-  it("recognizes a synonym in a name match", () => {
-    expect(toGbifTaxon({ usageKey: 1, status: "SYNONYM" })?.isSynonym).toBe(true);
-  });
-
-  it("recognizes a synonym in a lookup by key", () => {
-    expect(toGbifTaxon({ key: 1, taxonomicStatus: "HOMOTYPIC_SYNONYM" })?.isSynonym).toBe(true);
+  it("recognizes a synonym", () => {
+    expect(toGbifTaxon({ usageKey: 1, matchType: "EXACT", status: "SYNONYM" })?.isSynonym).toBe(
+      true,
+    );
   });
 
   it("reads the accepted key of a synonym", () => {
-    expect(toGbifTaxon({ usageKey: 1, acceptedUsageKey: 2 })?.acceptedKey).toBe(2);
+    expect(toGbifTaxon({ usageKey: 1, matchType: "EXACT", acceptedUsageKey: 2 })?.acceptedKey).toBe(
+      2,
+    );
   });
 
   it("returns null when nothing matched", () => {

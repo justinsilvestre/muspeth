@@ -1,4 +1,4 @@
-import type { GbifKeyedMatch } from "./organismTaxa.ts";
+import type { GbifMatch } from "./gbifTaxonomy.ts";
 import { userAgent } from "./userAgent.ts";
 import { type Checklist, type GbifVernacularName, toSpdxLicence } from "./vernacularNames.ts";
 
@@ -9,7 +9,7 @@ const headers = { "user-agent": userAgent };
 export async function fetchGbifMatch(scientificName: string) {
   const url = new URL(`${apiUrl}/species/match`);
   url.search = new URLSearchParams({ scientificName, verbose: "true" }).toString();
-  return (await fetchJson(url)) as GbifKeyedMatch;
+  return (await fetchJson(url)) as GbifMatch;
 }
 
 /** Fetches the vernacular names that the GBIF backbone holds for a taxon. */
