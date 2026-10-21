@@ -42,7 +42,10 @@ export default function TaxonTreeScene(props: { tree: TaxonTreeNode; settings: G
     .filter((node) => node.rank !== "root");
   // A taxon whose name its organism repeats goes unlabelled, so the name appears once.
   const repeatedTaxonIds = listRepeatedTaxonIds(lineage);
-  const labelledLineageIds = new Set([...lineageIds].filter((id) => !repeatedTaxonIds.has(id)));
+  // The root is left unlabelled, since its branches together form the trunk.
+  const labelledLineageIds = new Set(
+    [...lineageIds].filter((id) => id !== tree.id && !repeatedTaxonIds.has(id)),
+  );
   const labelsById = useRef(new Map<string, HTMLElement>());
   const palette = treePalettes[useColorScheme().colorScheme];
   const { trunkRadius, taperPerRank } = settings;

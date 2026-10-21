@@ -25,16 +25,27 @@ function findPath(endId: string) {
 }
 
 describe("traceBranchPaths", () => {
-  it("runs a trunk from its base up to the root", () => {
-    expect(findPath("root")?.positions).toEqual([trunkBase, [0, 0, 0]]);
+  it("runs each of the root's paths up the trunk from its base, through the root", () => {
+    expect(findPath("e")?.positions).toEqual([trunkBase, [0, 0, 0], [5, 5, 5]]);
+  });
+
+  it("sets each strand of the trunk toward the side its branch leaves for", () => {
+    const [x = 0, z = 0] = findPath("e")?.trunkDirection ?? [];
+    expect(Math.atan2(z, x)).toBeCloseTo(Math.PI / 4);
+  });
+
+  it("keeps paths above the root out of the trunk", () => {
+    expect(findPath("c")?.trunkDirection).toBeNull();
+  });
+
+  it("leaves a lone strand on the trunk's axis", () => {
+    const loneTree = makeNode("root", [makeNode("e")]);
+    const [strand] = traceBranchPaths(loneTree, positionsById, trunkBase);
+    expect(strand?.trunkDirection).toBeNull();
   });
 
   it("merges a run without forks into one path, starting at the fork it leaves", () => {
-    expect(findPath("b")?.positions).toEqual([
-      [0, 0, 0],
-      [1, 1, 1],
-      [2, 2, 2],
-    ]);
+    expect(findPath("b")?.positions).toEqual([trunkBase, [0, 0, 0], [1, 1, 1], [2, 2, 2]]);
   });
 
   it("lists the nodes a path passes through", () => {
@@ -45,15 +56,15 @@ describe("traceBranchPaths", () => {
     expect(findPath("c")?.leadPosition).toEqual([1, 1, 1]);
   });
 
-  it("leads into the root's paths from the trunk base", () => {
-    expect(findPath("e")?.leadPosition).toEqual(trunkBase);
+  it("leads into the root's paths from below the trunk base, so the trunk stands upright", () => {
+    expect(findPath("e")?.leadPosition).toEqual([0, -3, 0]);
   });
 
   it("counts the leaves each path carries", () => {
     expect(findPath("b")?.leafCount).toBe(2);
   });
 
-  it("traces one path per fork-to-fork or fork-to-leaf run, plus the trunk", () => {
-    expect(traceBranchPaths(tree, positionsById, trunkBase)).toHaveLength(5);
+  it("traces one path per fork-to-fork or fork-to-leaf run", () => {
+    expect(traceBranchPaths(tree, positionsById, trunkBase)).toHaveLength(4);
   });
 });

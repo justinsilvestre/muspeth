@@ -3,7 +3,8 @@ import { type ComponentProps, useEffect, useMemo } from "react";
 import { CatmullRomCurve3, Curve, type Material, TubeGeometry, Vector3 } from "three";
 import { type BranchShape, branchRadiusAt, heightAlongTree, tipTaper } from "./branchRadiusAt";
 import { FloatingLeaf } from "./FloatingLeaf";
-import type { BranchPath } from "./traceBranchPaths";
+import type { BranchPath, Position } from "./traceBranchPaths";
+import { offsetStrand, strandRadiusAt } from "./trunkStrand";
 
 const radialSegments = 12;
 /** The radius of the invisible tube that catches the pointer, so even the finest twigs are easy to point at. */
@@ -22,12 +23,13 @@ type BranchTubeProps = {
 
 /**
  * Draws a path as a smooth, tapering tube that leaves its fork in the direction of the branch below it.
+ * A path that rises from the trunk's base is drawn as one strand of the trunk, beside the strands of its sibling branches.
  * A path ending at an organism narrows to a point and carries a floating leaf; a path ending at a fork is rounded off where its branches leave.
  */
 export function BranchTube(props: BranchTubeProps) {
   const { path, shape, material, outlineMaterial, leaf } = props;
   const endsAtOrganism = path.leafCount === 1;
-  const curve = useMemo(() => toSmoothCurve(path), [path]);
+  const curve = useMemo(() => toSmoothCurve(offsetStrand(path, shape)), [path, shape]);
   const geometry = useMemo(
     () => createTaperedTube(curve, path, shape, endsAtOrganism),
     [curve, path, shape, endsAtOrganism],
@@ -84,7 +86,7 @@ function createTaperedTube(
     const along = ring / tubularSegments;
     curve.getPointAt(along, center);
     const taper = endsAtOrganism ? tipTaper(along, lastStretch) : 1;
-    const radius = branchRadiusAt(heightAlongTree(center.toArray()), shape) * taper;
+    const radius = measureRadius(center.toArray(), path, shape) * taper;
     for (let side = 0; side <= radialSegments; side++) {
       const index = ring * (radialSegments + 1) + side;
       vertex.fromBufferAttribute(vertices, index).sub(center).multiplyScalar(radius).add(center);
@@ -92,6 +94,12 @@ function createTaperedTube(
     }
   }
   return geometry;
+}
+
+function measureRadius(center: Position, path: BranchPath, shape: BranchShape) {
+  if (!path.trunkDirection) return branchRadiusAt(heightAlongTree(center), shape);
+  const endHeight = path.positions.at(-1)?.[1] ?? 0;
+  return strandRadiusAt(center, path.trunkDirection, endHeight, shape);
 }
 
 /** The part of a curve after the given fraction of its parameter range. */
