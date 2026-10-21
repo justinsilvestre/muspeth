@@ -70,7 +70,7 @@ npm run dev
 
 This serves the app at http://localhost:5173, with the API running in the local Workers runtime. The API loads the database once, so restart the dev server after changing the database.
 
-The API's query endpoints are `GET /api/nodes/:id/connections`, `GET /api/paths?from=&to=`, `GET /api/connections?near=lat,lon&radiusKm=&from=&to=` and `GET /api/graph`. Each takes the repeatable filter parameters `kind`, `basis`, `source`, `flaggedWith` and `notFlaggedWith`. `src/shared/findPaths.ts` ranks paths without a server, for example over the output of `/api/graph`.
+The API's query endpoints are `GET /api/nodes/:id/connections`, `GET /api/paths?from=&to=`, `GET /api/connections?near=lat,lon&radiusKm=&from=&to=`, `GET /api/connections/places?from=&to=` and `GET /api/connections/dates?near=lat,lon&radiusKm=`, which count connections at each place within a period and on each date near a place, and `GET /api/graph`. Each takes the repeatable filter parameters `kind`, `basis`, `source`, `flaggedWith` and `notFlaggedWith`. `src/shared/findPaths.ts` ranks paths without a server, for example over the output of `/api/graph`.
 
 | Command | Does |
 |---|---|
