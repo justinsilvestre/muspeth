@@ -68,6 +68,14 @@ describe("parsePlaceAndPeriodQuery", () => {
     expect(parse("from=1992&to=1990").ok).toBe(false);
   });
 
+  it("accepts a period of years before the common era", () => {
+    expect(parse("from=-0500&to=-0100").ok).toBe(true);
+  });
+
+  it("rejects a period of years before the common era that ends before it starts", () => {
+    expect(parse("from=-0100&to=-0500").ok).toBe(false);
+  });
+
   it("rejects an invalid connection filter", () => {
     expect(parse("from=1990&kind=friendship").ok).toBe(false);
   });

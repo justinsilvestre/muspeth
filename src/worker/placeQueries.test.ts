@@ -123,6 +123,28 @@ describe("listConnectionsByPlaceAndPeriod", () => {
       await insertDated(["1992", "1990"]);
       expect(await listIds({ from: "1980" })).toEqual([2, 1]);
     });
+
+    describe("before the common era", () => {
+      it("keeps a date inside the period", async () => {
+        await insertDated(["-0500", "-0100"]);
+        expect(await listIds({ from: "-0600", to: "-0400" })).toEqual([1]);
+      });
+
+      it("leaves out a date before the period", async () => {
+        await insertDated(["-0500-03"]);
+        expect(await listIds({ from: "-0400" })).toEqual([]);
+      });
+
+      it("keeps an interval that reaches into the period", async () => {
+        await insertDated(["-0900/-0850"]);
+        expect(await listIds({ from: "-0860", to: "0100" })).toEqual([1]);
+      });
+
+      it("orders earlier years first", async () => {
+        await insertDated(["0100", "-0100", "-0500"]);
+        expect(await listIds({ from: "-1000" })).toEqual([3, 2, 1]);
+      });
+    });
   });
 
   it("applies the connection filter", async () => {

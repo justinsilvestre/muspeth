@@ -8,6 +8,7 @@ export type Coordinates = { latitude: number; longitude: number };
 /**
  * Which connections to find by where or when they were recorded.
  * `from` and `to` are ISO 8601 dates of a year, month or day, such as "1990" or "1990-05-03".
+ * Years before the common era are negative, so "-0500" is 501 BCE.
  */
 export type PlaceAndPeriodQuery = {
   near: Coordinates | null;
@@ -29,7 +30,7 @@ export type PlacedConnection = GraphEdge & {
 };
 
 export const defaultRadiusKm = 50;
-const isoDatePattern = /^\d{4}(-\d{2}(-\d{2})?)?$/;
+const isoDatePattern = /^-?\d{4}(-\d{2}(-\d{2})?)?$/;
 
 /** Reads a query such as `?near=35.0,135.7&radiusKm=20&from=1990&to=1992`, with a connection filter. */
 export function parsePlaceAndPeriodQuery(params: URLSearchParams) {
@@ -67,7 +68,7 @@ function readIsoDate(text: string | null, name: string) {
   if (!text) return null;
   if (!isoDatePattern.test(text)) {
     throw new InvalidQueryError(
-      `Expected ${name} to be a date such as 1990, 1990-05 or 1990-05-03`,
+      `Expected ${name} to be a date such as 1990, 1990-05, 1990-05-03 or -0500`,
     );
   }
   return text;
@@ -77,8 +78,18 @@ function checkPlaceOrPeriod({ near, from, to }: PlaceAndPeriodQuery) {
   if (!near && !from && !to) {
     throw new InvalidQueryError("Give a place (near) or a period (from, to)");
   }
-  // A date such as "1990" stands for the whole year, so "1990-05" to "1990" is a valid period.
-  if (from && to && from > `${to}~`) throw new InvalidQueryError("Expected from to come before to");
+  if (from && to && isAfterEndOf(from, to)) {
+    throw new InvalidQueryError("Expected from to come before to");
+  }
+}
+
+/**
+ * Says whether a date starts after another one ends, comparing years as numbers.
+ * A date such as "1990" stands for the whole year, so "1990-05" does not start after it ends.
+ */
+function isAfterEndOf(date: string, other: string) {
+  const [year, otherYear] = [Number.parseInt(date, 10), Number.parseInt(other, 10)];
+  return year > otherYear || (year === otherYear && date > `${other}~`);
 }
 
 /** Returns the great-circle distance between two points on the Earth, in kilometres. */
