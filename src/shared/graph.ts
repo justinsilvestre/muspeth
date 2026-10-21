@@ -35,6 +35,17 @@ export type NodeName = {
   name: string;
 };
 
+/** An image of a node, linked from where it is published, with what its licence asks to be shown. */
+export type NodeMedia = {
+  url: string;
+  /** An SPDX identifier, such as "CC-BY-SA-4.0", or else the publisher's name for the licence. */
+  licence: string;
+  /** The author or holder to credit, when known. */
+  credit: string | null;
+  /** The page that describes the media and its licence, when known. */
+  pageUrl: string | null;
+};
+
 export type GraphNode = {
   id: string;
   kind: NodeKind;

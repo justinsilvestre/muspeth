@@ -1,6 +1,6 @@
 import { env } from "cloudflare:test";
 import { describe, expect, it } from "vitest";
-import { listTaxa, listTaxonPlacements } from "./taxonomyQueries";
+import { listPlacedOrganismMedia, listTaxa, listTaxonPlacements } from "./taxonomyQueries";
 import { insertSampleTaxonomy } from "./test/insertSampleTaxonomy";
 
 describe("listTaxa", () => {
@@ -25,5 +25,16 @@ describe("listTaxonPlacements", () => {
       taxonId: "gbif:5285104",
       qualityFlags: ["fuzzy_name_match"],
     });
+  });
+});
+
+describe("listPlacedOrganismMedia", () => {
+  it("gives the images of placed organisms only, keyed by node ID", async () => {
+    await insertSampleTaxonomy();
+    await env.DB.prepare(
+      "UPDATE nodes SET media_url = 'https://upload.wikimedia.org/f.jpg', media_licence = 'CC0-1.0'",
+    ).run();
+    const media = await listPlacedOrganismMedia(env.DB);
+    expect(Object.keys(media)).toEqual(["pine"]);
   });
 });

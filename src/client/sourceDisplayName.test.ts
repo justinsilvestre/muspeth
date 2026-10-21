@@ -16,6 +16,7 @@ describe("sourceDisplayName", () => {
     ["sample", "Hand-entered sample"],
     ["thompson_motifs", "Thompson's Motif-Index"],
     ["wikidata", "Wikidata"],
+    ["wikidata-depictions", "Wikidata depictions"],
     ["wold", "World Loanword Database"],
   ])("names the source %s as %s", (source, name) => {
     expect(sourceDisplayName(source)).toBe(name);

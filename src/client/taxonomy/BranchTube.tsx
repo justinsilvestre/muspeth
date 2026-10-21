@@ -1,5 +1,5 @@
 import type { ThreeEvent } from "@react-three/fiber";
-import { useEffect, useMemo } from "react";
+import { type ComponentProps, useEffect, useMemo } from "react";
 import { CatmullRomCurve3, Curve, type Material, TubeGeometry, Vector3 } from "three";
 import { type BranchShape, branchRadiusAt, heightAlongTree, tipTaper } from "./branchRadiusAt";
 import { FloatingLeaf } from "./FloatingLeaf";
@@ -15,7 +15,7 @@ type BranchTubeProps = {
   material: Material;
   /** The material that draws an ink outline around the branch, for styles that have one. */
   outlineMaterial: Material | null;
-  leaf: { color: string; size: number; gap: number };
+  leaf: Omit<ComponentProps<typeof FloatingLeaf>, "id" | "branchTip" | "direction">;
   onPointerOver: (event: ThreeEvent<PointerEvent>) => void;
   onPointerOut: (event: ThreeEvent<PointerEvent>) => void;
 };

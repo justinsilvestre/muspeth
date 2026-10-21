@@ -1,4 +1,4 @@
-import type { GraphNode } from "../../shared/graph";
+import type { GraphNode, NodeMedia } from "../../shared/graph";
 import type { QualityFlag } from "../../shared/qualityFlags";
 import type { Taxon, TaxonPlacement } from "../../shared/taxonomy";
 import { nodeDisplayName } from "../nodeDisplayName";
@@ -14,6 +14,8 @@ export type TaxonTreeNode = {
   isPlacementUncertain?: boolean;
   /** Whether an organism is certainly placed on a taxon of the same name, so the taxon's label can stand for both. */
   isNamedByTaxon?: boolean;
+  /** An organism's image, when it has one. */
+  media?: NodeMedia;
 };
 
 const rootId = "life";
@@ -25,7 +27,12 @@ const uncertainPlacementFlags = new Set<QualityFlag>([
 ]);
 
 /** Assembles the taxa into one tree, with each placed organism as a leaf. */
-export function buildTaxonTree(taxa: Taxon[], placements: TaxonPlacement[], nodes: GraphNode[]) {
+export function buildTaxonTree(
+  taxa: Taxon[],
+  placements: TaxonPlacement[],
+  nodes: GraphNode[],
+  mediaByNodeId: Record<string, NodeMedia> = {},
+) {
   const taxaByParentId = Map.groupBy(taxa, (taxon) => taxon.parentId ?? rootId);
   const placementsByTaxonId = Map.groupBy(placements, (placement) => placement.taxonId);
   const nodesById = new Map(nodes.map((node) => [node.id, node]));
@@ -41,6 +48,7 @@ export function buildTaxonTree(taxa: Taxon[], placements: TaxonPlacement[], node
       children: [],
       isPlacementUncertain,
       isNamedByTaxon: label === taxon.name && !isPlacementUncertain,
+      media: mediaByNodeId[nodeId],
     } satisfies TaxonTreeNode;
   };
   const toBranch = (taxon: Taxon): TaxonTreeNode => ({

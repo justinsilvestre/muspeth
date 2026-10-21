@@ -8,9 +8,10 @@ import { boundingBoxSql } from "./boundingBoxSql";
 import { connectionFilterSql } from "./connectionFilterSql";
 import { dateStartSql, periodSql, toYearSql } from "./periodSql";
 import { allOf } from "./sqlCondition";
+import type { SqlDatabase } from "./sqlDatabase";
 
 /** Counts the connections of each kind recorded at each place within the period, wherever the place lies. */
-export async function listPlaceSummaries(db: D1Database, query: PlaceAndPeriodQuery) {
+export async function listPlaceSummaries(db: SqlDatabase, query: PlaceAndPeriodQuery) {
   const condition = allOf([
     connectionFilterSql(query.filter),
     { sql: "latitude IS NOT NULL AND longitude IS NOT NULL", bindings: [] },
@@ -32,7 +33,7 @@ type PlacedDateSummary = DateSummary & { latitude: number | null; longitude: num
  * Counts the connections of each kind recorded on each date near the place, whatever the period.
  * Dates come in the order of their start.
  */
-export async function listDateSummaries(db: D1Database, query: PlaceAndPeriodQuery) {
+export async function listDateSummaries(db: SqlDatabase, query: PlaceAndPeriodQuery) {
   const condition = allOf([
     connectionFilterSql(query.filter),
     { sql: "date IS NOT NULL AND date <> ''", bindings: [] },

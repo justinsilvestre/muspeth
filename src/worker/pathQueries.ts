@@ -6,6 +6,7 @@ import { type PathQuery, type PathsResponse, pathNeighborLimit } from "../shared
 import { connectionFilterSql } from "./connectionFilterSql";
 import { type GraphEdgeRow, graphEdgeColumns, toGraphEdge } from "./graphEdgeRow";
 import { isOneOf } from "./sqlCondition";
+import type { SqlDatabase } from "./sqlDatabase";
 
 /**
  * Finds the best paths between two nodes, loading only the part of the graph they can pass through.
@@ -15,7 +16,7 @@ import { isOneOf } from "./sqlCondition";
  * The result reports whether that limit left out any neighbour of a node the search followed.
  */
 export async function findPathsBetween(
-  db: D1Database,
+  db: SqlDatabase,
   query: PathQuery,
   neighborLimit = pathNeighborLimit,
 ) {
@@ -64,7 +65,7 @@ async function loadEdgesAround(
  * preferring the neighbours with the fewest connections, then the first by ID.
  */
 async function loadEdgesTouching(
-  db: D1Database,
+  db: SqlDatabase,
   nodeIds: string[],
   filter: ConnectionFilter,
   neighborLimit: number,
@@ -95,7 +96,7 @@ async function loadEdgesTouching(
 }
 
 /** Counts each node's distinct neighbours across the whole graph, among connections passing the filter. */
-async function countNeighbors(db: D1Database, nodeIds: string[], filter: ConnectionFilter) {
+async function countNeighbors(db: SqlDatabase, nodeIds: string[], filter: ConnectionFilter) {
   const condition = connectionFilterSql(filter);
   const [bySource, byTarget] = [
     isOneOf("source_node_id", nodeIds),

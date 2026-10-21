@@ -111,14 +111,16 @@ const responsesByPathname = {
   "/api/connections/places": {
     places: [{ place: "Kyoto", latitude: 35.03, longitude: 135.78, kind: "interaction", count: 1 }],
   },
-  "/api/taxonomy": { taxa: [pinus], placements: [pinePlacement] },
+  "/api/taxonomy": { taxa: [pinus], placements: [pinePlacement], media: {} },
 } satisfies Record<string, unknown>;
 
 /** Answers each API request with sample data, returning the stub so that tests can inspect requests. */
 function stubApi() {
   const fetch = vi.fn(async (path: string) => {
     const pathname = path.split("?")[0] as keyof typeof responsesByPathname;
-    return Response.json(responsesByPathname[pathname] ?? { connections: [pathogenOfPine] });
+    return Response.json(
+      responsesByPathname[pathname] ?? { connections: [pathogenOfPine], media: {} },
+    );
   });
   vi.stubGlobal("fetch", fetch);
   return fetch;

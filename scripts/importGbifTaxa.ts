@@ -3,17 +3,16 @@
  * A node is matched through its own GBIF identifier where it has one, and otherwise through its
  * name. When GBIF cannot match a name on its own, for example a genus name used in several
  * kingdoms, the lineage that GloBI's records give for the name settles the match.
- * Usage: npm run db:import-taxa -- [--remote]
- * Without --remote, it writes to the local development database.
+ * Usage: npm run db:import-taxa
  */
 import type { Taxon, TaxonPlacement } from "../src/shared/taxonomy.ts";
-import { executeD1Script, queryD1 } from "./d1.ts";
+import { executeSqlScript, queryDatabase } from "./database.ts";
 import { toTaxonomySql, toTaxonPlacement, toTaxonRows } from "./gbifTaxonomy.ts";
 import { matchGraphOrganisms } from "./matchGraphOrganism.ts";
 
 const taxa: Taxon[] = [];
 const placements: TaxonPlacement[] = [];
-const organisms = queryD1<{ id: string; label: string }>(
+const organisms = queryDatabase<{ id: string; label: string }>(
   "SELECT id, label FROM nodes WHERE kind = 'organism'",
 );
 for (const { node: organism, match } of await matchGraphOrganisms(organisms)) {
@@ -22,7 +21,7 @@ for (const { node: organism, match } of await matchGraphOrganisms(organisms)) {
   else placements.push(placement);
   taxa.push(...toTaxonRows(match));
 }
-executeD1Script(toTaxonomySql(taxa, placements));
+executeSqlScript(toTaxonomySql(taxa, placements));
 console.log(
   `Placed ${placements.length} organisms in ${new Set(taxa.map((taxon) => taxon.id)).size} taxa.`,
 );

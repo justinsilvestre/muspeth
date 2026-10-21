@@ -1,19 +1,20 @@
+import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
-import { cloudflareTest, readD1Migrations } from "@cloudflare/vitest-plugin";
+import { cloudflareTest } from "@cloudflare/vitest-plugin";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vitest/config";
+
+const migrationsPath = path.resolve("db/migrations");
 
 export default defineConfig({
   test: {
     projects: [
       {
         plugins: [
-          cloudflareTest(async () => ({
+          cloudflareTest({
             wrangler: { configPath: "./wrangler.jsonc" },
-            miniflare: {
-              bindings: { TEST_MIGRATIONS: await readD1Migrations(path.resolve("db/migrations")) },
-            },
-          })),
+            miniflare: { bindings: { TEST_MIGRATIONS: readMigrations() } },
+          }),
         ],
         test: {
           name: "worker",
@@ -46,3 +47,9 @@ export default defineConfig({
     ],
   },
 });
+
+function readMigrations() {
+  return readdirSync(migrationsPath)
+    .sort()
+    .map((file) => readFileSync(path.join(migrationsPath, file), "utf8"));
+}

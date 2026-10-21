@@ -15,7 +15,7 @@ export function allOf(conditions: (SqlCondition | null)[]) {
 
 /**
  * Tests a column against a list of values passed as one JSON array,
- * which avoids D1's limit on the number of placeholders in a statement.
+ * which avoids SQLite's limit on the number of placeholders in a statement.
  */
 export function isOneOf(column: string, values: string[]) {
   return {

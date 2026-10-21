@@ -1,6 +1,7 @@
 import { type ConnectionFilter, emptyConnectionFilter } from "../shared/connectionFilter";
-import type { Connection, ConnectionSource, GraphNode, NodeName } from "../shared/graph";
+import type { Connection, ConnectionSource, GraphNode, NodeMedia, NodeName } from "../shared/graph";
 import { connectionFilterSql } from "./connectionFilterSql";
+import type { SqlDatabase } from "./sqlDatabase";
 
 type NodeRow = Omit<GraphNode, "names">;
 type NodeNameRow = NodeName & { node_id: string };
@@ -21,6 +22,13 @@ type ConnectionRow = {
   licence: string;
   quality_flags: string;
 };
+export type NodeMediaRow = {
+  id: string;
+  media_url: string;
+  media_licence: string;
+  media_credit: string | null;
+  media_page_url: string | null;
+};
 type ConnectionSourceRow = {
   connection_id: number;
   dataset_id: string | null;
@@ -30,7 +38,7 @@ type ConnectionSourceRow = {
   record_count: number | null;
 };
 
-export async function listNodes(db: D1Database) {
+export async function listNodes(db: SqlDatabase) {
   const [nodes, names] = await Promise.all([
     db.prepare("SELECT id, kind, label FROM nodes ORDER BY label").all<NodeRow>(),
     db
@@ -47,7 +55,7 @@ export async function listNodes(db: D1Database) {
   );
 }
 
-export async function findNode(db: D1Database, nodeId: string) {
+export async function findNode(db: SqlDatabase, nodeId: string) {
   return db.prepare("SELECT id, kind, label FROM nodes WHERE id = ?").bind(nodeId).first<NodeRow>();
 }
 
@@ -56,7 +64,7 @@ export async function findNode(db: D1Database, nodeId: string) {
  * with the studies behind each.
  */
 export async function listConnections(
-  db: D1Database,
+  db: SqlDatabase,
   nodeId: string,
   filter: ConnectionFilter = emptyConnectionFilter,
 ) {
@@ -81,6 +89,38 @@ export async function listConnections(
   return connections.results.map((row) =>
     toConnection(row, nodeId, (sourcesByConnectionId.get(row.id) ?? []).map(toConnectionSource)),
   );
+}
+
+/**
+ * Gives the images of a node and of its neighbours along the connections that pass the filter,
+ * keyed by node ID. Nodes without an image are left out.
+ */
+export async function listConnectionMedia(
+  db: SqlDatabase,
+  nodeId: string,
+  filter: ConnectionFilter = emptyConnectionFilter,
+) {
+  const condition = connectionFilterSql(filter);
+  const rows = await db
+    .prepare(
+      `SELECT id, media_url, media_licence, media_credit, media_page_url FROM nodes
+      WHERE media_url IS NOT NULL AND media_licence IS NOT NULL AND (id = ? OR id IN (
+        SELECT CASE WHEN source_node_id = ? THEN target_node_id ELSE source_node_id END
+        FROM connections WHERE (source_node_id = ? OR target_node_id = ?) AND ${condition.sql}
+      ))`,
+    )
+    .bind(nodeId, nodeId, nodeId, nodeId, ...condition.bindings)
+    .all<NodeMediaRow>();
+  return Object.fromEntries(rows.results.map((row) => [row.id, toNodeMedia(row)]));
+}
+
+export function toNodeMedia(row: NodeMediaRow) {
+  return {
+    url: row.media_url,
+    licence: row.media_licence,
+    credit: row.media_credit,
+    pageUrl: row.media_page_url,
+  } satisfies NodeMedia;
 }
 
 function toConnection(row: ConnectionRow, nodeId: string, sources: ConnectionSource[]) {

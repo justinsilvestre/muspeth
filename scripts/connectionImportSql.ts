@@ -1,5 +1,6 @@
 import type { ConnectionSource, NodeName } from "../src/shared/graph.ts";
 import type { ConnectionDraft, NodeDraft } from "./graphDrafts.ts";
+import { mediaColumns, toClearMediaSql, toMediaValues } from "./nodeMediaSql.ts";
 import { quoteSql } from "./quoteSql.ts";
 
 /**
@@ -13,6 +14,7 @@ const maxListLength = 30_000;
  * It removes that run's connections and their sources, and the nodes it added that this run neither
  * adds nor connects, then adds this run's nodes and connections under `source`.
  * Nodes that the seed or other imports added keep their label and media, and may gain names.
+ * The media that the earlier run linked are removed, and this run's nodes linked to theirs.
  * An earlier node that other imports still connect is handed to one of them instead of removed.
  */
 export function toConnectionImportSql(
@@ -30,6 +32,7 @@ export function toConnectionImportSql(
   return [
     `DELETE FROM connection_sources WHERE connection_id IN (SELECT id FROM connections WHERE source = ${quoteSql(source)});`,
     `DELETE FROM connections WHERE source = ${quoteSql(source)};`,
+    toClearMediaSql(source),
     ...splitIntoBatches(staleIds.map(quoteSql)).flatMap((ids) => toStaleNodesSql(source, ids)),
     ...uniqueNodes.map((node) => toNodeSql(source, node)),
     ...nodes.flatMap(({ id, names }) => names.map((name) => toNodeNameSql(id, name))),
@@ -63,11 +66,20 @@ function toStaleNodesSql(source: string, quotedIds: string[]) {
   ];
 }
 
+/**
+ * Adds a node, or updates the label of one that the same import added.
+ * The media columns are written only for a draft with media, so that a node keeps the media that
+ * another import linked to it.
+ */
 function toNodeSql(source: string, { id, kind, label, media }: NodeDraft) {
-  const values = [id, kind, label, source, media?.url ?? null, media?.licence ?? null];
-  return `INSERT INTO nodes (id, kind, label, source, media_url, media_licence)
-  VALUES (${values.map(quoteSql).join(", ")})
-  ON CONFLICT (id) DO UPDATE SET label = excluded.label, media_url = excluded.media_url, media_licence = excluded.media_licence
+  const values = [id, kind, label, source].map(quoteSql);
+  if (!media) {
+    return `INSERT INTO nodes (id, kind, label, source) VALUES (${values.join(", ")})
+  ON CONFLICT (id) DO UPDATE SET label = excluded.label WHERE nodes.source = excluded.source;`;
+  }
+  return `INSERT INTO nodes (id, kind, label, source, ${mediaColumns})
+  VALUES (${[...values, ...toMediaValues(source, media)].join(", ")})
+  ON CONFLICT (id) DO UPDATE SET label = excluded.label, media_url = excluded.media_url, media_licence = excluded.media_licence, media_credit = excluded.media_credit, media_page_url = excluded.media_page_url, media_source = excluded.media_source
   WHERE nodes.source = excluded.source;`;
 }
 

@@ -2,14 +2,15 @@
  * Loads shared-substance and shared-culture links for the organisms already in the database:
  * - compounds and products that Wikidata lists for them, under the source "wikidata";
  * - artworks from the Met and the Cleveland Museum of Art that depict them, under the sources
- *   "met" and "cleveland".
+ *   "met" and "cleveland". The Met's are found in its open access CSV, so that only the matched
+ *   objects are fetched from its API, whose firewall blocks clients that send many requests.
  * Re-running it replaces what its previous run wrote.
- * Usage: npm run db:import-substances-culture -- [--remote] [--only=wikidata,met,cleveland]
- * Without --remote, it writes to the local development database.
+ * Usage: npm run db:import-substances-culture -- [--only=wikidata,met,cleveland]
  * With --only, it runs just the listed sources.
  */
-import { queryD1 } from "./d1.ts";
+import { queryDatabase } from "./database.ts";
 import type { ConnectionDraft, NodeDraft } from "./graphDrafts.ts";
+import { listChosenSources } from "./importSourceChoice.ts";
 import { clevelandMuseum, metMuseum, toMuseumImport } from "./museumImport.ts";
 import { collectClevelandMatches, collectMetMatches } from "./museumMatches.ts";
 import type { MuseumOrganism } from "./museumNames.ts";
@@ -21,11 +22,8 @@ import { writeConnectionImport } from "./writeConnectionImport.ts";
 const organisms = loadOrganisms();
 console.log(`Found ${organisms.length} organisms.`);
 
-const onlySources = process.argv
-  .find((arg) => arg.startsWith("--only="))
-  ?.slice(7)
-  .split(",");
-const isWanted = (source: string) => !onlySources || onlySources.includes(source);
+const chosenSources = listChosenSources(process.argv, ["wikidata", "met", "cleveland"]);
+const isWanted = (source: string) => chosenSources.includes(source);
 
 if (isWanted("wikidata")) {
   const qids = listQids(organisms.map(({ id }) => id));
@@ -45,10 +43,10 @@ if (isWanted("met") || isWanted("cleveland")) {
 }
 
 function loadOrganisms() {
-  const rows = queryD1<{ id: string; label: string }>(
+  const rows = queryDatabase<{ id: string; label: string }>(
     "SELECT id, label FROM nodes WHERE kind = 'organism' ORDER BY id",
   );
-  const names = queryD1<{ node_id: string; name: string }>(
+  const names = queryDatabase<{ node_id: string; name: string }>(
     `SELECT node_names.node_id, node_names.name FROM node_names
      JOIN nodes ON nodes.id = node_names.node_id
      WHERE nodes.kind = 'organism' AND (node_names.language = 'en' OR node_names.language LIKE 'en-%')`,
