@@ -5,6 +5,7 @@ import {
   toNetworkSource,
   toStudyCitation,
   toStudyUrl,
+  toWebOfLifeSource,
 } from "./mangalNetworkSources.ts";
 import type { MangalNetwork, MangalReference } from "./mangalRecords.ts";
 
@@ -86,6 +87,28 @@ describe("toNetworkSource", () => {
     const dataset = { id: 175, name: "yamazaki_kato_2003", referenceId: 172 };
     expect(toNetworkSource(network, dataset, reference).datasetCitation).toBe(
       "Mangal network yamazaki_kato_2003 in dataset yamazaki_kato_2003: Plant-pollinator community at Mt. Yufu, Western Japan. https://mangal.io/api/v2/network/2462",
+    );
+  });
+});
+
+describe("toWebOfLifeSource", () => {
+  it("identifies the Web of Life network as the dataset", () => {
+    expect(toWebOfLifeSource("M_PL_056", reference).datasetId).toBe("web-of-life:M_PL_056");
+  });
+
+  it("names Web of Life and its address in the citation", () => {
+    expect(toWebOfLifeSource("M_PL_056", reference).datasetCitation).toBe(
+      "Web of Life network M_PL_056. Web of Life: ecological networks database. https://www.web-of-life.es",
+    );
+  });
+
+  it("cites the collection alone when the network is unknown", () => {
+    expect(toWebOfLifeSource(null, reference).datasetId).toBe("web-of-life");
+  });
+
+  it("credits the study that reported the network", () => {
+    expect(toWebOfLifeSource("M_PL_056", reference).studyCitation).toBe(
+      "YAMAZAKI, Kyoko and KATO, Makoto (2003). Flowering phenology at Mt. Yufu, Western Japan.",
     );
   });
 });

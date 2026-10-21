@@ -3,7 +3,13 @@ import type { QualityFlag } from "../src/shared/qualityFlags.ts";
 import { toCoarserRank } from "./globiConnections.ts";
 import type { ConnectionDraft } from "./graphDrafts.ts";
 import { toLatitudeLongitude } from "./mangalGeometry.ts";
-import { readSourceCollection, toNetworkLicence, toNetworkSource } from "./mangalNetworkSources.ts";
+import {
+  readSourceCollection,
+  toNetworkLicence,
+  toNetworkSource,
+  toWebOfLifeSource,
+} from "./mangalNetworkSources.ts";
+import { readWebOfLifeId } from "./mangalOrganisms.ts";
 import type {
   MangalDataset,
   MangalInteraction,
@@ -40,8 +46,8 @@ export type MangalNetworkContent = {
 
 export type MangalNodeIdentity = { id: string; rank: string | null; qualityFlags: QualityFlag[] };
 
-type MangalConnectionDraft = ConnectionDraft & {
-  sources: [ConnectionSource & { recordCount: number }];
+type MangalConnectionDraft = Omit<ConnectionDraft, "sources"> & {
+  sources: (ConnectionSource & { recordCount: number })[];
 };
 type NetworkContext = ReturnType<typeof toNetworkContext>;
 
@@ -61,16 +67,25 @@ export function toNetworkConnections(
   return mergeNetworkConnections(drafts);
 }
 
-function toNetworkContext({ network, dataset, reference }: MangalNetworkContent) {
-  const isCopy = readSourceCollection(reference) !== null;
+function toNetworkContext({ network, dataset, reference, nodes }: MangalNetworkContent) {
+  const collection = readSourceCollection(reference);
   return {
     network,
     place: network.description || network.name,
     ...(network.geometry ? toLatitudeLongitude(network.geometry) : {}),
     licence: toNetworkLicence(reference),
-    source: toNetworkSource(network, dataset, reference),
-    qualityFlags: isCopy ? (["duplicate_network_copy"] satisfies QualityFlag[]) : [],
+    sources: [
+      toNetworkSource(network, dataset, reference),
+      ...(collection === "web-of-life"
+        ? [toWebOfLifeSource(findWebOfLifeId(nodes), reference)]
+        : []),
+    ],
+    qualityFlags: collection ? (["duplicate_network_copy"] satisfies QualityFlag[]) : [],
   };
+}
+
+function findWebOfLifeId(nodes: MangalNode[]) {
+  return nodes.map(({ originalName }) => readWebOfLifeId(originalName)).find(Boolean) ?? null;
 }
 
 function toConnectionDrafts(
@@ -103,7 +118,7 @@ function toConnectionDrafts(
       date: interaction.date ?? context.network.date,
       licence: context.licence,
       qualityFlags: [...new Set(flags)],
-      sources: [{ ...context.source, recordCount: 1 }],
+      sources: context.sources.map((source) => ({ ...source, recordCount: 1 })),
     },
   ];
 }
@@ -124,14 +139,16 @@ export function mergeNetworkConnections(drafts: MangalConnectionDraft[]) {
 }
 
 function mergeDraftPair(first: MangalConnectionDraft, second: MangalConnectionDraft) {
-  const [source] = first.sources;
   const hasWeights = typeof first.weight === "number" && typeof second.weight === "number";
   return {
     ...first,
     weight: hasWeights ? (first.weight ?? 0) + (second.weight ?? 0) : null,
     date: toDateRange(first.date ?? null, second.date ?? null),
     qualityFlags: [...new Set([...first.qualityFlags, ...second.qualityFlags])],
-    sources: [{ ...source, recordCount: source.recordCount + second.sources[0].recordCount }],
+    sources: first.sources.map((source, i) => ({
+      ...source,
+      recordCount: source.recordCount + (second.sources[i]?.recordCount ?? 0),
+    })),
   } satisfies MangalConnectionDraft;
 }
 

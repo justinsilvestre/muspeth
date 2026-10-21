@@ -56,6 +56,22 @@ export function toNetworkSource(
   } satisfies ConnectionSource;
 }
 
+/**
+ * Credits a network that Mangal copied from Web of Life to Web of Life, as its terms require,
+ * and to the study that reported it.
+ * `networkId` is Web of Life's own identifier, for example "M_PL_056", when it is known.
+ */
+export function toWebOfLifeSource(networkId: string | null, reference: MangalReference | null) {
+  const networkCitation = networkId ? `Web of Life network ${networkId}. ` : "";
+  return {
+    datasetId: networkId ? `web-of-life:${networkId}` : "web-of-life",
+    datasetCitation: `${networkCitation}Web of Life: ecological networks database. https://www.web-of-life.es`,
+    studyCitation: reference && toStudyCitation(reference),
+    studyUrl: reference && toStudyUrl(reference),
+    recordCount: null,
+  } satisfies ConnectionSource;
+}
+
 /** Cites a study by the authors, year and title in its BibTeX entry, else by its first author. */
 export function toStudyCitation(reference: MangalReference) {
   const author = readBibtexField(reference.bibtex, "author") ?? reference.firstAuthor;

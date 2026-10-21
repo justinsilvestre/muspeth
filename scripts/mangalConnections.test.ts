@@ -5,7 +5,7 @@ import {
   toDateRange,
   toNetworkConnections,
 } from "./mangalConnections.ts";
-import type { MangalInteraction, MangalReference } from "./mangalRecords.ts";
+import type { MangalInteraction, MangalNode, MangalReference } from "./mangalRecords.ts";
 
 const visit = {
   nodeFrom: 1,
@@ -28,10 +28,26 @@ function makeContent(interactions: MangalInteraction[] = [visit]) {
     },
     dataset: null,
     reference: null as MangalReference | null,
-    nodes: [],
+    nodes: [] as MangalNode[],
     interactions,
   } satisfies MangalNetworkContent;
 }
+
+const webOfLifeReference = {
+  id: 65,
+  doi: null,
+  firstAuthor: "kato",
+  year: "1993",
+  bibtex: null,
+  paperUrl: null,
+  dataUrl: "http://www.web-of-life.es/map.php?type=5",
+} satisfies MangalReference;
+
+const webOfLifeContent = {
+  ...makeContent(),
+  reference: webOfLifeReference,
+  nodes: [{ id: 1, networkId: 948, originalName: "Apis cerana M_PL_056", taxonomy: null }],
+} satisfies MangalNetworkContent;
 
 const identities = new Map<number, MangalNodeIdentity>([
   [1, { id: "wikidata:Q30034", rank: "species", qualityFlags: [] }],
@@ -99,17 +115,20 @@ describe("toNetworkConnections", () => {
   });
 
   it("flags a link copied from a curated collection", () => {
-    const reference = {
-      id: 65,
-      doi: null,
-      firstAuthor: "kato",
-      year: "1993",
-      bibtex: null,
-      paperUrl: null,
-      dataUrl: "http://www.web-of-life.es/map.php?type=5",
-    };
-    const flags = convertOne({}, { ...makeContent(), reference })?.qualityFlags;
+    const flags = convertOne({}, { ...makeContent(), reference: webOfLifeReference })?.qualityFlags;
     expect(flags).toContain("duplicate_network_copy");
+  });
+
+  it("credits only Mangal for a network deposited with it", () => {
+    expect(convertOne()?.sources.map(({ datasetId }) => datasetId)).toEqual(["mangal:948"]);
+  });
+
+  it("credits Web of Life as well for a network copied from it", () => {
+    const sources = convertOne({}, webOfLifeContent)?.sources;
+    expect(sources?.map(({ datasetId }) => datasetId)).toEqual([
+      "mangal:948",
+      "web-of-life:M_PL_056",
+    ]);
   });
 
   it("flags a link between two nodes that were identified as one organism", () => {
@@ -134,6 +153,12 @@ describe("toNetworkConnections", () => {
 
     it("counts their records", () => {
       expect(merged?.sources[0]?.recordCount).toBe(2);
+    });
+
+    it("counts their records for every dataset it credits", () => {
+      const copied = { ...webOfLifeContent, interactions: repeated.interactions };
+      const [mergedCopy] = toNetworkConnections(copied, identities);
+      expect(mergedCopy?.sources.map(({ recordCount }) => recordCount)).toEqual([2, 2]);
     });
 
     it("spans their dates", () => {
