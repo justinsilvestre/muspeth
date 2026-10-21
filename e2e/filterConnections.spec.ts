@@ -7,10 +7,10 @@ test.describe("filtering connections", () => {
   test("hides connections that carry a quality flag", async ({ page }) => {
     await page.goto(honeyBeePath);
     const connections = page.getByRole("region", { name: "Connections of western honey bee" });
-    await expect(connections.getByRole("listitem")).toContainText(["visitsFlowersOf"]);
+    await expect(connections.getByRole("listitem")).toContainText(["visits flowers of"]);
     await connections.getByText("Filters").click();
     await connections.getByRole("combobox", { name: "suspected error" }).selectOption("hide");
-    await expect(connections.getByRole("listitem")).not.toContainText(["visitsFlowersOf"]);
+    await expect(connections.getByRole("listitem")).not.toContainText(["visits flowers of"]);
   });
 
   test("keeps the filter in the address", async ({ page }) => {
@@ -27,12 +27,12 @@ test.describe("filtering connections", () => {
     await connections.getByText("Filters").click();
     // The checkbox reflects the address, which the router updates just after the click.
     await connections.getByRole("checkbox", { name: "shared place and sound" }).click();
-    await expect(connections.getByRole("listitem")).toHaveText([/^matsutake recordedAt Kyoto/]);
+    await expect(connections.getByRole("listitem")).toHaveText([/^matsutake recorded at Kyoto/]);
   });
 
   test("opens filtered connections from their address", async ({ page }) => {
     await page.goto(`${matsutakePath}?basis=attributed`);
     const connections = page.getByRole("region", { name: "Connections of matsutake" });
-    await expect(connections.getByRole("listitem")).toHaveText([/^matsutake namedBy matsu/]);
+    await expect(connections.getByRole("listitem")).toHaveText([/^matsutake named by matsu/]);
   });
 });
