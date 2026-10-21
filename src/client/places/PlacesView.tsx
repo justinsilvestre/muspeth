@@ -1,11 +1,17 @@
 import { useSearchParams } from "react-router";
 import type { GraphNode } from "../../shared/graph";
-import { parsePlaceAndPeriodQuery } from "../../shared/placeAndPeriodQuery";
+import {
+  parseOptionalPlaceAndPeriodQuery,
+  parsePlaceAndPeriodQuery,
+} from "../../shared/placeAndPeriodQuery";
 import { createNodeNamer } from "../createNodeNamer";
 import { ConnectionFilterControls } from "../filters/ConnectionFilterControls";
 import { useConnectionFilter } from "../filters/useConnectionFilter";
+import { PeriodExplorerTimeline } from "./PeriodExplorerTimeline";
 import { PlacedConnectionList } from "./PlacedConnectionList";
+import { PlaceExplorerMap } from "./PlaceExplorerMap";
 import { PlaceQueryForm } from "./PlaceQueryForm";
+
 import { PlacesIntro } from "./PlacesIntro";
 
 /** Finds the connections recorded near a place, within a period, or both. */
@@ -13,6 +19,7 @@ export function PlacesView({ nodes }: { nodes: GraphNode[] }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const { filterResult, setFilter } = useConnectionFilter();
   const queryResult = parsePlaceAndPeriodQuery(searchParams);
+  const exploredResult = parseOptionalPlaceAndPeriodQuery(searchParams);
   const hasQuery = ["near", "from", "to"].some((name) => searchParams.has(name));
   // Resets the form's fields when the address changes them, but not when only the filter changes.
   const formKey = ["near", "radiusKm", "from", "to"]
@@ -28,14 +35,24 @@ export function PlacesView({ nodes }: { nodes: GraphNode[] }) {
       {filterResult.ok && (
         <ConnectionFilterControls filter={filterResult.value} onChange={setFilter} />
       )}
-      {!hasQuery && <PlacesIntro />}
       {hasQuery && !queryResult.ok && <p role="alert">{queryResult.error}</p>}
+      {exploredResult.ok && (
+        <>
+          <PlaceExplorerMap
+            params={searchParams}
+            query={exploredResult.value}
+            onSearch={setSearchParams}
+          />
+          <PeriodExplorerTimeline
+            params={searchParams}
+            query={exploredResult.value}
+            onSearch={setSearchParams}
+          />
+        </>
+      )}
+      {!hasQuery && <PlacesIntro />}
       {queryResult.ok && (
-        <PlacedConnectionList
-          params={searchParams}
-          query={queryResult.value}
-          nameOf={createNodeNamer(nodes)}
-        />
+        <PlacedConnectionList params={searchParams} nameOf={createNodeNamer(nodes)} />
       )}
     </section>
   );

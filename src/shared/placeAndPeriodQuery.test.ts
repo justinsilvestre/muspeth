@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { distanceKm, parsePlaceAndPeriodQuery } from "./placeAndPeriodQuery";
+import {
+  formatNearParam,
+  parseOptionalPlaceAndPeriodQuery,
+  parsePlaceAndPeriodQuery,
+} from "./placeAndPeriodQuery";
 
 function parse(query: string) {
   return parsePlaceAndPeriodQuery(new URLSearchParams(query));
@@ -81,21 +85,19 @@ describe("parsePlaceAndPeriodQuery", () => {
   });
 });
 
-describe("distanceKm", () => {
-  it("measures no distance between a point and itself", () => {
-    expect(distanceKm({ latitude: 35, longitude: 135 }, { latitude: 35, longitude: 135 })).toBe(0);
+describe("parseOptionalPlaceAndPeriodQuery", () => {
+  it("accepts a query with neither place nor period", () => {
+    expect(parseOptionalPlaceAndPeriodQuery(new URLSearchParams("kind=likeness")).ok).toBe(true);
   });
 
-  it("measures about 111 km per degree of latitude", () => {
-    const distance = distanceKm({ latitude: 0, longitude: 0 }, { latitude: 1, longitude: 0 });
-    expect(Math.round(distance)).toBe(111);
+  it("still rejects a period that ends before it starts", () => {
+    const params = new URLSearchParams("from=1992&to=1990");
+    expect(parseOptionalPlaceAndPeriodQuery(params).ok).toBe(false);
   });
+});
 
-  it("measures the short way across the antimeridian", () => {
-    const distance = distanceKm(
-      { latitude: 0, longitude: 179.5 },
-      { latitude: 0, longitude: -179.5 },
-    );
-    expect(Math.round(distance)).toBe(111);
+describe("formatNearParam", () => {
+  it("rounds each coordinate to three decimal places", () => {
+    expect(formatNearParam({ latitude: 35.012345, longitude: -135.77 })).toBe("35.012,-135.77");
   });
 });

@@ -1,24 +1,30 @@
 import type { ThreeEvent } from "@react-three/fiber";
-import { type ComponentProps, useEffect, useMemo } from "react";
-import { CatmullRomCurve3, Curve, type Material, TubeGeometry, Vector3 } from "three";
+import { memo, useEffect, useMemo } from "react";
+import { CatmullRomCurve3, Curve, SphereGeometry, TubeGeometry, Vector3 } from "three";
+import { acceleratedRaycast, MeshBVH } from "three-mesh-bvh";
 import { type BranchShape, branchRadiusAt, heightAlongTree, tipTaper } from "./branchRadiusAt";
-import { FloatingLeaf } from "./FloatingLeaf";
+import { FloatingLeaf, type LeafStyle } from "./FloatingLeaf";
+import type { useBarkMaterials } from "./graphics/useBarkMaterials";
 import type { BranchPath, Position } from "./traceBranchPaths";
 import { offsetStrand, strandRadiusAt } from "./trunkStrand";
 
-const radialSegments = 12;
+const radialSegments = 10;
+const tubularSegmentsPerPosition = 8;
 /** The radius of the invisible tube that catches the pointer, so even the finest twigs are easy to point at. */
 const pointerTargetRadius = 0.1;
+/** Rounds off each fork, scaled to the branch's radius there. */
+const forkGeometry = new SphereGeometry(1, 12, 8);
 
 type BranchTubeProps = {
   path: BranchPath;
   shape: BranchShape;
-  material: Material;
-  /** The material that draws an ink outline around the branch, for styles that have one. */
-  outlineMaterial: Material | null;
-  leaf: Omit<ComponentProps<typeof FloatingLeaf>, "id" | "branchTip" | "direction">;
-  onPointerOver: (event: ThreeEvent<PointerEvent>) => void;
-  onPointerOut: (event: ThreeEvent<PointerEvent>) => void;
+  barkMaterials: ReturnType<typeof useBarkMaterials>;
+  leafStyle: LeafStyle;
+  isHighlighted: boolean;
+  /** An image to draw on the leaf, if the path ends at an organism. */
+  leafImageUrl?: string;
+  /** Receives the path's end ID when the pointer enters the branch, and null when it leaves. */
+  onHover: (endId: string | null) => void;
 };
 
 /**
@@ -26,37 +32,66 @@ type BranchTubeProps = {
  * A path that rises from the trunk's base is drawn as one strand of the trunk, beside the strands of its sibling branches.
  * A path ending at an organism narrows to a point and carries a floating leaf; a path ending at a fork is rounded off where its branches leave.
  */
-export function BranchTube(props: BranchTubeProps) {
-  const { path, shape, material, outlineMaterial, leaf } = props;
+export const BranchTube = memo(function BranchTube(props: BranchTubeProps) {
+  const { path, shape, barkMaterials, isHighlighted, onHover } = props;
   const endsAtOrganism = path.leafCount === 1;
   const curve = useMemo(() => toSmoothCurve(offsetStrand(path, shape)), [path, shape]);
   const geometry = useMemo(
-    () => createTaperedTube(curve, path, shape, endsAtOrganism),
+    () => withBoundsTree(createTaperedTube(curve, path, shape, endsAtOrganism)),
     [curve, path, shape, endsAtOrganism],
   );
   const pointerTarget = useMemo(
-    () => new TubeGeometry(curve, 4 * path.positions.length, pointerTargetRadius, 6),
+    () =>
+      withBoundsTree(new TubeGeometry(curve, 4 * path.positions.length, pointerTargetRadius, 6)),
     [curve, path],
   );
   useEffect(() => () => geometry.dispose(), [geometry]);
   useEffect(() => () => pointerTarget.dispose(), [pointerTarget]);
   const [tip, direction] = useMemo(() => [curve.getPointAt(1), curve.getTangentAt(1)], [curve]);
+  const material = isHighlighted ? barkMaterials.highlighted : barkMaterials.plain;
+
+  /** Highlights this branch's lineage for the nearest object under the pointer only. */
+  const hover = (endId: string | null) => (event: ThreeEvent<PointerEvent>) => {
+    event.stopPropagation();
+    onHover(endId);
+  };
 
   return (
-    <group onPointerOver={props.onPointerOver} onPointerOut={props.onPointerOut}>
-      <mesh geometry={geometry} material={material} />
-      {outlineMaterial && <mesh geometry={geometry} material={outlineMaterial} />}
-      <mesh geometry={pointerTarget} visible={false} />
+    <group onPointerOver={hover(path.endId)} onPointerOut={hover(null)}>
+      <mesh geometry={geometry} material={material} raycast={acceleratedRaycast} />
+      {barkMaterials.outline && (
+        <mesh geometry={geometry} material={barkMaterials.outline} raycast={ignoreRaycast} />
+      )}
+      <mesh geometry={pointerTarget} visible={false} raycast={acceleratedRaycast} />
       {endsAtOrganism ? (
-        <FloatingLeaf id={path.endId} branchTip={tip} direction={direction} {...leaf} />
+        <FloatingLeaf
+          id={path.endId}
+          branchTip={tip}
+          direction={direction}
+          style={props.leafStyle}
+          isHighlighted={isHighlighted}
+          imageUrl={props.leafImageUrl}
+        />
       ) : (
-        <mesh position={tip} material={material}>
-          <sphereGeometry args={[branchRadiusAt(heightAlongTree(tip.toArray()), shape), 12, 8]} />
-        </mesh>
+        <mesh
+          geometry={forkGeometry}
+          material={material}
+          position={tip}
+          scale={branchRadiusAt(heightAlongTree(tip.toArray()), shape)}
+        />
       )}
     </group>
   );
+});
+
+/** Indexes a geometry's triangles, so that a ray can be tested against only the few near it. */
+function withBoundsTree<T extends TubeGeometry>(geometry: T) {
+  geometry.boundsTree = new MeshBVH(geometry);
+  return geometry;
 }
+
+/** Leaves a mesh out of pointer tests, for one that only repeats another mesh's geometry. */
+function ignoreRaycast() {}
 
 function toSmoothCurve({ positions, leadPosition }: BranchPath) {
   const vectors = positions.map((position) => new Vector3(...position));
@@ -76,7 +111,7 @@ function createTaperedTube(
   shape: BranchShape,
   endsAtOrganism: boolean,
 ) {
-  const tubularSegments = 16 * path.positions.length;
+  const tubularSegments = tubularSegmentsPerPosition * path.positions.length;
   const lastStretch = 1 / (path.positions.length - 1);
   const geometry = new TubeGeometry(curve, tubularSegments, 1, radialSegments);
   const vertices = geometry.getAttribute("position");

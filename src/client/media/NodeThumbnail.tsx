@@ -9,11 +9,12 @@ type NodeThumbnailProps = {
 };
 
 /**
- * Shows a small image of a node beside its name, or the shape of its kind when it has no image.
+ * Shows a small image of a node beside its name, or the shape of its kind when it has no image
+ * or its media is a sound.
  * It is decorative, as the name beside it identifies the node.
  */
 export function NodeThumbnail({ media, kind }: NodeThumbnailProps) {
-  if (!media) {
+  if (!media || kind === "recording") {
     return (
       <svg aria-hidden="true" viewBox="-16 -16 32 32" className="size-8 shrink-0 rounded bg-subtle">
         <g className="opacity-40">

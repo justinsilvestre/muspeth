@@ -35,4 +35,11 @@ describe("NodeThumbnail", () => {
       expect(container.querySelector("svg")?.getAttribute("aria-hidden")).toBe("true");
     });
   });
+
+  describe("for a recording", () => {
+    it("draws the mark of its kind instead of loading the sound as an image", () => {
+      const { container } = render(<NodeThumbnail media={media} kind="recording" />);
+      expect(container.querySelector("img")).toBeNull();
+    });
+  });
 });

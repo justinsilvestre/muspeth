@@ -27,8 +27,10 @@ test.describe("the graphics of the Places and periods view", () => {
     await expect(page.getByRole("img", { name: /^Timeline of when/ })).toBeVisible();
   });
 
-  test("map the connections found near a place", async ({ page }) => {
+  test("map every place where connections were recorded", async ({ page }) => {
     await page.goto("/places?near=35.01,135.77");
-    await expect(page.getByRole("img", { name: /^Map of where/ })).toContainText("2 connections");
+    await expect(page.getByRole("region", { name: /^Map of where/ })).toContainText(
+      "3 connections marked at 3 places",
+    );
   });
 });

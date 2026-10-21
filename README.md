@@ -39,7 +39,7 @@ Files ending in `.local.sqlite` are ignored by Git. Run `db:seed` only once on a
 
 ## Importing data
 
-Seven scripts grow the database from public sources. Run them all, in order, with:
+Eight scripts grow the database from public sources. Run them all, in order, with:
 
 ```bash
 npm run db:import-all
@@ -52,6 +52,7 @@ The order matters: GloBI starts from the sample's organisms, the next imports wo
 | `npm run db:import-interactions` | Adds the organisms that the sample's organisms interact with, those interactions, and the studies that report each one, from [GloBI](https://www.globalbioticinteractions.org). It keeps at most 60 partners per organism. |
 | `npm run db:import-networks` | Adds whole plant–pollinator networks from [Mangal](https://mangal.io) that contain a sample organism, plus Makoto Kato's two Japanese surveys. It takes at most 30 networks and 4,000 links, preferring small per-site networks, and records other copies of each network in `network_copies`. |
 | `npm run db:import-likeness` | Links each bird, mammal and fungus in the graph to its nearest neighbours by diet and body mass ([EltonTraits 1.0](https://doi.org/10.1890/13-1917.1)) or by lifestyle ([FungalTraits](https://doi.org/10.1007/s13225-020-00466-2)). It keeps at most five neighbours per organism, adding those not yet in the graph. |
+| `npm run db:import-places-sounds` | Makes a place of each site that interactions were recorded at, linked to the organisms observed there. Adds sound recordings from [GBIF](https://www.gbif.org): up to three of each species in the graph, and one of each of the 30 species most recorded within 50 km of each place, which are added to the graph. Each recording is linked, not copied, with its own licence, author and page. |
 | `npm run db:import-substances-culture` | Adds, from [Wikidata](https://www.wikidata.org), the compounds found in organisms (at most 15 shared and 5 unshared per organism, with the studies that report them) and the products organisms are a source of. Adds artworks that depict organisms from the [Met](https://metmuseum.github.io) and the [Cleveland Museum of Art](https://openaccess-api.clevelandart.org), at most 10 per organism per museum. Pass `-- --only=wikidata,met,cleveland` to run some sources; the Met's firewall slows fast clients, so its part is slow. |
 | `npm run db:import-words-motifs` | Adds vernacular names from the [GBIF backbone](https://doi.org/10.15468/39omei) and the words those names share, words and their loanword sources from the [World Loanword Database](https://wold.clld.org), and motifs that name organisms from [Thompson's Motif-Index](https://doi.org/10.17605/OSF.IO/XEB67). |
 | `npm run db:import-images` | Links images from [Wikimedia Commons](https://commons.wikimedia.org) to the organisms that have a Wikidata item: the organism's own image, and works that [Wikidata](https://www.wikidata.org) says depict the organism or its genus, added as artworks (at most 10 per organism). Each image is linked, not copied, with its licence, author and Commons page, and images without a known free licence are left out. |
@@ -71,7 +72,7 @@ npm run dev
 
 This serves the app at http://localhost:5173, with the API running in the local Workers runtime. The API loads the database once, so restart the dev server after changing the database.
 
-The API's query endpoints are `GET /api/nodes/:id/connections`, `GET /api/paths?from=&to=`, `GET /api/connections?near=lat,lon&radiusKm=&from=&to=` and `GET /api/graph`. Each takes the repeatable filter parameters `kind`, `basis`, `source`, `flaggedWith` and `notFlaggedWith`. `src/shared/findPaths.ts` ranks paths without a server, for example over the output of `/api/graph`.
+The API's query endpoints are `GET /api/nodes/:id/connections`, `GET /api/paths?from=&to=`, `GET /api/connections?near=lat,lon&radiusKm=&from=&to=`, `GET /api/connections/places?from=&to=` and `GET /api/connections/dates?near=lat,lon&radiusKm=`, which count connections at each place within a period and on each date near a place, and `GET /api/graph`. Each takes the repeatable filter parameters `kind`, `basis`, `source`, `flaggedWith` and `notFlaggedWith`. `src/shared/findPaths.ts` ranks paths without a server, for example over the output of `/api/graph`.
 
 | Command | Does |
 |---|---|
