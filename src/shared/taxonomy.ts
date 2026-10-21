@@ -1,3 +1,5 @@
+import type { QualityFlag } from "./qualityFlags";
+
 export type Taxon = {
   id: string;
   /** The enclosing taxon, or null for a kingdom. */
@@ -10,5 +12,5 @@ export type Taxon = {
 export type TaxonPlacement = {
   nodeId: string;
   taxonId: string;
-  qualityFlags: string[];
+  qualityFlags: QualityFlag[];
 };

@@ -1,87 +1,60 @@
+import { fetchInBatches } from "./fetchInBatches.ts";
 import type { WikidataTaxon } from "./organismIdentity.ts";
+import { runSparql, wikidataEndpoint } from "./sparqlClient.ts";
+import { type SparqlRow, toQid } from "./sparqlRows.ts";
+import {
+  buildQidsByGbifKeyQuery,
+  buildQidsByTaxonNameQuery,
+  buildTaxaQuery,
+} from "./wikidataQueries.ts";
 
-const sparqlUrl = "https://query.wikidata.org/sparql";
-const labelLanguages = ["en", "ja", "zh", "ko", "fr", "de", "es"];
 const batchSize = 100;
-
-type Binding = {
-  item: { value: string };
-  taxonName?: { value: string };
-  label?: LabelValue;
-  gbif?: { value: string };
-  ncbi?: { value: string };
-};
-type LabelValue = { value: string; "xml:lang": string };
 
 /** Fetches the scientific names, labels, and GBIF and NCBI identifiers of Wikidata items. */
 export async function fetchWikidataTaxa(qids: string[]) {
+  const rows = await fetchInBatches(qids, batchSize, (batch) =>
+    runSparql(wikidataEndpoint, buildTaxaQuery(batch)),
+  );
   const taxa = new Map<string, WikidataTaxon>();
-  for (let start = 0; start < qids.length; start += batchSize) {
-    for (const binding of await queryItems(qids.slice(start, start + batchSize))) {
-      addBinding(taxa, binding);
-    }
-  }
+  for (const row of rows) addRow(taxa, row);
   return taxa;
 }
 
 /** Finds the Wikidata items whose scientific name (property P225) is one of the given names. */
 export async function fetchWikidataQidsByTaxonName(names: string[]) {
-  const qidsByName = new Map<string, string[]>();
-  for (let start = 0; start < names.length; start += batchSize) {
-    const literals = names.slice(start, start + batchSize).map((name) => JSON.stringify(name));
-    const query = `SELECT ?item ?taxonName WHERE {
-      VALUES ?taxonName { ${literals.join(" ")} }
-      ?item wdt:P225 ?taxonName.
-    }`;
-    for (const { item, taxonName } of await runQuery(query)) {
-      const name = taxonName?.value ?? "";
-      qidsByName.set(name, [...(qidsByName.get(name) ?? []), toQid(item)]);
-    }
-  }
-  return qidsByName;
+  const rows = await fetchInBatches(names, batchSize, (batch) =>
+    runSparql(wikidataEndpoint, buildQidsByTaxonNameQuery(batch)),
+  );
+  return groupQids(rows.map((row) => [row.taxonName ?? "", toQid(row.item)] as const));
 }
 
-function queryItems(qids: string[]) {
-  return runQuery(`SELECT ?item ?taxonName ?label ?gbif ?ncbi WHERE {
-    VALUES ?item { ${qids.map((qid) => `wd:${qid}`).join(" ")} }
-    OPTIONAL { ?item wdt:P225 ?taxonName }
-    OPTIONAL { ?item wdt:P846 ?gbif }
-    OPTIONAL { ?item wdt:P685 ?ncbi }
-    OPTIONAL { ?item rdfs:label ?label FILTER(LANG(?label) IN (${labelLanguages.map((language) => `"${language}"`).join(", ")})) }
-  }`);
+/** Finds the Wikidata items whose GBIF taxon identifier (property P846) is one of the given keys. */
+export async function fetchWikidataQidsByGbifKey(keys: number[]) {
+  const rows = await fetchInBatches(keys, batchSize, (batch) =>
+    runSparql(wikidataEndpoint, buildQidsByGbifKeyQuery(batch)),
+  );
+  return groupQids(rows.map((row) => [Number(row.gbif), toQid(row.item)] as const));
 }
 
-async function runQuery(query: string) {
-  const response = await fetch(sparqlUrl, {
-    method: "POST",
-    headers: {
-      accept: "application/sparql-results+json",
-      "content-type": "application/x-www-form-urlencoded",
-      "user-agent": "muspeth-import (https://github.com/justinsilvestre/muspeth)",
-    },
-    body: new URLSearchParams({ query }),
-  });
-  if (!response.ok) throw new Error(`Wikidata responded ${response.status}`);
-  return ((await response.json()) as { results: { bindings: Binding[] } }).results.bindings;
+function groupQids<Key>(pairs: (readonly [Key, string])[]) {
+  const qidsByKey = new Map<Key, string[]>();
+  for (const [key, qid] of pairs) qidsByKey.set(key, [...(qidsByKey.get(key) ?? []), qid]);
+  return qidsByKey;
 }
 
-function addBinding(taxa: Map<string, WikidataTaxon>, binding: Binding) {
-  const qid = toQid(binding.item);
+function addRow(taxa: Map<string, WikidataTaxon>, row: SparqlRow) {
+  const qid = toQid(row.item);
   const taxon = taxa.get(qid) ?? { qid, taxonNames: [], labels: [], externalIds: [] };
-  const { taxonName, label, gbif, ncbi } = binding;
-  if (taxonName) addOnce(taxon.taxonNames, taxonName.value);
-  if (gbif) addOnce(taxon.externalIds, `gbif:${gbif.value}`);
-  if (ncbi) addOnce(taxon.externalIds, `ncbi:${ncbi.value}`);
-  if (label && !taxon.labels.some((existing) => existing.language === label["xml:lang"])) {
-    taxon.labels.push({ language: label["xml:lang"], name: label.value });
+  const { taxonName, label, language, gbif, ncbi } = row;
+  if (taxonName) addOnce(taxon.taxonNames, taxonName);
+  if (gbif) addOnce(taxon.externalIds, `gbif:${gbif}`);
+  if (ncbi) addOnce(taxon.externalIds, `ncbi:${ncbi}`);
+  if (label && language && !taxon.labels.some((existing) => existing.language === language)) {
+    taxon.labels.push({ language, name: label });
   }
   taxa.set(qid, taxon);
 }
 
 function addOnce(values: string[], value: string) {
   if (!values.includes(value)) values.push(value);
-}
-
-function toQid(item: Binding["item"]) {
-  return item.value.split("/").at(-1) ?? "";
 }

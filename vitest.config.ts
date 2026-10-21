@@ -31,6 +31,13 @@ export default defineConfig({
       },
       {
         test: {
+          name: "shared",
+          include: ["src/shared/**/*.test.ts"],
+          environment: "node",
+        },
+      },
+      {
+        test: {
           name: "scripts",
           include: ["scripts/**/*.test.ts"],
           environment: "node",

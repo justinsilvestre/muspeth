@@ -8,6 +8,16 @@ const views = [
     isOpenAt: (pathname: string) => pathname === "/" || pathname.startsWith("/organisms/"),
   },
   {
+    label: "Paths",
+    path: "/paths",
+    isOpenAt: (pathname: string) => pathname === "/paths",
+  },
+  {
+    label: "Places and periods",
+    path: "/places",
+    isOpenAt: (pathname: string) => pathname === "/places",
+  },
+  {
     label: "Taxonomic tree",
     path: "/taxonomy",
     isOpenAt: (pathname: string) => pathname === "/taxonomy",
@@ -19,7 +29,7 @@ export function ViewNavigation() {
   const { pathname } = useLocation();
 
   return (
-    <nav aria-label="Views" className="mb-6 flex gap-1 border-line border-b">
+    <nav aria-label="Views" className="mb-6 flex flex-wrap gap-1 border-line border-b">
       {views.map(({ label, path, isOpenAt }) => (
         <Link
           key={path}

@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { type ConnectionDraft, mergeConnections, toConnectionDraft } from "./globiConnections.ts";
+import type { QualityFlag } from "../src/shared/qualityFlags.ts";
+import {
+  type GlobiConnectionDraft,
+  mergeConnections,
+  toConnectionDraft,
+} from "./globiConnections.ts";
 import type { GlobiRecord } from "./globiRecords.ts";
 
 const study = {
@@ -18,7 +23,7 @@ const matsutake = {
   rank: "species",
   commonNames: null,
 };
-const identities = new Map([
+const identities = new Map<string, { id: string; qualityFlags: QualityFlag[] }>([
   [pine.name, { id: "wikidata:Q1044186", qualityFlags: [] }],
   [pines.name, { id: "wikidata:Q12024", qualityFlags: [] }],
   [matsutake.name, { id: "wikidata:Q509308", qualityFlags: ["ambiguous_wikidata_id"] }],
@@ -37,16 +42,19 @@ function makeRecord(overrides: Partial<GlobiRecord> = {}) {
   } satisfies GlobiRecord;
 }
 
-function makeDraft(overrides: Partial<ConnectionDraft> = {}) {
+function makeDraft(overrides: Partial<GlobiConnectionDraft> = {}) {
   return {
     sourceNodeId: "a",
     targetNodeId: "b",
+    kind: "interaction",
     relation: "eats",
+    basis: "observed",
     taxonomicLevel: "species",
+    licence: "CC0-1.0",
     sources: [study],
     qualityFlags: [],
     ...overrides,
-  } satisfies ConnectionDraft;
+  } satisfies GlobiConnectionDraft;
 }
 
 describe("toConnectionDraft", () => {
@@ -54,6 +62,14 @@ describe("toConnectionDraft", () => {
     expect(toConnectionDraft(makeRecord(), identities)).toMatchObject({
       sourceNodeId: "wikidata:Q509308",
       targetNodeId: "wikidata:Q1044186",
+    });
+  });
+
+  it("records an interaction observed by GloBI, under its CC0 licence", () => {
+    expect(toConnectionDraft(makeRecord(), identities)).toMatchObject({
+      kind: "interaction",
+      basis: "observed",
+      licence: "CC0-1.0",
     });
   });
 

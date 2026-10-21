@@ -1,4 +1,5 @@
 import type { NodeName } from "../src/shared/graph.ts";
+import type { QualityFlag } from "../src/shared/qualityFlags.ts";
 import type { GlobiTaxon } from "./globiRecords.ts";
 
 /** A Wikidata item that may stand for an organism. */
@@ -12,7 +13,7 @@ export type WikidataTaxon = {
   externalIds: string[];
 };
 
-type WikidataChoice = { taxon: WikidataTaxon; isAmbiguous: boolean };
+export type WikidataChoice = { taxon: WikidataTaxon; isAmbiguous: boolean };
 
 /**
  * Picks the Wikidata item for a scientific name among items whose taxon name matches it exactly.
@@ -51,12 +52,13 @@ export function identifyOrganism(
   existingNodeId?: string,
 ) {
   const isUnmatched = isUnmatchedName(taxon);
+  const flags = [
+    isUnmatched && "unmatched_name",
+    choice?.isAmbiguous && "ambiguous_wikidata_id",
+  ] satisfies (QualityFlag | false | undefined)[];
   return {
     id: existingNodeId ?? toNewNodeId(taxon, choice, isUnmatched),
-    qualityFlags: [
-      isUnmatched && "unmatched_name",
-      choice?.isAmbiguous && "ambiguous_wikidata_id",
-    ].filter((flag) => typeof flag === "string"),
+    qualityFlags: flags.filter((flag) => typeof flag === "string"),
   };
 }
 

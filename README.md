@@ -8,9 +8,9 @@ An experiment in exploring connections between organisms and the things around t
 |---|---|
 | `src/client/` | React frontend, styled with Tailwind |
 | `src/worker/` | Cloudflare Worker: a Hono API under `/api`, which also serves the frontend |
-| `src/shared/` | Types shared by the frontend and the API |
+| `src/shared/` | Types and pure logic shared by the frontend and the API, including the path search |
 | `db/migrations/` | D1 (SQLite) schema migrations |
-| `db/seed.sql` | A small hand-entered sample of the matsutake system |
+| `db/seed.sql` | A small hand-entered sample: the matsutake system and the honey bee |
 | `scripts/` | Reproducible imports from public data sources into the database |
 | `e2e/` | Playwright end-to-end tests |
 | `docs/` | Product documentation and research notes |
@@ -35,22 +35,26 @@ The last two commands create and fill a local database under `.wrangler/`. Run `
 
 ## Importing data
 
-Two scripts grow the database from public sources. Run them in this order, since the second places every organism the first adds:
+Six scripts grow the database from public sources. Run them all, in order, with:
 
 ```bash
-npm run db:import-interactions
+npm run db:import-all
 ```
 
-```bash
-npm run db:import-taxa
-```
+The order matters: GloBI starts from the sample's organisms, the next imports work on the organisms already present, and the taxa import runs last so that it places every organism the others add.
 
 | Command | Does |
 |---|---|
 | `npm run db:import-interactions` | Adds the organisms that the sample's organisms interact with, those interactions, and the studies that report each one, from [GloBI](https://www.globalbioticinteractions.org). It keeps at most 60 partners per organism. |
+| `npm run db:import-networks` | Adds whole plant–pollinator networks from [Mangal](https://mangal.io) that contain a sample organism, plus Makoto Kato's two Japanese surveys. It takes at most 30 networks and 4,000 links, preferring small per-site networks, and records other copies of each network in `network_copies`. |
+| `npm run db:import-likeness` | Links each bird, mammal and fungus in the graph to its nearest neighbours by diet and body mass ([EltonTraits 1.0](https://doi.org/10.1890/13-1917.1)) or by lifestyle ([FungalTraits](https://doi.org/10.1007/s13225-020-00466-2)). It keeps at most five neighbours per organism, adding those not yet in the graph. |
+| `npm run db:import-substances-culture` | Adds, from [Wikidata](https://www.wikidata.org), the compounds found in organisms (at most 15 shared and 5 unshared per organism, with the studies that report them) and the products organisms are a source of. Adds artworks that depict organisms from the [Met](https://metmuseum.github.io) and the [Cleveland Museum of Art](https://openaccess-api.clevelandart.org), at most 10 per organism per museum. Pass `-- --only=wikidata,met,cleveland` to run some sources; the Met's firewall slows fast clients, so its part is slow. |
+| `npm run db:import-words-motifs` | Adds vernacular names from the [GBIF backbone](https://doi.org/10.15468/39omei) and the words those names share, words and their loanword sources from the [World Loanword Database](https://wold.clld.org), and motifs that name organisms from [Thompson's Motif-Index](https://doi.org/10.17605/OSF.IO/XEB67). |
 | `npm run db:import-taxa` | Places every organism in the [GBIF backbone taxonomy](https://doi.org/10.15468/39omei). |
 
-Both scripts write to the local database, or to the deployed one when given `-- --remote`. Each can be re-run: it updates what its previous run wrote instead of duplicating it.
+Each script writes to the local database, or to the deployed one when given `-- --remote`; `db:import-all` writes only to the local one. Each can be re-run: it replaces what its previous run wrote instead of duplicating it. Each node records the import that added it in `nodes.source`, and hand-entered nodes belong to `sample`. Re-running an import removes only the nodes that no other import or the sample still uses. Matches by text, links pushed down from a coarser taxonomic group, and other doubtful records are kept and carry quality flags (`src/shared/qualityFlags.ts`).
+
+A new import builds `NodeDraft`s and `ConnectionDraft`s (`scripts/graphDrafts.ts`) and stores them with `writeConnectionImport` (`scripts/writeConnectionImport.ts`), under its own source key.
 
 ## Development
 
@@ -59,6 +63,8 @@ npm run dev
 ```
 
 This serves the app at http://localhost:5173, with the API running in the local Workers runtime.
+
+The API's query endpoints are `GET /api/nodes/:id/connections`, `GET /api/paths?from=&to=`, `GET /api/connections?near=lat,lon&radiusKm=&from=&to=` and `GET /api/graph`. Each takes the repeatable filter parameters `kind`, `basis`, `source`, `flaggedWith` and `notFlaggedWith`. `src/shared/findPaths.ts` ranks paths without a server, for example over the output of `/api/graph`.
 
 | Command | Does |
 |---|---|
@@ -84,7 +90,7 @@ The app runs on Cloudflare's free tier: one Worker serves the frontend and the A
 4. Copy the printed `database_id` into `wrangler.jsonc`, then run `npm run typegen`.
 5. Deploy: `npm run deploy`.
 6. Seed the deployed database: `npx wrangler d1 execute muspeth --remote --file=db/seed.sql`.
-7. Import data into it: `npm run db:import-interactions -- --remote`, then `npm run db:import-taxa -- --remote`.
+7. Import data into it by running each import in the order of `db:import-all`, adding `-- --remote` to each.
 
 The app is then live at `https://muspeth.<your-subdomain>.workers.dev`.
 

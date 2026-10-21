@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { GraphNode } from "../../shared/graph";
+import type { QualityFlag } from "../../shared/qualityFlags";
 import type { Taxon, TaxonPlacement } from "../../shared/taxonomy";
 import { buildTaxonTree } from "./buildTaxonTree";
 
@@ -48,7 +49,7 @@ describe("buildTaxonTree", () => {
   });
 
   describe("when a placement is flagged", () => {
-    const placeWithFlags = (qualityFlags: string[]) => {
+    const placeWithFlags = (qualityFlags: QualityFlag[]) => {
       const placement = { nodeId: "pine", taxonId: "pinus", qualityFlags };
       const [plantae] = buildTaxonTree(taxa, [placement], nodes).children;
       return plantae?.children[0]?.children[0];
@@ -72,7 +73,7 @@ describe("buildTaxonTree", () => {
   });
 
   describe("when an organism has no English name", () => {
-    const placeOnSpecies = (qualityFlags: string[]) => {
+    const placeOnSpecies = (qualityFlags: QualityFlag[]) => {
       const species = {
         id: "densiflora",
         parentId: null,
@@ -80,7 +81,12 @@ describe("buildTaxonTree", () => {
         name: "Pinus densiflora",
       };
       const placement = { nodeId: "pine", taxonId: "densiflora", qualityFlags };
-      const pine = { id: "pine", kind: "organism", label: "Pinus densiflora", names: [] };
+      const pine = {
+        id: "pine",
+        kind: "organism",
+        label: "Pinus densiflora",
+        names: [],
+      } satisfies GraphNode;
       return buildTaxonTree([species], [placement], [pine]).children[0]?.children[0];
     };
 

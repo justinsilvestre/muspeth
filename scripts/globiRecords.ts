@@ -135,6 +135,7 @@ export function selectPartnerNames(
   const support = new Map<string, { datasetIds: Set<string | null>; recordCount: number }>();
   for (const record of records) {
     const name = record.subject.name === organismName ? record.object.name : record.subject.name;
+    if (name === organismName) continue;
     const entry = support.get(name) ?? { datasetIds: new Set(), recordCount: 0 };
     entry.datasetIds.add(record.datasetId);
     entry.recordCount += 1;

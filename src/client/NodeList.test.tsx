@@ -5,7 +5,12 @@ import type { GraphNode } from "../shared/graph";
 import { NodeList } from "./NodeList";
 
 function renderPine(names: GraphNode["names"]) {
-  const pine = { id: "pine", kind: "organism", label: "Pinus densiflora", names };
+  const pine = {
+    id: "pine",
+    kind: "organism",
+    label: "Pinus densiflora",
+    names,
+  } satisfies GraphNode;
   render(
     <MemoryRouter>
       <NodeList nodes={[pine]} selectedNodeId={undefined} />

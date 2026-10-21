@@ -1,4 +1,5 @@
 import type { GraphNode } from "../../shared/graph";
+import type { QualityFlag } from "../../shared/qualityFlags";
 import type { Taxon, TaxonPlacement } from "../../shared/taxonomy";
 import { nodeDisplayName } from "../nodeDisplayName";
 
@@ -16,7 +17,7 @@ export type TaxonTreeNode = {
 };
 
 const rootId = "life";
-const uncertainPlacementFlags = new Set([
+const uncertainPlacementFlags = new Set<QualityFlag>([
   "higher_rank_match",
   "globi_lineage_hint",
   "fuzzy_name_match",

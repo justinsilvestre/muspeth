@@ -159,4 +159,9 @@ describe("selectPartnerNames", () => {
     const swapped = [makeRecord({ subject: matsutake, object: pine })];
     expect(selectPartnerNames(swapped, pine.name, 1, () => false)).toEqual([matsutake.name]);
   });
+
+  it("never counts the organism as its own partner", () => {
+    const selfRecord = makeRecord({ object: pine });
+    expect(selectPartnerNames([selfRecord], pine.name, 1, () => true)).toEqual([]);
+  });
 });
