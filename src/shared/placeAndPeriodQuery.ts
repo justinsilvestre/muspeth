@@ -1,9 +1,10 @@
 import type { ConnectionFilter } from "./connectionFilter";
 import { parseConnectionFilter } from "./connectionFilter";
+import type { Coordinates } from "./distanceKm";
 import type { GraphEdge } from "./graphExport";
 import { InvalidQueryError, parseQuery, readNumber } from "./queryParameters";
 
-export type Coordinates = { latitude: number; longitude: number };
+export type { Coordinates } from "./distanceKm";
 
 /**
  * Which connections to find by where or when they were recorded.
@@ -109,18 +110,4 @@ function checkPlaceOrPeriod({ near, from, to }: PlaceAndPeriodQuery, isRequired:
 function isAfterEndOf(date: string, other: string) {
   const [year, otherYear] = [Number.parseInt(date, 10), Number.parseInt(other, 10)];
   return year > otherYear || (year === otherYear && date > `${other}~`);
-}
-
-/** Returns the great-circle distance between two points on the Earth, in kilometres. */
-export function distanceKm(a: Coordinates, b: Coordinates) {
-  const earthRadiusKm = 6371;
-  const toRadians = (degrees: number) => (degrees * Math.PI) / 180;
-  const latitudeChange = toRadians(b.latitude - a.latitude);
-  const longitudeChange = toRadians(b.longitude - a.longitude);
-  const haversine =
-    Math.sin(latitudeChange / 2) ** 2 +
-    Math.cos(toRadians(a.latitude)) *
-      Math.cos(toRadians(b.latitude)) *
-      Math.sin(longitudeChange / 2) ** 2;
-  return 2 * earthRadiusKm * Math.asin(Math.min(1, Math.sqrt(haversine)));
 }

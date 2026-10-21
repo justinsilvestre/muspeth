@@ -1,9 +1,5 @@
-import {
-  type Coordinates,
-  distanceKm,
-  type PlaceAndPeriodQuery,
-  type PlacedConnection,
-} from "../shared/placeAndPeriodQuery";
+import { type Coordinates, distanceKm } from "../shared/distanceKm";
+import type { PlaceAndPeriodQuery, PlacedConnection } from "../shared/placeAndPeriodQuery";
 import { boundingBoxSql } from "./boundingBoxSql";
 import { connectionFilterSql } from "./connectionFilterSql";
 import { type GraphEdgeRow, graphEdgeColumns, toGraphEdge } from "./graphEdgeRow";

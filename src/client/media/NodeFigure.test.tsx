@@ -11,7 +11,14 @@ const media = {
 } satisfies NodeMedia;
 
 function renderFigure(overrides: Partial<NodeMedia> = {}) {
-  render(<NodeFigure media={{ ...media, ...overrides }} name="Campanula punctata" />);
+  render(
+    <NodeFigure media={{ ...media, ...overrides }} kind="organism" name="Campanula punctata" />,
+  );
+}
+
+function renderRecording() {
+  const sound = { ...media, url: "https://static.inaturalist.org/sounds/1.wav" };
+  return render(<NodeFigure media={sound} kind="recording" name="Apis mellifera, Canada" />);
 }
 
 afterEach(cleanup);
@@ -42,5 +49,26 @@ describe("NodeFigure", () => {
   it("says when the author is unknown", () => {
     renderFigure({ credit: null });
     expect(screen.getByRole("link", { name: "Unknown author" })).toBeDefined();
+  });
+
+  describe("for a recording", () => {
+    it("plays the sound", () => {
+      const { container } = renderRecording();
+      expect(container.querySelector("audio")?.getAttribute("src")).toBe(
+        "https://static.inaturalist.org/sounds/1.wav",
+      );
+    });
+
+    it("names the player by the node's name", () => {
+      const { container } = renderRecording();
+      expect(container.querySelector("audio")?.getAttribute("aria-label")).toBe(
+        "Apis mellifera, Canada",
+      );
+    });
+
+    it("shows no image", () => {
+      renderRecording();
+      expect(screen.queryByRole("img")).toBeNull();
+    });
   });
 });

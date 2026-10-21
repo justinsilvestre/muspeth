@@ -1,8 +1,5 @@
-import {
-  type Coordinates,
-  distanceKm,
-  type PlaceAndPeriodQuery,
-} from "../shared/placeAndPeriodQuery";
+import { type Coordinates, distanceKm } from "../shared/distanceKm";
+import type { PlaceAndPeriodQuery } from "../shared/placeAndPeriodQuery";
 import type { DateSummary, PlaceSummary } from "../shared/placeAndPeriodSummary";
 import { boundingBoxSql } from "./boundingBoxSql";
 import { connectionFilterSql } from "./connectionFilterSql";
