@@ -38,7 +38,7 @@ describe("buildTaxonTree", () => {
     const [pinus] = plantae?.children ?? [];
     expect(pinus?.children).toEqual([
       {
-        id: "pine",
+        id: "organism:pine",
         label: "Japanese red pine",
         rank: "organism",
         children: [],
@@ -112,5 +112,13 @@ describe("buildTaxonTree", () => {
     it("keeps an uncertainly placed organism apart from a taxon of the same name", () => {
       expect(placeOnSpecies(["fuzzy_name_match"])?.isNamedByTaxon).toBe(false);
     });
+  });
+
+  it("keeps an organism's ID apart from that of the taxon it is placed on, even when the two match", () => {
+    const species = { id: "pine", parentId: null, rank: "species", name: "Pinus densiflora" };
+    const placement = { nodeId: "pine", taxonId: "pine", qualityFlags: [] };
+    const tree = buildTaxonTree([species], [placement], nodes);
+    const [taxonNode] = tree.children;
+    expect(taxonNode?.children[0]?.id).not.toBe(taxonNode?.id);
   });
 });
