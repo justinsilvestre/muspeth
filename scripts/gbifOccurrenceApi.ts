@@ -1,10 +1,11 @@
 import type { Coordinates } from "../src/shared/distanceKm.ts";
-import { fetchWithRetry } from "./fetchWithRetry.ts";
+import { fetchJsonPolitely } from "./fetchJsonPolitely.ts";
+import { createRequestSpacer } from "./requestSpacer.ts";
 import type { GbifSoundOccurrence } from "./soundRecordings.ts";
-import { userAgent } from "./userAgent.ts";
 
 const searchUrl = "https://api.gbif.org/v1/occurrence/search";
-const headers = { "user-agent": userAgent };
+/** GBIF limits occurrence searches more tightly than its other services. */
+const waitForTurn = createRequestSpacer(500);
 
 /** Fetches up to `limit` occurrences of a taxon that come with a sound, near a place if given. */
 export async function fetchSoundOccurrences(
@@ -14,7 +15,7 @@ export async function fetchSoundOccurrences(
 ) {
   const params = new URLSearchParams({ taxonKey: String(taxonKey), limit: String(limit) });
   if (near) params.set("geoDistance", toGeoDistance(near.coordinates, near.radiusKm));
-  const { results } = (await search(params)) as { results: GbifSoundOccurrence[] };
+  const { results = [] } = (await search(params)) as { results?: GbifSoundOccurrence[] };
   return results;
 }
 
@@ -38,10 +39,7 @@ export async function fetchRecordedSpeciesKeysNear(
 
 async function search(params: URLSearchParams) {
   params.set("mediaType", "Sound");
-  const url = `${searchUrl}?${params}`;
-  const response = await fetchWithRetry(url, { headers });
-  if (!response.ok) throw new Error(`GBIF responded ${response.status} for ${url}`);
-  return (await response.json()) as unknown;
+  return (await fetchJsonPolitely(`${searchUrl}?${params}`, waitForTurn)) ?? {};
 }
 
 function toGeoDistance({ latitude, longitude }: Coordinates, radiusKm: number) {
