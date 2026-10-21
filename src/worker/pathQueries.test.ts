@@ -70,6 +70,22 @@ describe("findPathsBetween", () => {
       expect(paths.map((path) => path.nodeIds.join(" "))).toEqual(["a quiet z"]);
     });
 
+    it("counts the connections that remain after some are removed", async () => {
+      await insertTwoRoutes();
+      await env.DB.prepare("DELETE FROM connections WHERE id >= 100").run();
+      const { paths } = await findPathsBetween(env.DB, query("a", "z"), 1);
+      expect(paths.map((path) => path.nodeIds.join(" "))).toEqual(["a busy z"]);
+    });
+
+    it("counts the connections that a node gains when they change ends", async () => {
+      await insertTwoRoutes();
+      await env.DB.prepare(
+        "UPDATE connections SET source_node_id = 'quiet' WHERE source_node_id = 'busy' AND id >= 100",
+      ).run();
+      const { paths } = await findPathsBetween(env.DB, query("a", "z"), 1);
+      expect(paths.map((path) => path.nodeIds.join(" "))).toEqual(["a busy z"]);
+    });
+
     it("reports that it left out some neighbours", async () => {
       await insertTwoRoutes();
       const { truncated } = await findPathsBetween(env.DB, query("a", "z"), 1);
