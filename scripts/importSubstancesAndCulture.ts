@@ -6,10 +6,12 @@
  * Re-running it replaces what its previous run wrote.
  * Usage: npm run db:import-substances-culture -- [--remote] [--only=wikidata,met,cleveland]
  * Without --remote, it writes to the local development database.
- * With --only, it runs just the listed sources.
+ * With --only, it runs just the listed sources. Without it, it runs all but the Met, whose
+ * firewall blocks a search of this size for longer than a full import should take.
  */
 import { queryD1 } from "./d1.ts";
 import type { ConnectionDraft, NodeDraft } from "./graphDrafts.ts";
+import { listChosenSources } from "./importSourceChoice.ts";
 import { clevelandMuseum, metMuseum, toMuseumImport } from "./museumImport.ts";
 import { collectClevelandMatches, collectMetMatches } from "./museumMatches.ts";
 import type { MuseumOrganism } from "./museumNames.ts";
@@ -21,11 +23,8 @@ import { writeConnectionImport } from "./writeConnectionImport.ts";
 const organisms = loadOrganisms();
 console.log(`Found ${organisms.length} organisms.`);
 
-const onlySources = process.argv
-  .find((arg) => arg.startsWith("--only="))
-  ?.slice(7)
-  .split(",");
-const isWanted = (source: string) => !onlySources || onlySources.includes(source);
+const chosenSources = listChosenSources(process.argv, ["wikidata", "cleveland"]);
+const isWanted = (source: string) => chosenSources.includes(source);
 
 if (isWanted("wikidata")) {
   const qids = listQids(organisms.map(({ id }) => id));
