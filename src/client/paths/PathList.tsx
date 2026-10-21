@@ -1,5 +1,5 @@
 import type { RankedPath } from "../../shared/findPaths";
-import type { PathsResponse } from "../../shared/pathQuery";
+import { maxPathSteps, type PathsResponse, pathNeighborLimit } from "../../shared/pathQuery";
 import { ConnectionSentence } from "../ConnectionSentence";
 import { termLabel } from "../termLabel";
 import { useApiResource } from "../useApiResource";
@@ -19,7 +19,13 @@ export function PathList({ params, nameOf }: PathListProps) {
     return <p role="alert">Could not find paths: {resource.error.message}</p>;
   }
   if (resource.data.paths.length === 0) {
-    return <p className="text-muted">No path of up to four steps joins these two.</p>;
+    return (
+      <p role="status" className="text-muted">
+        No path of up to {maxPathSteps} steps was found. Since the search follows at most{" "}
+        {pathNeighborLimit} neighbours of each node, a path may still exist through a node with more
+        than {pathNeighborLimit} neighbours.
+      </p>
+    );
   }
   return (
     <ol aria-label="Paths" className="space-y-4">
