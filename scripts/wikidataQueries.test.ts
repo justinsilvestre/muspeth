@@ -2,7 +2,10 @@ import { describe, expect, it } from "vitest";
 import {
   buildCompoundCountsQuery,
   buildParentsQuery,
+  buildQidsByGbifKeyQuery,
+  buildQidsByTaxonNameQuery,
   buildSharedCompoundsQuery,
+  buildTaxaQuery,
   buildUnsharedCompoundsQuery,
   listQids,
 } from "./wikidataQueries.ts";
@@ -40,5 +43,25 @@ describe("buildUnsharedCompoundsQuery", () => {
 describe("buildParentsQuery", () => {
   it("asks for the parent of each taxon", () => {
     expect(buildParentsQuery(["Q1", "Q2"])).toContain("VALUES ?taxon { wd:Q1 wd:Q2 }");
+  });
+});
+
+describe("buildTaxaQuery", () => {
+  it("keeps labels in the kept languages", () => {
+    expect(buildTaxaQuery(["Q1"])).toContain('FILTER(?language IN ("en", "ja"');
+  });
+});
+
+describe("buildQidsByTaxonNameQuery", () => {
+  it("quotes the names as values", () => {
+    expect(buildQidsByTaxonNameQuery(['Apis "mellifera"'])).toContain(
+      'VALUES ?taxonName { "Apis \\"mellifera\\"" }',
+    );
+  });
+});
+
+describe("buildQidsByGbifKeyQuery", () => {
+  it("lists the keys as string values", () => {
+    expect(buildQidsByGbifKeyQuery([1, 2])).toContain('VALUES ?gbif { "1" "2" }');
   });
 });

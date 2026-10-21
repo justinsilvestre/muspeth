@@ -1,5 +1,5 @@
-/** Languages whose labels are kept for compounds and products, as in the organism import. */
-export const labelLanguages = ["en", "ja", "zh", "ko", "fr", "de", "es"];
+/** Languages whose labels are kept for organisms, compounds and products. */
+const labelLanguages = ["en", "ja", "zh", "ko", "fr", "de", "es"];
 
 /** Lists the Wikidata items, such as "Q30034", among identifiers like "wikidata:Q30034". */
 export function listQids(nodeIds: string[]) {
@@ -9,7 +9,7 @@ export function listQids(nodeIds: string[]) {
 /** Keeps only items that have a label in one of the kept languages. */
 const labelledCompoundFilter = `FILTER EXISTS {
     ?compound rdfs:label ?anyLabel.
-    FILTER(LANG(?anyLabel) IN (${labelLanguages.map((language) => `"${language}"`).join(", ")}))
+    FILTER(LANG(?anyLabel) IN (${toLanguageList()}))
   }`;
 
 /** Counts the compounds that Wikidata says are found in each organism. */
@@ -79,12 +79,11 @@ export function buildProductsQuery(organismQids: string[]) {
 
 /** Finds the labels of items in the kept languages. */
 export function buildLabelsQuery(qids: string[]) {
-  const languages = labelLanguages.map((language) => `"${language}"`).join(", ");
   return `SELECT ?item ?label ?language WHERE {
   VALUES ?item { ${toValues(qids)} }
   ?item rdfs:label ?label.
   BIND(LANG(?label) AS ?language)
-  FILTER(?language IN (${languages}))
+  FILTER(?language IN (${toLanguageList()}))
 }`;
 }
 
@@ -116,6 +115,40 @@ export function buildTaxonNamesQuery(taxonQids: string[]) {
 }`;
 }
 
+/**
+ * Finds the scientific names (property P225), the labels in the kept languages,
+ * and the GBIF (P846) and NCBI (P685) identifiers of items.
+ */
+export function buildTaxaQuery(qids: string[]) {
+  return `SELECT ?item ?taxonName ?label ?language ?gbif ?ncbi WHERE {
+  VALUES ?item { ${toValues(qids)} }
+  OPTIONAL { ?item wdt:P225 ?taxonName }
+  OPTIONAL { ?item wdt:P846 ?gbif }
+  OPTIONAL { ?item wdt:P685 ?ncbi }
+  OPTIONAL {
+    ?item rdfs:label ?label.
+    BIND(LANG(?label) AS ?language)
+    FILTER(?language IN (${toLanguageList()}))
+  }
+}`;
+}
+
+/** Finds the items whose scientific name (property P225) is one of the given names. */
+export function buildQidsByTaxonNameQuery(names: string[]) {
+  return `SELECT ?item ?taxonName WHERE {
+  VALUES ?taxonName { ${names.map((name) => JSON.stringify(name)).join(" ")} }
+  ?item wdt:P225 ?taxonName.
+}`;
+}
+
+/** Finds the items whose GBIF taxon identifier (property P846) is one of the given keys. */
+export function buildQidsByGbifKeyQuery(keys: number[]) {
+  return `SELECT ?item ?gbif WHERE {
+  VALUES ?gbif { ${keys.map((key) => `"${key}"`).join(" ")} }
+  ?item wdt:P846 ?gbif.
+}`;
+}
+
 /** Finds the parent taxon (property P171) of each taxon, with the parent's rank when it has one. */
 export function buildParentsQuery(taxonQids: string[]) {
   return `SELECT ?taxon ?parent ?rank WHERE {
@@ -132,4 +165,8 @@ function toValues(qids: string[]) {
       return `wd:${qid}`;
     })
     .join(" ");
+}
+
+function toLanguageList() {
+  return labelLanguages.map((language) => `"${language}"`).join(", ");
 }
