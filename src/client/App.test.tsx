@@ -88,6 +88,7 @@ const pathFromNematode = {
   nodeIds: ["nematode", "pine"],
   steps: [{ fromNodeId: "nematode", toNodeId: "pine", connections: [pathogenEdge] }],
   kinds: ["interaction"],
+  neighborCounts: [1, 1],
   cost: 1,
 } satisfies RankedPath;
 

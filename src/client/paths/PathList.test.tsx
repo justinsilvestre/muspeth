@@ -36,6 +36,7 @@ const pathThroughKyoto = {
     },
   ],
   kinds: ["shared_place_and_sound"],
+  neighborCounts: [1, 2, 1],
   cost: 2,
 } satisfies RankedPath;
 
