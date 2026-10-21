@@ -6,6 +6,7 @@ import { ConnectionFilterControls } from "../filters/ConnectionFilterControls";
 import { useConnectionFilter } from "../filters/useConnectionFilter";
 import { PlacedConnectionList } from "./PlacedConnectionList";
 import { PlaceQueryForm } from "./PlaceQueryForm";
+import { PlacesIntro } from "./PlacesIntro";
 
 /** Finds the connections recorded near a place, within a period, or both. */
 export function PlacesView({ nodes }: { nodes: GraphNode[] }) {
@@ -27,9 +28,14 @@ export function PlacesView({ nodes }: { nodes: GraphNode[] }) {
       {filterResult.ok && (
         <ConnectionFilterControls filter={filterResult.value} onChange={setFilter} />
       )}
+      {!hasQuery && <PlacesIntro />}
       {hasQuery && !queryResult.ok && <p role="alert">{queryResult.error}</p>}
       {queryResult.ok && (
-        <PlacedConnectionList params={searchParams} nameOf={createNodeNamer(nodes)} />
+        <PlacedConnectionList
+          params={searchParams}
+          query={queryResult.value}
+          nameOf={createNodeNamer(nodes)}
+        />
       )}
     </section>
   );
