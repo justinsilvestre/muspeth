@@ -16,6 +16,7 @@ import {
   selectPartnerNames,
 } from "./globiRecords.ts";
 import type { NodeDraft } from "./graphDrafts.ts";
+import { loadOrganismIdsByLabel } from "./loadOrganismIdsByLabel.ts";
 import { mapConcurrently } from "./mapConcurrently.ts";
 import {
   chooseWikidataTaxon,
@@ -33,7 +34,7 @@ const recordLimit = 20_000;
 const partnerLimit = 60;
 
 const startOrganisms = queryD1<{ id: string; label: string }>(seedOrganismsSql);
-const existingIdByName = new Map(startOrganisms.map(({ id, label }) => [label, id]));
+const existingIdByName = loadOrganismIdsByLabel([source]);
 const startNames = new Set(startOrganisms.map(({ label }) => label));
 const records: GlobiRecord[] = [];
 for (const name of startNames) records.push(...(await collectRecords(name)));

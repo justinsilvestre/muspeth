@@ -8,6 +8,7 @@
  */
 import { executeD1Script, queryD1 } from "./d1.ts";
 import type { NodeDraft } from "./graphDrafts.ts";
+import { loadOrganismIdsByLabel } from "./loadOrganismIdsByLabel.ts";
 import { fetchNetworkContent, fetchNetworkIdsOfTaxon } from "./mangalApi.ts";
 import {
   type MangalNetworkContent,
@@ -39,10 +40,7 @@ const maxNetworkInteractionCount = 1000;
 const limits = { networkCount: 30, interactionCount: 4000, networksPerDataset: 5 };
 
 const seedNames = queryD1<{ label: string }>(seedOrganismsSql).map(({ label }) => label);
-const existingOrganisms = queryD1<{ id: string; label: string }>(
-  `SELECT id, label FROM nodes WHERE kind = 'organism' AND source <> '${source}'`,
-);
-const existingIdByName = new Map(existingOrganisms.map(({ id, label }) => [label, id]));
+const existingIdByName = loadOrganismIdsByLabel([source]);
 
 const candidateIds = new Set(pinnedNetworkIds);
 for (const name of seedNames) {
