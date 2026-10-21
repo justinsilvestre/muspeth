@@ -179,5 +179,11 @@ describe("findPaths", () => {
     it("lists the kinds of connection it crosses", () => {
       expect(path?.kinds).toEqual(["interaction", "likeness", "shared_culture"]);
     });
+
+    it("counts the neighbours of each node along it", () => {
+      const graph = buildPathGraph([...edges, interaction(4, "b", "d")]);
+      const [pathWithSpoke] = findPaths(graph, "a", "c");
+      expect(pathWithSpoke?.neighborCounts).toEqual([1, 3, 1]);
+    });
   });
 });

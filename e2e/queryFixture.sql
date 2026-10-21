@@ -32,3 +32,13 @@ INSERT INTO nodes (id, kind, label, source) VALUES
   ('e2e:octacycle', 'compound',
     '6,8,18,20,28-pentaoxaoctacyclo[17.11.1.17,15.02,17.05,16.09,14.021,30.024,29]dotriaconta-2(17),3,5(16)',
     'e2e_fixture');
+
+-- Parallel connections between the matsutake and the Japanese red pine, one stated against the direction
+-- of a path from the matsutake, to check how a path folds them.
+INSERT INTO connections
+  (id, source_node_id, target_node_id, kind, relation, basis, source, licence, quality_flags)
+VALUES
+  (108, 'wikidata:Q1044186', 'wikidata:Q509308', 'interaction', 'symbiontOf', 'observed',
+    'e2e_fixture', 'CC0-1.0', '[]'),
+  (109, 'wikidata:Q509308', 'wikidata:Q1044186', 'interaction', 'hasEctomycorrhizalHost', 'observed',
+    'e2e_fixture', 'CC0-1.0', '[]');

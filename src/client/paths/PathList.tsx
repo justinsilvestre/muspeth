@@ -1,11 +1,12 @@
 import { Fragment } from "react";
 import type { RankedPath } from "../../shared/findPaths";
 import { maxPathSteps, type PathsResponse, pathNeighborLimit } from "../../shared/pathQuery";
-import { ConnectionMeta } from "../ConnectionMeta";
-import { ConnectionSentence } from "../ConnectionSentence";
+import { KindChip } from "../KindChip";
 import { NodeLink } from "../NodeLink";
-import { termLabel } from "../termLabel";
 import { useApiResource } from "../useApiResource";
+import { listRankingReasons } from "./listRankingReasons";
+import { PathNode } from "./PathNode";
+import { PathStepItem } from "./PathStepItem";
 
 type PathListProps = {
   /** The query parameters of the path search, including the filter. */
@@ -13,7 +14,7 @@ type PathListProps = {
   nameOf: (nodeId: string) => string;
 };
 
-/** Lists the best paths between two nodes, best first, with every connection along each step. */
+/** Lists the best paths between two nodes, best first, explaining each path's rank and showing it step by step. */
 export function PathList({ params, nameOf }: PathListProps) {
   const resource = useApiResource<PathsResponse>(`/api/paths?${params}`);
 
@@ -31,11 +32,18 @@ export function PathList({ params, nameOf }: PathListProps) {
     );
   }
   return (
-    <ol aria-label="Paths" className="space-y-4">
-      {resource.data.paths.map((path, index) => (
-        <PathItem key={path.nodeIds.join(" ")} path={path} rank={index + 1} nameOf={nameOf} />
-      ))}
-    </ol>
+    <>
+      <p className="text-muted text-sm">
+        Paths that avoid hubs, the nodes with many neighbours, and that cross more kinds of
+        connection rank higher. Each path's score sums the cost of its steps, so a lower score ranks
+        higher.
+      </p>
+      <ol aria-label="Paths" className="space-y-4">
+        {resource.data.paths.map((path, index) => (
+          <PathItem key={path.nodeIds.join(" ")} path={path} rank={index + 1} nameOf={nameOf} />
+        ))}
+      </ol>
+    </>
   );
 }
 
@@ -47,8 +55,9 @@ type PathItemProps = {
 
 function PathItem({ path, rank, nameOf }: PathItemProps) {
   const stepCount = `${path.steps.length} ${path.steps.length === 1 ? "step" : "steps"}`;
+  const reasons = [stepCount, ...listRankingReasons(path)];
   return (
-    <li className="rounded border border-line px-3 py-2">
+    <li className="space-y-2 rounded border border-line px-3 py-2">
       <h3 className="font-medium">
         {rank}.{" "}
         {path.nodeIds.map((nodeId, index) => (
@@ -59,26 +68,25 @@ function PathItem({ path, rank, nameOf }: PathItemProps) {
           </Fragment>
         ))}
       </h3>
-      <p className="mb-2 text-muted text-sm">
-        {stepCount} · {path.kinds.map(termLabel).join(", ")} · cost {path.cost.toFixed(2)}
+      <p className="text-muted text-sm">
+        {reasons.join(" · ")} ·{" "}
+        <span className="whitespace-nowrap">score {path.cost.toFixed(2)}</span>
       </p>
-      <ol aria-label={`Steps of path ${rank}`} className="list-decimal space-y-2 pl-5">
-        {path.steps.map((step) => (
-          <li key={`${step.fromNodeId} ${step.toNodeId}`}>
-            {step.connections.map((connection) => (
-              <div key={connection.id}>
-                <ConnectionSentence
-                  sourceId={connection.sourceNodeId}
-                  relation={connection.relation}
-                  targetId={connection.targetNodeId}
-                  nameOf={nameOf}
-                />
-                <ConnectionMeta {...connection} />
-              </div>
-            ))}
+      <ul aria-label={`Kinds of connection in path ${rank}`} className="flex flex-wrap gap-1">
+        {path.kinds.map((kind) => (
+          <li key={kind}>
+            <KindChip kind={kind} />
           </li>
         ))}
-      </ol>
+      </ul>
+      <div className="pt-1">
+        <PathNode name={nameOf(path.nodeIds[0] ?? "")} lead="from" />
+        <ol aria-label={`Steps of path ${rank}`}>
+          {path.steps.map((step) => (
+            <PathStepItem key={`${step.fromNodeId} ${step.toNodeId}`} step={step} nameOf={nameOf} />
+          ))}
+        </ol>
+      </div>
     </li>
   );
 }
