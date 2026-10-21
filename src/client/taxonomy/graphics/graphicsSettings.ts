@@ -29,13 +29,13 @@ type GraphicsSettingsAction =
 export const defaultGraphicsSettings = {
   barkMaterialId: "slate",
   shading: "toon",
-  trunkRadius: 0.65,
+  trunkRadius: 0.5,
   taperPerRank: 0.58,
-  leafSize: 1,
+  leafSize: 1.6,
   showsLeafImages: true,
   leafGap: 0.06,
   leafSpread: 1,
-  branchSplay: 0.5,
+  branchSplay: 0.85,
   irregularity: 0.2,
 } satisfies GraphicsSettings;
 
