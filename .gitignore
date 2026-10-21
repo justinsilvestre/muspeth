@@ -11,3 +11,4 @@ dist/
 test-results/
 playwright-report/
 src/worker/worker-configuration.d.ts
+*.local.sqlite

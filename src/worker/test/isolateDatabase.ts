@@ -1,10 +1,8 @@
-import { applyD1Migrations, env, reset } from "cloudflare:test";
-import { afterEach, beforeEach } from "vitest";
+import { env } from "cloudflare:test";
+import { beforeEach } from "vitest";
+import { openSqlDatabase } from "../sqlDatabase";
 
 beforeEach(async () => {
-  await applyD1Migrations(env.DB, env.TEST_MIGRATIONS);
-});
-
-afterEach(async () => {
-  await reset();
+  env.DB = await openSqlDatabase();
+  for (const migration of env.TEST_MIGRATIONS) env.DB.exec(migration);
 });

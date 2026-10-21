@@ -3,10 +3,9 @@
  * within fixed bounds. Each network's organisms become nodes, shared with the nodes that other
  * imports added for the same organisms. Copies of a network are recorded, not loaded twice.
  * Re-running it replaces the connections, organisms and copies of the previous run.
- * Usage: npm run db:import-networks -- [--remote]
- * Without --remote, it writes to the local development database.
+ * Usage: npm run db:import-networks
  */
-import { executeD1Script, queryD1 } from "./d1.ts";
+import { executeSqlScript, queryDatabase } from "./database.ts";
 import type { NodeDraft } from "./graphDrafts.ts";
 import { loadOrganismIdsByLabel } from "./loadOrganismIdsByLabel.ts";
 import { fetchNetworkContent, fetchNetworkIdsOfTaxon } from "./mangalApi.ts";
@@ -39,7 +38,7 @@ const pinnedNetworkIds = [948, 2462];
 const maxNetworkInteractionCount = 1000;
 const limits = { networkCount: 30, interactionCount: 4000, networksPerDataset: 5 };
 
-const seedNames = queryD1<{ label: string }>(seedOrganismsSql).map(({ label }) => label);
+const seedNames = queryDatabase<{ label: string }>(seedOrganismsSql).map(({ label }) => label);
 const existingIdByName = loadOrganismIdsByLabel([source]);
 
 const candidateIds = new Set(pinnedNetworkIds);
@@ -76,7 +75,7 @@ const nodes = allNodes.flatMap((node) => toNodeDraft(node, identities.get(node.i
 const copies = selected.flatMap(({ canonical, group }) => listNetworkCopies(canonical, group));
 
 writeConnectionImport(source, nodes, connections);
-executeD1Script(toNetworkCopiesSql(source, copies));
+executeSqlScript(toNetworkCopiesSql(source, copies));
 console.log(
   `Stored ${connections.length} connections among ${new Set(nodes.map(({ id }) => id)).size} organisms from ${networks.length} of ${contents.length} candidate networks, with ${copies.length} copies recorded.`,
 );

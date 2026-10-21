@@ -7,6 +7,7 @@ import {
 import { connectionFilterSql } from "./connectionFilterSql";
 import { type GraphEdgeRow, graphEdgeColumns, toGraphEdge } from "./graphEdgeRow";
 import { allOf, type SqlCondition } from "./sqlCondition";
+import type { SqlDatabase } from "./sqlDatabase";
 
 type PlacedConnectionRow = GraphEdgeRow & {
   place: string | null;
@@ -30,7 +31,7 @@ const dateEndSql =
  * Lists the connections recorded near a place, within a period, or both.
  * Results near a place come nearest first; others come in order of date.
  */
-export async function listConnectionsByPlaceAndPeriod(db: D1Database, query: PlaceAndPeriodQuery) {
+export async function listConnectionsByPlaceAndPeriod(db: SqlDatabase, query: PlaceAndPeriodQuery) {
   const condition = allOf([
     connectionFilterSql(query.filter),
     query.near ? boundingBoxSql(query.near, query.radiusKm) : null,

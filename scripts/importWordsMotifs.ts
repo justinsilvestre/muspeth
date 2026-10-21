@@ -4,10 +4,9 @@
  * - the words for them in the World Loanword Database (WOLD), and the words those were borrowed from;
  * - the motifs of the Thompson Motif-Index that name them.
  * Re-running it replaces what its previous run stored.
- * Usage: npm run db:import-words-motifs -- [--remote]
- * Without --remote, it writes to the local development database.
+ * Usage: npm run db:import-words-motifs
  */
-import { queryD1 } from "./d1.ts";
+import { queryDatabase } from "./database.ts";
 import { folkTaxa } from "./folkTaxa.ts";
 import { fetchChecklist, fetchVernacularNames } from "./gbifApi.ts";
 import { mapConcurrently } from "./mapConcurrently.ts";
@@ -34,7 +33,7 @@ const pushDownLimit = 3;
 const containedLimit = 100;
 const motifLimit = 25;
 
-const organisms = queryD1<{ id: string; label: string; connectionCount: number }>(
+const organisms = queryDatabase<{ id: string; label: string; connectionCount: number }>(
   `SELECT id, label, (SELECT COUNT(*) FROM connections
     WHERE (source_node_id = nodes.id OR target_node_id = nodes.id)
       AND source NOT IN (${Object.values(sources).map(quoteSql).join(", ")})
