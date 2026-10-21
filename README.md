@@ -38,7 +38,7 @@ Files ending in `.local.sqlite` are ignored by Git. Run `db:seed` only once on a
 
 ## Importing data
 
-Six scripts grow the database from public sources. Run them all, in order, with:
+Seven scripts grow the database from public sources. Run them all, in order, with:
 
 ```bash
 npm run db:import-all
