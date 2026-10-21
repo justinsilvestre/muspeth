@@ -1,3 +1,4 @@
+import { cachedFetch } from "./cachedFetch.ts";
 import type { GlobiTaxonPath } from "./gbifLineageHints.ts";
 import { globiFields, parseGlobiTable } from "./globiRecords.ts";
 
@@ -36,7 +37,7 @@ export async function fetchTaxonLinks(taxonName: string) {
 }
 
 async function fetchJson(url: URL) {
-  const response = await fetch(url);
+  const response = await cachedFetch(url);
   if (!response.ok) throw new Error(`GloBI responded ${response.status} for ${url}`);
   return response.json();
 }

@@ -3,18 +3,18 @@ import { expect, test } from "@playwright/test";
 const fromMatsutakeToRedPine = `/paths?from=${encodeURIComponent("wikidata:Q509308")}&to=${encodeURIComponent("wikidata:Q1044186")}`;
 
 test.describe("reading the paths between two nodes", () => {
-  test("explains how paths are ranked", async ({ page }) => {
+  test("gives the reasons for the selected path's rank", async ({ page }) => {
     await page.goto(fromMatsutakeToRedPine);
-    await expect(page.getByText(/^Paths through nodes with fewer neighbours/)).toContainText(
-      "mix kinds of connection, are listed first",
+    await expect(page.getByRole("region", { name: "Path 1" })).toContainText(
+      "crosses 1 kind of connection",
     );
   });
 
-  test("gives the reasons for a path's rank", async ({ page }) => {
+  test("offers a new search from a node the reader selects in the drawing", async ({ page }) => {
     await page.goto(fromMatsutakeToRedPine);
-    await expect(
-      page.getByRole("list", { name: "Paths" }).getByRole("listitem").first(),
-    ).toContainText("1 step · crosses 1 kind of connection");
+    await page.getByRole("button", { name: /^Japanese red pine,/ }).click();
+    const details = page.getByRole("region", { name: "Japanese red pine" });
+    await expect(details.getByRole("link", { name: "Find paths from here" })).toBeVisible();
   });
 
   test("folds a step's parallel connections behind a disclosure", async ({ page }) => {

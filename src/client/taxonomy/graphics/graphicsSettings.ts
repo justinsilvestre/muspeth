@@ -31,7 +31,7 @@ export const defaultGraphicsSettings = {
   shading: "toon",
   trunkRadius: 0.5,
   taperPerRank: 0.58,
-  leafSize: 1.6,
+  leafSize: 0.9,
   showsLeafImages: true,
   leafGap: 0.06,
   leafSpread: 1,
