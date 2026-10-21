@@ -151,5 +151,15 @@ describe("the API", () => {
       const { placements } = await response.json<{ placements: unknown[] }>();
       expect(placements).toHaveLength(1);
     });
+
+    it("gives the images of the placed organisms", async () => {
+      await insertSampleTaxonomy();
+      await env.DB.prepare(
+        "UPDATE nodes SET media_url = 'https://upload.wikimedia.org/p.jpg', media_licence = 'CC0-1.0' WHERE id = 'pine'",
+      ).run();
+      const response = await app.request("/api/taxonomy", {}, env);
+      const { media } = await response.json<{ media: Record<string, unknown> }>();
+      expect(Object.keys(media)).toEqual(["pine"]);
+    });
   });
 });
