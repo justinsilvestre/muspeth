@@ -1,11 +1,11 @@
 import { type SparqlRow, toSparqlRows } from "./sparqlRows.ts";
+import { userAgent } from "./userAgent.ts";
 
 export const wikidataEndpoint = "https://query.wikidata.org/sparql";
 
 /** Wikidata keeps the scholarly articles that most references cite in a separate graph. */
 export const scholarlyEndpoint = "https://query-scholarly.wikidata.org/sparql";
 
-const userAgent = "muspeth-import (https://github.com/justinsilvestre/muspeth)";
 const maxAttempts = 4;
 const retryableStatuses = [429, 502, 503, 504];
 

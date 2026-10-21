@@ -1,4 +1,5 @@
-const userAgent = "muspeth-import (https://github.com/justinsilvestre/muspeth)";
+import { userAgent } from "./userAgent.ts";
+
 const maxAttempts = 5;
 const retryableStatuses = [403, 429, 500, 502, 503, 504];
 

@@ -1,4 +1,5 @@
 import type { WikidataTaxon } from "./organismIdentity.ts";
+import { userAgent } from "./userAgent.ts";
 
 const sparqlUrl = "https://query.wikidata.org/sparql";
 const labelLanguages = ["en", "ja", "zh", "ko", "fr", "de", "es"];
@@ -74,7 +75,7 @@ async function runQuery(query: string) {
     headers: {
       accept: "application/sparql-results+json",
       "content-type": "application/x-www-form-urlencoded",
-      "user-agent": "muspeth-import (https://github.com/justinsilvestre/muspeth)",
+      "user-agent": userAgent,
     },
     body: new URLSearchParams({ query }),
   });

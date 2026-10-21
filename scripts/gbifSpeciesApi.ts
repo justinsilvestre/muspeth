@@ -1,7 +1,8 @@
 import { type GbifUsage, toGbifTaxon } from "./gbifTaxon.ts";
+import { userAgent } from "./userAgent.ts";
 
 const apiUrl = "https://api.gbif.org/v1/species";
-const headers = { "user-agent": "muspeth-import (https://github.com/justinsilvestre/muspeth)" };
+const headers = { "user-agent": userAgent };
 
 /** Looks up a GBIF taxon by its key, or returns null when GBIF no longer has the key. */
 export async function fetchGbifTaxon(key: number) {

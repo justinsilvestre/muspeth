@@ -1,11 +1,12 @@
 import { parseCsv } from "./parseCsv.ts";
+import { userAgent } from "./userAgent.ts";
 import type { WoldTables } from "./woldWords.ts";
 
 /** The WOLD CLDF dataset at a fixed release, so that each run reads the same data. */
 const woldUrl = "https://raw.githubusercontent.com/lexibank/wold/v4.2/cldf";
 /** Version 2.0 of Mellmann's CSV edition of the Thompson Motif-Index on OSF. */
 const motifIndexUrl = "https://osf.io/download/8u2eg/?revision=2";
-const headers = { "user-agent": "muspeth-import (https://github.com/justinsilvestre/muspeth)" };
+const headers = { "user-agent": userAgent };
 
 /** Downloads the WOLD tables of languages, word forms and borrowings. */
 export async function fetchWoldTables() {

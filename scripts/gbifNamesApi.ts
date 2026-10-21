@@ -1,8 +1,9 @@
 import type { GbifKeyedMatch } from "./organismTaxa.ts";
+import { userAgent } from "./userAgent.ts";
 import { type Checklist, type GbifVernacularName, toSpdxLicence } from "./vernacularNames.ts";
 
 const apiUrl = "https://api.gbif.org/v1";
-const headers = { "user-agent": "muspeth-import (https://github.com/justinsilvestre/muspeth)" };
+const headers = { "user-agent": userAgent };
 
 /** Matches a scientific name against the GBIF backbone, listing the alternatives GBIF weighed. */
 export async function fetchGbifMatch(scientificName: string) {

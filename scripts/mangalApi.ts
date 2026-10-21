@@ -9,10 +9,10 @@ import {
   parseNode,
   parseReference,
 } from "./mangalRecords.ts";
+import { userAgent } from "./userAgent.ts";
 
 const apiUrl = "https://mangal.io/api/v2/";
 const pageSize = 1000;
-const userAgent = "muspeth-import (https://github.com/justinsilvestre/muspeth)";
 
 /** Datasets and references by identifier, since many networks share one. */
 const datasetRequests = new Map<number, Promise<MangalDataset>>();

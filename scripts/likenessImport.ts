@@ -5,9 +5,10 @@ import { identifyNewTraitOrganisms } from "./newTraitOrganisms.ts";
 import type { TraitDatabase } from "./traitDatabases.ts";
 import { findTraitName } from "./traitNameMatches.ts";
 import { selectTraitNeighbours } from "./traitNeighbours.ts";
+import { userAgent } from "./userAgent.ts";
 import { writeConnectionImport } from "./writeConnectionImport.ts";
 
-const headers = { "user-agent": "muspeth-import (https://github.com/justinsilvestre/muspeth)" };
+const headers = { "user-agent": userAgent };
 
 /**
  * Links each graph organism that a trait database describes to its nearest neighbours in trait
