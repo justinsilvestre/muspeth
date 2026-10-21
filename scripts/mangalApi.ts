@@ -1,3 +1,4 @@
+import { cachedFetch } from "./cachedFetch.ts";
 import type { MangalNetworkContent } from "./mangalConnections.ts";
 import {
   isRow,
@@ -94,7 +95,7 @@ async function fetchRow(path: string) {
 /** Fetches a response and the total number of rows that its Content-Range header reports, if any. */
 async function fetchJson(path: string) {
   const url = new URL(path, apiUrl);
-  const response = await fetch(url, { headers: { "user-agent": userAgent } });
+  const response = await cachedFetch(url, { headers: { "user-agent": userAgent } });
   if (!response.ok) throw new Error(`Mangal responded ${response.status} for ${url}`);
   const total = Number(response.headers.get("content-range")?.split("/")[1] ?? Number.NaN);
   return { body: (await response.json()) as unknown, total: Number.isNaN(total) ? null : total };
