@@ -6,7 +6,7 @@ import { ConnectionFilterControls } from "../filters/ConnectionFilterControls";
 import { useConnectionFilter } from "../filters/useConnectionFilter";
 import { NodeCombobox } from "../nodeSearch/NodeCombobox";
 import { useNodeCatalog } from "../nodeSearch/useNodeCatalog";
-import { PathList } from "./PathList";
+import { PathResults } from "./PathResults";
 import { PathsIntro } from "./PathsIntro";
 import { SwapButton } from "./SwapButton";
 
@@ -58,7 +58,12 @@ export function PathsView({ nodes }: { nodes: GraphNode[] }) {
         <p className="text-muted">Choose two different nodes.</p>
       )}
       {filterResult.ok && fromId && toId && fromId !== toId && (
-        <PathList params={searchParams} nameOf={nameOf} kindOf={kindOf} />
+        <PathResults
+          key={searchParams.toString()}
+          params={searchParams}
+          nameOf={nameOf}
+          kindOf={kindOf}
+        />
       )}
     </section>
   );

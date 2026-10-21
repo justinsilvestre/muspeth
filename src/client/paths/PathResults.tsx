@@ -1,54 +1,62 @@
-import { Fragment } from "react";
-import type { RankedPath } from "../../shared/findPaths";
+import { useState } from "react";
 import type { NodeKind } from "../../shared/graph";
 import { maxPathSteps, type PathsResponse, pathNeighborLimit } from "../../shared/pathQuery";
-import { KindChip } from "../KindChip";
-import { NodeLink } from "../NodeLink";
 import { useApiResource } from "../useApiResource";
+import { createPathNodeDescriber } from "./createPathNodeDescriber";
 import { listLegendKinds } from "./listLegendKinds";
-import { listRankingReasons } from "./listRankingReasons";
-import { PathChain } from "./PathChain";
+import { NodeDetails } from "./NodeDetails";
+import { PathBraid } from "./PathBraid";
+import { PathDetails } from "./PathDetails";
 import { PathLegend } from "./PathLegend";
-import { PathNode } from "./PathNode";
-import { PathStepItem } from "./PathStepItem";
+import { PathSelector } from "./PathSelector";
+import type { PathSelection } from "./pathSelection";
 
-type PathListProps = {
+type PathResultsProps = {
   /** The query parameters of the path search, including the filter. */
   params: URLSearchParams;
   nameOf: (nodeId: string) => string;
   kindOf: (nodeId: string) => NodeKind | undefined;
 };
 
-/** Lists the best paths between two nodes, best first, explaining each path's rank and showing it step by step. */
-export function PathList({ params, nameOf, kindOf }: PathListProps) {
+/**
+ * Shows the best paths between two nodes drawn together, with the details of the path or node the reader selects.
+ * The best path is selected at first.
+ */
+export function PathResults({ params, nameOf, kindOf }: PathResultsProps) {
   const resource = useApiResource<PathsResponse>(`/api/paths?${params}`);
+  const [selection, setSelection] = useState<PathSelection>({ pathIndex: 0 });
 
   if (resource.status === "loading") return <p>Finding paths…</p>;
   if (resource.status === "failed") {
     return <p role="alert">Could not find paths: {resource.error.message}</p>;
   }
-  if (resource.data.paths.length === 0) {
-    return <NoPathNotice truncated={resource.data.truncated} />;
-  }
-  const { paths } = resource.data;
+  const { paths, truncated, media } = resource.data;
+  if (paths.length === 0) return <NoPathNotice truncated={truncated} />;
+  const describeNode = createPathNodeDescriber({ nameOf, kindOf }, paths, media);
+  const selectedPath = "pathIndex" in selection ? paths[selection.pathIndex] : undefined;
   return (
-    <>
-      <p className="text-muted text-sm">
-        Paths through nodes with fewer neighbours, and paths that mix kinds of connection, are
-        listed first, since they are more likely to show a specific relationship.
-      </p>
+    <div className="space-y-3">
+      <PathSelector paths={paths} selection={selection} onSelect={setSelection} />
+      <PathBraid
+        paths={paths}
+        describeNode={describeNode}
+        selection={selection}
+        onSelect={setSelection}
+      />
       <PathLegend {...listLegendKinds(paths, kindOf)} />
-      <ol aria-label="Paths" className="space-y-4">
-        {paths.map((path, index) => (
-          <PathItem
-            key={path.nodeIds.join(" ")}
-            path={path}
-            rank={index + 1}
-            graph={{ nameOf, kindOf }}
+      <div className="rounded border border-line bg-panel px-4 py-3">
+        {selectedPath && (
+          <PathDetails
+            path={selectedPath}
+            rank={"pathIndex" in selection ? selection.pathIndex + 1 : 0}
+            nameOf={nameOf}
           />
-        ))}
-      </ol>
-    </>
+        )}
+        {"nodeId" in selection && (
+          <NodeDetails nodeId={selection.nodeId} paths={paths} describeNode={describeNode} />
+        )}
+      </div>
+    </div>
   );
 }
 
@@ -65,48 +73,5 @@ function NoPathNotice({ truncated }: Pick<PathsResponse, "truncated">) {
         <>These two nodes are not connected by any path of up to {maxPathSteps} steps.</>
       )}
     </p>
-  );
-}
-
-type PathItemProps = {
-  path: RankedPath;
-  rank: number;
-  graph: Pick<PathListProps, "nameOf" | "kindOf">;
-};
-
-function PathItem({ path, rank, graph }: PathItemProps) {
-  const { nameOf, kindOf } = graph;
-  const stepCount = `${path.steps.length} ${path.steps.length === 1 ? "step" : "steps"}`;
-  const reasons = [stepCount, ...listRankingReasons(path)];
-  return (
-    <li className="space-y-2 rounded border border-line px-3 py-2">
-      <h3 className="font-medium">
-        {rank}.{" "}
-        {path.nodeIds.map((nodeId, index) => (
-          // A node appears at most once in a path.
-          <Fragment key={nodeId}>
-            {index > 0 && " → "}
-            <NodeLink nodeId={nodeId} name={nameOf(nodeId)} />
-          </Fragment>
-        ))}
-      </h3>
-      <p className="text-muted text-sm">{reasons.join(" · ")}</p>
-      <ul aria-label={`Kinds of connection in path ${rank}`} className="flex flex-wrap gap-1">
-        {path.kinds.map((kind) => (
-          <li key={kind}>
-            <KindChip kind={kind} />
-          </li>
-        ))}
-      </ul>
-      <PathChain path={path} rank={rank} nameOf={nameOf} kindOf={kindOf} />
-      <div className="pt-1">
-        <PathNode name={nameOf(path.nodeIds[0] ?? "")} lead="from" />
-        <ol aria-label={`Steps of path ${rank}`}>
-          {path.steps.map((step) => (
-            <PathStepItem key={`${step.fromNodeId} ${step.toNodeId}`} step={step} nameOf={nameOf} />
-          ))}
-        </ol>
-      </div>
-    </li>
   );
 }
