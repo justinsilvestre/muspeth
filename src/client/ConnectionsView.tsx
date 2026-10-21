@@ -10,8 +10,8 @@ export function ConnectionsView({ nodes }: { nodes: GraphNode[] }) {
   const { filterResult, setFilter } = useConnectionFilter();
 
   return (
-    <div className="grid gap-6 md:grid-cols-2">
-      <NodeList nodes={nodes} selectedNodeId={nodeId} />
+    // The connections come first, so that narrow screens and screen readers reach them before the long node list.
+    <div className="grid gap-6 md:grid-cols-2 [&>*]:min-w-0">
       {nodeId && !filterResult.ok && (
         <p role="alert">Could not read the filters in this address: {filterResult.error}</p>
       )}
@@ -23,6 +23,9 @@ export function ConnectionsView({ nodes }: { nodes: GraphNode[] }) {
           onFilterChange={setFilter}
         />
       )}
+      <div className="md:order-first">
+        <NodeList nodes={nodes} selectedNodeId={nodeId} />
+      </div>
     </div>
   );
 }
