@@ -41,7 +41,7 @@ const organisms = queryD1<{ id: string; label: string; connectionCount: number }
   ) AS connectionCount FROM nodes WHERE kind = 'organism' ORDER BY id`,
 );
 const labelsById = new Map(organisms.map(({ id, label }) => [id, label]));
-const matched = (await matchGraphOrganisms(organisms)).flatMap(
+const matched = (await matchGraphOrganisms(organisms, concurrency)).flatMap(
   ({ node, match }) => toMatchedOrganism(node.id, match, node.connectionCount) ?? [],
 );
 console.log(`Matched ${matched.length} of ${organisms.length} organisms exactly in GBIF.`);

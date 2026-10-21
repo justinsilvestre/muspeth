@@ -22,10 +22,14 @@ export type FolkTaxonLink = {
   isPushedDown: boolean;
 };
 
-/** Accepts only exact matches, since vernacular names must belong to the organism's own taxon. */
+/**
+ * Accepts only exact matches to taxa that GBIF does not doubt,
+ * since vernacular names must belong to the organism's own taxon.
+ */
 export function toMatchedOrganism(nodeId: string, match: GbifMatch, connectionCount: number) {
   const gbifKey = match.acceptedUsageKey ?? match.usageKey;
-  if (match.matchType !== "EXACT" || gbifKey === undefined || !match.rank) return null;
+  if (match.matchType !== "EXACT" || match.status === "DOUBTFUL") return null;
+  if (gbifKey === undefined || !match.rank) return null;
   const lineage = Object.fromEntries(
     ranks.flatMap((rank) => (match[rank] ? [[rank, match[rank]]] : [])),
   );

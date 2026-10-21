@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   contradictsGbif,
+  findBackboneKey,
   findGbifKey,
   isTrustedKeyMatch,
   toExactMatch,
@@ -110,5 +111,31 @@ describe("toGbifTaxon", () => {
 
   it("returns null when nothing matched", () => {
     expect(toGbifTaxon({ matchType: "NONE" })).toBeNull();
+  });
+});
+
+describe("toExactMatch", () => {
+  describe("when the usage is misapplied", () => {
+    it("reads it as a synonym", () => {
+      expect(toExactMatch({ key: 1, acceptedKey: 2, taxonomicStatus: "MISAPPLIED" }).status).toBe(
+        "SYNONYM",
+      );
+    });
+  });
+});
+
+describe("findBackboneKey", () => {
+  const backbone = "d7dddbf4-2cf0-4f39-9b2a-bb099caae36c";
+
+  it("keeps the key of a backbone usage", () => {
+    expect(findBackboneKey({ key: 1, datasetKey: backbone })).toBe(1);
+  });
+
+  it("replaces the key of another checklist's usage with its backbone key", () => {
+    expect(findBackboneKey({ key: 1, datasetKey: "other", nubKey: 9 })).toBe(9);
+  });
+
+  it("returns null for another checklist's usage without a backbone key", () => {
+    expect(findBackboneKey({ key: 1, datasetKey: "other" })).toBeNull();
   });
 });

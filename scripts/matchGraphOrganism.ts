@@ -1,6 +1,7 @@
 import { fetchGbifMatch, fetchGbifMatchByKey } from "./gbifApi.ts";
 import { chooseAlternative, readGlobiLineage, toAncestorMatch } from "./gbifLineageHints.ts";
 import { findGbifKey, isTrustedKeyMatch } from "./gbifTaxon.ts";
+import type { GbifMatch } from "./gbifTaxonomy.ts";
 import { fetchGlobiTaxonPaths } from "./globiApi.ts";
 import { mapConcurrently } from "./mapConcurrently.ts";
 import { fetchWikidataTaxa } from "./wikidataApi.ts";
@@ -11,37 +12,49 @@ const globiPathLimit = 1000;
 type GraphNode = { id: string; label: string };
 
 /**
- * Matches an organism node to the GBIF backbone through its own GBIF key where it has one,
- * which tells apart namesakes in different kingdoms, unless GBIF doubts the usage of that key.
- * Otherwise it matches the node through its name.
- * When GBIF cannot match the name on its own, the lineage that GloBI's records give for the name
- * picks among GBIF's alternatives, or else places the node in its nearest ancestor that GBIF knows.
- * Returns GBIF's empty match when all of these fail.
+ * Matches an organism node to the GBIF backbone through its own GBIF key when GBIF trusts that key,
+ * and otherwise through its name.
+ * When nothing matches, returns the doubted match for the key if there is one,
+ * or else GBIF's empty match for the name.
  */
 export async function matchGraphOrganism(node: GraphNode, gbifKey: number | null) {
   const matchByKey = gbifKey === null ? null : await fetchGbifMatchByKey(gbifKey);
   if (matchByKey && isTrustedKeyMatch(matchByKey)) return matchByKey;
-  return matchName(node.label);
+  return matchName(node.label, matchByKey);
 }
 
 /** Matches each node with `matchGraphOrganism`, reading GBIF keys from the nodes' Wikidata items. */
-export async function matchGraphOrganisms<Node extends GraphNode>(nodes: Node[]) {
+export async function matchGraphOrganisms<Node extends GraphNode>(
+  nodes: Node[],
+  concurrency?: number,
+) {
   const wikidataTaxa = await fetchWikidataTaxa(listQids(nodes.map(({ id }) => id)));
-  return mapConcurrently(nodes, async (node) => ({
-    node,
-    match: await matchGraphOrganism(node, findGbifKey(node.id, wikidataTaxa)),
-  }));
+  return mapConcurrently(
+    nodes,
+    async (node) => ({
+      node,
+      match: await matchGraphOrganism(node, findGbifKey(node.id, wikidataTaxa)),
+    }),
+    concurrency,
+  );
 }
 
-async function matchName(name: string) {
-  const match = await fetchGbifMatch(name, { verbose: "true" });
+/** Matches a name within the kingdom of a doubted match, falling back to that match when nothing fits. */
+async function matchName(name: string, doubtedMatch: GbifMatch | null) {
+  const match = await fetchGbifMatch(name, toMatchOptions(doubtedMatch));
   if (match.matchType !== "NONE") return match;
   const lineage = readGlobiLineage(name, await fetchGlobiTaxonPaths(name, globiPathLimit));
   return (
     chooseAlternative(match, lineage) ??
     (await matchNearestAncestor(lineage.ancestorNames)) ??
+    doubtedMatch ??
     match
   );
+}
+
+function toMatchOptions(doubtedMatch: GbifMatch | null): Record<string, string> {
+  const kingdom = doubtedMatch?.kingdom;
+  return kingdom ? { verbose: "true", kingdom } : { verbose: "true" };
 }
 
 async function matchNearestAncestor(ancestorNames: string[]) {
