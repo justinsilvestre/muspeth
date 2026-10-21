@@ -107,7 +107,7 @@ const responsesByPathname = {
   "/api/sources": { sources: ["test"] },
   "/api/paths": { paths: [pathFromNematode], truncated: false },
   "/api/connections": { connections: [pathogenInKyoto] },
-  "/api/taxonomy": { taxa: [pinus], placements: [pinePlacement] },
+  "/api/taxonomy": { taxa: [pinus], placements: [pinePlacement], media: {} },
 } satisfies Record<string, unknown>;
 
 /** Answers each API request with sample data, returning the stub so that tests can inspect requests. */
