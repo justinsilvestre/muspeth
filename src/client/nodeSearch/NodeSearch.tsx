@@ -10,6 +10,8 @@ import { KindOverview } from "./KindOverview";
 import { NodeLinkList } from "./NodeLinkList";
 import { NodeQueryField } from "./NodeQueryField";
 import { SelectedNode } from "./SelectedNode";
+import { ShowMoreButton } from "./ShowMoreButton";
+import { matchPageSize, useShownMatchCount } from "./useShownMatchCount";
 
 type NodeSearchProps = {
   catalog: NodeCatalog;
@@ -21,16 +23,25 @@ export function NodeSearch({ catalog, selectedNodeId }: NodeSearchProps) {
   const [query, setQuery] = useState("");
   const [kind, setKind] = useState<NodeKind>();
   const kindChoicesRef = useRef<HTMLFieldSetElement>(null);
+  const matchListRef = useRef<HTMLUListElement>(null);
   // Keeps typing responsive while the matches of the latest query are found.
   const deferredQuery = useDeferredValue(query);
   const isBrowsingKinds = !deferredQuery.trim() && !kind;
-  const { matches, totalCount } = findShownMatches(catalog, deferredQuery, kind);
+  const shownCount = useShownMatchCount(`${kind ?? ""}:${deferredQuery}`);
+  const { matches, totalCount } = findShownMatches(catalog, deferredQuery, kind, shownCount.count);
+  const hiddenCount = (totalCount ?? 0) - matches.length;
   const selectedNode = selectedNodeId ? catalog.nodesById.get(selectedNodeId) : undefined;
 
   // The kind overview disappears once a kind is chosen, so focus moves to the kind's choice in its place.
   const chooseKindFromOverview = (chosenKind: NodeKind) => {
     flushSync(() => setKind(chosenKind));
     kindChoicesRef.current?.querySelector<HTMLInputElement>("input:checked")?.focus();
+  };
+
+  // Focus moves to the first new match, as the button that showed it may disappear.
+  const showMoreMatches = (shouldFocus: boolean) => {
+    flushSync(shownCount.showMore);
+    if (shouldFocus) matchListRef.current?.querySelectorAll("a")[matches.length]?.focus();
   };
 
   return (
@@ -56,7 +67,18 @@ export function NodeSearch({ catalog, selectedNodeId }: NodeSearchProps) {
       {isBrowsingKinds ? (
         <KindOverview catalog={catalog} onKindChoose={chooseKindFromOverview} />
       ) : (
-        <NodeLinkList matches={matches} catalog={catalog} selectedNodeId={selectedNodeId} />
+        <NodeLinkList
+          ref={matchListRef}
+          matches={matches}
+          catalog={catalog}
+          selectedNodeId={selectedNodeId}
+        />
+      )}
+      {!isBrowsingKinds && hiddenCount > 0 && (
+        <ShowMoreButton
+          nextCount={Math.min(hiddenCount, matchPageSize)}
+          onShowMore={showMoreMatches}
+        />
       )}
     </section>
   );

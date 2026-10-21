@@ -1,9 +1,10 @@
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import type { GraphNode } from "../../shared/graph";
 import { createNodeCatalog } from "./createNodeCatalog";
 import { NodeSearch } from "./NodeSearch";
+import { matchPageSize } from "./useShownMatchCount";
 
 const matsutake = {
   id: "wikidata:Q509308",
@@ -19,15 +20,36 @@ const octenol = {
   names: [],
 } satisfies GraphNode;
 
-function renderSearch(selectedNodeId?: string) {
+const compounds = Array.from(
+  { length: matchPageSize + 1 },
+  (_, index) =>
+    ({
+      id: `c${index}`,
+      kind: "compound",
+      label: `compound ${String(index).padStart(3, "0")}`,
+      names: [],
+    }) satisfies GraphNode,
+);
+
+function renderSearch(selectedNodeId?: string, nodes: GraphNode[] = [matsutake, octenol]) {
   render(
     <MemoryRouter initialEntries={["/?basis=observed"]}>
-      <NodeSearch
-        catalog={createNodeCatalog([matsutake, octenol])}
-        selectedNodeId={selectedNodeId}
-      />
+      <NodeSearch catalog={createNodeCatalog(nodes)} selectedNodeId={selectedNodeId} />
     </MemoryRouter>,
   );
+}
+
+/** Shows a page of compounds, short of the last one. */
+function renderManyMatches() {
+  vi.stubGlobal(
+    "IntersectionObserver",
+    class {
+      observe() {}
+      disconnect() {}
+    },
+  );
+  renderSearch(undefined, compounds);
+  search("compound");
 }
 
 function search(query: string) {
@@ -36,7 +58,10 @@ function search(query: string) {
   });
 }
 
-afterEach(cleanup);
+afterEach(() => {
+  cleanup();
+  vi.unstubAllGlobals();
+});
 
 describe("NodeSearch", () => {
   describe("before anything is searched", () => {
@@ -70,6 +95,41 @@ describe("NodeSearch", () => {
       renderSearch();
       search("o");
       expect(screen.getByText("2 matching nodes.")).toBeDefined();
+    });
+  });
+
+  describe("when more nodes match than are shown", () => {
+    it("counts the shown matches among all of them", () => {
+      renderManyMatches();
+      expect(
+        screen.getByText(`Showing ${matchPageSize} of ${matchPageSize + 1} matching nodes.`),
+      ).toBeDefined();
+    });
+
+    it("offers to show the rest", () => {
+      renderManyMatches();
+      expect(screen.getByRole("button", { name: "Show 1 more" })).toBeDefined();
+    });
+  });
+
+  describe("when more matches are asked for", () => {
+    it("shows them", () => {
+      renderManyMatches();
+      fireEvent.click(screen.getByRole("button", { name: "Show 1 more" }));
+      expect(screen.getAllByRole("link")).toHaveLength(matchPageSize + 1);
+    });
+
+    it("moves focus to the first of them", () => {
+      renderManyMatches();
+      fireEvent.click(screen.getByRole("button", { name: "Show 1 more" }));
+      expect(document.activeElement?.textContent).toContain(`compound ${matchPageSize}`);
+    });
+
+    it("shows a single page again once the search changes", () => {
+      renderManyMatches();
+      fireEvent.click(screen.getByRole("button", { name: "Show 1 more" }));
+      search("ompound");
+      expect(screen.getAllByRole("link")).toHaveLength(matchPageSize);
     });
   });
 

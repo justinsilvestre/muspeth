@@ -25,7 +25,8 @@ export function ConnectionsView({ nodes }: { nodes: GraphNode[] }) {
           onFilterChange={setFilter}
         />
       )}
-      <div className="md:order-first">
+      {/* On wide screens the node search scrolls on its own, so that it keeps its place while connections change. */}
+      <div className="md:sticky md:top-0 md:order-first md:-m-1 md:max-h-dvh md:self-start md:overflow-y-auto md:p-1">
         <NodeSearch catalog={catalog} selectedNodeId={nodeId} />
       </div>
     </div>

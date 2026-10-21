@@ -39,6 +39,10 @@ describe("findShownMatches", () => {
       expect(findShownMatches(catalog, "compound").matches).toHaveLength(maxShownMatches);
     });
 
+    it("shows as many matches as asked for", () => {
+      expect(findShownMatches(catalog, "compound", undefined, 3).matches).toHaveLength(3);
+    });
+
     it("counts every match", () => {
       expect(findShownMatches(catalog, "compound").totalCount).toBe(maxShownMatches + 1);
     });

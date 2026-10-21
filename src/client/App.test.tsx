@@ -176,6 +176,16 @@ describe("App", () => {
       const [connection] = await within(connections).findAllByRole("listitem");
       expect(connection?.textContent).toMatch(/^pinewood nematode pathogen of Japanese red pine/);
     });
+
+    it("moves focus to the heading of its connections", async () => {
+      stubApi();
+      renderApp();
+      await searchForNode("red pine");
+      fireEvent.click(await screen.findByRole("link", { name: /Japanese red pine/ }));
+      expect(document.activeElement).toBe(
+        screen.getByRole("heading", { name: "Connections of Japanese red pine" }),
+      );
+    });
   });
 
   describe("when a connection's sources are opened", () => {
@@ -219,6 +229,13 @@ describe("App", () => {
       expect(
         await screen.findByRole("region", { name: "Connections of Japanese red pine" }),
       ).toBeDefined();
+    });
+
+    it("leaves focus at the start of the page", async () => {
+      stubApi();
+      renderApp("/organisms/pine");
+      await screen.findByRole("region", { name: "Connections of Japanese red pine" });
+      expect(document.activeElement).toBe(document.body);
     });
   });
 
