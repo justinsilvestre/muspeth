@@ -21,6 +21,12 @@ describe("ConnectionMeta", () => {
     );
   });
 
+  it("leaves out the kind when its list already names it", () => {
+    const { kind: _kind, ...withoutKind } = mangalInteraction;
+    render(<ConnectionMeta {...withoutKind} />);
+    expect(screen.getByRole("paragraph").textContent).toBe("observed · Mangal · CC BY 4.0");
+  });
+
   it("links a licence to its deed", () => {
     render(<ConnectionMeta {...mangalInteraction} />);
     expect(screen.getByRole("link", { name: "CC BY 4.0" }).getAttribute("href")).toBe(
