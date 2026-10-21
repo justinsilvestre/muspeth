@@ -59,6 +59,10 @@ describe("toMatchedOrganism", () => {
   it("rejects a fuzzy match", () => {
     expect(toMatchedOrganism("a", makeMatch({ matchType: "FUZZY" }), 0)).toBeNull();
   });
+
+  it("rejects a taxon that GBIF doubts", () => {
+    expect(toMatchedOrganism("a", makeMatch({ status: "DOUBTFUL" }), 0)).toBeNull();
+  });
 });
 
 describe("linkFolkTaxon", () => {
