@@ -5,8 +5,17 @@
 export function createRequestSpacer(intervalMilliseconds: number) {
   let nextStart = 0;
   return async function waitForTurn() {
-    const start = Math.max(Date.now(), nextStart);
-    nextStart = start + intervalMilliseconds;
-    await new Promise((resolve) => setTimeout(resolve, start - Date.now()));
+    const turn = scheduleTurn(Date.now(), nextStart, intervalMilliseconds);
+    nextStart = turn.nextStart;
+    await new Promise((resolve) => setTimeout(resolve, turn.waitMilliseconds));
   };
+}
+
+/**
+ * Decides how long a caller arriving at `now` must wait before starting its request,
+ * and the earliest time the caller after it may start.
+ */
+export function scheduleTurn(now: number, nextStart: number, intervalMilliseconds: number) {
+  const start = Math.max(now, nextStart);
+  return { waitMilliseconds: start - now, nextStart: start + intervalMilliseconds };
 }
