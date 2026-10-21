@@ -66,6 +66,11 @@ describe("toConnectionImportSql", () => {
       expect(sql).not.toContain("DELETE FROM nodes");
     });
 
+    it("removes no earlier node that this run's connections link", () => {
+      const sql = toConnectionImportSql("test", [], [makeConnection()], ["wikidata:Q1"]);
+      expect(sql).not.toContain("DELETE FROM nodes");
+    });
+
     it("splits long lists of earlier nodes across statements", () => {
       const previousIds = Array.from({ length: 5000 }, (_, index) => `test:${index}`);
       const sql = toConnectionImportSql("test", [], [], previousIds);

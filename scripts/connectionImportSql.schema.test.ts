@@ -49,12 +49,17 @@ function openDatabase() {
 }
 
 /** Runs an import the way a script does, reading its earlier nodes from the database. */
-function runImport(db: DatabaseSync, source: string, connections: ConnectionDraft[]) {
+function runImport(
+  db: DatabaseSync,
+  source: string,
+  connections: ConnectionDraft[],
+  nodes: NodeDraft[] = [bee, clover],
+) {
   const previousIds = db
     .prepare("SELECT id FROM nodes WHERE source = ?")
     .all(source)
     .map((row) => String(row.id));
-  db.exec(toConnectionImportSql(source, [bee, clover], connections, previousIds));
+  db.exec(toConnectionImportSql(source, nodes, connections, previousIds));
 }
 
 function runDroppingClover(db: DatabaseSync) {
@@ -98,6 +103,17 @@ describe("toConnectionImportSql run against the schema", () => {
     runImport(db, "other", [makeConnection("clover")]);
     runDroppingClover(db);
     expect(readCloverSource(db)).toBe("other");
+  });
+
+  it("keeps a handed-over node that the receiving import connects without drafting it", () => {
+    const db = openDatabase();
+    const word = { id: "word", kind: "word", label: "clover", names: [] } satisfies NodeDraft;
+    const wordConnection = { ...makeConnection("word"), sourceNodeId: "clover" };
+    runImport(db, "test", [makeConnection("clover")]);
+    runImport(db, "words", [wordConnection], [word]);
+    runDroppingClover(db);
+    runImport(db, "words", [wordConnection], [word]);
+    expect(readCloverSource(db)).toBe("words");
   });
 
   it("keeps the taxon placements of nodes added again", () => {

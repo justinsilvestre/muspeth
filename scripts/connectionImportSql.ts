@@ -10,8 +10,8 @@ const maxListLength = 30_000;
 
 /**
  * Writes SQL that replaces what an earlier run of the same import wrote.
- * It removes that run's connections and their sources, and the nodes it added that this run does
- * not, then adds this run's nodes and connections under `source`.
+ * It removes that run's connections and their sources, and the nodes it added that this run neither
+ * adds nor connects, then adds this run's nodes and connections under `source`.
  * Nodes that the seed or other imports added keep their label and media, and may gain names.
  * An earlier node that other imports still connect is handed to one of them instead of removed.
  */
@@ -22,8 +22,11 @@ export function toConnectionImportSql(
   previousNodeIds: string[] = [],
 ) {
   const uniqueNodes = [...new Map(nodes.map((node) => [node.id, node])).values()];
-  const nodeIds = new Set(uniqueNodes.map(({ id }) => id));
-  const staleIds = previousNodeIds.filter((id) => !nodeIds.has(id));
+  const keptIds = new Set([
+    ...uniqueNodes.map(({ id }) => id),
+    ...connections.flatMap(({ sourceNodeId, targetNodeId }) => [sourceNodeId, targetNodeId]),
+  ]);
+  const staleIds = previousNodeIds.filter((id) => !keptIds.has(id));
   return [
     `DELETE FROM connection_sources WHERE connection_id IN (SELECT id FROM connections WHERE source = ${quoteSql(source)});`,
     `DELETE FROM connections WHERE source = ${quoteSql(source)};`,
