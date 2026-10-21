@@ -2,6 +2,7 @@ import type { PlacedConnection } from "../../shared/placeAndPeriodQuery";
 import { ConnectionMeta } from "../ConnectionMeta";
 import { ConnectionSentence } from "../ConnectionSentence";
 import { useApiResource } from "../useApiResource";
+import { PlaceAndDateLinks } from "./PlaceAndDateLinks";
 
 type PlacedConnectionListProps = {
   params: URLSearchParams;
@@ -31,22 +32,10 @@ export function PlacedConnectionList({ params, nameOf }: PlacedConnectionListPro
             targetId={connection.targetNodeId}
             nameOf={nameOf}
           />
-          <p className="text-sm">{describePlaceAndDate(connection)}</p>
+          <PlaceAndDateLinks connection={connection} params={params} />
           <ConnectionMeta {...connection} />
         </li>
       ))}
     </ul>
   );
-}
-
-function describePlaceAndDate(connection: PlacedConnection) {
-  const { place, latitude, longitude, date, distanceKm } = connection;
-  return [
-    place ?? "Unnamed place",
-    latitude !== null && longitude !== null && `${latitude}, ${longitude}`,
-    date,
-    distanceKm !== null && `${distanceKm.toFixed(1)} km away`,
-  ]
-    .filter(Boolean)
-    .join(" · ");
 }

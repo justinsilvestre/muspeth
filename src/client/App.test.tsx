@@ -352,6 +352,13 @@ describe("App", () => {
       expect(listRequestedPaths(fetch)).toContain("/api/connections?near=35%2C135&radiusKm=250");
     });
 
+    it("searches a connection's date anywhere when its date is followed", async () => {
+      const fetch = stubApi();
+      renderApp("/places?near=35,135");
+      fireEvent.click(await screen.findByRole("link", { name: "Search 1990/1992 anywhere" }));
+      expect(listRequestedPaths(fetch)).toContain("/api/connections?from=1990&to=1992");
+    });
+
     it("searches any time once the period is cleared", async () => {
       const fetch = stubApi();
       renderApp("/places?near=35,135&from=1990");

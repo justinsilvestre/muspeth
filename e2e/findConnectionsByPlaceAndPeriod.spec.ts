@@ -45,4 +45,10 @@ test.describe("finding connections by place and period", () => {
     await page.mouse.up();
     await expect(page).toHaveURL(/from=.*&to=/);
   });
+
+  test("moves on to the place where a connection was recorded", async ({ page }) => {
+    await page.goto("/places?from=2005&to=2005");
+    await page.getByRole("link", { name: "Search near Sapporo at any time" }).click();
+    await expect(page).toHaveURL(/near=43\.06%2C141\.35$/);
+  });
 });

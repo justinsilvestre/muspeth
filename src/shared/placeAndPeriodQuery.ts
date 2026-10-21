@@ -78,9 +78,14 @@ function readCoordinates(text: string | null) {
   return { latitude, longitude } satisfies Coordinates;
 }
 
+/** Says whether text is an ISO 8601 date of a year, month or day, as `from` and `to` expect. */
+export function isIsoDate(text: string) {
+  return isoDatePattern.test(text);
+}
+
 function readIsoDate(text: string | null, name: string) {
   if (!text) return null;
-  if (!isoDatePattern.test(text)) {
+  if (!isIsoDate(text)) {
     throw new InvalidQueryError(
       `Expected ${name} to be a date such as 1990, 1990-05, 1990-05-03 or -0500`,
     );

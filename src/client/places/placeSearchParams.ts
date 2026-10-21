@@ -1,6 +1,6 @@
-import { type Coordinates, formatNearParam } from "../../shared/placeAndPeriodQuery";
+import { type Coordinates, formatNearParam, isIsoDate } from "../../shared/placeAndPeriodQuery";
 
-type Period = { from: string; to: string };
+type Period = { from: string | null; to: string | null };
 
 /** Returns the address's query with the place searched moved to the given point. */
 export function searchNear(params: URLSearchParams, near: Coordinates) {
@@ -25,6 +25,25 @@ export function searchAnytime(params: URLSearchParams) {
 /** Returns the address's query without a place, keeping the period and the radius. */
 export function searchAnywhere(params: URLSearchParams) {
   return withParams(params, { near: null });
+}
+
+/** Returns the address's query searching near a place at any time, as when moving on from a connection found there. */
+export function hopToPlace(params: URLSearchParams, place: Coordinates) {
+  return searchAnytime(searchNear(params, place));
+}
+
+/**
+ * Returns the address's query searching a connection's date anywhere, as when moving on from a connection recorded then,
+ * or null when the date cannot be read.
+ * The date may be an interval such as "1990/1992", whose ends may be open ("1990/..") or empty ("/1992").
+ */
+export function hopToDate(params: URLSearchParams, date: string) {
+  const [first = "", last = first] = date.split("/");
+  const readEnd = (end: string) => (end === "" || end === ".." ? null : end);
+  const [from, to] = [readEnd(first), readEnd(last)];
+  const ends = [from, to].filter((end) => end !== null);
+  if (ends.length === 0 || !ends.every(isIsoDate)) return null;
+  return searchAnywhere(searchWithin(params, { from, to }));
 }
 
 /** Returns the parts of the address's query that choose which places to summarize: all but the place itself. */

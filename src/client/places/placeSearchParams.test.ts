@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
+  hopToDate,
+  hopToPlace,
   searchAnytime,
   searchAnywhere,
   searchNear,
@@ -71,5 +73,33 @@ describe("searchRadius", () => {
   it("sets the radius, keeping the place", () => {
     const params = new URLSearchParams("near=35,135&radiusKm=50");
     expect(searchRadius(params, 10).toString()).toBe("near=35%2C135&radiusKm=10");
+  });
+});
+
+describe("hopToPlace", () => {
+  it("searches near the place at any time, keeping the radius and filter", () => {
+    const params = new URLSearchParams("radiusKm=10&from=1990&kind=likeness");
+    expect(hopToPlace(params, { latitude: 43.06, longitude: 141.35 }).toString()).toBe(
+      "radiusKm=10&kind=likeness&near=43.06%2C141.35",
+    );
+  });
+});
+
+describe("hopToDate", () => {
+  it("searches the date anywhere, keeping the filter", () => {
+    const params = new URLSearchParams("near=35,135&kind=likeness");
+    expect(hopToDate(params, "2005-07")?.toString()).toBe("kind=likeness&from=2005-07&to=2005-07");
+  });
+
+  it("searches the whole of an interval", () => {
+    expect(hopToDate(new URLSearchParams(), "1990/1992")?.toString()).toBe("from=1990&to=1992");
+  });
+
+  it("leaves the open end of an interval open", () => {
+    expect(hopToDate(new URLSearchParams(), "1990/..")?.toString()).toBe("from=1990");
+  });
+
+  it("does not search a date it cannot read", () => {
+    expect(hopToDate(new URLSearchParams(), "circa 1990")).toBeNull();
   });
 });
