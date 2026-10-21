@@ -55,6 +55,22 @@ describe("findPathsBetween", () => {
     expect(await routesBetween("a", "z", { filter })).toEqual(["a b z"]);
   });
 
+  describe("when a node has more neighbours than the limit", () => {
+    async function insertTwoRoutes() {
+      await insertConnections([
+        ...chain(["a", "busy", "z"], 1),
+        ...chain(["a", "quiet", "z"], 3),
+        ...spokes("busy", 3, 100),
+      ]);
+    }
+
+    it("follows only the neighbours with the fewest connections", async () => {
+      await insertTwoRoutes();
+      const paths = await findPathsBetween(env.DB, query("a", "z"), 1);
+      expect(paths.map((path) => path.nodeIds.join(" "))).toEqual(["a quiet z"]);
+    });
+  });
+
   it("ranks paths as a search over the whole graph would", async () => {
     await insertConnections([
       ...chain(["a", "hub", "c", "z"], 1),
