@@ -5,6 +5,7 @@ import type { RankedPath } from "../shared/findPaths";
 import type { Connection, GraphNode } from "../shared/graph";
 import type { GraphEdge } from "../shared/graphExport";
 import type { PlacedConnection } from "../shared/placeAndPeriodQuery";
+import { precomputedResponsePaths } from "../shared/precomputedResponsePaths";
 import type { Taxon, TaxonPlacement } from "../shared/taxonomy";
 import { App } from "./App";
 import { ColorSchemeProvider } from "./theme/useColorScheme";
@@ -103,15 +104,19 @@ const pathogenInKyoto = {
 } satisfies PlacedConnection;
 
 const responsesByPathname = {
-  "/api/nodes": { nodes: [pine, nematode] },
-  "/api/sources": { sources: ["test"] },
+  [precomputedResponsePaths["/api/nodes"]]: { nodes: [pine, nematode] },
+  [precomputedResponsePaths["/api/sources"]]: { sources: ["test"] },
   "/api/paths": { paths: [pathFromNematode], truncated: false },
   "/api/connections": { connections: [pathogenInKyoto] },
   "/api/connections/dates": { dates: [{ date: "1990/1992", kind: "interaction", count: 1 }] },
   "/api/connections/places": {
     places: [{ place: "Kyoto", latitude: 35.03, longitude: 135.78, kind: "interaction", count: 1 }],
   },
-  "/api/taxonomy": { taxa: [pinus], placements: [pinePlacement], media: {} },
+  [precomputedResponsePaths["/api/taxonomy"]]: {
+    taxa: [pinus],
+    placements: [pinePlacement],
+    media: {},
+  },
 } satisfies Record<string, unknown>;
 
 /** Answers each API request with sample data, returning the stub so that tests can inspect requests. */

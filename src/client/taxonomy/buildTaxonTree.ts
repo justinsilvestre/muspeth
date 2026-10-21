@@ -5,6 +5,7 @@ import { nodeDisplayName } from "../nodeDisplayName";
 
 /** A taxon or placed organism, with the taxa and organisms it contains. */
 export type TaxonTreeNode = {
+  /** An ID unique within the tree; an organism's differs from its graph node's ID, which a taxon may share. */
   id: string;
   label: string;
   /** A taxonomic rank such as "genus", or "organism" for a placed organism node. */
@@ -42,7 +43,7 @@ export function buildTaxonTree(
     const label = node ? nodeDisplayName(node, "en") : nodeId;
     const isPlacementUncertain = qualityFlags.some((flag) => uncertainPlacementFlags.has(flag));
     return {
-      id: nodeId,
+      id: `organism:${nodeId}`,
       label,
       rank: "organism",
       children: [],

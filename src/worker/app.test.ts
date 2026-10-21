@@ -6,10 +6,28 @@ import { insertSampleGraph } from "./test/insertSampleGraph";
 import { insertSampleTaxonomy } from "./test/insertSampleTaxonomy";
 
 describe("the API", () => {
+  describe("caching", () => {
+    it("lets browsers reuse a successful answer, since the data changes only on deploy", async () => {
+      await insertSampleGraph();
+      const response = await app.request("/api/nodes/pine/connections", {}, env);
+      expect(response.headers.get("Cache-Control")).toBe("public, max-age=3600");
+    });
+
+    it("keeps browsers from caching an error", async () => {
+      const response = await app.request("/api/nodes/missing/connections", {}, env);
+      expect(response.headers.get("Cache-Control")).toBeNull();
+    });
+  });
+
   describe("GET /api/health", () => {
     it("reports that the API is up", async () => {
       const response = await app.request("/api/health", {}, env);
       expect(await response.json()).toEqual({ ok: true });
+    });
+
+    it("keeps browsers from caching the answer", async () => {
+      const response = await app.request("/api/health", {}, env);
+      expect(response.headers.get("Cache-Control")).toBeNull();
     });
   });
 
