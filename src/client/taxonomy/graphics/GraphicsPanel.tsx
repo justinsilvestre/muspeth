@@ -105,6 +105,14 @@ export function GraphicsPanel({ settings, dispatch, onPreview }: GraphicsPanelPr
             onChange={(leafGap) => change({ leafGap })}
           />
         </div>
+        <label className="flex items-center gap-2 text-muted text-xs">
+          <input
+            type="checkbox"
+            checked={settings.showsLeafImages}
+            onChange={(event) => change({ showsLeafImages: event.target.checked })}
+          />
+          Show images on leaves
+        </label>
         <button
           type="button"
           onClick={() => dispatch({ type: "reset" })}

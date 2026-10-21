@@ -48,6 +48,17 @@ describe("buildTaxonTree", () => {
     ]);
   });
 
+  it("gives an organism its image", () => {
+    const media = {
+      url: "https://upload.wikimedia.org/p.jpg",
+      licence: "CC0-1.0",
+      credit: null,
+      pageUrl: null,
+    };
+    const [plantae] = buildTaxonTree(taxa, placements, nodes, { pine: media }).children;
+    expect(plantae?.children[0]?.children[0]?.media).toEqual(media);
+  });
+
   describe("when a placement is flagged", () => {
     const placeWithFlags = (qualityFlags: QualityFlag[]) => {
       const placement = { nodeId: "pine", taxonId: "pinus", qualityFlags };
