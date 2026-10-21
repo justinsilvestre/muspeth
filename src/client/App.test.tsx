@@ -282,12 +282,12 @@ describe("App", () => {
     it("asks for the paths between them", async () => {
       const fetch = stubApi();
       renderApp("/paths");
-      fireEvent.change(await screen.findByRole("combobox", { name: "From" }), {
-        target: { value: "nematode" },
-      });
-      fireEvent.change(screen.getByRole("combobox", { name: "To" }), {
-        target: { value: "pine" },
-      });
+      const from = await screen.findByRole("combobox", { name: "From" });
+      fireEvent.change(from, { target: { value: "nematode" } });
+      fireEvent.keyDown(from, { key: "Enter" });
+      const to = screen.getByRole("combobox", { name: "To" });
+      fireEvent.change(to, { target: { value: "red pine" } });
+      fireEvent.keyDown(to, { key: "Enter" });
       expect(listRequestedPaths(fetch)).toContain("/api/paths?from=nematode&to=pine");
     });
   });
