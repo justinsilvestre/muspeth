@@ -356,7 +356,7 @@ describe("App", () => {
     it("marks the page as dark", async () => {
       stubApi();
       renderApp();
-      fireEvent.click(screen.getByRole("button", { name: "Dark" }));
+      fireEvent.click(screen.getByRole("button", { name: "Dark", hidden: true }));
       expect(document.documentElement.classList.contains("dark")).toBe(true);
     });
   });
