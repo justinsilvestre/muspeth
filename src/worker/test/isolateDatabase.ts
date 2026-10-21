@@ -1,6 +1,6 @@
 import { env } from "cloudflare:test";
 import { beforeEach } from "vitest";
-import { openSqlDatabase } from "../sqlDatabase";
+import { openSqlDatabase } from "../openSqlDatabase";
 
 beforeEach(async () => {
   env.DB = await openSqlDatabase();

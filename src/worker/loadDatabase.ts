@@ -1,5 +1,5 @@
 import { databaseAssetPath } from "./databaseAssetPath";
-import { openSqlDatabase } from "./sqlDatabase";
+import { openSqlDatabase } from "./openSqlDatabase";
 
 type FileServer = { fetch(url: URL): Promise<Response> };
 
