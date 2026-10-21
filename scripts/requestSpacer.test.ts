@@ -1,5 +1,26 @@
-import { describe, expect, it } from "vitest";
-import { scheduleTurn } from "./requestSpacer.ts";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { createRequestSpacer, scheduleTurn } from "./requestSpacer.ts";
+
+describe("createRequestSpacer", () => {
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
+  it("starts concurrent callers one interval apart", async () => {
+    vi.useFakeTimers({ now: 1000 });
+    const waitForTurn = createRequestSpacer(30);
+    const starts: number[] = [];
+    const turns = Promise.all(
+      [1, 2, 3].map(async () => {
+        await waitForTurn();
+        starts.push(Date.now());
+      }),
+    );
+    await vi.runAllTimersAsync();
+    await turns;
+    expect(starts).toEqual([1000, 1030, 1060]);
+  });
+});
 
 describe("scheduleTurn", () => {
   describe("when the earliest next start has passed", () => {
