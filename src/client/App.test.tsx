@@ -343,6 +343,15 @@ describe("App", () => {
       expect(listRequestedPaths(fetch)).toContain("/api/connections/dates?near=35%2C135");
     });
 
+    it("searches a wider radius chosen on the slider", async () => {
+      const fetch = stubApi();
+      renderApp("/places?near=35,135");
+      fireEvent.change(await screen.findByRole("slider", { name: /^Within/ }), {
+        target: { value: "7" },
+      });
+      expect(listRequestedPaths(fetch)).toContain("/api/connections?near=35%2C135&radiusKm=250");
+    });
+
     it("searches any time once the period is cleared", async () => {
       const fetch = stubApi();
       renderApp("/places?near=35,135&from=1990");

@@ -3,6 +3,7 @@ import {
   searchAnytime,
   searchAnywhere,
   searchNear,
+  searchRadius,
   searchWithin,
   toDateSummaryParams,
   toPlaceSummaryParams,
@@ -63,5 +64,12 @@ describe("toDateSummaryParams", () => {
   it("keeps the place and filter but not the period", () => {
     const params = new URLSearchParams("near=35,135&radiusKm=10&from=1990&to=1992&kind=likeness");
     expect(toDateSummaryParams(params).toString()).toBe("near=35%2C135&radiusKm=10&kind=likeness");
+  });
+});
+
+describe("searchRadius", () => {
+  it("sets the radius, keeping the place", () => {
+    const params = new URLSearchParams("near=35,135&radiusKm=50");
+    expect(searchRadius(params, 10).toString()).toBe("near=35%2C135&radiusKm=10");
   });
 });

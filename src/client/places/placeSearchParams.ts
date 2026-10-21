@@ -7,6 +7,11 @@ export function searchNear(params: URLSearchParams, near: Coordinates) {
   return withParams(params, { near: formatNearParam(near) });
 }
 
+/** Returns the address's query with the radius about the place replaced. */
+export function searchRadius(params: URLSearchParams, radiusKm: number) {
+  return withParams(params, { radiusKm: String(radiusKm) });
+}
+
 /** Returns the address's query with the period searched replaced. */
 export function searchWithin(params: URLSearchParams, { from, to }: Period) {
   return withParams(params, { from, to });

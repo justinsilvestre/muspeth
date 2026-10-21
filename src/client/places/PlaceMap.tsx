@@ -34,10 +34,10 @@ export function PlaceMap({ near, radiusKm, places, onPick }: PlaceMapProps) {
   const [hasFailed, setHasFailed] = useState(false);
   const boundsKey = JSON.stringify(chooseMapBounds(near, radiusKm, places));
   const [latitude, longitude] = [near?.latitude, near?.longitude];
-  // The place last chosen on the map, which needs no refitting since it is already in view.
-  const pickedNearRef = useRef<string | null>(null);
+  // The search area last chosen on the map, which needs no refitting since it is already in view.
+  const pickedAreaRef = useRef<string | null>(null);
   const pick = (picked: Coordinates) => {
-    pickedNearRef.current = formatNearParam(picked);
+    pickedAreaRef.current = `${formatNearParam(picked)} ${radiusKm}`;
     onPick(picked);
   };
   const readBounds = useEffectEvent(() => JSON.parse(boundsKey));
@@ -47,7 +47,7 @@ export function PlaceMap({ near, radiusKm, places, onPick }: PlaceMapProps) {
     pick({ latitude: lngLat.lat, longitude: lngLat.lng });
   });
   const wasPickedOnMap = useEffectEvent(
-    () => !!near && formatNearParam(near) === pickedNearRef.current,
+    () => !!near && `${formatNearParam(near)} ${radiusKm}` === pickedAreaRef.current,
   );
 
   useEffect(() => {
