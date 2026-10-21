@@ -33,6 +33,10 @@ export function PathsIntro({ nameOf, kindOf }: PathsIntroProps) {
   return (
     <div className="space-y-3 rounded border border-line bg-panel p-4">
       <IntroDiagram />
+      <p className="text-muted text-sm">
+        A path joins the two nodes you choose in up to four steps. Paths rank higher when they avoid
+        hubs, the nodes with many neighbours, and when they mix different kinds of connection.
+      </p>
       {available.length > 0 && (
         <p className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
           <span className="text-muted">Try</span>

@@ -18,6 +18,8 @@ export function PlacePlot({ near, radiusKm, connections }: PlacePlotProps) {
   const height = measurePlotHeight(view, width);
   const { latitudes, longitudes } = listGraticule(view);
   const placed = connections.filter(hasCoordinates);
+  // Labelling every other line keeps the labels of a world map from running into each other.
+  const isLabelled = (index: number, lineCount: number) => lineCount <= 6 || index % 2 === 1;
   return (
     <svg
       role="img"
@@ -28,25 +30,29 @@ export function PlacePlot({ near, radiusKm, connections }: PlacePlotProps) {
       <title id="place-plot-title">Map of where the connections were recorded</title>
       <desc id="place-plot-desc">{describePlot(placed.length, near, radiusKm)}</desc>
       <rect width={width} height={height} className="fill-panel stroke-line" />
-      {latitudes.map((latitude) => {
+      {latitudes.map((latitude, index) => {
         const { y } = projectPoint(view, { latitude, longitude: view.west }, width);
         return (
           <g key={`latitude ${latitude}`}>
             <line x1={0} x2={width} y1={y} y2={y} className="stroke-line" />
-            <text x={4} y={y - 3} className="fill-faint">
-              {formatLatitude(latitude)}
-            </text>
+            {isLabelled(index, latitudes.length) && (
+              <text x={4} y={y - 3} className="fill-faint">
+                {formatLatitude(latitude)}
+              </text>
+            )}
           </g>
         );
       })}
-      {longitudes.map((longitude) => {
+      {longitudes.map((longitude, index) => {
         const { x } = projectPoint(view, { latitude: view.south, longitude }, width);
         return (
           <g key={`longitude ${longitude}`}>
             <line x1={x} x2={x} y1={0} y2={height} className="stroke-line" />
-            <text x={x + 3} y={height - 4} className="fill-faint">
-              {formatLongitude(longitude)}
-            </text>
+            {isLabelled(index, longitudes.length) && (
+              <text x={x + 3} y={height - 4} className="fill-faint">
+                {formatLongitude(longitude)}
+              </text>
+            )}
           </g>
         );
       })}

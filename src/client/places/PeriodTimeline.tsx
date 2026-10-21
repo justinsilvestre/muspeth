@@ -15,6 +15,8 @@ const maxLanes = 8;
 /** The least space, in pixels, between two spans that share a lane. */
 const gapPixels = 8;
 
+type DatedSpan = YearSpan & Pick<PlacedConnection, "kind"> & { date: string };
+
 type PeriodTimelineProps = {
   from: string | null;
   to: string | null;
@@ -30,7 +32,13 @@ export function PeriodTimeline({ from, to, connections }: PeriodTimelineProps) {
   const lanes = packTimelineLanes(dated, (gapPixels / width) * (domain.end - domain.start));
   const laneCount = Math.min(Math.max(0, ...lanes) + 1, maxLanes);
   const axisY = 26 + laneCount * laneHeight;
-  const years = [...new Set([Math.ceil(domain.start), Math.floor(domain.end)])];
+  const band =
+    fromSpan || toSpan
+      ? { start: fromSpan ? fromSpan.start : domain.start, end: toSpan ? toSpan.end : domain.end }
+      : null;
+  const edges = band
+    ? { start: { x: xOf(band.start), text: from ?? "" }, end: { x: xOf(band.end), text: to ?? "" } }
+    : listDataEdges(dated, xOf);
   return (
     <svg
       role="img"
@@ -70,18 +78,31 @@ export function PeriodTimeline({ from, to, connections }: PeriodTimelineProps) {
         );
       })}
       <line x1={0} x2={width} y1={axisY} y2={axisY} className="stroke-faint" />
-      {years.map((year) => (
-        <text key={year} x={xOf(year)} y={axisY + 14} textAnchor="middle" className="fill-muted">
-          {year}
+      <text x={edges.start.x} y={axisY + 14} className="fill-muted">
+        {edges.start.text}
+      </text>
+      {edges.end.text !== edges.start.text && (
+        <text x={edges.end.x} y={axisY + 14} textAnchor="end" className="fill-muted">
+          {edges.end.text}
         </text>
-      ))}
+      )}
     </svg>
   );
 }
 
+/** Labels the axis with the earliest and the latest dates recorded, at the start of the one and the end of the other. */
+function listDataEdges(dated: DatedSpan[], xOf: (year: number) => number) {
+  const first = dated.reduce((earliest, span) => (span.start < earliest.start ? span : earliest));
+  const last = dated.reduce((latest, span) => (span.end > latest.end ? span : latest));
+  return {
+    start: { x: xOf(first.start), text: first.date },
+    end: { x: xOf(last.end), text: last.date },
+  };
+}
+
 /** Lists each distinct date and kind of connection once, as a span of years. */
 function listDatedSpans(connections: PlacedConnection[]) {
-  const spans = new Map<string, YearSpan & Pick<PlacedConnection, "kind"> & { date: string }>();
+  const spans = new Map<string, DatedSpan>();
   for (const { date, kind } of connections) {
     const span = date && parseDateSpan(date);
     if (span) spans.set(`${date} ${kind}`, { ...span, date, kind });

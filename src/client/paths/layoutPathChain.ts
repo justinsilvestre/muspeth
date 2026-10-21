@@ -1,6 +1,6 @@
 /** The distance between neighbouring nodes, and from the outer nodes to the drawing's edges. */
 const spacingByOrientation = {
-  row: { gap: 150, margin: 70, across: 38, breadth: 66 },
+  row: { gap: 150, margin: 70, across: 38, breadth: 72 },
   column: { gap: 48, margin: 14, across: 12, breadth: 320 },
 };
 

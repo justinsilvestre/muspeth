@@ -25,6 +25,10 @@ export function PlacesIntro() {
   return (
     <div className="space-y-3 rounded border border-line bg-panel p-4">
       <IntroDiagram />
+      <p className="text-muted text-sm">
+        Find the connections recorded near a place, within a period, or both. Give a place as a
+        latitude, a longitude and a radius in kilometres, and a period as a year, month or day.
+      </p>
       <p className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
         <span className="text-muted">Try</span>
         {examples.map(({ label, query }) => (
@@ -43,7 +47,7 @@ function IntroDiagram() {
       role="img"
       aria-labelledby="places-intro-title places-intro-desc"
       viewBox="0 0 360 136"
-      className="h-auto w-full max-w-[420px] text-[12px]"
+      className="h-auto w-full max-w-[420px] text-[13px]"
     >
       <title id="places-intro-title">How searching by place and period works</title>
       <desc id="places-intro-desc">
