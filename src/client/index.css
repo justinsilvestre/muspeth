@@ -58,3 +58,8 @@
 body {
   @apply bg-page text-ink;
 }
+
+/* MapLibre styles its attribution for light pages only. */
+.dark .maplibregl-ctrl.maplibregl-ctrl-attrib {
+  @apply bg-panel/80 text-muted;
+}

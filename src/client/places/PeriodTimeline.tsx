@@ -7,6 +7,7 @@ import {
   projectYear,
   type YearSpan,
 } from "./layoutTimeline";
+import { listTimelineTicks } from "./listTimelineTicks";
 import { parseDateSpan } from "./parseDateSpan";
 
 const width = 400;
@@ -15,7 +16,7 @@ const maxLanes = 8;
 /** The least space, in pixels, between two spans that share a lane. */
 const gapPixels = 8;
 
-type DatedSpan = YearSpan & Pick<PlacedConnection, "kind"> & { date: string };
+type DatedSpan = YearSpan & Pick<PlacedConnection, "kind"> & { date: string; count: number };
 
 type PeriodTimelineProps = {
   from: string | null;
@@ -32,22 +33,16 @@ export function PeriodTimeline({ from, to, connections }: PeriodTimelineProps) {
   const lanes = packTimelineLanes(dated, (gapPixels / width) * (domain.end - domain.start));
   const laneCount = Math.min(Math.max(0, ...lanes) + 1, maxLanes);
   const axisY = 26 + laneCount * laneHeight;
-  const band =
-    fromSpan || toSpan
-      ? { start: fromSpan ? fromSpan.start : domain.start, end: toSpan ? toSpan.end : domain.end }
-      : null;
-  const edges = band
-    ? { start: { x: xOf(band.start), text: from ?? "" }, end: { x: xOf(band.end), text: to ?? "" } }
-    : listDataEdges(dated, xOf);
+  const summary = summarizeTimeline(dated);
   return (
     <svg
       role="img"
       aria-labelledby="period-timeline-title period-timeline-desc"
-      viewBox={`0 0 ${width} ${axisY + 18}`}
+      viewBox={`0 0 ${width} ${axisY + 36}`}
       className="h-auto w-full max-w-sm text-[11px]"
     >
       <title id="period-timeline-title">Timeline of when the connections were recorded</title>
-      <desc id="period-timeline-desc">{describeTimeline(dated.length, from, to)}</desc>
+      <desc id="period-timeline-desc">{describeTimeline(summary, from, to)}</desc>
       {(fromSpan || toSpan) && (
         <g>
           <rect
@@ -73,44 +68,58 @@ export function PeriodTimeline({ from, to, connections }: PeriodTimelineProps) {
             to={{ x: xOf(span.end), y }}
             kind={span.kind}
           >
-            <title>{`${span.date}: ${termLabel(span.kind)}`}</title>
+            <title>{`${span.date}: ${span.count} × ${termLabel(span.kind)}`}</title>
           </KindBar>
         );
       })}
       <line x1={0} x2={width} y1={axisY} y2={axisY} className="stroke-faint" />
-      <text x={edges.start.x} y={axisY + 14} className="fill-muted">
-        {edges.start.text}
+      {listTimelineTicks(domain).map(({ year, label }) => (
+        <g key={year}>
+          <line x1={xOf(year)} x2={xOf(year)} y1={axisY} y2={axisY + 4} className="stroke-faint" />
+          <text
+            x={xOf(year)}
+            y={axisY + 15}
+            textAnchor={anchorTickLabel(xOf(year))}
+            className="fill-muted"
+          >
+            {label}
+          </text>
+        </g>
+      ))}
+      <text x={0} y={axisY + 32} className="fill-muted">
+        {summary}
       </text>
-      {edges.end.text !== edges.start.text && (
-        <text x={edges.end.x} y={axisY + 14} textAnchor="end" className="fill-muted">
-          {edges.end.text}
-        </text>
-      )}
     </svg>
   );
 }
 
-/** Labels the axis with the earliest and the latest dates recorded, at the start of the one and the end of the other. */
-function listDataEdges(dated: DatedSpan[], xOf: (year: number) => number) {
-  const first = dated.reduce((earliest, span) => (span.start < earliest.start ? span : earliest));
-  const last = dated.reduce((latest, span) => (span.end > latest.end ? span : latest));
-  return {
-    start: { x: xOf(first.start), text: first.date },
-    end: { x: xOf(last.end), text: last.date },
-  };
+/** Anchors a tick's label so that it stays inside the timeline when the tick lies near an edge. */
+function anchorTickLabel(x: number) {
+  const edgeMargin = 16;
+  if (x < edgeMargin) return "start";
+  return x > width - edgeMargin ? "end" : "middle";
 }
 
-/** Lists each distinct date and kind of connection once, as a span of years. */
+/** Lists each distinct date and kind of connection once, as a span of years, with how many connections share it. */
 function listDatedSpans(connections: PlacedConnection[]) {
   const spans = new Map<string, DatedSpan>();
   for (const { date, kind } of connections) {
     const span = date && parseDateSpan(date);
-    if (span) spans.set(`${date} ${kind}`, { ...span, date, kind });
+    const key = `${date} ${kind}`;
+    if (span) spans.set(key, { ...span, date, kind, count: (spans.get(key)?.count ?? 0) + 1 });
   }
   return [...spans.values()];
 }
 
-function describeTimeline(count: number, from: string | null, to: string | null) {
+/** Says how many connections were recorded on how many distinct dates, such as "200 connections recorded on 1 date". */
+function summarizeTimeline(dated: DatedSpan[]) {
+  const connectionCount = dated.reduce((total, { count }) => total + count, 0);
+  const dateCount = new Set(dated.map(({ date }) => date)).size;
+  const plural = (count: number, noun: string) => `${count} ${noun}${count === 1 ? "" : "s"}`;
+  return `${plural(connectionCount, "connection")} recorded on ${plural(dateCount, "date")}`;
+}
+
+function describeTimeline(summary: string, from: string | null, to: string | null) {
   const period = from || to ? `, within the period ${from ?? "…"} to ${to ?? "…"}` : "";
-  return `${count} distinct ${count === 1 ? "date" : "dates"} of recording${period}.`;
+  return `${summary}${period}.`;
 }
