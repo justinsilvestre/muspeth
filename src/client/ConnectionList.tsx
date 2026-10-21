@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import type { ReactNode } from "react";
+import { type ReactNode, useRef } from "react";
 import type { ConnectionFilter } from "../shared/connectionFilter";
 import type { GraphNode } from "../shared/graph";
 import { ConnectionGroups } from "./ConnectionGroups";
@@ -9,6 +9,7 @@ import { ConnectionFilterControls } from "./filters/ConnectionFilterControls";
 import { NodeFigure } from "./media/NodeFigure";
 import { NodeThumbnail } from "./media/NodeThumbnail";
 import { useConnections } from "./useConnections";
+import { useFocusOnNavigation } from "./useFocusOnNavigation";
 
 type ConnectionListProps = {
   nodeId: string;
@@ -25,12 +26,19 @@ export function ConnectionList({ nodeId, nodes, filter, onFilterChange }: Connec
   const mediaById = resource.status === "loaded" ? resource.data.media : {};
   const media = mediaById[nodeId];
   const isReloading = resource.status === "loaded" && resource.isReloading;
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  useFocusOnNavigation(headingRef, nodeId);
 
   return (
     <section aria-labelledby="connection-list-heading">
       <header className="mb-2 flex items-start justify-between gap-4">
         <div className="min-w-0">
-          <h2 id="connection-list-heading" className="font-medium text-lg">
+          <h2
+            id="connection-list-heading"
+            ref={headingRef}
+            tabIndex={-1}
+            className="scroll-mt-4 font-medium text-lg focus:outline-none"
+          >
             Connections of {nameOf(nodeId)}
           </h2>
           <Reloadable isReloading={isReloading}>
