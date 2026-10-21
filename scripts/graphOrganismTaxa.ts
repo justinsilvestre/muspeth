@@ -1,5 +1,5 @@
-import { fetchGbifTaxon, matchGbifName } from "./gbifSpeciesApi.ts";
-import { findGbifKey, type GbifTaxon } from "./gbifTaxon.ts";
+import { fetchGbifMatch, fetchGbifMatchByKey } from "./gbifApi.ts";
+import { findGbifKey, type GbifTaxon, toGbifTaxon } from "./gbifTaxon.ts";
 import { mapConcurrently } from "./mapConcurrently.ts";
 import { fetchWikidataTaxa } from "./wikidataApi.ts";
 
@@ -15,8 +15,9 @@ export async function classifyGraphOrganisms(organisms: { id: string; label: str
   const wikidataTaxa = await fetchWikidataTaxa(qids);
   return mapConcurrently(organisms, async (organism) => {
     const key = findGbifKey(organism.id, wikidataTaxa);
+    const matchByKey = key === null ? null : await fetchGbifMatchByKey(key);
     const gbif =
-      (key !== null && (await fetchGbifTaxon(key))) || (await matchGbifName(organism.label));
+      (matchByKey && toGbifTaxon(matchByKey)) || toGbifTaxon(await fetchGbifMatch(organism.label));
     return { ...organism, gbif } satisfies GraphOrganism;
   });
 }

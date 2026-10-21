@@ -1,4 +1,4 @@
-import { fetchGbifSynonymNames } from "./gbifSpeciesApi.ts";
+import { fetchGbifSynonymNames } from "./gbifApi.ts";
 import type { GraphOrganism } from "./graphOrganismTaxa.ts";
 import { type TraitNode, toLikenessConnections } from "./likenessConnections.ts";
 import { identifyNewTraitOrganisms } from "./newTraitOrganisms.ts";

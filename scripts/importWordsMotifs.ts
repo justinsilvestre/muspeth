@@ -9,8 +9,8 @@
  */
 import { queryD1 } from "./d1.ts";
 import { folkTaxa } from "./folkTaxa.ts";
+import { fetchChecklist, fetchGbifMatch, fetchVernacularNames } from "./gbifApi.ts";
 import { chooseAlternative, readGlobiLineage } from "./gbifLineageHints.ts";
-import { fetchChecklist, fetchGbifMatch, fetchVernacularNames } from "./gbifNamesApi.ts";
 import { fetchGlobiTaxonPaths } from "./globiApi.ts";
 import { mapConcurrently } from "./mapConcurrently.ts";
 import { toMotifImport } from "./motifLinks.ts";
@@ -62,7 +62,7 @@ console.log(
 
 /** Matches an organism's name exactly, settling a name shared across kingdoms by GloBI's lineage. */
 async function matchOrganism({ id, label, connectionCount }: (typeof organisms)[number]) {
-  const match = await fetchGbifMatch(label);
+  const match = await fetchGbifMatch(label, { verbose: "true" });
   if (match.matchType !== "NONE") return toMatchedOrganism(id, match, connectionCount);
   const lineage = readGlobiLineage(label, await fetchGlobiTaxonPaths(label, globiPathLimit));
   const alternative = chooseAlternative(match, lineage);

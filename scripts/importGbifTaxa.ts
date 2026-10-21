@@ -7,8 +7,9 @@
  */
 import type { Taxon, TaxonPlacement } from "../src/shared/taxonomy.ts";
 import { executeD1Script, queryD1 } from "./d1.ts";
+import { fetchGbifMatch } from "./gbifApi.ts";
 import { chooseAlternative, readGlobiLineage, toAncestorMatch } from "./gbifLineageHints.ts";
-import { type GbifMatch, toTaxonomySql, toTaxonPlacement, toTaxonRows } from "./gbifTaxonomy.ts";
+import { toTaxonomySql, toTaxonPlacement, toTaxonRows } from "./gbifTaxonomy.ts";
 import { fetchGlobiTaxonPaths } from "./globiApi.ts";
 
 const globiPathLimit = 1000;
@@ -51,12 +52,4 @@ async function matchNearestAncestor(ancestorNames: string[]) {
     if (match.matchType === "EXACT") return toAncestorMatch(match);
   }
   return null;
-}
-
-async function fetchGbifMatch(scientificName: string, options: Record<string, string>) {
-  const url = new URL("https://api.gbif.org/v1/species/match");
-  url.search = new URLSearchParams({ scientificName, ...options }).toString();
-  const response = await fetch(url);
-  if (!response.ok) throw new Error(`GBIF responded ${response.status} for ${scientificName}`);
-  return (await response.json()) as GbifMatch;
 }
