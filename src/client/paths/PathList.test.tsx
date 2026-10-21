@@ -12,6 +12,7 @@ afterEach(() => {
 
 const names: Record<string, string> = { a: "matsutake", b: "Kyoto", c: "pine" };
 const nameOf = (id: string) => names[id] ?? id;
+const kindOf = () => "organism" as const;
 
 const edge = {
   id: 1,
@@ -63,7 +64,11 @@ async function renderPaths(paths: RankedPath[]) {
   vi.stubGlobal("fetch", async () => Response.json({ paths }));
   render(
     <MemoryRouter initialEntries={["/paths?from=a&to=c&source=mangal"]}>
-      <PathList params={new URLSearchParams("from=a&to=c&source=mangal")} nameOf={nameOf} />
+      <PathList
+        params={new URLSearchParams("from=a&to=c&source=mangal")}
+        nameOf={nameOf}
+        kindOf={kindOf}
+      />
     </MemoryRouter>,
   );
   return screen.findByRole("list", { name: "Paths" });
@@ -153,7 +158,7 @@ describe("PathList", () => {
       vi.stubGlobal("fetch", async () => Response.json({ paths: [] }));
       render(
         <MemoryRouter>
-          <PathList params={new URLSearchParams("from=a&to=b")} nameOf={nameOf} />
+          <PathList params={new URLSearchParams("from=a&to=b")} nameOf={nameOf} kindOf={kindOf} />
         </MemoryRouter>,
       );
       expect((await screen.findByRole("status")).textContent).toMatch(

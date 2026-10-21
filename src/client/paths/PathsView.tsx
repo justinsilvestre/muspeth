@@ -1,11 +1,13 @@
 import { useSearchParams } from "react-router";
 import type { GraphNode } from "../../shared/graph";
+import { createNodeKindReader } from "../createNodeKindReader";
 import { createNodeNamer } from "../createNodeNamer";
 import { ConnectionFilterControls } from "../filters/ConnectionFilterControls";
 import { useConnectionFilter } from "../filters/useConnectionFilter";
 import { NodeCombobox } from "../nodeSearch/NodeCombobox";
 import { useNodeCatalog } from "../nodeSearch/useNodeCatalog";
 import { PathList } from "./PathList";
+import { PathsIntro } from "./PathsIntro";
 import { SwapButton } from "./SwapButton";
 
 /** Lets the reader pick two nodes, and shows the best paths between them. */
@@ -14,6 +16,7 @@ export function PathsView({ nodes }: { nodes: GraphNode[] }) {
   const { filterResult, setFilter } = useConnectionFilter();
   const catalog = useNodeCatalog(nodes);
   const nameOf = createNodeNamer(nodes);
+  const kindOf = createNodeKindReader(nodes);
   const [fromId, toId] = [searchParams.get("from") ?? "", searchParams.get("to") ?? ""];
   const chooseEnds = (ends: { from?: string; to?: string }) => {
     const next = new URLSearchParams(searchParams);
@@ -50,11 +53,12 @@ export function PathsView({ nodes }: { nodes: GraphNode[] }) {
       {filterResult.ok && (
         <ConnectionFilterControls filter={filterResult.value} onChange={setFilter} />
       )}
+      {(!fromId || !toId) && <PathsIntro nameOf={nameOf} kindOf={kindOf} />}
       {fromId && toId && fromId === toId && (
         <p className="text-muted">Choose two different nodes.</p>
       )}
       {filterResult.ok && fromId && toId && fromId !== toId && (
-        <PathList params={searchParams} nameOf={nameOf} />
+        <PathList params={searchParams} nameOf={nameOf} kindOf={kindOf} />
       )}
     </section>
   );

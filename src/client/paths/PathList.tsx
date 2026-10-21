@@ -1,10 +1,15 @@
 import { Fragment } from "react";
 import type { RankedPath } from "../../shared/findPaths";
+import type { NodeKind } from "../../shared/graph";
 import { maxPathSteps, type PathsResponse, pathNeighborLimit } from "../../shared/pathQuery";
 import { KindChip } from "../KindChip";
 import { NodeLink } from "../NodeLink";
 import { useApiResource } from "../useApiResource";
+import { CostBar } from "./CostBar";
+import { listLegendKinds } from "./listLegendKinds";
 import { listRankingReasons } from "./listRankingReasons";
+import { PathChain } from "./PathChain";
+import { PathLegend } from "./PathLegend";
 import { PathNode } from "./PathNode";
 import { PathStepItem } from "./PathStepItem";
 
@@ -12,10 +17,11 @@ type PathListProps = {
   /** The query parameters of the path search, including the filter. */
   params: URLSearchParams;
   nameOf: (nodeId: string) => string;
+  kindOf: (nodeId: string) => NodeKind | undefined;
 };
 
 /** Lists the best paths between two nodes, best first, explaining each path's rank and showing it step by step. */
-export function PathList({ params, nameOf }: PathListProps) {
+export function PathList({ params, nameOf, kindOf }: PathListProps) {
   const resource = useApiResource<PathsResponse>(`/api/paths?${params}`);
 
   if (resource.status === "loading") return <p>Finding paths…</p>;
@@ -31,6 +37,8 @@ export function PathList({ params, nameOf }: PathListProps) {
       </p>
     );
   }
+  const { paths } = resource.data;
+  const worstCost = Math.max(...paths.map(({ cost }) => cost));
   return (
     <>
       <p className="text-muted text-sm">
@@ -38,9 +46,16 @@ export function PathList({ params, nameOf }: PathListProps) {
         connection rank higher. Each path's score sums the cost of its steps, so a lower score ranks
         higher.
       </p>
+      <PathLegend {...listLegendKinds(paths, kindOf)} />
       <ol aria-label="Paths" className="space-y-4">
-        {resource.data.paths.map((path, index) => (
-          <PathItem key={path.nodeIds.join(" ")} path={path} rank={index + 1} nameOf={nameOf} />
+        {paths.map((path, index) => (
+          <PathItem
+            key={path.nodeIds.join(" ")}
+            path={path}
+            rank={index + 1}
+            worstCost={worstCost}
+            graph={{ nameOf, kindOf }}
+          />
         ))}
       </ol>
     </>
@@ -50,10 +65,12 @@ export function PathList({ params, nameOf }: PathListProps) {
 type PathItemProps = {
   path: RankedPath;
   rank: number;
-  nameOf: (nodeId: string) => string;
+  worstCost: number;
+  graph: Pick<PathListProps, "nameOf" | "kindOf">;
 };
 
-function PathItem({ path, rank, nameOf }: PathItemProps) {
+function PathItem({ path, rank, worstCost, graph }: PathItemProps) {
+  const { nameOf, kindOf } = graph;
   const stepCount = `${path.steps.length} ${path.steps.length === 1 ? "step" : "steps"}`;
   const reasons = [stepCount, ...listRankingReasons(path)];
   return (
@@ -70,7 +87,9 @@ function PathItem({ path, rank, nameOf }: PathItemProps) {
       </h3>
       <p className="text-muted text-sm">
         {reasons.join(" · ")} ·{" "}
-        <span className="whitespace-nowrap">score {path.cost.toFixed(2)}</span>
+        <span className="whitespace-nowrap">
+          score {path.cost.toFixed(2)} <CostBar cost={path.cost} worstCost={worstCost} />
+        </span>
       </p>
       <ul aria-label={`Kinds of connection in path ${rank}`} className="flex flex-wrap gap-1">
         {path.kinds.map((kind) => (
@@ -79,6 +98,7 @@ function PathItem({ path, rank, nameOf }: PathItemProps) {
           </li>
         ))}
       </ul>
+      <PathChain path={path} rank={rank} nameOf={nameOf} kindOf={kindOf} />
       <div className="pt-1">
         <PathNode name={nameOf(path.nodeIds[0] ?? "")} lead="from" />
         <ol aria-label={`Steps of path ${rank}`}>
