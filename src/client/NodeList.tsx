@@ -25,7 +25,7 @@ export function NodeList({ nodes, selectedNodeId }: NodeListProps) {
               to={{ pathname: organismPath(node.id), search }}
               aria-current={node.id === selectedNodeId ? "page" : undefined}
               className={clsx(
-                "block w-full rounded px-3 py-2 text-left hover:bg-subtle",
+                "wrap-anywhere block w-full rounded px-3 py-2 text-left hover:bg-subtle",
                 node.id === selectedNodeId && "bg-selected hover:bg-selected",
               )}
             >

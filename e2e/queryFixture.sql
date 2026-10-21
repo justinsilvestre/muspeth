@@ -26,3 +26,9 @@ VALUES
     'Sapporo', 43.06, 141.35, '2005-07', 'e2e_fixture', 'CC0-1.0', '["suspected_error"]'),
   (107, 'wikidata:Q15859794', 'wikidata:Q30034', 'likeness', 'similarBodySize', 'computed',
     NULL, NULL, NULL, NULL, 'e2e_fixture', 'CC0-1.0', '["sampling_bias"]');
+
+-- A node with a long unbroken name, to check that narrow layouts wrap it instead of overflowing.
+INSERT INTO nodes (id, kind, label, source) VALUES
+  ('e2e:octacycle', 'compound',
+    '6,8,18,20,28-pentaoxaoctacyclo[17.11.1.17,15.02,17.05,16.09,14.021,30.024,29]dotriaconta-2(17),3,5(16)',
+    'e2e_fixture');
