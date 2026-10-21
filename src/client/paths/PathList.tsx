@@ -5,7 +5,6 @@ import { maxPathSteps, type PathsResponse, pathNeighborLimit } from "../../share
 import { KindChip } from "../KindChip";
 import { NodeLink } from "../NodeLink";
 import { useApiResource } from "../useApiResource";
-import { CostBar } from "./CostBar";
 import { listLegendKinds } from "./listLegendKinds";
 import { listRankingReasons } from "./listRankingReasons";
 import { PathChain } from "./PathChain";
@@ -38,13 +37,11 @@ export function PathList({ params, nameOf, kindOf }: PathListProps) {
     );
   }
   const { paths } = resource.data;
-  const worstCost = Math.max(...paths.map(({ cost }) => cost));
   return (
     <>
       <p className="text-muted text-sm">
-        Paths that avoid hubs, the nodes with many neighbours, and that cross more kinds of
-        connection rank higher. Each path's score sums the cost of its steps, so a lower score ranks
-        higher.
+        Paths through nodes with fewer neighbours, and paths that mix kinds of connection, are
+        listed first, since they are more likely to show a specific relationship.
       </p>
       <PathLegend {...listLegendKinds(paths, kindOf)} />
       <ol aria-label="Paths" className="space-y-4">
@@ -53,7 +50,6 @@ export function PathList({ params, nameOf, kindOf }: PathListProps) {
             key={path.nodeIds.join(" ")}
             path={path}
             rank={index + 1}
-            worstCost={worstCost}
             graph={{ nameOf, kindOf }}
           />
         ))}
@@ -65,11 +61,10 @@ export function PathList({ params, nameOf, kindOf }: PathListProps) {
 type PathItemProps = {
   path: RankedPath;
   rank: number;
-  worstCost: number;
   graph: Pick<PathListProps, "nameOf" | "kindOf">;
 };
 
-function PathItem({ path, rank, worstCost, graph }: PathItemProps) {
+function PathItem({ path, rank, graph }: PathItemProps) {
   const { nameOf, kindOf } = graph;
   const stepCount = `${path.steps.length} ${path.steps.length === 1 ? "step" : "steps"}`;
   const reasons = [stepCount, ...listRankingReasons(path)];
@@ -85,12 +80,7 @@ function PathItem({ path, rank, worstCost, graph }: PathItemProps) {
           </Fragment>
         ))}
       </h3>
-      <p className="text-muted text-sm">
-        {reasons.join(" · ")} ·{" "}
-        <span className="whitespace-nowrap">
-          score {path.cost.toFixed(2)} <CostBar cost={path.cost} worstCost={worstCost} />
-        </span>
-      </p>
+      <p className="text-muted text-sm">{reasons.join(" · ")}</p>
       <ul aria-label={`Kinds of connection in path ${rank}`} className="flex flex-wrap gap-1">
         {path.kinds.map((kind) => (
           <li key={kind}>

@@ -4,7 +4,7 @@ import { KindLine } from "../graphics/KindLine";
 import { NodeKindShape } from "../graphics/NodeKindShape";
 
 const examples = [
-  { from: "wikidata:Q509308", to: "wikidata:Q30034" },
+  { from: "wikidata:Q509308", to: "wikidata:Q15859794" },
   { from: "wikidata:Q509308", to: "wikidata:Q1044186" },
 ];
 
@@ -85,18 +85,18 @@ function IntroDiagram() {
       </text>
       <HubSketch />
       <text x={64} y={126} className="fill-muted">
-        hubs cost more
+        hubs rank lower
       </text>
       {chainLinks.map(({ kind }, index) => (
         <KindLine
           key={kind}
-          from={{ x: 196, y: 112 + index * 8 }}
-          to={{ x: 220, y: 112 + index * 8 }}
+          from={{ x: 176, y: 112 + index * 8 }}
+          to={{ x: 200, y: 112 + index * 8 }}
           kind={kind}
         />
       ))}
-      <text x={230} y={126} className="fill-muted">
-        mixed kinds cost less
+      <text x={210} y={126} className="fill-muted">
+        mixed kinds rank higher
       </text>
     </svg>
   );

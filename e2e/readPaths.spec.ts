@@ -5,8 +5,8 @@ const fromMatsutakeToRedPine = `/paths?from=${encodeURIComponent("wikidata:Q5093
 test.describe("reading the paths between two nodes", () => {
   test("explains how paths are ranked", async ({ page }) => {
     await page.goto(fromMatsutakeToRedPine);
-    await expect(page.getByText(/^Paths that avoid hubs/)).toContainText(
-      "cross more kinds of connection rank higher",
+    await expect(page.getByText(/^Paths through nodes with fewer neighbours/)).toContainText(
+      "mix kinds of connection, are listed first",
     );
   });
 
@@ -14,7 +14,7 @@ test.describe("reading the paths between two nodes", () => {
     await page.goto(fromMatsutakeToRedPine);
     await expect(
       page.getByRole("list", { name: "Paths" }).getByRole("listitem").first(),
-    ).toContainText("1 step · crosses 1 kind of connection · score 1.00");
+    ).toContainText("1 step · crosses 1 kind of connection");
   });
 
   test("folds a step's parallel connections behind a disclosure", async ({ page }) => {
