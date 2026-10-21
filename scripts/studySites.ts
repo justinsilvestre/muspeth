@@ -1,5 +1,5 @@
+import { type Coordinates, distanceKm } from "../src/shared/distanceKm.ts";
 import type { ConnectionSource } from "../src/shared/graph.ts";
-import { type Coordinates, distanceKm } from "../src/shared/placeAndPeriodQuery.ts";
 import type { ConnectionDraft, NodeDraft } from "./graphDrafts.ts";
 
 /** One organism's part in an interaction recorded at a known place, with a source of it. */

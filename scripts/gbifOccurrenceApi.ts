@@ -1,4 +1,4 @@
-import type { Coordinates } from "../src/shared/placeAndPeriodQuery.ts";
+import type { Coordinates } from "../src/shared/distanceKm.ts";
 import { fetchWithRetry } from "./fetchWithRetry.ts";
 import type { GbifSoundOccurrence } from "./soundRecordings.ts";
 import { userAgent } from "./userAgent.ts";

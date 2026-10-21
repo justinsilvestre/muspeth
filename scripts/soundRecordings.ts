@@ -1,4 +1,4 @@
-import type { Coordinates } from "../src/shared/placeAndPeriodQuery.ts";
+import type { Coordinates } from "../src/shared/distanceKm.ts";
 import type { QualityFlag } from "../src/shared/qualityFlags.ts";
 import { toCreativeCommonsLicence } from "./creativeCommonsLicence.ts";
 import type { ConnectionDraft, NodeDraft } from "./graphDrafts.ts";
