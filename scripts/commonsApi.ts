@@ -8,8 +8,8 @@ const apiUrl = "https://commons.wikimedia.org/w/api.php";
 /** The most files described in one request, kept low so that the request address stays short. */
 const batchSize = 25;
 
-/** The width of the smaller copy of each image that is linked. */
-const thumbnailWidth = 800;
+/** The width of the smaller copy of each image that is linked, one of the standard widths that Commons serves. */
+const thumbnailWidth = 960;
 
 const waitForTurn = createRequestSpacer(200);
 
