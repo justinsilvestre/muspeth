@@ -2,7 +2,7 @@ import { env } from "cloudflare:test";
 import { describe, expect, it } from "vitest";
 import { emptyConnectionFilter } from "../shared/connectionFilter";
 import type { PlaceAndPeriodQuery } from "../shared/placeAndPeriodQuery";
-import { listPlaceSummaries } from "./placeSummaryQueries";
+import { listDateSummaries, listPlaceSummaries } from "./placeSummaryQueries";
 import { insertConnections } from "./test/insertConnections";
 
 const kyoto = { place: "Kyoto", latitude: 35.03, longitude: 135.78 };
@@ -61,5 +61,29 @@ describe("listPlaceSummaries", () => {
     expect(await listPlaceSummaries(env.DB, query({ filter }))).toEqual([
       { ...kyoto, kind: "likeness", count: 1 },
     ]);
+  });
+});
+
+describe("listDateSummaries", () => {
+  it("counts the connections of each kind on each date", async () => {
+    await insertPlacedConnections();
+    expect(await listDateSummaries(env.DB, query({}))).toEqual([
+      { date: "1990", kind: "interaction", count: 1 },
+      { date: "2005", kind: "interaction", count: 2 },
+    ]);
+  });
+
+  it("counts only the connections within the radius of the place", async () => {
+    await insertPlacedConnections();
+    const near = { latitude: 35.01, longitude: 135.77 };
+    expect(await listDateSummaries(env.DB, query({ near, radiusKm: 10 }))).toEqual([
+      { date: "1990", kind: "interaction", count: 1 },
+      { date: "2005", kind: "interaction", count: 1 },
+    ]);
+  });
+
+  it("counts every date, whatever the period searched", async () => {
+    await insertPlacedConnections();
+    expect(await listDateSummaries(env.DB, query({ from: "1990", to: "1990" }))).toHaveLength(2);
   });
 });

@@ -7,9 +7,11 @@ import {
 import { createNodeNamer } from "../createNodeNamer";
 import { ConnectionFilterControls } from "../filters/ConnectionFilterControls";
 import { useConnectionFilter } from "../filters/useConnectionFilter";
+import { PeriodExplorerTimeline } from "./PeriodExplorerTimeline";
 import { PlacedConnectionList } from "./PlacedConnectionList";
+import { PlaceExplorerMap } from "./PlaceExplorerMap";
 import { PlaceQueryForm } from "./PlaceQueryForm";
-import { PlacesExplorer } from "./PlacesExplorer";
+
 import { PlacesIntro } from "./PlacesIntro";
 
 /** Finds the connections recorded near a place, within a period, or both. */
@@ -35,19 +37,22 @@ export function PlacesView({ nodes }: { nodes: GraphNode[] }) {
       )}
       {hasQuery && !queryResult.ok && <p role="alert">{queryResult.error}</p>}
       {exploredResult.ok && (
-        <PlacesExplorer
-          params={searchParams}
-          query={exploredResult.value}
-          onSearch={setSearchParams}
-        />
+        <>
+          <PlaceExplorerMap
+            params={searchParams}
+            query={exploredResult.value}
+            onSearch={setSearchParams}
+          />
+          <PeriodExplorerTimeline
+            params={searchParams}
+            query={exploredResult.value}
+            onSearch={setSearchParams}
+          />
+        </>
       )}
       {!hasQuery && <PlacesIntro />}
       {queryResult.ok && (
-        <PlacedConnectionList
-          params={searchParams}
-          query={queryResult.value}
-          nameOf={createNodeNamer(nodes)}
-        />
+        <PlacedConnectionList params={searchParams} nameOf={createNodeNamer(nodes)} />
       )}
     </section>
   );

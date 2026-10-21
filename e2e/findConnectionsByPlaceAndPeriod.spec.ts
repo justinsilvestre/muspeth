@@ -33,4 +33,16 @@ test.describe("finding connections by place and period", () => {
       page.getByRole("list", { name: "Connections by place and period" }).getByRole("listitem"),
     ).toHaveText([/recorded at Sapporo|Sapporo.*0\.0 km away/]);
   });
+
+  test("searches a period brushed on the timeline", async ({ page }) => {
+    await page.goto("/places");
+    const timeline = page.getByRole("img", { name: /^Timeline of when/ });
+    const box = await timeline.boundingBox();
+    if (!box) throw new Error("The timeline is not shown");
+    await page.mouse.move(box.x + 2, box.y + 30);
+    await page.mouse.down();
+    await page.mouse.move(box.x + box.width - 2, box.y + 30, { steps: 4 });
+    await page.mouse.up();
+    await expect(page).toHaveURL(/from=.*&to=/);
+  });
 });

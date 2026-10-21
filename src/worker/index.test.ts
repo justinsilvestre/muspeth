@@ -104,6 +104,32 @@ describe("the API", () => {
     });
   });
 
+  describe("GET /api/connections/dates", () => {
+    it("counts the connections on each date near a place", async () => {
+      await insertConnections([
+        {
+          id: 1,
+          sourceNodeId: "a",
+          targetNodeId: "b",
+          latitude: 35.03,
+          longitude: 135.78,
+          date: "1990",
+        },
+        {
+          id: 2,
+          sourceNodeId: "a",
+          targetNodeId: "c",
+          latitude: 43.06,
+          longitude: 141.35,
+          date: "1990",
+        },
+      ]);
+      const response = await app.request("/api/connections/dates?near=35.01,135.77", {}, env);
+      const { dates } = await response.json<{ dates: { count: number }[] }>();
+      expect(dates.map(({ count }) => count)).toEqual([1]);
+    });
+  });
+
   describe("GET /api/paths", () => {
     it("lists the paths between two nodes, step by step", async () => {
       await insertConnections(chain(["a", "b", "c"], 1));

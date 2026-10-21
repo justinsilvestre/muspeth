@@ -11,7 +11,7 @@ import { exportGraph, listConnectionSourceNames } from "./graphExportQueries";
 import { findNode, listConnections, listNodes } from "./graphQueries";
 import { findPathsBetween } from "./pathQueries";
 import { listConnectionsByPlaceAndPeriod } from "./placeQueries";
-import { listPlaceSummaries } from "./placeSummaryQueries";
+import { listDateSummaries, listPlaceSummaries } from "./placeSummaryQueries";
 import { listTaxa, listTaxonPlacements } from "./taxonomyQueries";
 
 type AppContext = Context<{ Bindings: Env }>;
@@ -43,6 +43,11 @@ const app = new Hono<{ Bindings: Env }>()
     const query = parseOptionalPlaceAndPeriodQuery(searchParamsOf(context));
     if (!query.ok) return badRequest(context, query);
     return context.json({ places: await listPlaceSummaries(context.env.DB, query.value) });
+  })
+  .get("/connections/dates", async (context) => {
+    const query = parseOptionalPlaceAndPeriodQuery(searchParamsOf(context));
+    if (!query.ok) return badRequest(context, query);
+    return context.json({ dates: await listDateSummaries(context.env.DB, query.value) });
   })
   .get("/paths", async (context) => {
     const query = parsePathQuery(searchParamsOf(context));

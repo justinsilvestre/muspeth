@@ -107,6 +107,7 @@ const responsesByPathname = {
   "/api/sources": { sources: ["test"] },
   "/api/paths": { paths: [pathFromNematode], truncated: false },
   "/api/connections": { connections: [pathogenInKyoto] },
+  "/api/connections/dates": { dates: [{ date: "1990/1992", kind: "interaction", count: 1 }] },
   "/api/connections/places": {
     places: [{ place: "Kyoto", latitude: 35.03, longitude: 135.78, kind: "interaction", count: 1 }],
   },
@@ -333,6 +334,20 @@ describe("App", () => {
       renderApp("/places?near=35,135&from=1990");
       await screen.findByRole("list", { name: "Connections by place and period" });
       expect(listRequestedPaths(fetch)).toContain("/api/connections/places?from=1990");
+    });
+
+    it("asks for every date on which connections were recorded near the place", async () => {
+      const fetch = stubApi();
+      renderApp("/places?near=35,135&from=1990");
+      await screen.findByRole("list", { name: "Connections by place and period" });
+      expect(listRequestedPaths(fetch)).toContain("/api/connections/dates?near=35%2C135");
+    });
+
+    it("searches any time once the period is cleared", async () => {
+      const fetch = stubApi();
+      renderApp("/places?near=35,135&from=1990");
+      fireEvent.click(await screen.findByRole("button", { name: "Search any time" }));
+      expect(listRequestedPaths(fetch)).toContain("/api/connections?near=35%2C135");
     });
   });
 
