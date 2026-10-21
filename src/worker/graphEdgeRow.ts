@@ -2,7 +2,7 @@ import type { GraphEdge } from "../shared/graphExport";
 
 /** The columns of the `connections` table that make up a `GraphEdge`. */
 export const graphEdgeColumns =
-  "id, source_node_id, target_node_id, kind, relation, basis, source, quality_flags";
+  "id, source_node_id, target_node_id, kind, relation, basis, source, licence, quality_flags";
 
 export type GraphEdgeRow = {
   id: number;
@@ -12,6 +12,7 @@ export type GraphEdgeRow = {
   relation: string;
   basis: GraphEdge["basis"];
   source: string;
+  licence: string;
   quality_flags: string;
 };
 
@@ -24,6 +25,7 @@ export function toGraphEdge(row: GraphEdgeRow) {
     relation: row.relation,
     basis: row.basis,
     source: row.source,
+    licence: row.licence,
     qualityFlags: JSON.parse(row.quality_flags),
   } satisfies GraphEdge;
 }

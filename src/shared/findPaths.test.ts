@@ -13,6 +13,7 @@ function edge(id: number, sourceNodeId: string, targetNodeId: string, kind: Conn
     relation: "relatedTo",
     basis: "observed",
     source: "test",
+    licence: "CC0-1.0",
     qualityFlags: [],
   } satisfies GraphEdge;
 }

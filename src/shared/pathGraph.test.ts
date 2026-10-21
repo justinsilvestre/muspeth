@@ -11,6 +11,7 @@ function edge(id: number, sourceNodeId: string, targetNodeId: string) {
     relation: "interactsWith",
     basis: "observed",
     source: "test",
+    licence: "CC0-1.0",
     qualityFlags: [],
   } satisfies GraphEdge;
 }

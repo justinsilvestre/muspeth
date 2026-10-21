@@ -80,6 +80,7 @@ const pathogenEdge = {
   relation: "pathogenOf",
   basis: "observed",
   source: "test",
+  licence: "CC0-1.0",
   qualityFlags: [],
 } satisfies GraphEdge;
 

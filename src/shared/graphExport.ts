@@ -10,6 +10,7 @@ export type GraphEdge = {
   relation: string;
   basis: ConnectionBasis;
   source: string;
+  licence: string;
   qualityFlags: QualityFlag[];
 };
 
