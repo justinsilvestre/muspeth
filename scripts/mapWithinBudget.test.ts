@@ -30,6 +30,20 @@ describe("mapWithinBudget", () => {
     expect(skippedCount).toBe(2);
   });
 
+  it("tells each call whether time is left", async () => {
+    const mapped = mapWithinBudget(
+      [1],
+      async (_item, hasTimeLeft) => {
+        await new Promise((resolve) => setTimeout(resolve, 30));
+        return hasTimeLeft();
+      },
+      25,
+      1,
+    );
+    await vi.advanceTimersByTimeAsync(100);
+    expect((await mapped).results).toEqual([false]);
+  });
+
   it("keeps the results in the order of the items", async () => {
     const mapped = mapWithinBudget(
       [30, 1, 10],

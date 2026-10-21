@@ -21,6 +21,14 @@ describe("toMatchFlags", () => {
   it("flags a match by an ancestor's identifier as derived from a coarser level", () => {
     expect(toMatchFlags(makeMatch("a", "ancestor"))).toEqual(["derived_from_coarser_level"]);
   });
+
+  it("adds the match's other doubts", () => {
+    const match = {
+      ...makeMatch("a", "ancestor"),
+      otherFlags: ["unreferenced_statement" as const],
+    };
+    expect(toMatchFlags(match)).toEqual(["derived_from_coarser_level", "unreferenced_statement"]);
+  });
 });
 
 describe("selectArtworkMatches", () => {

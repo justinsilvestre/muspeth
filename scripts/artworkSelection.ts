@@ -14,16 +14,19 @@ export type ArtworkMatch = {
    * carries the item of a taxon above the organism, else a name.
    */
   by: "id" | "ancestor" | { name: string; kind: NameKind };
+  /** Other doubts about the match, such as a statement that cites no reference. */
+  otherFlags?: QualityFlag[];
 };
 
 /**
  * The flags that a match carries: a match by an ancestor's item is pushed down from a coarser
  * taxon, and a match by name is only a text match.
  */
-export function toMatchFlags({ by }: ArtworkMatch) {
-  if (by === "id") return [] satisfies QualityFlag[];
-  if (by === "ancestor") return ["derived_from_coarser_level"] satisfies QualityFlag[];
-  return ["text_match"] satisfies QualityFlag[];
+export function toMatchFlags({ by, otherFlags = [] }: ArtworkMatch) {
+  if (by === "id") return otherFlags;
+  if (by === "ancestor")
+    return ["derived_from_coarser_level", ...otherFlags] satisfies QualityFlag[];
+  return ["text_match", ...otherFlags] satisfies QualityFlag[];
 }
 
 /**
@@ -36,7 +39,7 @@ export function selectArtworkMatches(matches: ArtworkMatch[], limit = artworksPe
   for (const match of matches) {
     const key = `${match.organismId} ${match.artwork.id}`;
     const known = best.get(key);
-    if (!known || toRank(match) < toRank(known)) best.set(key, match);
+    if (!known || rankMatch(match) < rankMatch(known)) best.set(key, match);
   }
   const byOrganism = Map.groupBy(best.values(), ({ organismId }) => organismId);
   return [...byOrganism.values()].flatMap((organismMatches) =>
@@ -46,11 +49,13 @@ export function selectArtworkMatches(matches: ArtworkMatch[], limit = artworksPe
 
 function compareMatches(a: ArtworkMatch, b: ArtworkMatch) {
   return (
-    toRank(a) - toRank(b) || a.artwork.id.localeCompare(b.artwork.id, undefined, { numeric: true })
+    rankMatch(a) - rankMatch(b) ||
+    a.artwork.id.localeCompare(b.artwork.id, undefined, { numeric: true })
   );
 }
 
-function toRank({ by }: ArtworkMatch) {
+/** Ranks how an artwork was matched, the most certain way first. */
+export function rankMatch({ by }: Pick<ArtworkMatch, "by">) {
   if (by === "id") return 0;
   if (by === "ancestor") return 1;
   if (by.kind === "scientific") return 2;
