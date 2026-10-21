@@ -317,11 +317,10 @@ Points that follow:
 - **Streaming from the source does not avoid the licence terms.** In addition, the source servers appear not to allow cross-site audio processing in the browser (*unconfirmed*).
 - **Attribution must appear in the piece itself:** title, recordist, source link and licence for each recording.
 
-**Options for the sound of a piece, best first:**
-1. Use CC0, CC BY and CC BY-SA recordings only, keeping a list of each file's licence and credit. Coverage is uneven: for the uguisu, about 180 of 940 recordings qualify.
-2. Synthesize sound from data such as song frequency or diet.
-3. Ask individual recordists for permission for key species.
-4. For a free, non-commercial or academic showing, add CC BY-NC and CC BY-NC-SA recordings. Use ND recordings only unaltered.
+**The project is non-commercial**, so the graph keeps recordings under every Creative Commons licence, including NC and ND ones, and records each one's licence. A piece then chooses among them:
+1. Use any recording unaltered, crediting each as its licence asks.
+2. To filter, pitch-shift or mix recordings, leave out ND ones, and give the result the licence that any SA recordings require.
+3. Where coverage is thin, synthesize sound from data such as song frequency or diet, or ask individual recordists for permission.
 
 ### Noise and bias
 
