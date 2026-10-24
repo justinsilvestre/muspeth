@@ -7,4 +7,5 @@ export const precomputedResponsePaths = {
   "/api/nodes": "/precomputed/nodes.json",
   "/api/taxonomy": "/precomputed/taxonomy.json",
   "/api/sources": "/precomputed/sources.json",
+  "/api/kinships": "/precomputed/kinships.json",
 } as const;
