@@ -18,6 +18,11 @@ const views = [
     isOpenAt: (pathname: string) => pathname === "/places",
   },
   {
+    label: "Several trees",
+    path: "/kinships",
+    isOpenAt: (pathname: string) => pathname === "/kinships",
+  },
+  {
     label: "Taxonomic tree",
     path: "/taxonomy",
     isOpenAt: (pathname: string) => pathname === "/taxonomy",

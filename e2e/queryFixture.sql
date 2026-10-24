@@ -42,3 +42,17 @@ VALUES
     'e2e_fixture', 'CC0-1.0', '[]'),
   (109, 'wikidata:Q509308', 'wikidata:Q1044186', 'interaction', 'hasEctomycorrhizalHost', 'observed',
     'e2e_fixture', 'CC0-1.0', '[]');
+
+-- Two more kinds of connection for the Japanese pine sawyer, through nodes nothing else links to,
+-- so that it joins the matsutake among the organisms connected in four kinds that kinships compare.
+INSERT INTO nodes (id, kind, label, source) VALUES
+  ('e2e:chitin', 'compound', 'chitin', 'e2e_fixture'),
+  ('e2e:kamikiri', 'word', 'kamikiri', 'e2e_fixture');
+
+INSERT INTO connections
+  (id, source_node_id, target_node_id, kind, relation, basis, source, licence, quality_flags)
+VALUES
+  (120, 'wikidata:Q15859794', 'e2e:chitin', 'shared_substance', 'containsCompound', 'observed',
+    'e2e_fixture', 'CC0-1.0', '[]'),
+  (121, 'wikidata:Q15859794', 'e2e:kamikiri', 'shared_words_and_stories', 'namedBy', 'attributed',
+    'e2e_fixture', 'CC0-1.0', '[]');
