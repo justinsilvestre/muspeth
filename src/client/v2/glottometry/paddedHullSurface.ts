@@ -6,10 +6,11 @@ export type SpacePoint = { x: number; y: number; z: number };
 export type SurfaceSample = { position: SpacePoint; normal: SpacePoint };
 
 /**
- * How sharply the surface follows the convex hull's corners: higher values give a hull with flatter sides,
+ * Padding is the radius of the ball swept around the hull. Flattening scales the surface's height.
+ * Corner sharpness sets how closely the surface follows the hull's corners: higher values give flatter sides,
  * lower values a rounder body that bulges between the points.
  */
-const cornerSharpness = 3;
+export type HullSurfaceShape = { padding: number; flattening: number; cornerSharpness: number };
 
 /**
  * Samples a smooth closed surface around a set of points lying in the plane: a rounded version of the points' convex hull,
@@ -18,8 +19,7 @@ const cornerSharpness = 3;
  */
 export function paddedHullSurface(
   points: PlanePoint[],
-  padding: number,
-  flattening: number,
+  shape: HullSurfaceShape,
   { rings, segments }: { rings: number; segments: number },
 ) {
   return Array.from({ length: rings + 1 }, (_, ringIndex) => {
@@ -31,7 +31,7 @@ export function paddedHullSurface(
         y: Math.cos(latitude) * Math.sin(longitude),
         z: Math.sin(latitude),
       };
-      return sampleInDirection(points, padding, flattening, direction);
+      return sampleInDirection(points, shape, direction);
     });
   });
 }
@@ -42,11 +42,10 @@ export function paddedHullSurface(
  */
 function sampleInDirection(
   points: PlanePoint[],
-  padding: number,
-  flattening: number,
+  { padding, flattening, cornerSharpness }: HullSurfaceShape,
   direction: SpacePoint,
 ) {
-  const extreme = findSoftExtremePoint(points, direction);
+  const extreme = findSoftExtremePoint(points, direction, cornerSharpness);
   const normalLength = Math.hypot(direction.x, direction.y, direction.z / flattening);
   return {
     position: {
@@ -67,7 +66,11 @@ function sampleInDirection(
  * which depends only on the direction's horizontal part. Taking the furthest point alone would give the exact convex hull,
  * with flat sides and sharp corners; the weighted average rounds it off.
  */
-function findSoftExtremePoint(points: PlanePoint[], direction: SpacePoint) {
+function findSoftExtremePoint(
+  points: PlanePoint[],
+  direction: SpacePoint,
+  cornerSharpness: number,
+) {
   const reaches = points.map((point) => point.x * direction.x + point.y * direction.y);
   const furthest = Math.max(...reaches);
   const weights = reaches.map((reach) => Math.exp(cornerSharpness * (reach - furthest)));

@@ -1,5 +1,5 @@
 import { useFrame } from "@react-three/fiber";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MeshPhysicalMaterial, type MeshPhysicalMaterialParameters } from "three";
 
 /**
@@ -18,6 +18,9 @@ const undulationGlsl = /* glsl */ `
   }
 `;
 
+/** How far the drifting goes, and how fast it plays. */
+export type Motion = { amplitude: number; speed: number };
+
 /**
  * How a translucent surface thickens toward its silhouette, like the wall of a cell seen edge-on.
  * Strength is the opacity added at the very edge, and width is how far the thickening reaches in from the edge.
@@ -26,34 +29,36 @@ export type EdgeGlow = { strength: number; width: number };
 
 const noEdgeGlow = { strength: 0, width: 1 } satisfies EdgeGlow;
 
-/** Creates a physical material whose vertices drift with the shared undulation field, advancing it every frame. */
+/**
+ * Creates a physical material whose vertices drift with the shared undulation field, advancing it every frame,
+ * and keeps it in step with the given parameters as they change.
+ */
 export function useUndulatingMaterial(
   parameters: MeshPhysicalMaterialParameters,
+  motion: Motion,
   edgeGlow: EdgeGlow = noEdgeGlow,
-  amplitude = 0.12,
 ) {
-  // The material is created once; later parameter changes are applied by the mesh's props instead.
-  const [{ material, uniforms }] = useState(() =>
-    createUndulatingMaterial(parameters, edgeGlow, amplitude),
-  );
-  useFrame(({ clock }) => {
-    uniforms.uTime.value = clock.elapsedTime;
+  const [{ material, uniforms }] = useState(createUndulatingMaterial);
+  useEffect(() => {
+    material.setValues(parameters);
+    uniforms.uAmplitude.value = motion.amplitude;
+    uniforms.uEdgeStrength.value = edgeGlow.strength;
+    uniforms.uEdgePower.value = 1 / edgeGlow.width;
+  });
+  useFrame((_, delta) => {
+    uniforms.uTime.value += delta * motion.speed;
   });
   return material;
 }
 
-function createUndulatingMaterial(
-  parameters: MeshPhysicalMaterialParameters,
-  edgeGlow: EdgeGlow,
-  amplitude: number,
-) {
+function createUndulatingMaterial() {
   const uniforms = {
     uTime: { value: 0 },
-    uAmplitude: { value: amplitude },
-    uEdgeStrength: { value: edgeGlow.strength },
-    uEdgePower: { value: 1 / edgeGlow.width },
+    uAmplitude: { value: 0 },
+    uEdgeStrength: { value: 0 },
+    uEdgePower: { value: 1 },
   };
-  const material = new MeshPhysicalMaterial(parameters);
+  const material = new MeshPhysicalMaterial();
   material.onBeforeCompile = (shader) => {
     Object.assign(shader.uniforms, uniforms);
     shader.vertexShader = shader.vertexShader

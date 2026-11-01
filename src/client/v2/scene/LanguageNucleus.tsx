@@ -1,17 +1,26 @@
 import type { PlanePoint } from "../glottometry/layoutLanguages";
+import type { Appearance } from "./appearance";
 import { LanguageLabel } from "./LanguageLabel";
 import { useUndulatingMaterial } from "./undulation";
 
-type LanguageNucleusProps = { name: string; position: PlanePoint; labelColor: string };
+type LanguageNucleusProps = {
+  name: string;
+  position: PlanePoint;
+  labelColor: string;
+  appearance: Appearance;
+};
 
 /** Marks one language as a small bright body, with its name floating beside it. */
-export function LanguageNucleus({ name, position, labelColor }: LanguageNucleusProps) {
-  const material = useUndulatingMaterial({
-    color: "#f5e9c8",
-    emissive: "#d9a441",
-    emissiveIntensity: 1.4,
-    roughness: 0.3,
-  });
+export function LanguageNucleus({ name, position, labelColor, appearance }: LanguageNucleusProps) {
+  const material = useUndulatingMaterial(
+    {
+      color: appearance.color.nucleus,
+      emissive: appearance.color.nucleus,
+      emissiveIntensity: 0.9,
+      roughness: 0.3,
+    },
+    appearance.movement,
+  );
   return (
     <group position={[position.x, position.y, 0.1]}>
       <mesh material={material}>
