@@ -5,12 +5,12 @@ import { type LanguageFamily, labelOf } from "../glottometry/families";
 import { layoutByLikeness } from "../glottometry/layoutByLikeness";
 import { type LanguageLayout, layoutLanguages } from "../glottometry/layoutLanguages";
 import { placeLabels } from "../glottometry/placeLabels";
-import { type Subgroup, scoreSubgroups } from "../glottometry/scoreSubgroups";
+import { scoreSubgroups } from "../glottometry/scoreSubgroups";
 import type { Appearance } from "./appearance";
 import { GeographicAxes } from "./GeographicAxes";
 import { LanguageNucleus } from "./LanguageNucleus";
 import { Membrane } from "./Membrane";
-import { pickInnermostSubgroup } from "./pickInnermostSubgroup";
+import { type Hovered, pickHovered } from "./pickHovered";
 
 const diagramExtent = 6.5;
 const labelHeight = 0.4;
@@ -21,8 +21,8 @@ type CellBodyProps = {
   /** Subgroups with a lower subgroupiness than this are not drawn. */
   threshold: number;
   appearance: Appearance;
-  hovered: Subgroup | undefined;
-  onHover: (subgroup: Subgroup | undefined) => void;
+  hovered: Hovered | undefined;
+  onHover: (hovered: Hovered | undefined) => void;
 };
 
 /** Draws the Demo family as a cell: every language a nucleus, every subgroup a membrane nested around its members. */
@@ -70,7 +70,7 @@ export function CellBody({
   const familyPadding = paddingBase + paddingPerMember * familySize + 0.3;
   const inkColor = isDark ? "#f5f5f4" : "#1c1917";
   const handlePointerMove = (event: ThreeEvent<PointerEvent>) =>
-    onHover(pickInnermostSubgroup(event.intersections));
+    onHover(pickHovered(event.intersections));
   return (
     <group rotation-z={Math.PI / 4}>
       {coordinates && (
@@ -99,21 +99,22 @@ export function CellBody({
             order={subgroup.members.length}
             appearance={appearance}
             subgroup={subgroup}
-            isHighlighted={subgroup === hovered}
+            isHighlighted={hovered?.kind === "subgroup" && hovered.subgroup === subgroup}
+          />
+        ))}
+        {table.languages.map((name) => (
+          <LanguageNucleus
+            key={name}
+            name={name}
+            label={labelOf(family, name)}
+            position={layout.positions.get(name) ?? { x: 0, y: 0 }}
+            labelOffset={labelOffsets.get(name) ?? { dx: labelHeight, dy: -labelHeight }}
+            labelHeight={labelHeight}
+            labelColor={inkColor}
+            appearance={appearance}
           />
         ))}
       </group>
-      {table.languages.map((name) => (
-        <LanguageNucleus
-          key={name}
-          label={labelOf(family, name)}
-          position={layout.positions.get(name) ?? { x: 0, y: 0 }}
-          labelOffset={labelOffsets.get(name) ?? { dx: labelHeight, dy: -labelHeight }}
-          labelHeight={labelHeight}
-          labelColor={inkColor}
-          appearance={appearance}
-        />
-      ))}
     </group>
   );
 }

@@ -2,16 +2,16 @@ import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useColorScheme } from "../../theme/useColorScheme";
 import type { LanguageFamily } from "../glottometry/families";
-import type { Subgroup } from "../glottometry/scoreSubgroups";
 import type { Appearance } from "./appearance";
 import { CellBody } from "./CellBody";
+import type { Hovered } from "./pickHovered";
 
 type CellSceneProps = {
   family: LanguageFamily;
   threshold: number;
   appearance: Appearance;
-  hovered: Subgroup | undefined;
-  onHover: (subgroup: Subgroup | undefined) => void;
+  hovered: Hovered | undefined;
+  onHover: (hovered: Hovered | undefined) => void;
 };
 
 /** Renders the glottometric diagram of the Demo family as a slowly undulating cell. */

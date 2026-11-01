@@ -1,10 +1,11 @@
 import { lazy, Suspense, useDeferredValue, useState } from "react";
 import { defaultFamily, type LanguageFamily } from "../glottometry/families";
-import type { Subgroup } from "../glottometry/scoreSubgroups";
 import { AppearanceControls } from "./AppearanceControls";
 import { type Appearance, defaultAppearance } from "./appearance";
 import { DiagramKey } from "./DiagramKey";
 import { FamilySelect } from "./FamilySelect";
+import { HoverTooltip } from "./HoverTooltip";
+import type { Hovered } from "./pickHovered";
 import { ThresholdSlider } from "./ThresholdSlider";
 
 const CellScene = lazy(() => import("./CellScene"));
@@ -17,7 +18,8 @@ export function SceneView() {
   const [family, setFamily] = useState<LanguageFamily>(defaultFamily);
   const [threshold, setThreshold] = useState(defaultThreshold);
   const [appearance, setAppearance] = useState<Appearance>(defaultAppearance);
-  const [hovered, setHovered] = useState<Subgroup>();
+  const [hovered, setHovered] = useState<Hovered>();
+  const [pointer, setPointer] = useState({ x: 0, y: 0 });
   // The scene follows the controls with a delay when it cannot keep up, so that the controls themselves stay responsive.
   const shownAppearance = useDeferredValue(appearance);
   const shownThreshold = useDeferredValue(threshold);
@@ -40,7 +42,14 @@ export function SceneView() {
         onChange={setAppearance}
         onReset={() => setAppearance(defaultAppearance)}
       />
-      <div className="aspect-[16/10] rounded border border-line">
+      <div
+        className="relative aspect-[16/10] rounded border border-line"
+        onPointerMove={(event) => {
+          const bounds = event.currentTarget.getBoundingClientRect();
+          setPointer({ x: event.clientX - bounds.left, y: event.clientY - bounds.top });
+        }}
+      >
+        <HoverTooltip hovered={hovered} pointer={pointer} family={family} />
         <Suspense fallback={<p className="p-3">Loading the scene…</p>}>
           <CellScene
             family={family}
@@ -51,7 +60,7 @@ export function SceneView() {
           />
         </Suspense>
       </div>
-      <DiagramKey family={family} appearance={appearance} hovered={hovered} />
+      <DiagramKey family={family} appearance={appearance} />
     </section>
   );
 }

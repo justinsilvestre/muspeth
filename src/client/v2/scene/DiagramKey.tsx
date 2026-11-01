@@ -1,15 +1,10 @@
-import { type LanguageFamily, labelOf } from "../glottometry/families";
-import type { Subgroup } from "../glottometry/scoreSubgroups";
+import type { LanguageFamily } from "../glottometry/families";
 import type { Appearance } from "./appearance";
 
-type DiagramKeyProps = {
-  family: LanguageFamily;
-  appearance: Appearance;
-  hovered: Subgroup | undefined;
-};
+type DiagramKeyProps = { family: LanguageFamily; appearance: Appearance };
 
-/** Explains what the cell shows, and names the subgroup the pointer is on. */
-export function DiagramKey({ family, appearance, hovered }: DiagramKeyProps) {
+/** Explains what the cell shows, and cites where its data comes from. */
+export function DiagramKey({ family, appearance }: DiagramKeyProps) {
   const { color } = appearance;
   const placement = family.coordinates
     ? "placed where it is spoken: the arrows show north and east, each spanning half a degree"
@@ -40,10 +35,8 @@ export function DiagramKey({ family, appearance, hovered }: DiagramKeyProps) {
           </li>
         </ul>
         <div className="space-y-2 text-muted">
-          <p role="status">
-            {hovered
-              ? describe(hovered, family)
-              : "Point at a membrane to see its subgroup and scores."}
+          <p>
+            Point at a membrane to see its subgroup and scores, or at a dot to see its language.
           </p>
           <p className="text-xs">
             Data:{" "}
@@ -72,13 +65,4 @@ function Swatch({ color }: { color: string }) {
       style={{ background: color }}
     />
   );
-}
-
-function describe(
-  { members, support, cohesiveness, subgroupiness }: Subgroup,
-  family: LanguageFamily,
-) {
-  const names = members.map((member) => labelOf(family, member)).join(", ");
-  const plural = support === 1 ? "innovation" : "innovations";
-  return `Subgroup ${names}: ${support} supporting ${plural}, cohesiveness ${cohesiveness.toFixed(2)}, subgroupiness ${subgroupiness.toFixed(1)}.`;
 }
