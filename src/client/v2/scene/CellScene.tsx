@@ -1,11 +1,13 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useColorScheme } from "../../theme/useColorScheme";
+import type { LanguageFamily } from "../glottometry/families";
 import type { Subgroup } from "../glottometry/scoreSubgroups";
 import type { Appearance } from "./appearance";
 import { CellBody } from "./CellBody";
 
 type CellSceneProps = {
+  family: LanguageFamily;
   threshold: number;
   appearance: Appearance;
   hovered: Subgroup | undefined;
@@ -13,7 +15,8 @@ type CellSceneProps = {
 };
 
 /** Renders the glottometric diagram of the Demo family as a slowly undulating cell. */
-export default function CellScene({ threshold, appearance, hovered, onHover }: CellSceneProps) {
+export default function CellScene(props: CellSceneProps) {
+  const { family, threshold, appearance, hovered, onHover } = props;
   const { colorScheme } = useColorScheme();
   const isDark = colorScheme === "dark";
   return (
@@ -22,6 +25,7 @@ export default function CellScene({ threshold, appearance, hovered, onHover }: C
       <directionalLight position={[4, 6, 8]} intensity={isDark ? 1.8 : 2.4} />
       <pointLight position={[0, 0, 3]} intensity={isDark ? 12 : 6} color="#ffe2b0" />
       <CellBody
+        family={family}
         isDark={isDark}
         threshold={threshold}
         appearance={appearance}

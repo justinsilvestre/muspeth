@@ -1,8 +1,10 @@
 import { lazy, Suspense, useDeferredValue, useState } from "react";
+import { defaultFamily, type LanguageFamily } from "../glottometry/families";
 import type { Subgroup } from "../glottometry/scoreSubgroups";
 import { AppearanceControls } from "./AppearanceControls";
 import { type Appearance, defaultAppearance } from "./appearance";
 import { DiagramKey } from "./DiagramKey";
+import { FamilySelect } from "./FamilySelect";
 import { ThresholdSlider } from "./ThresholdSlider";
 
 const CellScene = lazy(() => import("./CellScene"));
@@ -12,6 +14,7 @@ const defaultThreshold = 1;
 
 /** Shows the glottometric cell below the navigation, with controls for which subgroups it draws and how they look. */
 export function SceneView() {
+  const [family, setFamily] = useState<LanguageFamily>(defaultFamily);
   const [threshold, setThreshold] = useState(defaultThreshold);
   const [appearance, setAppearance] = useState<Appearance>(defaultAppearance);
   const [hovered, setHovered] = useState<Subgroup>();
@@ -20,7 +23,18 @@ export function SceneView() {
   const shownThreshold = useDeferredValue(threshold);
   return (
     <section aria-label="Historical glottometry" className="flex flex-col gap-3">
-      <ThresholdSlider value={threshold} onChange={setThreshold} />
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+        <FamilySelect
+          value={family}
+          onChange={(next) => {
+            setFamily(next);
+            setHovered(undefined);
+          }}
+        />
+        <div className="min-w-64 flex-1">
+          <ThresholdSlider value={threshold} onChange={setThreshold} />
+        </div>
+      </div>
       <AppearanceControls
         value={appearance}
         onChange={setAppearance}
@@ -29,6 +43,7 @@ export function SceneView() {
       <div className="aspect-[16/10] rounded border border-line">
         <Suspense fallback={<p className="p-3">Loading the scene…</p>}>
           <CellScene
+            family={family}
             threshold={shownThreshold}
             appearance={shownAppearance}
             hovered={hovered}
@@ -36,7 +51,7 @@ export function SceneView() {
           />
         </Suspense>
       </div>
-      <DiagramKey appearance={appearance} hovered={hovered} />
+      <DiagramKey family={family} appearance={appearance} hovered={hovered} />
     </section>
   );
 }

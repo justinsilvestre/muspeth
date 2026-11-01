@@ -1,7 +1,8 @@
 import type { ThreeEvent } from "@react-three/fiber";
 import { useMemo } from "react";
 import { Color } from "three";
-import { demoFamily } from "../glottometry/demoFamily";
+import type { LanguageFamily } from "../glottometry/families";
+import { layoutByLikeness } from "../glottometry/layoutByLikeness";
 import { type LanguageLayout, layoutLanguages } from "../glottometry/layoutLanguages";
 import { type Subgroup, scoreSubgroups } from "../glottometry/scoreSubgroups";
 import type { Appearance } from "./appearance";
@@ -11,11 +12,9 @@ import { Membrane } from "./Membrane";
 import { pickInnermostSubgroup } from "./pickInnermostSubgroup";
 
 const diagramExtent = 6.5;
-/** The subgroupiness of the strongest subgroup in the family, to which membrane thicknesses are scaled. */
-const strongest = scoreSubgroups(demoFamily)[0]?.subgroupiness ?? 1;
-const familySize = demoFamily.languages.length;
 
 type CellBodyProps = {
+  family: LanguageFamily;
   isDark: boolean;
   /** Subgroups with a lower subgroupiness than this are not drawn. */
   threshold: number;
@@ -25,15 +24,33 @@ type CellBodyProps = {
 };
 
 /** Draws the Demo family as a cell: every language a nucleus, every subgroup a membrane nested around its members. */
-export function CellBody({ isDark, threshold, appearance, hovered, onHover }: CellBodyProps) {
-  const layout = useMemo(() => layoutLanguages(demoFamily.coordinates, diagramExtent), []);
-  const familyPoints = useMemo(() => positionsOf(demoFamily.languages, layout), [layout]);
+export function CellBody({
+  family,
+  isDark,
+  threshold,
+  appearance,
+  hovered,
+  onHover,
+}: CellBodyProps) {
+  const { table, coordinates } = family;
+  const familySize = table.languages.length;
+  const layout = useMemo(
+    () =>
+      coordinates
+        ? layoutLanguages(coordinates, diagramExtent)
+        : layoutByLikeness(table, diagramExtent),
+    [table, coordinates],
+  );
+  const familyPoints = useMemo(() => positionsOf(table.languages, layout), [table, layout]);
+  const scored = useMemo(() => scoreSubgroups(table), [table]);
+  // Membrane thicknesses are scaled to the strongest subgroup of the family.
+  const strongest = scored[0]?.subgroupiness ?? 1;
   const subgroups = useMemo(
     () =>
-      scoreSubgroups(demoFamily)
+      scored
         .filter((subgroup) => subgroup.subgroupiness >= threshold)
         .map((subgroup) => ({ subgroup, points: positionsOf(subgroup.members, layout) })),
-    [threshold, layout],
+    [scored, threshold, layout],
   );
   const { paddingBase, paddingPerMember } = appearance.shape;
   const familyPadding = paddingBase + paddingPerMember * familySize + 0.3;
@@ -42,11 +59,13 @@ export function CellBody({ isDark, threshold, appearance, hovered, onHover }: Ce
     onHover(pickInnermostSubgroup(event.intersections));
   return (
     <group rotation-z={Math.PI / 4}>
-      <GeographicAxes
-        origin={axesOrigin(familyPoints, familyPadding)}
-        unitsPerDegree={layout.unitsPerDegree}
-        color={isDark ? "#a8a29e" : "#57534e"}
-      />
+      {coordinates && (
+        <GeographicAxes
+          origin={axesOrigin(familyPoints, familyPadding)}
+          unitsPerDegree={layout.unitsPerDegree}
+          color={isDark ? "#a8a29e" : "#57534e"}
+        />
+      )}
       <group onPointerMove={handlePointerMove} onPointerLeave={() => onHover(undefined)}>
         <Membrane
           points={familyPoints}
@@ -70,7 +89,7 @@ export function CellBody({ isDark, threshold, appearance, hovered, onHover }: Ce
           />
         ))}
       </group>
-      {demoFamily.languages.map((name) => (
+      {table.languages.map((name) => (
         <LanguageNucleus
           key={name}
           name={name}

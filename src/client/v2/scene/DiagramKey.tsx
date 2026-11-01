@@ -1,20 +1,27 @@
+import type { LanguageFamily } from "../glottometry/families";
 import type { Subgroup } from "../glottometry/scoreSubgroups";
 import type { Appearance } from "./appearance";
 
-type DiagramKeyProps = { appearance: Appearance; hovered: Subgroup | undefined };
+type DiagramKeyProps = {
+  family: LanguageFamily;
+  appearance: Appearance;
+  hovered: Subgroup | undefined;
+};
 
 /** Explains what the cell shows, and names the subgroup the pointer is on. */
-export function DiagramKey({ appearance, hovered }: DiagramKeyProps) {
+export function DiagramKey({ family, appearance, hovered }: DiagramKeyProps) {
   const { color } = appearance;
+  const placement = family.coordinates
+    ? "placed where it is spoken: the arrows show north and east, each spanning half a degree"
+    : "placed so that languages sharing many innovations lie close together";
   return (
     <details open className="rounded border border-line text-sm">
       <summary className="cursor-pointer px-3 py-1.5 text-muted">What you are looking at</summary>
       <div className="grid gap-x-6 gap-y-2 px-3 pb-3 sm:grid-cols-2">
         <ul className="space-y-1">
           <li>
-            <Swatch color={color.nucleus} /> Each bright dot is a <b>language</b> of the sample
-            "Demo" family of the Historical Glottometry engine, placed where it is spoken: the
-            arrows show north and east, each spanning half a degree.
+            <Swatch color={color.nucleus} /> Each bright dot is a <b>language</b> of the{" "}
+            {family.name}, {placement}. {family.description}
           </li>
           <li>
             <Swatch color={color.smallSubgroup} /> Each membrane encloses a <b>subgroup</b>: a set
@@ -32,9 +39,25 @@ export function DiagramKey({ appearance, hovered }: DiagramKeyProps) {
             cut across it. The threshold slider hides subgroups below a given subgroupiness.
           </li>
         </ul>
-        <p role="status" className="text-muted">
-          {hovered ? describe(hovered) : "Point at a membrane to see its subgroup and scores."}
-        </p>
+        <div className="space-y-2 text-muted">
+          <p role="status">
+            {hovered ? describe(hovered) : "Point at a membrane to see its subgroup and scores."}
+          </p>
+          <p className="text-xs">
+            Data:{" "}
+            <a href={family.citation.url} className="underline hover:text-ink">
+              {family.citation.text}
+            </a>{" "}
+            Scores follow Kalyan & François (2018),{" "}
+            <a
+              href="https://alex.francois.online.fr/data/Kalyan-Francois_2018_Freeing-Comparative-Method-from-Tree-model.pdf"
+              className="underline hover:text-ink"
+            >
+              Freeing the Comparative Method from the tree model
+            </a>
+            .
+          </p>
+        </div>
       </div>
     </details>
   );
