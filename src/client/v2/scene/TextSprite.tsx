@@ -14,15 +14,23 @@ type TextSpriteProps = {
    * with dx negative it ends there. Centered when left out.
    */
   anchor?: { dx: number };
+  /** How opaque the text is, from 0 to 1; fully opaque when left out. */
+  opacity?: number;
 };
 
 /** Shows a short text as a flat sprite facing the camera, drawn over everything else, on a canvas so that no fonts need loading. */
-export function TextSprite({ text, color, height, anchor }: TextSpriteProps) {
+export function TextSprite({ text, color, height, anchor, opacity = 1 }: TextSpriteProps) {
   const { texture, aspect } = useMemo(() => drawTexture(text, color), [text, color]);
   const centerX = anchor ? (Math.sign(anchor.dx) * (height * aspect)) / 2 : 0;
   return (
     <sprite scale={[height * aspect, height, 1]} position-x={centerX} renderOrder={100}>
-      <spriteMaterial map={texture} transparent depthWrite={false} depthTest={false} />
+      <spriteMaterial
+        map={texture}
+        transparent
+        opacity={opacity}
+        depthWrite={false}
+        depthTest={false}
+      />
     </sprite>
   );
 }
