@@ -1,0 +1,1514 @@
+{
+  "id": "piedmont-plants",
+  "name": "Piedmont forest, North Carolina: plants",
+  "group": "Flower surveys",
+  "description": "Spring wildflowers of a deciduous forest and their insect visitors, counted through the springs of 1977 to 1979 before the trees leaf out.",
+  "bodyNoun": {
+    "one": "plant",
+    "many": "plants"
+  },
+  "labelStyle": "species",
+  "citation": {
+    "text": "Alexander F. Motten (1982). Pollination Ecology of the Spring Wildflower Community of a Temperate Deciduous Forest.",
+    "url": "https://doi.org/10.2307/2937269"
+  },
+  "bodies": [
+    {
+      "id": "wikidata:Q150691",
+      "name": "Aesculus sylvatica"
+    },
+    {
+      "id": "mangal:Cardamine angustata angustata",
+      "name": "Cardamine angustata angustata"
+    },
+    {
+      "id": "wikidata:Q671939",
+      "name": "Claytonia virginica"
+    },
+    {
+      "id": "wikidata:Q1288713",
+      "name": "Erythronium umbilicatum"
+    },
+    {
+      "id": "wikidata:Q50346843",
+      "name": "Hepatica americana"
+    },
+    {
+      "id": "wikidata:Q1572090",
+      "name": "Podophyllum peltatum"
+    },
+    {
+      "id": "mangal:Sangiunaria canadensis",
+      "name": "Sangiunaria canadensis"
+    },
+    {
+      "id": "wikidata:Q7607225",
+      "name": "Stellaria pubera"
+    },
+    {
+      "id": "wikidata:Q18121632",
+      "name": "Thalictrum thalictroides"
+    },
+    {
+      "id": "mangal:Tiarella cordifolia collina",
+      "name": "Tiarella cordifolia collina"
+    },
+    {
+      "id": "mangal:Trillium catesbei",
+      "name": "Trillium catesbei"
+    },
+    {
+      "id": "wikidata:Q4468869",
+      "name": "Uvularia sessilifolia"
+    },
+    {
+      "id": "wikidata:Q42313556",
+      "name": "Viola papilionacea"
+    }
+  ],
+  "sharings": [
+    {
+      "relation": "visitors",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Claytonia virginica",
+          "partner": "Bombylius major",
+          "weight": 418,
+          "flags": []
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Andrena erigeniae",
+          "weight": 378,
+          "flags": []
+        },
+        {
+          "body": "Erythronium umbilicatum",
+          "partner": "Andrena nigrihirta",
+          "weight": 273,
+          "flags": []
+        },
+        {
+          "body": "Thalictrum thalictroides",
+          "partner": "Bombylius major",
+          "weight": 130,
+          "flags": []
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Bombylius major",
+          "weight": 122,
+          "flags": []
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Bombylius major",
+          "weight": 79,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Erythronium umbilicatum",
+          "partner": "Andrena tridens",
+          "weight": 72,
+          "flags": []
+        },
+        {
+          "body": "Erythronium umbilicatum",
+          "partner": "Apis mellifera",
+          "weight": 52,
+          "flags": []
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Nomada sp.",
+          "weight": 44,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Gonia sp.",
+          "weight": 37,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Nomada sp.",
+          "weight": 32,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Hepatica americana",
+          "partner": "Andrena nigrihirta",
+          "weight": 27,
+          "flags": []
+        },
+        {
+          "body": "Aesculus sylvatica",
+          "partner": "Bombus bimaculatus",
+          "weight": 25,
+          "flags": []
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "halictid sp.",
+          "weight": 22,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Sangiunaria canadensis",
+          "partner": "Apis mellifera",
+          "weight": 21,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Hepatica americana",
+          "partner": "Bombylius major",
+          "weight": 20,
+          "flags": []
+        },
+        {
+          "body": "Sangiunaria canadensis",
+          "partner": "Bombylius major",
+          "weight": 20,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Tiarella cordifolia collina",
+          "partner": "Bombus bimaculatus",
+          "weight": 18,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Viola papilionacea",
+          "partner": "Bombylius major",
+          "weight": 17,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Andrena nigrihirta",
+          "weight": 16,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Hylema platura",
+          "weight": 16,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Uvularia sessilifolia",
+          "partner": "Andrena nigrihirta",
+          "weight": 15,
+          "flags": []
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Andrena nigrihirta",
+          "weight": 13,
+          "flags": []
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Platycheirus obscurus",
+          "weight": 10,
+          "flags": []
+        },
+        {
+          "body": "Hepatica americana",
+          "partner": "Andrena tridens",
+          "weight": 9,
+          "flags": []
+        },
+        {
+          "body": "Thalictrum thalictroides",
+          "partner": "halictid sp.",
+          "weight": 9,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Andrena nasonii",
+          "weight": 8,
+          "flags": []
+        },
+        {
+          "body": "Tiarella cordifolia collina",
+          "partner": "Bombylius major",
+          "weight": 8,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Thalictrum thalictroides",
+          "partner": "Gonia sp.",
+          "weight": 8,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Hepatica americana",
+          "partner": "Hylema platura",
+          "weight": 8,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Erythronium umbilicatum",
+          "partner": "Nomada perplexa",
+          "weight": 8,
+          "flags": []
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Nomada pygmaea",
+          "weight": 8,
+          "flags": []
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Andrena carlini",
+          "weight": 7,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Dialictus abanci",
+          "weight": 7,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Osmia conjucta",
+          "weight": 7,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Osmia conjucta",
+          "weight": 7,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Erythronium umbilicatum",
+          "partner": "Osmia sp.",
+          "weight": 7,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Andrena nigrihirta",
+          "weight": 6,
+          "flags": []
+        },
+        {
+          "body": "Thalictrum thalictroides",
+          "partner": "Dialictus abanci",
+          "weight": 6,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Nomada perplexa",
+          "weight": 6,
+          "flags": []
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Apis mellifera",
+          "weight": 5,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Bombus bimaculatus",
+          "weight": 5,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Hepatica americana",
+          "partner": "Dialictus abanci",
+          "weight": 5,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Dialictus cressonii",
+          "weight": 5,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Euchlo lotta",
+          "weight": 5,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Hepatica americana",
+          "partner": "Evylaeus macoupinensis",
+          "weight": 5,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Nomada pygmaea",
+          "weight": 5,
+          "flags": []
+        },
+        {
+          "body": "Erythronium umbilicatum",
+          "partner": "Andrena carlini",
+          "weight": 4,
+          "flags": []
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Andrena tridens",
+          "weight": 4,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Viola papilionacea",
+          "partner": "Andrena violae",
+          "weight": 4,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Apis mellifera",
+          "weight": 4,
+          "flags": []
+        },
+        {
+          "body": "Hepatica americana",
+          "partner": "Apis mellifera",
+          "weight": 4,
+          "flags": []
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Evylaeus macoupinensis",
+          "weight": 4,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Hepatica americana",
+          "partner": "Gonia sp.",
+          "weight": 4,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Gonia sp.",
+          "weight": 4,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Nomada perplexa",
+          "weight": 4,
+          "flags": []
+        },
+        {
+          "body": "Hepatica americana",
+          "partner": "Nomada sp.",
+          "weight": 4,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Erythronium umbilicatum",
+          "partner": "Osmia conjucta",
+          "weight": 4,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Erythronium umbilicatum",
+          "partner": "Osmia lignaria",
+          "weight": 4,
+          "flags": []
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Osmia sp.",
+          "weight": 4,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Platycheirus obscurus",
+          "weight": 4,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Toxomerous geminatus",
+          "weight": 4,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Andrena erigeniae",
+          "weight": 3,
+          "flags": []
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Andrena nasonii",
+          "weight": 3,
+          "flags": []
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Augochlora pura",
+          "weight": 3,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Augochlora pura",
+          "weight": 3,
+          "flags": []
+        },
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "Bombus bimaculatus",
+          "weight": 3,
+          "flags": []
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Ceratina calcarata",
+          "weight": 3,
+          "flags": []
+        },
+        {
+          "body": "Erythronium umbilicatum",
+          "partner": "Dialictus abanci",
+          "weight": 3,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Dialictus abanci",
+          "weight": 3,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Nomada luteola",
+          "weight": 3,
+          "flags": []
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Osmia atriventris",
+          "weight": 3,
+          "flags": []
+        },
+        {
+          "body": "Viola papilionacea",
+          "partner": "Osmia atriventris",
+          "weight": 3,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Osmia lignaria",
+          "weight": 3,
+          "flags": []
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Osmia sp.",
+          "weight": 3,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Toxomerous geminatus",
+          "weight": 3,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Andrena arabis",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Sangiunaria canadensis",
+          "partner": "Andrena carlini",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Andrena carlini",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Andrena erigeniae",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Andrena nasonii",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Andrena tridens",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Uvularia sessilifolia",
+          "partner": "Andrena tridens",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Hepatica americana",
+          "partner": "Bombus bimaculatus",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Trillium catesbei",
+          "partner": "Bombus bimaculatus",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Aesculus sylvatica",
+          "partner": "Bombus pensylvanicus",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Erythronium umbilicatum",
+          "partner": "Bombylius major",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Ceratina calcarata",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Thalictrum thalictroides",
+          "partner": "Ceratina calcarata",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Uvularia sessilifolia",
+          "partner": "Dialictus abanci",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Tiarella cordifolia collina",
+          "partner": "Ephemoropsis laboriosa",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Euchlo lotta",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Gonia sp.",
+          "weight": 2,
+          "flags": ["placeholder_species", "unmatched_name"]
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Lycaenopsis argiolus",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Nomada perplexa",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Nomada sp.",
+          "weight": 2,
+          "flags": ["placeholder_species", "unmatched_name"]
+        },
+        {
+          "body": "Viola papilionacea",
+          "partner": "Osmia conjucta",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Osmia lignaria",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Thalictrum thalictroides",
+          "partner": "Platycheirus obscurus",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Erythronium umbilicatum",
+          "partner": "Xylocopa virginica",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "unknown sp.",
+          "weight": 2,
+          "flags": ["placeholder_species", "unmatched_name"]
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Andrena carlini",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Hepatica americana",
+          "partner": "Andrena carlini",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Trillium catesbei",
+          "partner": "Andrena carlini",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Andrena ceanothi",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Andrena dunningi",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Thalictrum thalictroides",
+          "partner": "Andrena erigeniae",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Andrena imatrix",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Andrena personata",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Andrena ziziaeformis",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Uvularia sessilifolia",
+          "partner": "Andrena ziziaeformis",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Tiarella cordifolia collina",
+          "partner": "Apis mellifera",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Augochlora pura",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Erythronium umbilicatum",
+          "partner": "Augochlora pura",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Augochorella striata",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Erythronium umbilicatum",
+          "partner": "Augochorella striata",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Sangiunaria canadensis",
+          "partner": "Bombus bimaculatus",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Bombus pensylvanicus",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Sangiunaria canadensis",
+          "partner": "Dialictus cressonii",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Tiarella cordifolia collina",
+          "partner": "Dialictus cressonii",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Aesculus sylvatica",
+          "partner": "Ephemoropsis laboriosa",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Thalictrum thalictroides",
+          "partner": "Evylaeus macoupinensis",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Tiarella cordifolia collina",
+          "partner": "Evylaeus macoupinensis",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Uvularia sessilifolia",
+          "partner": "Evylaeus macoupinensis",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Lassioglossum fuscipenne",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Nomada bishopii",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Nomada pygmaea",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Nomada sayi",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Erythronium umbilicatum",
+          "partner": "Nomada sp.",
+          "weight": 1,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Thalictrum thalictroides",
+          "partner": "Nomada sp.",
+          "weight": 1,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Osmia conjucta",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Tiarella cordifolia collina",
+          "partner": "Osmia conjucta",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Viola papilionacea",
+          "partner": "Osmia simillima",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Osmia sp.",
+          "weight": 1,
+          "flags": ["placeholder_species", "unmatched_name"]
+        },
+        {
+          "body": "Thalictrum thalictroides",
+          "partner": "Osmia sp.",
+          "weight": 1,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Platycheirus obscurus",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Sangiunaria canadensis",
+          "partner": "Toxomerous geminatus",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Xylocopa virginica",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Xylocopa virginica",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "Xylocopa virginica",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Sangiunaria canadensis",
+          "partner": "Xylocopa virginica",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Trillium catesbei",
+          "partner": "Xylocopa virginica",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Hepatica americana",
+          "partner": "halictid sp.",
+          "weight": 1,
+          "flags": ["placeholder_species"]
+        }
+      ]
+    },
+    {
+      "relation": "compounds",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "4'-demethyldeoxypodophyllotoxin",
+          "flags": []
+        },
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "4'-demethylpodophyllotoxin",
+          "flags": []
+        },
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "5-hydroxy-9-(3,4,5-trimethoxyphenyl)-5a,6,8a,9-tetrahydro-5H-[2]benzofuro[5,6-f][1,3]benzodioxol-8-one",
+          "flags": []
+        },
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "Astragalin",
+          "flags": []
+        },
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "beta-sitosterol",
+          "flags": []
+        },
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "deoxypodophyllotoxin",
+          "flags": []
+        },
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "epipodophyllotoxin",
+          "flags": []
+        },
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Thalictrum thalictroides",
+          "partner": "magnoflorine",
+          "flags": []
+        },
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "picropodophyllin",
+          "flags": []
+        },
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "podofilox",
+          "flags": []
+        },
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "Podophyllotoxin glucoside",
+          "flags": []
+        },
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "β-peltatin",
+          "flags": []
+        },
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "β-peltatin-β-D-glucoside",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "names",
+      "licences": ["CC-BY-4.0", "CC0-1.0"],
+      "links": [
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "Apple",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "pomme",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Purslane",
+          "flags": []
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "草",
+          "flags": ["text_match"]
+        }
+      ]
+    },
+    {
+      "relation": "stories",
+      "licences": [],
+      "links": []
+    },
+    {
+      "relation": "sites",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Aesculus sylvatica",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Erythronium umbilicatum",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Hepatica americana",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Sangiunaria canadensis",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Thalictrum thalictroides",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Tiarella cordifolia collina",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Trillium catesbei",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Uvularia sessilifolia",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Viola papilionacea",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "descent",
+      "licences": ["CC-BY-4.0"],
+      "links": [
+        {
+          "body": "Aesculus sylvatica",
+          "partner": "Aesculus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "Berberidaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Brassicaceae (family)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Brassicales (order)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Cardamine (genus)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Caryophyllaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Caryophyllales (order)",
+          "flags": []
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Caryophyllales (order)",
+          "flags": []
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Claytonia (genus)",
+          "flags": []
+        },
+        {
+          "body": "Uvularia sessilifolia",
+          "partner": "Colchicaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Erythronium umbilicatum",
+          "partner": "Erythronium (genus)",
+          "flags": []
+        },
+        {
+          "body": "Hepatica americana",
+          "partner": "Hepatica (genus)",
+          "flags": []
+        },
+        {
+          "body": "Erythronium umbilicatum",
+          "partner": "Liliaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Erythronium umbilicatum",
+          "partner": "Liliales (order)",
+          "flags": []
+        },
+        {
+          "body": "Trillium catesbei",
+          "partner": "Liliales (order)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Uvularia sessilifolia",
+          "partner": "Liliales (order)",
+          "flags": []
+        },
+        {
+          "body": "Erythronium umbilicatum",
+          "partner": "Liliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Trillium catesbei",
+          "partner": "Liliopsida (class)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Uvularia sessilifolia",
+          "partner": "Liliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Aesculus sylvatica",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Magnoliopsida (class)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Hepatica americana",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Sangiunaria canadensis",
+          "partner": "Magnoliopsida (class)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Thalictrum thalictroides",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Tiarella cordifolia collina",
+          "partner": "Magnoliopsida (class)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Viola papilionacea",
+          "partner": "Magnoliopsida (class)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Viola papilionacea",
+          "partner": "Malpighiales (order)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Trillium catesbei",
+          "partner": "Melanthiaceae (family)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Montiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Sangiunaria canadensis",
+          "partner": "Papaveraceae (family)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Aesculus sylvatica",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Plantae (kingdom)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Erythronium umbilicatum",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Hepatica americana",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Sangiunaria canadensis",
+          "partner": "Plantae (kingdom)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Thalictrum thalictroides",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Tiarella cordifolia collina",
+          "partner": "Plantae (kingdom)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Trillium catesbei",
+          "partner": "Plantae (kingdom)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Uvularia sessilifolia",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Viola papilionacea",
+          "partner": "Plantae (kingdom)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "Podophyllum (genus)",
+          "flags": []
+        },
+        {
+          "body": "Hepatica americana",
+          "partner": "Ranunculaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Thalictrum thalictroides",
+          "partner": "Ranunculaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Hepatica americana",
+          "partner": "Ranunculales (order)",
+          "flags": []
+        },
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "Ranunculales (order)",
+          "flags": []
+        },
+        {
+          "body": "Sangiunaria canadensis",
+          "partner": "Ranunculales (order)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Thalictrum thalictroides",
+          "partner": "Ranunculales (order)",
+          "flags": []
+        },
+        {
+          "body": "Sangiunaria canadensis",
+          "partner": "Sanguinaria (genus)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Aesculus sylvatica",
+          "partner": "Sapindaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Aesculus sylvatica",
+          "partner": "Sapindales (order)",
+          "flags": []
+        },
+        {
+          "body": "Tiarella cordifolia collina",
+          "partner": "Saxifragaceae (family)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Tiarella cordifolia collina",
+          "partner": "Saxifragales (order)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Stellaria (genus)",
+          "flags": []
+        },
+        {
+          "body": "Thalictrum thalictroides",
+          "partner": "Thalictrum (genus)",
+          "flags": []
+        },
+        {
+          "body": "Tiarella cordifolia collina",
+          "partner": "Tiarella (genus)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Aesculus sylvatica",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Cardamine angustata angustata",
+          "partner": "Tracheophyta (phylum)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Claytonia virginica",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Erythronium umbilicatum",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Hepatica americana",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Podophyllum peltatum",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Sangiunaria canadensis",
+          "partner": "Tracheophyta (phylum)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Stellaria pubera",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Thalictrum thalictroides",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Tiarella cordifolia collina",
+          "partner": "Tracheophyta (phylum)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Trillium catesbei",
+          "partner": "Tracheophyta (phylum)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Uvularia sessilifolia",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Viola papilionacea",
+          "partner": "Tracheophyta (phylum)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Trillium catesbei",
+          "partner": "Trillium (genus)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Uvularia sessilifolia",
+          "partner": "Uvularia (genus)",
+          "flags": []
+        },
+        {
+          "body": "Viola papilionacea",
+          "partner": "Viola (genus)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Viola papilionacea",
+          "partner": "Violaceae (family)",
+          "flags": ["synonym_name"]
+        }
+      ]
+    }
+  ]
+}

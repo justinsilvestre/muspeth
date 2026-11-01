@@ -1,0 +1,1527 @@
+{
+  "id": "ile-aux-aigrettes-plants",
+  "name": "Île aux Aigrettes, Mauritius: plants",
+  "group": "Flower surveys",
+  "description": "Flower visitors on a small coral islet off Mauritius, counted over the 1999 flowering season. The introduced honey bee visits most of the plants, and the endemic day gecko Phelsuma ornata pollinates alongside the insects.",
+  "bodyNoun": {
+    "one": "plant",
+    "many": "plants"
+  },
+  "labelStyle": "species",
+  "citation": {
+    "text": "Jens M. Olesen and Louise I. Eskildsen and Shadila Venkatasamy (2002). Invasion of pollination networks on oceanic islands: importance of invader complexes and endemic super generalists.",
+    "url": "https://doi.org/10.1046/j.1472-4642.2002.00148.x"
+  },
+  "bodies": [
+    {
+      "id": "wikidata:Q3038475",
+      "name": "Dracaena concinna"
+    },
+    {
+      "id": "gbif:4065845",
+      "name": "Heliotropium foertherianum"
+    },
+    {
+      "id": "wikidata:Q1672237",
+      "name": "Ipomoea murucoides"
+    },
+    {
+      "id": "wikidata:Q35905",
+      "name": "Leucaena leucocephala"
+    },
+    {
+      "id": "wikidata:Q234238",
+      "name": "Morinda citrifolia"
+    },
+    {
+      "id": "wikidata:Q2068761",
+      "name": "Passiflora suberosa"
+    },
+    {
+      "id": "wikidata:Q3374608",
+      "name": "Pemphis acidula"
+    },
+    {
+      "id": "wikidata:Q1335289",
+      "name": "Polyscias maraisiana"
+    },
+    {
+      "id": "wikidata:Q73291738",
+      "name": "Scaevola sericea"
+    },
+    {
+      "id": "mangal:Stachytapheta jamaicencis",
+      "name": "Stachytapheta jamaicencis"
+    },
+    {
+      "id": "wikidata:Q2719906",
+      "name": "Suriana maritima"
+    },
+    {
+      "id": "wikidata:Q715899",
+      "name": "Talipariti tiliaceum"
+    },
+    {
+      "id": "wikidata:Q715739",
+      "name": "Thespesia populnea"
+    },
+    {
+      "id": "wikidata:Q50876289",
+      "name": "Turnera angustifolia"
+    }
+  ],
+  "sharings": [
+    {
+      "relation": "visitors",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Polyscias maraisiana",
+          "partner": "Apis mellifera",
+          "weight": 149,
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "Apis mellifera",
+          "weight": 138,
+          "flags": []
+        },
+        {
+          "body": "Ipomoea murucoides",
+          "partner": "Apis mellifera",
+          "weight": 126,
+          "flags": []
+        },
+        {
+          "body": "Pemphis acidula",
+          "partner": "Phalantha phalantha",
+          "weight": 117,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "Apis mellifera",
+          "weight": 115,
+          "flags": []
+        },
+        {
+          "body": "Pemphis acidula",
+          "partner": "Apis mellifera",
+          "weight": 103,
+          "flags": []
+        },
+        {
+          "body": "Scaevola sericea",
+          "partner": "Apis mellifera",
+          "weight": 92,
+          "flags": []
+        },
+        {
+          "body": "Thespesia populnea",
+          "partner": "Apis mellifera",
+          "weight": 69,
+          "flags": []
+        },
+        {
+          "body": "Heliotropium foertherianum",
+          "partner": "Apis mellifera",
+          "weight": 57,
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "Apis mellifera",
+          "weight": 46,
+          "flags": []
+        },
+        {
+          "body": "Passiflora suberosa",
+          "partner": "Apis mellifera",
+          "weight": 34,
+          "flags": []
+        },
+        {
+          "body": "Dracaena concinna",
+          "partner": "Phelsuma ornata",
+          "weight": 33,
+          "flags": []
+        },
+        {
+          "body": "Polyscias maraisiana",
+          "partner": "Phelsuma ornata",
+          "weight": 30,
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "Phelsuma ornata",
+          "weight": 28,
+          "flags": []
+        },
+        {
+          "body": "Stachytapheta jamaicencis",
+          "partner": "Phalantha phalantha",
+          "weight": 26,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Suriana maritima",
+          "partner": "Apis mellifera",
+          "weight": 23,
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "Phelsuma ornata",
+          "weight": 23,
+          "flags": []
+        },
+        {
+          "body": "Pemphis acidula",
+          "partner": "Phelsuma ornata",
+          "weight": 21,
+          "flags": []
+        },
+        {
+          "body": "Scaevola sericea",
+          "partner": "Phelsuma ornata",
+          "weight": 19,
+          "flags": []
+        },
+        {
+          "body": "Dracaena concinna",
+          "partner": "Syrphid sp.",
+          "weight": 17,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Polyscias maraisiana",
+          "partner": "Lucilia sp.",
+          "weight": 16,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Polyscias maraisiana",
+          "partner": "Musca domestica",
+          "weight": 16,
+          "flags": []
+        },
+        {
+          "body": "Polyscias maraisiana",
+          "partner": "Ornidia obesa",
+          "weight": 16,
+          "flags": []
+        },
+        {
+          "body": "Polyscias maraisiana",
+          "partner": "Stratiomydae sp.",
+          "weight": 16,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Pemphis acidula",
+          "partner": "Xylocopa fenestrata",
+          "weight": 16,
+          "flags": []
+        },
+        {
+          "body": "Scaevola sericea",
+          "partner": "Megachile sp.",
+          "weight": 15,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Polyscias maraisiana",
+          "partner": "Protaetia aurichalcea",
+          "weight": 15,
+          "flags": []
+        },
+        {
+          "body": "Scaevola sericea",
+          "partner": "Xylocopa fenestrata",
+          "weight": 15,
+          "flags": []
+        },
+        {
+          "body": "Thespesia populnea",
+          "partner": "Phelsuma ornata",
+          "weight": 14,
+          "flags": []
+        },
+        {
+          "body": "Suriana maritima",
+          "partner": "Megachile sp.",
+          "weight": 13,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Heliotropium foertherianum",
+          "partner": "Phelsuma ornata",
+          "weight": 12,
+          "flags": []
+        },
+        {
+          "body": "Dracaena concinna",
+          "partner": "Apis mellifera",
+          "weight": 11,
+          "flags": []
+        },
+        {
+          "body": "Pemphis acidula",
+          "partner": "Stratiomydae sp.",
+          "weight": 11,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "Phelsuma ornata",
+          "weight": 9,
+          "flags": []
+        },
+        {
+          "body": "Passiflora suberosa",
+          "partner": "Phelsuma ornata",
+          "weight": 7,
+          "flags": []
+        },
+        {
+          "body": "Thespesia populnea",
+          "partner": "Stratiomydae sp.",
+          "weight": 7,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Heliotropium foertherianum",
+          "partner": "Musca domestica",
+          "weight": 6,
+          "flags": []
+        },
+        {
+          "body": "Heliotropium foertherianum",
+          "partner": "Syrphid sp.",
+          "weight": 6,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "Stratiomydae sp.",
+          "weight": 5,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Thespesia populnea",
+          "partner": "Borbo borbonica",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "Leptotes pirithous",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Polyscias maraisiana",
+          "partner": "Leptotes pirithous",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "Megachile sp.",
+          "weight": 2,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Stachytapheta jamaicencis",
+          "partner": "Stratiomydae sp.",
+          "weight": 2,
+          "flags": ["placeholder_species", "unmatched_name"]
+        },
+        {
+          "body": "Stachytapheta jamaicencis",
+          "partner": "Syrphid sp.",
+          "weight": 2,
+          "flags": ["placeholder_species", "unmatched_name"]
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "Xylocopa fenestrata",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Stachytapheta jamaicencis",
+          "partner": "Borbo borbonica",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "Borbo borbonica",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Pemphis acidula",
+          "partner": "Leptotes pirithous",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Stachytapheta jamaicencis",
+          "partner": "Leptotes pirithous",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Suriana maritima",
+          "partner": "Leptotes pirithous",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "Stratiomydae sp.",
+          "weight": 1,
+          "flags": ["placeholder_species"]
+        }
+      ]
+    },
+    {
+      "relation": "compounds",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "(+/-)-mimosine",
+          "flags": []
+        },
+        {
+          "body": "Passiflora suberosa",
+          "partner": "(1R,2S,3S,5S)-2-hydroxy-3-[(2R,3R,4S,5S,6R)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxy-6-oxabicyclo[3.1.0]hexane-3-carbonitrile",
+          "flags": []
+        },
+        {
+          "body": "Passiflora suberosa",
+          "partner": "(1R,4S)-4-hydroxy-1-[(2S,3R,4S,5S,6S)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxycyclopent-2-ene-1-carbonitrile",
+          "flags": []
+        },
+        {
+          "body": "Thespesia populnea",
+          "partner": "(1R)-1,5,8-trimethyl-1,2-dihydrobenzo[e][1]benzofuran-6,7-dione",
+          "flags": []
+        },
+        {
+          "body": "Passiflora suberosa",
+          "partner": "(1S,2S,4R,5S)-4-hydroxy-2-[(2S,3R,4S,5S,6R)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxy-6-oxabicyclo[3.1.0]hexane-2-carbonitrile",
+          "flags": []
+        },
+        {
+          "body": "Suriana maritima",
+          "partner": "(1S,3R,6S,7S,8R,11S,12S,15R,16R)-12,16-dimethyl-15-[(2R)-6-methyl-5-methylideneheptan-2-yl]pentacyclo[9.7.0.01,3.03,8.012,16]octadecane-6,7-diol",
+          "flags": []
+        },
+        {
+          "body": "Dracaena concinna",
+          "partner": "(25R)-1beta-[(2-O-alpha-L-Rhamnopyranosyl-4-O-sulfo-alpha-L-arabinopyranosyl)oxy]spirosta-5-ene-3beta-ol",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "(2R,3R)-2-(3,4-dihydroxyphenyl)-3,4-dihydro-2H-chromene-3,6,8-triol",
+          "flags": []
+        },
+        {
+          "body": "Passiflora suberosa",
+          "partner": "(2R,3S,4S,5R,6R)-2-(hydroxymethyl)-6-[[(1R,2S,3R,5S)-2-hydroxy-3-methyl-6-oxabicyclo[3.1.0]hexan-3-yl]oxy]oxane-3,4,5-triol",
+          "flags": []
+        },
+        {
+          "body": "Scaevola sericea",
+          "partner": "(3R,4aR,6aR,6aS,8aR,12aR,14aR,14bR)-8a-(hydroxymethyl)-4,4,6a,6a,11,11,14b-heptamethyl-1,2,3,4a,5,6,8,9,10,12,12a,13,14,14a-tetradecahydropicen-3-ol",
+          "flags": []
+        },
+        {
+          "body": "Scaevola sericea",
+          "partner": "(3R,4aR,6aR,6aS,8aS,12aS,14aR,14bR)-4,4,6a,6a,8a,11,11,14b-octamethyl-1,2,3,4a,5,6,8,9,10,12,12a,13,14,14a-tetradecahydropicen-3-ol",
+          "flags": []
+        },
+        {
+          "body": "Scaevola sericea",
+          "partner": "(3R,4aS,6aR,6bS,8aR,11R,12S,12aS,14aR,14bR)-4,4,6a,6b,8a,11,12,14b-octamethyl-2,3,4a,5,6,7,8,9,10,11,12,12a,14,14a-tetradecahydro-1H-picen-3-ol",
+          "flags": []
+        },
+        {
+          "body": "Scaevola sericea",
+          "partner": "(3R,4R,4aS,6aS,6bR,8aR,12aR,12bS,14aS,14bS)-4,4a,6b,8a,11,11,12b,14a-octamethyl-hexadecahydropicen-3-ol",
+          "flags": []
+        },
+        {
+          "body": "Suriana maritima",
+          "partner": "(3S,8R,9R,10R,13R,14R,17R)-17-[(2R,5R)-5-ethyl-6-methylheptan-2-yl]-10,13-dimethyl-2,3,4,7,8,9,11,12,14,15,16,17-dodecahydro-1H-cyclopenta[a]phenanthren-3-ol",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "(3Ξ,6Ξ)-D-pinitol",
+          "flags": []
+        },
+        {
+          "body": "Scaevola sericea",
+          "partner": "(4R,4aS,6aR,6aS,6bR,8aR,12aS,14aS,14bR)-4,4a,6a,6b,8a,11,11,14a-octamethyl-2,4,5,6,6a,7,8,9,10,12,12a,13,14,14b-tetradecahydro-1H-picen-3-one",
+          "flags": []
+        },
+        {
+          "body": "Thespesia populnea",
+          "partner": "(4R)-4,8,12-trimethyl-2-oxatricyclo[7.3.1.05,13]trideca-1(12),5(13),6,8-tetraene-10,11-dione",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "(E)-N-feruloyltyramine",
+          "flags": []
+        },
+        {
+          "body": "Pemphis acidula",
+          "partner": "[(2R,3R,4R,5R,6S)-6-[5,7-dihydroxy-2-(4-hydroxyphenyl)-4-oxochromen-3-yl]oxy-3,4,5-trihydroxyoxan-2-yl]methyl 3,4,5-trihydroxybenzoate",
+          "flags": []
+        },
+        {
+          "body": "Scaevola sericea",
+          "partner": "[(3R,4aR,6aR,6bS,8aR,14aR,14bR)-4,4,6a,6b,8a,11,11,14b-octamethyl-1,2,3,4a,5,6,7,8,9,10,12,13,14,14a-tetradecahydropicen-3-yl] acetate",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "1-hydroxyanthraquinone",
+          "flags": []
+        },
+        {
+          "body": "Thespesia populnea",
+          "partner": "1,2-Naphthalenedione, 6-hydroxy-3,8-dimethyl-5-(1-methylethyl)-",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "1,3-dipalmito-2-olein",
+          "flags": []
+        },
+        {
+          "body": "Scaevola sericea",
+          "partner": "13(18)-Oleanen-3-one",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "17-(5-ethyl-6-methylheptan-2-yl)-10,13-dimethyl-2,3,4,7,8,9,11,12,14,15,16,17-dodecahydro-1H-cyclopenta[a]phenanthren-3-ol",
+          "flags": []
+        },
+        {
+          "body": "Suriana maritima",
+          "partner": "2-(3,4-dihydroxyphenyl)-5-hydroxy-7-methoxy-3-[(2R,3S,4R,5R,6S)-3,4,5-trihydroxy-6-[[(2S,3S,4S,5S,6S)-3,4,5-trihydroxy-6-methyloxan-2-yl]oxymethyl]oxan-2-yl]oxychromen-4-one",
+          "flags": []
+        },
+        {
+          "body": "Suriana maritima",
+          "partner": "2-(3,4-dihydroxyphenyl)-5,7-dihydroxy-3-[(2R,3S,4R,5R,6S)-3,4,5-trihydroxy-6-[[(2S,3S,4S,5S,6S)-3,4,5-trihydroxy-6-methyloxan-2-yl]oxymethyl]oxan-2-yl]oxychromen-4-one",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "2-(3,4-dihydroxyphenyl)-5,7-dihydroxy-3-[(2S,3R,4R,5R,6S)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxychromen-4-one",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "2-Pentyl-5-hydroxy-6-prenylbenzofuran-4-carbaldehyde",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "4-hydroxybenzaldehyde",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "4-hydroxybenzoic acid",
+          "flags": []
+        },
+        {
+          "body": "Pemphis acidula",
+          "partner": "4',5,7-Trihydroxy-3-(6-O-galloyl-beta-D-galactopyranosyloxy)flavone",
+          "flags": []
+        },
+        {
+          "body": "Thespesia populnea",
+          "partner": "7-Hydroxycadalene",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "7,8-Dihydroxy-6-methyl-4-(propan-2-yl)naphthalene-1,2-dione",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "aldehydo-D-galactose",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "aldehydo-D-glucose",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "alizarin",
+          "flags": []
+        },
+        {
+          "body": "Pemphis acidula",
+          "partner": "Astragalin 6''-gallate",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "beta-sitosterol",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "beta-sitosterol",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "betulin",
+          "flags": []
+        },
+        {
+          "body": "Scaevola sericea",
+          "partner": "CID 13915602",
+          "flags": []
+        },
+        {
+          "body": "Dracaena concinna",
+          "partner": "Concinnasteoside A",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "cycloartenol",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "damnacanthal",
+          "flags": []
+        },
+        {
+          "body": "Passiflora suberosa",
+          "partner": "deidaclin",
+          "flags": []
+        },
+        {
+          "body": "Dracaena concinna",
+          "partner": "dioscin",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "DL-lactic acid",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "ergosterol endoperoxide",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "Flavoglaucin",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "friedelin",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "gallic acid",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "Gibberellin A1",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "gibberellin A20",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "gibberellin A8",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "gossypol",
+          "flags": []
+        },
+        {
+          "body": "Thespesia populnea",
+          "partner": "gossypol",
+          "flags": []
+        },
+        {
+          "body": "Dracaena concinna",
+          "partner": "gracillin",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "Hibiscoquinone A",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "isoquercetin",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "keto-D-fructose",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "lapachol",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "linoleic acid",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "lupeol",
+          "flags": []
+        },
+        {
+          "body": "Thespesia populnea",
+          "partner": "Mansonone C",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "Mansonone F",
+          "flags": []
+        },
+        {
+          "body": "Thespesia populnea",
+          "partner": "Mansonone F",
+          "flags": []
+        },
+        {
+          "body": "Thespesia populnea",
+          "partner": "Mansonone H",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "methylparaben",
+          "flags": []
+        },
+        {
+          "body": "Dracaena concinna",
+          "partner": "methylprotodioscin",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "morindone",
+          "flags": []
+        },
+        {
+          "body": "Ipomoea murucoides",
+          "partner": "Murcoidin XI",
+          "flags": []
+        },
+        {
+          "body": "Ipomoea murucoides",
+          "partner": "Murucoidin I",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "octadeca-9,12-dienoic acid",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "oleanolic acid",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "oleanolic acid",
+          "flags": []
+        },
+        {
+          "body": "Ipomoea murucoides",
+          "partner": "Operculinic acid C",
+          "flags": []
+        },
+        {
+          "body": "Ipomoea murucoides",
+          "partner": "pescaprein III",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Pemphis acidula",
+          "partner": "Quercetin 3-O-(6''-galloyl)-beta-D-galactopyranoside",
+          "flags": []
+        },
+        {
+          "body": "Pemphis acidula",
+          "partner": "Quercetin 3-O-(6''-galloyl)-beta-D-glucopyranoside",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "quercitrin",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "rutin",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "scoparone",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "scopoletin",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "scopoletin",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "sinapaldehyde",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "sitogluside",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "stachyose",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "stigmasterol",
+          "flags": []
+        },
+        {
+          "body": "Ipomoea murucoides",
+          "partner": "Stoloniferin I",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "sucrose",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "syringaresinol",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "syringic acid",
+          "flags": []
+        },
+        {
+          "body": "Passiflora suberosa",
+          "partner": "Taraktophyllin",
+          "flags": []
+        },
+        {
+          "body": "Passiflora suberosa",
+          "partner": "Tetraphyllin A",
+          "flags": []
+        },
+        {
+          "body": "Thespesia populnea",
+          "partner": "Thespesone",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "ursolic acid",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "vanillic acid",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "vanillin",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "α-D-glucopyranose",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "β-amyrin",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "names",
+      "licences": ["CC-BY-4.0", "CC0-1.0"],
+      "links": [
+        {
+          "body": "Turnera angustifolia",
+          "partner": "Aile amarillo",
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "Amapola",
+          "flags": []
+        },
+        {
+          "body": "Pemphis acidula",
+          "partner": "Bois matelot",
+          "flags": []
+        },
+        {
+          "body": "Suriana maritima",
+          "partner": "Bois matelot",
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "damiana",
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "flor-do-guarujá",
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "großblättrige Damiana",
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "Guobalapė turnera",
+          "flags": []
+        },
+        {
+          "body": "Passiflora suberosa",
+          "partner": "pumpkin",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "Ramgoat Dashalong",
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "strandöga",
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "Turnera à feuilles d'orme",
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "turnera brestolistá",
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "turnera jilmolistá",
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "West Indian-holly",
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "Тернера ильмолистная",
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "Тёрнера ильмолистная",
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "טורנרה בוקיצתית",
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "ބޮކަރުމާ",
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "บานเช้าสีเหลือง",
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "キバナツルネラ",
+          "flags": []
+        },
+        {
+          "body": "Dracaena concinna",
+          "partner": "クリ",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "ターネラ・ウルミフォリア",
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "午時花",
+          "flags": []
+        },
+        {
+          "body": "Scaevola sericea",
+          "partner": "草",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "金寶花",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "stories",
+      "licences": [],
+      "links": []
+    },
+    {
+      "relation": "sites",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Dracaena concinna",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Heliotropium foertherianum",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Ipomoea murucoides",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Passiflora suberosa",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Pemphis acidula",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Polyscias maraisiana",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Scaevola sericea",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Stachytapheta jamaicencis",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Suriana maritima",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Thespesia populnea",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "descent",
+      "licences": ["CC-BY-4.0"],
+      "links": [
+        {
+          "body": "Polyscias maraisiana",
+          "partner": "Apiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Polyscias maraisiana",
+          "partner": "Araliaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Dracaena concinna",
+          "partner": "Asparagaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Dracaena concinna",
+          "partner": "Asparagales (order)",
+          "flags": []
+        },
+        {
+          "body": "Scaevola sericea",
+          "partner": "Asterales (order)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Heliotropium foertherianum",
+          "partner": "Boraginales (order)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Ipomoea murucoides",
+          "partner": "Convolvulaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Dracaena concinna",
+          "partner": "Dracaena (genus)",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "Fabaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "Fabales (order)",
+          "flags": []
+        },
+        {
+          "body": "Suriana maritima",
+          "partner": "Fabales (order)",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "Gentianales (order)",
+          "flags": []
+        },
+        {
+          "body": "Scaevola sericea",
+          "partner": "Goodeniaceae (family)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Heliotropium foertherianum",
+          "partner": "Heliotropiaceae (family)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Heliotropium foertherianum",
+          "partner": "Heliotropium (genus)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Ipomoea murucoides",
+          "partner": "Ipomoea (genus)",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "Leucaena (genus)",
+          "flags": []
+        },
+        {
+          "body": "Dracaena concinna",
+          "partner": "Liliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Pemphis acidula",
+          "partner": "Lythraceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Heliotropium foertherianum",
+          "partner": "Magnoliopsida (class)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Ipomoea murucoides",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Passiflora suberosa",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Pemphis acidula",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Polyscias maraisiana",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Scaevola sericea",
+          "partner": "Magnoliopsida (class)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Suriana maritima",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Thespesia populnea",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "Magnoliopsida (class)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Passiflora suberosa",
+          "partner": "Malpighiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "Malpighiales (order)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "Malvaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Thespesia populnea",
+          "partner": "Malvaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "Malvales (order)",
+          "flags": []
+        },
+        {
+          "body": "Thespesia populnea",
+          "partner": "Malvales (order)",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "Morinda (genus)",
+          "flags": []
+        },
+        {
+          "body": "Pemphis acidula",
+          "partner": "Myrtales (order)",
+          "flags": []
+        },
+        {
+          "body": "Passiflora suberosa",
+          "partner": "Passiflora (genus)",
+          "flags": []
+        },
+        {
+          "body": "Passiflora suberosa",
+          "partner": "Passifloraceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Pemphis acidula",
+          "partner": "Pemphis (genus)",
+          "flags": []
+        },
+        {
+          "body": "Dracaena concinna",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Heliotropium foertherianum",
+          "partner": "Plantae (kingdom)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Ipomoea murucoides",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Passiflora suberosa",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Pemphis acidula",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Polyscias maraisiana",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Scaevola sericea",
+          "partner": "Plantae (kingdom)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Suriana maritima",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Thespesia populnea",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "Plantae (kingdom)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Polyscias maraisiana",
+          "partner": "Polyscias (genus)",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "Rubiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Scaevola sericea",
+          "partner": "Scaevola (genus)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Ipomoea murucoides",
+          "partner": "Solanales (order)",
+          "flags": []
+        },
+        {
+          "body": "Suriana maritima",
+          "partner": "Suriana (genus)",
+          "flags": []
+        },
+        {
+          "body": "Suriana maritima",
+          "partner": "Surianaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "Talipariti (genus)",
+          "flags": []
+        },
+        {
+          "body": "Thespesia populnea",
+          "partner": "Thespesia (genus)",
+          "flags": []
+        },
+        {
+          "body": "Dracaena concinna",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Heliotropium foertherianum",
+          "partner": "Tracheophyta (phylum)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Ipomoea murucoides",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Leucaena leucocephala",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Morinda citrifolia",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Passiflora suberosa",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Pemphis acidula",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Polyscias maraisiana",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Scaevola sericea",
+          "partner": "Tracheophyta (phylum)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Suriana maritima",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Talipariti tiliaceum",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Thespesia populnea",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "Tracheophyta (phylum)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "Turnera (genus)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Turnera angustifolia",
+          "partner": "Turneraceae (family)",
+          "flags": ["synonym_name"]
+        }
+      ]
+    }
+  ]
+}

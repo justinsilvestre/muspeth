@@ -11,7 +11,7 @@ export function ThresholdSlider({
   onChange: (value: number) => void;
 }) {
   return (
-    <div className="grid grid-cols-[auto_1fr_3.5rem] items-center gap-x-3 text-sm">
+    <div className="grid grid-cols-[minmax(0,auto)_minmax(6rem,1fr)_3.5rem] items-center gap-x-3 text-sm">
       <SliderField
         label="Subgroupiness display threshold"
         value={value}

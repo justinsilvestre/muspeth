@@ -13,10 +13,10 @@ test.describe("app versions", () => {
     ).toBeVisible();
   });
 
-  test("shows a canvas in the second version's Pollination guilds tab", async ({ page }) => {
-    await page.goto("/v2/pollination");
+  test("shows a canvas in the second version's Organism guilds tab", async ({ page }) => {
+    await page.goto("/v2/guilds");
     await expect(
-      page.getByRole("region", { name: "Pollination guilds" }).locator("canvas"),
+      page.getByRole("region", { name: "Organism guilds" }).locator("canvas"),
     ).toBeVisible();
   });
 });

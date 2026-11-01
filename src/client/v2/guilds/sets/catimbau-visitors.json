@@ -1,0 +1,1918 @@
+{
+  "id": "catimbau-visitors",
+  "name": "Catimbau, Brazil: visitors",
+  "group": "Flower surveys",
+  "description": "Oil-collecting Centris bees and the Malpighiaceae flowers they take floral oil from, in a dry caatinga park in Pernambuco, counted over a year from 2006. Visits run into the thousands.",
+  "bodyNoun": {
+    "one": "visitor",
+    "many": "visitors"
+  },
+  "labelStyle": "species",
+  "citation": {
+    "text": "Elisangela L.S. Bezerra and Isabel C. Machado and Marco A. R. Mello (2009). Pollination networks of oil-flowers: a tiny world within the smallest of all worlds.",
+    "url": "https://doi.org/10.1111/j.1365-2656.2009.01567.x"
+  },
+  "bodies": [
+    {
+      "id": "wikidata:Q30034",
+      "name": "Apis mellifera"
+    },
+    {
+      "id": "wikidata:Q4301890",
+      "name": "Centris aenea"
+    },
+    {
+      "id": "wikidata:Q2039430",
+      "name": "Centris caxiensis"
+    },
+    {
+      "id": "wikidata:Q3417943",
+      "name": "Centris flavifrons"
+    },
+    {
+      "id": "wikidata:Q2678167",
+      "name": "Centris fuscata"
+    },
+    {
+      "id": "wikidata:Q2074723",
+      "name": "Centris obsoleta"
+    },
+    {
+      "id": "mangal:929/Centris sp1",
+      "name": "Centris sp1"
+    },
+    {
+      "id": "mangal:929/Centris sp2",
+      "name": "Centris sp2"
+    },
+    {
+      "id": "wikidata:Q1882719",
+      "name": "Centris tarsata"
+    },
+    {
+      "id": "wikidata:Q2264017",
+      "name": "Centris trigonoides"
+    },
+    {
+      "id": "mangal:929/Epicharis sp1",
+      "name": "Epicharis sp1"
+    },
+    {
+      "id": "wikidata:Q2464370",
+      "name": "Xylocopa grisescens"
+    },
+    {
+      "id": "mangal:929/Xylocopa sp1",
+      "name": "Xylocopa sp1"
+    }
+  ],
+  "sharings": [
+    {
+      "relation": "flowers",
+      "licences": ["LicenseRef-web-of-life-attribution"],
+      "links": [
+        {
+          "body": "Centris caxiensis",
+          "partner": "Byrsonima gardnerana",
+          "weight": 2108,
+          "flags": []
+        },
+        {
+          "body": "Centris aenea",
+          "partner": "Diplopterys pubipetala",
+          "weight": 1368,
+          "flags": []
+        },
+        {
+          "body": "Centris fuscata",
+          "partner": "Diplopterys pubipetala",
+          "weight": 1364,
+          "flags": []
+        },
+        {
+          "body": "Centris aenea",
+          "partner": "Byrsonima gardnerana",
+          "weight": 924,
+          "flags": []
+        },
+        {
+          "body": "Centris obsoleta",
+          "partner": "Banisteriopsis muricata",
+          "weight": 912,
+          "flags": []
+        },
+        {
+          "body": "Centris fuscata",
+          "partner": "Stigmaphyllon paralias",
+          "weight": 816,
+          "flags": []
+        },
+        {
+          "body": "Centris aenea",
+          "partner": "Heteropterys sp1",
+          "weight": 764,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Centris aenea",
+          "partner": "Heteropterys sp2",
+          "weight": 740,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Centris caxiensis",
+          "partner": "Diplopterys pubipetala",
+          "weight": 740,
+          "flags": []
+        },
+        {
+          "body": "Centris fuscata",
+          "partner": "Heteropterys sp1",
+          "weight": 680,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Centris fuscata",
+          "partner": "Heteropterys sp2",
+          "weight": 656,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Centris trigonoides",
+          "partner": "Banisteriopsis muricata",
+          "weight": 652,
+          "flags": []
+        },
+        {
+          "body": "Centris aenea",
+          "partner": "Carolus chasei",
+          "weight": 604,
+          "flags": []
+        },
+        {
+          "body": "Centris aenea",
+          "partner": "Dicella bracteosa",
+          "weight": 556,
+          "flags": []
+        },
+        {
+          "body": "Centris caxiensis",
+          "partner": "Heteropterys sp1",
+          "weight": 528,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Centris caxiensis",
+          "partner": "Heteropterys sp2",
+          "weight": 528,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Centris flavifrons",
+          "partner": "Dicella bracteosa",
+          "weight": 524,
+          "flags": []
+        },
+        {
+          "body": "Centris fuscata",
+          "partner": "Dicella bracteosa",
+          "weight": 512,
+          "flags": []
+        },
+        {
+          "body": "Centris aenea",
+          "partner": "Stigmaphyllon paralias",
+          "weight": 504,
+          "flags": []
+        },
+        {
+          "body": "Centris fuscata",
+          "partner": "Banisteriopsis muricata",
+          "weight": 468,
+          "flags": []
+        },
+        {
+          "body": "Centris tarsata",
+          "partner": "Byrsonima gardnerana",
+          "weight": 464,
+          "flags": []
+        },
+        {
+          "body": "Centris tarsata",
+          "partner": "Diplopterys pubipetala",
+          "weight": 460,
+          "flags": []
+        },
+        {
+          "body": "Centris fuscata",
+          "partner": "Carolus chasei",
+          "weight": 452,
+          "flags": []
+        },
+        {
+          "body": "Centris caxiensis",
+          "partner": "Carolus chasei",
+          "weight": 432,
+          "flags": []
+        },
+        {
+          "body": "Centris flavifrons",
+          "partner": "Diplopterys pubipetala",
+          "weight": 416,
+          "flags": []
+        },
+        {
+          "body": "Centris flavifrons",
+          "partner": "Heteropterys sp1",
+          "weight": 404,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Centris aenea",
+          "partner": "Banisteriopsis muricata",
+          "weight": 396,
+          "flags": []
+        },
+        {
+          "body": "Centris sp1",
+          "partner": "Diplopterys pubipetala",
+          "weight": 368,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Centris sp2",
+          "partner": "Banisteriopsis muricata",
+          "weight": 368,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Diplopterys pubipetala",
+          "weight": 364,
+          "flags": []
+        },
+        {
+          "body": "Epicharis sp1",
+          "partner": "Banisteriopsis muricata",
+          "weight": 364,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Centris caxiensis",
+          "partner": "Dicella bracteosa",
+          "weight": 356,
+          "flags": []
+        },
+        {
+          "body": "Centris tarsata",
+          "partner": "Heteropterys sp2",
+          "weight": 332,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Epicharis sp1",
+          "partner": "Diplopterys pubipetala",
+          "weight": 328,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Centris trigonoides",
+          "partner": "Heteropterys sp2",
+          "weight": 324,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Centris fuscata",
+          "partner": "Byrsonima gardnerana",
+          "weight": 320,
+          "flags": []
+        },
+        {
+          "body": "Centris tarsata",
+          "partner": "Heteropterys sp1",
+          "weight": 308,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Centris fuscata",
+          "partner": "Banisteriopsis stellaris",
+          "weight": 300,
+          "flags": []
+        },
+        {
+          "body": "Centris trigonoides",
+          "partner": "Heteropterys sp1",
+          "weight": 300,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Centris aenea",
+          "partner": "Banisteriopsis stellaris",
+          "weight": 292,
+          "flags": []
+        },
+        {
+          "body": "Centris flavifrons",
+          "partner": "Byrsonima gardnerana",
+          "weight": 284,
+          "flags": []
+        },
+        {
+          "body": "Centris flavifrons",
+          "partner": "Banisteriopsis muricata",
+          "weight": 272,
+          "flags": []
+        },
+        {
+          "body": "Centris aenea",
+          "partner": "Stigmaphyllon ciliatum",
+          "weight": 268,
+          "flags": []
+        },
+        {
+          "body": "Centris trigonoides",
+          "partner": "Diplopterys pubipetala",
+          "weight": 256,
+          "flags": []
+        },
+        {
+          "body": "Centris caxiensis",
+          "partner": "Banisteriopsis stellaris",
+          "weight": 244,
+          "flags": []
+        },
+        {
+          "body": "Centris fuscata",
+          "partner": "Janusia anisandra",
+          "weight": 244,
+          "flags": []
+        },
+        {
+          "body": "Centris aenea",
+          "partner": "Stigmaphyllon auriculatum",
+          "weight": 240,
+          "flags": []
+        },
+        {
+          "body": "Centris aenea",
+          "partner": "Banisteriopsis schizoptera",
+          "weight": 228,
+          "flags": []
+        },
+        {
+          "body": "Centris fuscata",
+          "partner": "Banisteriopsis schizoptera",
+          "weight": 224,
+          "flags": []
+        },
+        {
+          "body": "Centris tarsata",
+          "partner": "Carolus chasei",
+          "weight": 200,
+          "flags": []
+        },
+        {
+          "body": "Centris flavifrons",
+          "partner": "Stigmaphyllon auriculatum",
+          "weight": 196,
+          "flags": []
+        },
+        {
+          "body": "Centris fuscata",
+          "partner": "Stigmaphyllon ciliatum",
+          "weight": 196,
+          "flags": []
+        },
+        {
+          "body": "Centris aenea",
+          "partner": "Janusia anisandra",
+          "weight": 188,
+          "flags": []
+        },
+        {
+          "body": "Centris flavifrons",
+          "partner": "Stigmaphyllon ciliatum",
+          "weight": 164,
+          "flags": []
+        },
+        {
+          "body": "Centris fuscata",
+          "partner": "Stigmaphyllon auriculatum",
+          "weight": 164,
+          "flags": []
+        },
+        {
+          "body": "Xylocopa sp1",
+          "partner": "Banisteriopsis muricata",
+          "weight": 164,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Centris tarsata",
+          "partner": "Banisteriopsis muricata",
+          "weight": 140,
+          "flags": []
+        },
+        {
+          "body": "Centris tarsata",
+          "partner": "Dicella bracteosa",
+          "weight": 132,
+          "flags": []
+        },
+        {
+          "body": "Centris caxiensis",
+          "partner": "Banisteriopsis schizoptera",
+          "weight": 124,
+          "flags": []
+        },
+        {
+          "body": "Centris tarsata",
+          "partner": "Banisteriopsis schizoptera",
+          "weight": 120,
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Heteropterys sp2",
+          "weight": 116,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Centris tarsata",
+          "partner": "Banisteriopsis stellaris",
+          "weight": 116,
+          "flags": []
+        },
+        {
+          "body": "Epicharis sp1",
+          "partner": "Heteropterys sp2",
+          "weight": 116,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Centris caxiensis",
+          "partner": "Banisteriopsis muricata",
+          "weight": 108,
+          "flags": []
+        },
+        {
+          "body": "Centris tarsata",
+          "partner": "Janusia anisandra",
+          "weight": 96,
+          "flags": []
+        },
+        {
+          "body": "Xylocopa grisescens",
+          "partner": "Banisteriopsis muricata",
+          "weight": 84,
+          "flags": []
+        },
+        {
+          "body": "Xylocopa sp1",
+          "partner": "Heteropterys sp1",
+          "weight": 76,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Centris caxiensis",
+          "partner": "Stigmaphyllon auriculatum",
+          "weight": 68,
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Banisteriopsis muricata",
+          "weight": 44,
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Byrsonima gardnerana",
+          "weight": 28,
+          "flags": []
+        },
+        {
+          "body": "Epicharis sp1",
+          "partner": "Heteropterys sp1",
+          "weight": 28,
+          "flags": ["placeholder_species"]
+        }
+      ]
+    },
+    {
+      "relation": "compounds",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Apis mellifera",
+          "partner": "(+/-)-2-amino-6,7-dihydroxytetralin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "(E)-cinnamic acid",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "3-hydroxydecanoic acid",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Apis mellifera queen cell",
+          "flags": ["unreferenced_statement"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "beta-sitosterol",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "campesterol",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "cholesterol",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "chrysin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ferulic acid",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "genistein",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Isocupressic acid",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "isorhamnetin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "melittin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pimaric acid",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pinocembrin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "stigmasterol",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "tertiapin",
+          "flags": ["unreferenced_statement"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "trans-caffeic acid",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "names",
+      "licences": ["CC-BY-4.0", "CC0-1.0"],
+      "links": [
+        {
+          "body": "Apis mellifera",
+          "partner": "`iniseka",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "3puluŋ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "4kʷʰe 2napraŋ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "abeja",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "abija",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "aƀəʕʕuš",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "akoyek",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "albină",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ba'armo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Bal arısı",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bebet",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bey",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bibikèly",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bij",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bini",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bugari",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bɯst",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Xylocopa grisescens",
+          "partner": "Carpinteira",
+          "flags": []
+        },
+        {
+          "body": "Centris sp1",
+          "partner": "Centris Bees",
+          "flags": []
+        },
+        {
+          "body": "Centris sp2",
+          "partner": "Centris Bees",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "chanul pom",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "chon",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "côn trùng",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "dʒu:gdu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "fullánka",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "gäne",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "hanibi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "honey bee",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "hö́ni",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Honigbiene",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Honingbij",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "honungsbi",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "hüt’-qumur",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "insect",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "insectă",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "insekt",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "insekto",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ɨŋɨrɨa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kab",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kachimpa pom",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kevar",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kolmenä",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kolmenia",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kolonp’un",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kùlí",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kúlìkə̀mágə̀n",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kʊlɪkan",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ƙwàaróo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "lamtol",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "lebah",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "lway",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "makwu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mantoun",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "matsitaj",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mdudu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mermeho",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "míhėčkė",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "miliχˤutːu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mishik’ pom",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mous dimyel",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "muumu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "muv",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "næŋʔã´w",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nakwu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nakwutaj",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nalo meli",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nama",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "neslo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nucodaq t’ot’",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nuwalhek",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nyuki",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ong",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pcołka",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pemtsaj",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pini",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "püḻü",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "renitantely",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "sâu bọ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "seer",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "serangga",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "simhat",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "supfwetaj",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "t’ant’",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "t’oonaqo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "tawon",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "tiklha",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ton pom",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ŧizizwa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "üön",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "üön-köyüːr",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "wano",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "wun’a",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "yoeria",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "zensek",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ziwlliñ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "zu'we",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "zúmàa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ʔaake piyatte",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Μέλισσα",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "жыва",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ме̄даш",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ผึ้ง",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ภมร",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "แมง",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "แมลง",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "꿀벌",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "昆虫",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "虫",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "蜜蜂",
+          "flags": ["text_match"]
+        }
+      ]
+    },
+    {
+      "relation": "stories",
+      "licences": ["CC-BY-4.0"],
+      "links": [
+        {
+          "body": "Apis mellifera",
+          "partner": "A1297. First human being killed by jealous brothers (reptiles and insects).",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A13.3. Insect as creator.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2000. Creation of insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2001. Insects from body of slain monster. Usually the monster is burnt; sometimes the insects come from his head, sometimes from his body as it burns. (Cf. A1716.1.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2001.1. Insects from brains, blood, and bones of slain helpful animal.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2002. Origin of insects from various experiences of saint.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2002.1. The god Mahadeo turns wood chips into insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2003. Origin of insects: released from sack. God places them in a sack and gives it to hare to carry to stream. He must not look in the sack. When he does so the insects escape. The hare laughs and this is…",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2004. Insects from devil's post-hole. Devil is given enough land to dig a post-hole. From this come all kinds of insects. To stop them a burning log is put in the hole. Insects therefore hate smoke.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2005. Origin of insects: God throws sand on lazy shepherds. (Cf. A1716.1).",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2006. Origin of insects: monstrous births from brother-sister incest.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012. Creation of bee.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012.0.1. Creation of honey-bees: transformed man.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012.1. Creation of bee to provide wax for candles in church. (Cf. B259.4.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012.2. First bees in Ireland.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012.3. God sends stinging bees to punish men.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2070. Creation of miscellaneous insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2095. Creation of lac insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2231.3.2. Bees work on Sabbath: may not get honey from red clover. (Cf. A2435.5.1.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2232.2. Bees pray for sting: punishment, first sting suicidal. (Cf. A2346.1.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2332.6.9. Why bee is blind.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2346.1. Why bees die after they sting. (Cf. A2232.2.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2385.3. Honey as excrement of bees.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2411.3. Origin of color of insect.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2411.3.1. Origin of color of bee.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2412.3. Markings on insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2426.3. Sounds of insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2433.5. Haunts of insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.3.8. Why ant-bear eats insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.5. Food of insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.5.1. Why bees may not get honey from red clover. (Cf. A2231.3.2.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.5.1.1. Why bees eat their own children.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.5.2. Insect fries human blood and eats it.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A33.3. Insect as creator's companion.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A33.3.1. Bee as God's spy. God, the creator, sends a bee to overhear the devil's secrets.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A773.6. Pleiades as swarm of bees.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B147.3.1.2. Bees (ants) leave honey on lips of infant to show future greatness.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B171.1.0.1. Magic cock carries great loads in his ear (load of grain, fox, tiger, bees, wasps, etc., also fire and water).",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B291.0.2. Unwelcome bird (insect) proves to be messenger.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B524.2.1. Helpful bees (hornets) sting opposing army.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B524.2.1.1. Saint sends swarm of bees or wasps against enemies.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "G225.1. Insect as witch's familiar. (Fly, bee, gnat, spider.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "J1762.5. Bees (wasps) mistaken for Jutlanders, etc.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "J2102.8. Frogs to eat insects, snakes to eat frogs. Snakes eat numskull's family.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "J512.15. Frogs want to collect honey like bees.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "K1975.1. Sham miracle: wallet (bee-hive) changes to wasps. Tricksters put a wasp nest in the wallet (bee-hive). When the master claims it they give it to him with the curse, \"May it turn to wasps!\" It does.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "K2351.2.2. Ashes transformed into bees, wasps, scorpions and snakes drive invading army away for hero.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "X1205. Lie: venom of animal (snake, hornet, bee) causes object to swell.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "X1280.1.1. Bumblebees imported to rout mosquitoes; the two insects crossbreed and have stingers on both ends.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        }
+      ]
+    },
+    {
+      "relation": "sites",
+      "licences": ["CC0-1.0", "LicenseRef-web-of-life-attribution"],
+      "links": [
+        {
+          "body": "Apis mellifera",
+          "partner": "Black River Gorges, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Cass, New Zealand",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Centris aenea",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Centris caxiensis",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Centris flavifrons",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Centris fuscata",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Centris obsoleta",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Centris sp1",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Centris sp2",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Centris tarsata",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Centris trigonoides",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Epicharis sp1",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Xylocopa grisescens",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Xylocopa sp1",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Craigieburn, New Zealand",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Garajonay, La Gomera",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Lake Hazen, Ellesmere Island",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Mahé, Seychelles",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Morant Point, Jamaica",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Mt. Kushigata, Japan",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Mt. Yufu, Japan",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Tenerife",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "descent",
+      "licences": ["CC-BY-4.0"],
+      "links": [
+        {
+          "body": "Apis mellifera",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Centris aenea",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Centris caxiensis",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Centris flavifrons",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Centris fuscata",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Centris obsoleta",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Centris sp1",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Centris sp2",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Centris tarsata",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Centris trigonoides",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Xylocopa grisescens",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Xylocopa sp1",
+          "partner": "Animalia (kingdom)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Centris aenea",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Centris caxiensis",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Centris flavifrons",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Centris fuscata",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Centris obsoleta",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Centris sp1",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Centris sp2",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Centris tarsata",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Centris trigonoides",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Xylocopa grisescens",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Xylocopa sp1",
+          "partner": "Apidae (family)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Apis (genus)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Centris aenea",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Centris caxiensis",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Centris flavifrons",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Centris fuscata",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Centris obsoleta",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Centris sp1",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Centris sp2",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Centris tarsata",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Centris trigonoides",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Xylocopa grisescens",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Xylocopa sp1",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Centris aenea",
+          "partner": "Centris (genus)",
+          "flags": []
+        },
+        {
+          "body": "Centris caxiensis",
+          "partner": "Centris (genus)",
+          "flags": []
+        },
+        {
+          "body": "Centris flavifrons",
+          "partner": "Centris (genus)",
+          "flags": []
+        },
+        {
+          "body": "Centris fuscata",
+          "partner": "Centris (genus)",
+          "flags": []
+        },
+        {
+          "body": "Centris obsoleta",
+          "partner": "Centris (genus)",
+          "flags": []
+        },
+        {
+          "body": "Centris sp1",
+          "partner": "Centris (genus)",
+          "flags": []
+        },
+        {
+          "body": "Centris sp2",
+          "partner": "Centris (genus)",
+          "flags": []
+        },
+        {
+          "body": "Centris tarsata",
+          "partner": "Centris (genus)",
+          "flags": []
+        },
+        {
+          "body": "Centris trigonoides",
+          "partner": "Centris (genus)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Centris aenea",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Centris caxiensis",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Centris flavifrons",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Centris fuscata",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Centris obsoleta",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Centris sp1",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Centris sp2",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Centris tarsata",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Centris trigonoides",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Xylocopa grisescens",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Xylocopa sp1",
+          "partner": "Hymenoptera (order)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Centris aenea",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Centris caxiensis",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Centris flavifrons",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Centris fuscata",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Centris obsoleta",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Centris sp1",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Centris sp2",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Centris tarsata",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Centris trigonoides",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Xylocopa grisescens",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Xylocopa sp1",
+          "partner": "Insecta (class)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Xylocopa grisescens",
+          "partner": "Xylocopa (genus)",
+          "flags": []
+        },
+        {
+          "body": "Xylocopa sp1",
+          "partner": "Xylocopa (genus)",
+          "flags": ["higher_rank_match"]
+        }
+      ]
+    }
+  ]
+}

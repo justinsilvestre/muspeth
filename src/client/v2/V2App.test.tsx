@@ -5,7 +5,7 @@ import { ColorSchemeProvider } from "../theme/useColorScheme";
 import { V2App } from "./V2App";
 
 vi.mock("./scene/CellScene", () => ({ default: () => null }));
-vi.mock("./pollination/GuildScene", () => ({ default: () => null }));
+vi.mock("./guilds/GuildScene", () => ({ default: () => null }));
 
 afterEach(cleanup);
 
@@ -27,10 +27,10 @@ describe("V2App", () => {
     ).toBe("page");
   });
 
-  it("marks the Pollination guilds tab as open at its address", () => {
-    renderV2App("/v2/pollination");
-    expect(
-      screen.getByRole("link", { name: "Pollination guilds" }).getAttribute("aria-current"),
-    ).toBe("page");
+  it("marks the Organism guilds tab as open at its address", () => {
+    renderV2App("/v2/guilds");
+    expect(screen.getByRole("link", { name: "Organism guilds" }).getAttribute("aria-current")).toBe(
+      "page",
+    );
   });
 });

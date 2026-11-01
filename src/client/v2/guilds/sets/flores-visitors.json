@@ -1,0 +1,1988 @@
+{
+  "id": "flores-visitors",
+  "name": "Flores, Azores: visitors",
+  "group": "Flower surveys",
+  "description": "Flower visitors on the coast of Flores in the Azores, counted in the summer of 2000, from the same study of invaded island networks.",
+  "bodyNoun": {
+    "one": "visitor",
+    "many": "visitors"
+  },
+  "labelStyle": "species",
+  "citation": {
+    "text": "Jens M. Olesen and Louise I. Eskildsen and Shadila Venkatasamy (2002). Invasion of pollination networks on oceanic islands: importance of invader complexes and endemic super generalists.",
+    "url": "https://doi.org/10.1046/j.1472-4642.2002.00148.x"
+  },
+  "bodies": [
+    {
+      "id": "wikidata:Q1093329",
+      "name": "Agrotis ipsilon"
+    },
+    {
+      "id": "ncbi:171272",
+      "name": "Anothomyia pluvialis"
+    },
+    {
+      "id": "wikidata:Q30034",
+      "name": "Apis mellifera"
+    },
+    {
+      "id": "wikidata:Q263784",
+      "name": "Bombus ruderatus"
+    },
+    {
+      "id": "mangal:Calliphora vemitoria",
+      "name": "Calliphora vemitoria"
+    },
+    {
+      "id": "wikidata:Q136367434",
+      "name": "Colias crocea"
+    },
+    {
+      "id": "ncbi:198635",
+      "name": "Eristalix tenax"
+    },
+    {
+      "id": "mangal:935/Halictus sp.",
+      "name": "Halictus sp."
+    },
+    {
+      "id": "wikidata:Q839823",
+      "name": "Lasius niger"
+    },
+    {
+      "id": "wikidata:Q603128",
+      "name": "Lucilia sericata"
+    },
+    {
+      "id": "wikidata:Q14717533",
+      "name": "Micropeza thoracicum"
+    },
+    {
+      "id": "wikidata:Q166111",
+      "name": "Musca domestica"
+    }
+  ],
+  "sharings": [
+    {
+      "relation": "flowers",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Halictus sp.",
+          "partner": "Solidago sempervivens",
+          "weight": 141,
+          "flags": ["placeholder_species", "unmatched_name"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Daucus carota",
+          "weight": 102,
+          "flags": []
+        },
+        {
+          "body": "Halictus sp.",
+          "partner": "Azorina vidalii",
+          "weight": 98,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Lucilia sericata",
+          "partner": "Crithmum maritimum",
+          "weight": 93,
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Azorina vidalii",
+          "weight": 89,
+          "flags": []
+        },
+        {
+          "body": "Micropeza thoracicum",
+          "partner": "Crithmum maritimum",
+          "weight": 87,
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Crithmum maritimum",
+          "weight": 83,
+          "flags": []
+        },
+        {
+          "body": "Micropeza thoracicum",
+          "partner": "Azorina vidalii",
+          "weight": 51,
+          "flags": []
+        },
+        {
+          "body": "Bombus ruderatus",
+          "partner": "Lotus corniculatus",
+          "weight": 47,
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Chamomilla suaveolens",
+          "weight": 42,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Lasius niger",
+          "partner": "Azorina vidalii",
+          "weight": 37,
+          "flags": []
+        },
+        {
+          "body": "Micropeza thoracicum",
+          "partner": "Silene vulgaris",
+          "weight": 30,
+          "flags": []
+        },
+        {
+          "body": "Anothomyia pluvialis",
+          "partner": "Chamomilla suaveolens",
+          "weight": 23,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Azorina vidalii",
+          "weight": 23,
+          "flags": []
+        },
+        {
+          "body": "Agrotis ipsilon",
+          "partner": "Solidago sempervivens",
+          "weight": 22,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Colias crocea",
+          "partner": "Lotus corniculatus",
+          "weight": 21,
+          "flags": []
+        },
+        {
+          "body": "Halictus sp.",
+          "partner": "Chamomilla suaveolens",
+          "weight": 21,
+          "flags": ["placeholder_species", "unmatched_name"]
+        },
+        {
+          "body": "Calliphora vemitoria",
+          "partner": "Azorina vidalii",
+          "weight": 13,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Colias crocea",
+          "partner": "Freesia refracta",
+          "weight": 12,
+          "flags": []
+        },
+        {
+          "body": "Eristalix tenax",
+          "partner": "Crithmum maritimum",
+          "weight": 12,
+          "flags": []
+        },
+        {
+          "body": "Bombus ruderatus",
+          "partner": "Freesia refracta",
+          "weight": 11,
+          "flags": []
+        },
+        {
+          "body": "Halictus sp.",
+          "partner": "Daucus carota",
+          "weight": 11,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Halictus sp.",
+          "partner": "Reseda luteola",
+          "weight": 11,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Lotus corniculatus",
+          "weight": 9,
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Reseda luteola",
+          "weight": 9,
+          "flags": []
+        },
+        {
+          "body": "Bombus ruderatus",
+          "partner": "Azorina vidalii",
+          "weight": 9,
+          "flags": []
+        },
+        {
+          "body": "Colias crocea",
+          "partner": "Azorina vidalii",
+          "weight": 9,
+          "flags": []
+        },
+        {
+          "body": "Lucilia sericata",
+          "partner": "Daucus carota",
+          "weight": 8,
+          "flags": []
+        },
+        {
+          "body": "Micropeza thoracicum",
+          "partner": "Beta vulgaris",
+          "weight": 8,
+          "flags": []
+        },
+        {
+          "body": "Halictus sp.",
+          "partner": "Silene vulgaris",
+          "weight": 7,
+          "flags": ["placeholder_species"]
+        }
+      ]
+    },
+    {
+      "relation": "compounds",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Apis mellifera",
+          "partner": "(+/-)-2-amino-6,7-dihydroxytetralin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "(E)-cinnamic acid",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "(S)-glyceryl 1-phosphate",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "3-hydroxydecanoic acid",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "acetylcholine",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "adenosine diphosphate",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "adenosine monophosphate",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "adenosine triphosphate",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Apis mellifera queen cell",
+          "flags": ["unreferenced_statement"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "beta-sitosterol",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "beta-sitosterol",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "campesterol",
+          "flags": []
+        },
+        {
+          "body": "Lasius niger",
+          "partner": "cetyl acetate",
+          "flags": []
+        },
+        {
+          "body": "Lasius niger",
+          "partner": "cetyl alcohol",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "cholesterol",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "chrysin",
+          "flags": []
+        },
+        {
+          "body": "Lucilia sericata",
+          "partner": "creatine",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ferulic acid",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "genistein",
+          "flags": []
+        },
+        {
+          "body": "Lasius niger",
+          "partner": "hexadecyl formate",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Isocupressic acid",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "isorhamnetin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "melittin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pimaric acid",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pinocembrin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "stigmasterol",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "tertiapin",
+          "flags": ["unreferenced_statement"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "trans-caffeic acid",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "names",
+      "licences": ["CC-BY-4.0", "CC0-1.0"],
+      "links": [
+        {
+          "body": "Apis mellifera",
+          "partner": "`iniseka",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "2napraŋ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "3puluŋ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "4kʷʰe 2napraŋ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "abeja",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "abija",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "aƀəʕʕuš",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "akoyek",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "albină",
+          "flags": []
+        },
+        {
+          "body": "Lasius niger",
+          "partner": "ant",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "atak",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "b’ujl",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "ba'ár",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ba'armo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Bal arısı",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bebet",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bey",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "bə́g",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bibikèly",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bij",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bini",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Lucilia sericata",
+          "partner": "Blow Fly",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bugari",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Bombus ruderatus",
+          "partner": "Bumblebee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bɯst",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Lucilia sericata",
+          "partner": "bzučivka",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "chanul pom",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "chon",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "chuspi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "cíì",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "côn trùng",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "dilkə:tʃən",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "dʒu:gdu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "flioga",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Lucilia sericata",
+          "partner": "fly",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "fly",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "fullánka",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "gäne",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Bombus ruderatus",
+          "partner": "Garden Bumblebee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "gbdai",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "gin'we̲",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Agrotis ipsilon",
+          "partner": "grass",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Lasius niger",
+          "partner": "hangya",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "hanibi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "hilku",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "honey bee",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "hö́ni",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Honigbiene",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Honingbij",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "honungsbi",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "hüt’-qumur",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "insect",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "insectă",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "insekt",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "insekto",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "izi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ɨŋɨrɨa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kab",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kachimpa pom",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kevar",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "kíyí",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kolmenä",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kolmenia",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kolonp’un",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kùlí",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kúlìkə̀mágə̀n",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kʊlɪkan",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "ƙúdáa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ƙwàaróo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "lalat",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "làlitra",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "lamtol",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "lebah",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "lway",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "makwu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mantoun",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Agrotis ipsilon",
+          "partner": "mariposa",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "máťhi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "matsitaj",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mdudu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mermeho",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "míhėčkė",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "miliχˤutːu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mishik’ pom",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "mous",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mous dimyel",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Lasius niger",
+          "partner": "mravec",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Lasius niger",
+          "partner": "mravenec",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "mucha",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "muscă",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "muumu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "muv",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "næŋʔã´w",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nakwu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nakwutaj",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "nalo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nalo meli",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nama",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "neslo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nucodaq t’ot’",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nuwalhek",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nyuki",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "nzi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ong",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pcołka",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pemtsaj",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Bombus ruderatus",
+          "partner": "Pi Rorohu",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pini",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "püḻü",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "püḻü",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "qajmuk",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "renitantely",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "ruổi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "sâu bọ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "saχsɨrɣa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "se’eboi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "seer",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "serangga",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "simhat",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "supfwetaj",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "t’ant’",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "t’oonaqo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "t’ot’",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "tawon",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "tiklha",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ton pom",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Bombus ruderatus",
+          "partner": "Tuinhommel",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ŧizizwa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "üön",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "üön-köyüːr",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "utz’",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "vlieg",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "vo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "walngirn",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "wano",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "welewele",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "wë́nwën",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "wowǒw",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "wun’a",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "yay",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "yoeria",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "yoov",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "zensek",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ziwlliñ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "zu'we",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "zúmàa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ʔaake piyatte",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "ʔinnakko",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Μέλισσα",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "жыва",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ме̄даш",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "чуэраш",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ผึ้ง",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ภมร",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "แมง",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "แมลง",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "แมลงวัน",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "꿀벌",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "昆虫",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "蒼蠅",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "虫",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "蜜蜂",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "蠅",
+          "flags": ["derived_from_coarser_level"]
+        }
+      ]
+    },
+    {
+      "relation": "stories",
+      "licences": ["CC-BY-4.0"],
+      "links": [
+        {
+          "body": "Apis mellifera",
+          "partner": "A1297. First human being killed by jealous brothers (reptiles and insects).",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A13.3. Insect as creator.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2000. Creation of insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2001. Insects from body of slain monster. Usually the monster is burnt; sometimes the insects come from his head, sometimes from his body as it burns. (Cf. A1716.1.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2001.1. Insects from brains, blood, and bones of slain helpful animal.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2002. Origin of insects from various experiences of saint.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2002.1. The god Mahadeo turns wood chips into insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2003. Origin of insects: released from sack. God places them in a sack and gives it to hare to carry to stream. He must not look in the sack. When he does so the insects escape. The hare laughs and this is…",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2004. Insects from devil's post-hole. Devil is given enough land to dig a post-hole. From this come all kinds of insects. To stop them a burning log is put in the hole. Insects therefore hate smoke.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2005. Origin of insects: God throws sand on lazy shepherds. (Cf. A1716.1).",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2006. Origin of insects: monstrous births from brother-sister incest.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012. Creation of bee.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012.0.1. Creation of honey-bees: transformed man.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012.1. Creation of bee to provide wax for candles in church. (Cf. B259.4.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012.2. First bees in Ireland.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012.3. God sends stinging bees to punish men.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2070. Creation of miscellaneous insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2095. Creation of lac insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2231.3.2. Bees work on Sabbath: may not get honey from red clover. (Cf. A2435.5.1.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2232.2. Bees pray for sting: punishment, first sting suicidal. (Cf. A2346.1.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2332.6.9. Why bee is blind.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2346.1. Why bees die after they sting. (Cf. A2232.2.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2385.3. Honey as excrement of bees.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2411.3. Origin of color of insect.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2411.3.1. Origin of color of bee.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2412.3. Markings on insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2426.3. Sounds of insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2433.5. Haunts of insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.3.8. Why ant-bear eats insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.5. Food of insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.5.1. Why bees may not get honey from red clover. (Cf. A2231.3.2.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.5.1.1. Why bees eat their own children.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.5.2. Insect fries human blood and eats it.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A33.3. Insect as creator's companion.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A33.3.1. Bee as God's spy. God, the creator, sends a bee to overhear the devil's secrets.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A773.6. Pleiades as swarm of bees.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B147.3.1.2. Bees (ants) leave honey on lips of infant to show future greatness.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B171.1.0.1. Magic cock carries great loads in his ear (load of grain, fox, tiger, bees, wasps, etc., also fire and water).",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B291.0.2. Unwelcome bird (insect) proves to be messenger.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B524.2.1. Helpful bees (hornets) sting opposing army.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B524.2.1.1. Saint sends swarm of bees or wasps against enemies.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "D1517.1. Body of housefly as remedy for hornet sting. (Cf. D1010.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "G225.1. Insect as witch's familiar. (Fly, bee, gnat, spider.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "J1762.5. Bees (wasps) mistaken for Jutlanders, etc.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "J2102.8. Frogs to eat insects, snakes to eat frogs. Snakes eat numskull's family.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "J512.15. Frogs want to collect honey like bees.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "K1975.1. Sham miracle: wallet (bee-hive) changes to wasps. Tricksters put a wasp nest in the wallet (bee-hive). When the master claims it they give it to him with the curse, \"May it turn to wasps!\" It does.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "K2351.2.2. Ashes transformed into bees, wasps, scorpions and snakes drive invading army away for hero.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "X1205. Lie: venom of animal (snake, hornet, bee) causes object to swell.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "X1280.1.1. Bumblebees imported to rout mosquitoes; the two insects crossbreed and have stingers on both ends.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        }
+      ]
+    },
+    {
+      "relation": "sites",
+      "licences": ["CC0-1.0", "LicenseRef-web-of-life-attribution"],
+      "links": [
+        {
+          "body": "Apis mellifera",
+          "partner": "Black River Gorges, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Black River Gorges, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Cass, New Zealand",
+          "flags": []
+        },
+        {
+          "body": "Bombus ruderatus",
+          "partner": "Cass, New Zealand",
+          "flags": []
+        },
+        {
+          "body": "Lucilia sericata",
+          "partner": "Cass, New Zealand",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Craigieburn, New Zealand",
+          "flags": []
+        },
+        {
+          "body": "Agrotis ipsilon",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Anothomyia pluvialis",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Bombus ruderatus",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Calliphora vemitoria",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Colias crocea",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Eristalix tenax",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Halictus sp.",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Lasius niger",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Lucilia sericata",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Micropeza thoracicum",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Garajonay, La Gomera",
+          "flags": []
+        },
+        {
+          "body": "Colias crocea",
+          "partner": "Garajonay, La Gomera",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Lake Hazen, Ellesmere Island",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Mahé, Seychelles",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Morant Point, Jamaica",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Mt. Kushigata, Japan",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Mt. Yufu, Japan",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Tenerife",
+          "flags": []
+        },
+        {
+          "body": "Lucilia sericata",
+          "partner": "Tenerife",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "descent",
+      "licences": ["CC-BY-4.0"],
+      "links": [
+        {
+          "body": "Agrotis ipsilon",
+          "partner": "Agrotis (genus)",
+          "flags": []
+        },
+        {
+          "body": "Agrotis ipsilon",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Bombus ruderatus",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Calliphora vemitoria",
+          "partner": "Animalia (kingdom)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Colias crocea",
+          "partner": "Animalia (kingdom)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Eristalix tenax",
+          "partner": "Animalia (kingdom)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Halictus sp.",
+          "partner": "Animalia (kingdom)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Lasius niger",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Lucilia sericata",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Micropeza thoracicum",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Bombus ruderatus",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Apis (genus)",
+          "flags": []
+        },
+        {
+          "body": "Agrotis ipsilon",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Bombus ruderatus",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Calliphora vemitoria",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Colias crocea",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Eristalix tenax",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Halictus sp.",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Lasius niger",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Lucilia sericata",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Micropeza thoracicum",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Bombus ruderatus",
+          "partner": "Bombus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Calliphora vemitoria",
+          "partner": "Calliphora (genus)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Calliphora vemitoria",
+          "partner": "Calliphoridae (family)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Lucilia sericata",
+          "partner": "Calliphoridae (family)",
+          "flags": []
+        },
+        {
+          "body": "Colias crocea",
+          "partner": "Colias (genus)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Calliphora vemitoria",
+          "partner": "Diptera (order)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Eristalix tenax",
+          "partner": "Diptera (order)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Lucilia sericata",
+          "partner": "Diptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Micropeza thoracicum",
+          "partner": "Diptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Diptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Eristalix tenax",
+          "partner": "Eristalis (genus)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Lasius niger",
+          "partner": "Formicidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Halictus sp.",
+          "partner": "Halictidae (family)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Halictus sp.",
+          "partner": "Halictus (genus)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Bombus ruderatus",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Halictus sp.",
+          "partner": "Hymenoptera (order)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Lasius niger",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Agrotis ipsilon",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Bombus ruderatus",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Calliphora vemitoria",
+          "partner": "Insecta (class)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Colias crocea",
+          "partner": "Insecta (class)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Eristalix tenax",
+          "partner": "Insecta (class)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Halictus sp.",
+          "partner": "Insecta (class)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Lasius niger",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Lucilia sericata",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Micropeza thoracicum",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Lasius niger",
+          "partner": "Lasius (genus)",
+          "flags": []
+        },
+        {
+          "body": "Agrotis ipsilon",
+          "partner": "Lepidoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Colias crocea",
+          "partner": "Lepidoptera (order)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Lucilia sericata",
+          "partner": "Lucilia (genus)",
+          "flags": []
+        },
+        {
+          "body": "Micropeza thoracicum",
+          "partner": "Micropeza (genus)",
+          "flags": []
+        },
+        {
+          "body": "Micropeza thoracicum",
+          "partner": "Micropezidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Musca (genus)",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Muscidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Agrotis ipsilon",
+          "partner": "Noctuidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Colias crocea",
+          "partner": "Pieridae (family)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Eristalix tenax",
+          "partner": "Syrphidae (family)",
+          "flags": ["fuzzy_name_match"]
+        }
+      ]
+    }
+  ]
+}

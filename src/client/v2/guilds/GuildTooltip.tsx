@@ -1,19 +1,27 @@
 import type { Subgroup } from "../glottometry/scoreSubgroups";
 import type { Hovered } from "../scene/pickHovered";
 import { abbreviateSpecies } from "./abbreviateSpecies";
-import { otherSide, type Side } from "./PollinationNetwork";
+import { type BodySet, countOf, labelOf } from "./BodySet";
+import type { Relation } from "./relations";
 
 type GuildTooltipProps = {
   hovered: Hovered | undefined;
   /** Where the pointer is, in pixels from the top left of the scene. */
   pointer: { x: number; y: number };
-  side: Side;
-  /** How many partners each body has among the encounters counted. */
+  set: BodySet;
+  relation: Relation;
+  /** How many partners each body has among the links counted. */
   partnerCounts: Map<string, number>;
 };
 
 /** Names what the pointer is on: a body with its partners, or a guild with the partners that hold it together. */
-export function GuildTooltip({ hovered, pointer, side, partnerCounts }: GuildTooltipProps) {
+export function GuildTooltip({
+  hovered,
+  pointer,
+  set,
+  relation,
+  partnerCounts,
+}: GuildTooltipProps) {
   if (!hovered) return null;
   return (
     <div
@@ -22,39 +30,33 @@ export function GuildTooltip({ hovered, pointer, side, partnerCounts }: GuildToo
       style={{ left: pointer.x + 14, top: pointer.y + 14 }}
     >
       {hovered.kind === "language"
-        ? describeBody(hovered.name, side, partnerCounts.get(hovered.name) ?? 0)
-        : describeGuild(hovered.subgroup, side)}
+        ? describeBody(hovered.name, relation, partnerCounts.get(hovered.name) ?? 0)
+        : describeGuild(hovered.subgroup, set, relation)}
     </div>
   );
 }
 
-function describeBody(name: string, side: Side, partners: number) {
-  const partnerWord = partnerWordFor(otherSide(side), partners);
+function describeBody(name: string, relation: Relation, partners: number) {
   return (
     <>
       <b>{name}</b>
       <br />
-      {side === "plants" ? "visited by" : "seen on"} {partners} {partnerWord}
+      {relation.bodyVerb} {countOf(partners, relation.partner)}
     </>
   );
 }
 
-function describeGuild(guild: Subgroup, side: Side) {
+function describeGuild(guild: Subgroup, set: BodySet, relation: Relation) {
   const { members, supporters, cohesiveness, subgroupiness } = guild;
-  const partnerWord = partnerWordFor(otherSide(side), supporters.length);
+  const partnerLabel = relation.partnersAreSpecies ? abbreviateSpecies : (label: string) => label;
   return (
     <>
-      <b>{members.map(abbreviateSpecies).join(", ")}</b>
+      <b>{members.map((member) => labelOf(set, member)).join(", ")}</b>
       <br />
-      held together by {supporters.length} {partnerWord} seen on exactly these:{" "}
-      {supporters.map(abbreviateSpecies).join(", ")}
+      held together by {countOf(supporters.length, relation.partner)} {relation.guildVerb}:{" "}
+      {supporters.map(partnerLabel).join(", ")}
       <br />
       cohesiveness {cohesiveness.toFixed(2)} · subgroupiness {subgroupiness.toFixed(1)}
     </>
   );
-}
-
-function partnerWordFor(side: Side, count: number) {
-  if (side === "plants") return count === 1 ? "plant" : "plants";
-  return count === 1 ? "visitor" : "visitors";
 }

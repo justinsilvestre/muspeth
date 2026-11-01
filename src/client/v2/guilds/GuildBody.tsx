@@ -3,27 +3,27 @@ import { useMemo } from "react";
 import { Color } from "three";
 import { layoutByLikeness } from "../glottometry/layoutByLikeness";
 import type { LanguageLayout } from "../glottometry/layoutLanguages";
+import type { InnovationTable } from "../glottometry/parseInnovationsCsv";
 import { placeLabels } from "../glottometry/placeLabels";
 import { scoreSubgroups } from "../glottometry/scoreSubgroups";
 import type { Appearance } from "../scene/appearance";
 import { LanguageNucleus } from "../scene/LanguageNucleus";
 import { Membrane } from "../scene/Membrane";
 import { type Hovered, pickHovered } from "../scene/pickHovered";
-import { abbreviateSpecies } from "./abbreviateSpecies";
-import type { PollinationNetwork, Side } from "./PollinationNetwork";
+import { type BodySet, labelOf } from "./BodySet";
 import { spreadApart } from "./spreadApart";
-import { toSharingTable } from "./toSharingTable";
 
 const diagramExtent = 6.5;
 const labelHeight = 0.3;
-/** How close two nuclei may lie; closer ones are nudged apart so that both can be seen and labelled. */
-const leastNucleusDistance = 0.55;
+/** How close two nuclei may lie, by how long their labels run; closer ones are nudged apart so that both can be seen and labelled. */
+const leastNucleusDistance = { species: 0.55, plain: 0.9 };
 
 type GuildBodyProps = {
-  network: PollinationNetwork;
-  side: Side;
-  /** Encounters counted fewer times than this do not form membranes. */
-  minimumVisits: number;
+  set: BodySet;
+  /** What the bodies share with every link counted; the nuclei are placed by it, so they keep still as the minimum changes. */
+  fullTable: InnovationTable;
+  /** What the bodies share among the links counted; the membranes are drawn from it. */
+  table: InnovationTable;
   isDark: boolean;
   /** Guilds with a lower subgroupiness than this are not drawn. */
   threshold: number;
@@ -32,38 +32,34 @@ type GuildBodyProps = {
   onHover: (hovered: Hovered | undefined) => void;
 };
 
-/**
- * Draws one side of a pollination network as a cell: every organism of that side a nucleus,
- * and every set of them that shares a partner on the other side a membrane nested around its members.
- * The nuclei keep their places as the minimum number of visits changes, so that only the membranes move.
- */
+/** Draws a set as a cell: every body a nucleus, and every set of bodies that shares a partner a membrane nested around its members. */
 export function GuildBody(props: GuildBodyProps) {
-  const { network, side, minimumVisits, isDark, threshold, appearance, hovered, onHover } = props;
-  const fullTable = useMemo(() => toSharingTable(network, side), [network, side]);
-  const table = useMemo(
-    () => toSharingTable(network, side, minimumVisits),
-    [network, side, minimumVisits],
-  );
+  const { set, fullTable, table, isDark, threshold, appearance, hovered, onHover } = props;
   const bodies = table.languages;
   const layout = useMemo(() => {
-    const likeness = layoutByLikeness(fullTable, diagramExtent);
-    return { ...likeness, positions: spreadApart(likeness.positions, leastNucleusDistance) };
-  }, [fullTable]);
-  const sitePoints = useMemo(() => positionsOf(bodies, layout), [bodies, layout]);
+    const likeness = layoutByLikeness(fullTable, diagramExtent, "jaccard");
+    const positions = spreadApart(likeness.positions, leastNucleusDistance[set.labelStyle]);
+    return { ...likeness, positions };
+  }, [fullTable, set.labelStyle]);
+  const setPoints = useMemo(() => positionsOf(bodies, layout), [bodies, layout]);
   const labelOffsets = useMemo(
     () =>
       placeLabels(
         bodies.map((name) => ({
           name,
-          text: abbreviateSpecies(name),
+          text: labelOf(set, name),
           position: layout.positions.get(name) ?? { x: 0, y: 0 },
         })),
         labelHeight,
       ),
-    [bodies, layout],
+    [set, bodies, layout],
+  );
+  const linked = useMemo(
+    () => new Set(table.innovations.flatMap(({ members }) => [...members])),
+    [table],
   );
   const scored = useMemo(() => scoreSubgroups(table), [table]);
-  // Membrane thicknesses are scaled to the strongest guild drawn with every encounter counted.
+  // Membrane thicknesses are scaled to the strongest guild drawn with every link counted.
   const strongest = useMemo(() => scoreSubgroups(fullTable)[0]?.subgroupiness ?? 1, [fullTable]);
   const guilds = useMemo(
     () =>
@@ -79,7 +75,7 @@ export function GuildBody(props: GuildBodyProps) {
     <group rotation-z={Math.PI / 4}>
       <group onPointerMove={handlePointerMove} onPointerLeave={() => onHover(undefined)}>
         <Membrane
-          points={sitePoints}
+          points={setPoints}
           padding={paddingBase + paddingPerMember * bodies.length + 0.3}
           color={appearance.color.family}
           thickness={0.6}
@@ -103,12 +99,13 @@ export function GuildBody(props: GuildBodyProps) {
           <LanguageNucleus
             key={name}
             name={name}
-            label={abbreviateSpecies(name)}
+            label={labelOf(set, name)}
             position={layout.positions.get(name) ?? { x: 0, y: 0 }}
             labelOffset={labelOffsets.get(name) ?? { dx: labelHeight, dy: -labelHeight }}
             labelHeight={labelHeight}
-            labelColor={isDark ? "#f5f5f4" : "#1c1917"}
+            labelColor={labelColor(isDark, linked.has(name))}
             appearance={appearance}
+            isDimmed={!linked.has(name)}
           />
         ))}
       </group>
@@ -120,7 +117,12 @@ function positionsOf(members: string[], { positions }: LanguageLayout) {
   return members.map((name) => positions.get(name) ?? { x: 0, y: 0 });
 }
 
-/** Blends from the small-guild color to the large-guild color by the share of the site's bodies a guild holds. */
+function labelColor(isDark: boolean, isLinked: boolean) {
+  if (isLinked) return isDark ? "#f5f5f4" : "#1c1917";
+  return isDark ? "#78716c" : "#a8a29e";
+}
+
+/** Blends from the small-guild color to the large-guild color by the share of the set's bodies a guild holds. */
 function membraneColor(share: number, { color }: Appearance) {
   return `#${new Color(color.smallSubgroup).lerpHSL(new Color(color.largeSubgroup), share).getHexString()}`;
 }
