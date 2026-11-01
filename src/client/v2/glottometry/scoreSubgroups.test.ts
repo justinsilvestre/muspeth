@@ -30,6 +30,10 @@ describe("scoreSubgroups", () => {
     expect(find(["A", "B"])?.support).toBe(2);
   });
 
+  it("names the supporting innovations", () => {
+    expect(find(["A", "B"])?.supporters).toEqual(["ab", "ab again"]);
+  });
+
   it("measures cohesiveness as the share of related innovations that do not cut across the subgroup", () => {
     // AB is supported twice, compatible with "abc", "a", and "all", and cut across by "bc".
     expect(find(["A", "B"])?.cohesiveness).toBeCloseTo(5 / 6);

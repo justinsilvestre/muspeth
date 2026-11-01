@@ -1,8 +1,20 @@
 import { describe, expect, it } from "vitest";
 import { pickHovered } from "./pickHovered";
 
-const pair = { members: ["A", "B"], support: 1, cohesiveness: 1, subgroupiness: 1 };
-const trio = { members: ["A", "B", "C"], support: 1, cohesiveness: 1, subgroupiness: 1 };
+const pair = {
+  members: ["A", "B"],
+  support: 1,
+  supporters: ["ab"],
+  cohesiveness: 1,
+  subgroupiness: 1,
+};
+const trio = {
+  members: ["A", "B", "C"],
+  support: 1,
+  supporters: ["abc"],
+  cohesiveness: 1,
+  subgroupiness: 1,
+};
 
 describe("pickHovered", () => {
   it("picks the subgroup with the fewest members among the hits", () => {

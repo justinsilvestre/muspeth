@@ -12,4 +12,11 @@ test.describe("app versions", () => {
       page.getByRole("region", { name: "Historical glottometry" }).locator("canvas"),
     ).toBeVisible();
   });
+
+  test("shows a canvas in the second version's Pollination guilds tab", async ({ page }) => {
+    await page.goto("/v2/pollination");
+    await expect(
+      page.getByRole("region", { name: "Pollination guilds" }).locator("canvas"),
+    ).toBeVisible();
+  });
 });

@@ -14,7 +14,13 @@ describe("HoverTooltip", () => {
   });
 
   it("names a subgroup by its labels with its scores", () => {
-    const subgroup = { members: ["ⓁA", "ⓁB"], support: 17, cohesiveness: 0.706, subgroupiness: 12 };
+    const subgroup = {
+      members: ["ⓁA", "ⓁB"],
+      support: 17,
+      supporters: [],
+      cohesiveness: 0.706,
+      subgroupiness: 12,
+    };
     render(
       <HoverTooltip
         hovered={{ kind: "subgroup", subgroup }}
