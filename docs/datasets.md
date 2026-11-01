@@ -74,6 +74,10 @@ node         {"original_name":"mollusks", "taxonomy":{"name":"Mollusca","rank":"
 - **Weaknesses:**
   - Some nodes are coarse, such as "mollusks" or "D2: fishery offal".
   - Pagination is unstable unless you pass `sort=id`.
+  - Its taxonomy matches plain words to the common names of unrelated species: in the Jena web, "carrion" is matched to the carrion crow, "litter" to a skink and "dung" to a shrub, each without a GBIF key. The import keeps such a node under its own word unless GBIF backs the match or the taxon's name echoes the word.
+- **Loaded beyond the pollination networks** (2026-11-02):
+  - *Rotting logs in Duke Forest* (networks 1494 to 1497; Savely 1939, Ecological Monographs 9(3), doi 10.2307/1943233; dataset `savely_1939`, CC0): oak and pine logs a year dead and three years dead or more, 61 + 114 + 149 + 47 = 371 presence-only links of predation, herbivory (fungus and wood feeding), scavenging and parasitism among 209 raw names, about 150 organisms once the spellings are matched. The logs' fungi, wood, phloem and sapwood are nodes of their own ("fungi", "fungi (red rot)", "rotting wood (Pinus spp.)"); the oak ones carry Mangal's match to *Quercus*. Mangal dates every network 1936-09-01.
+  - *Jena grassland meta-food web* (network 5013; Hines et al. 2019, Ecology 100(4), doi 10.1002/ecy.2679; CC0): 714 nodes and 51,496 presence-only links in five types, predation 42,144, herbivory 6,075, "unspecified" 2,104 (the omnivorous carabids' links), detritivory 1,090 and scavenging 83; no parasitism, and fungi only as one node. The import keeps, for each type, the twelve nodes with the most links of that type as consumers and the twelve with the most as resources, plus "fungi": 100 organisms and 1,877 links. Fifty-three pages of a thousand links each are fetched in order of identifier.
 
 **Web of Life** (Bascompte lab)
 - **Coverage:** 324 networks: mostly pollination, plus host–parasite, seed dispersal and food webs.
@@ -142,6 +146,8 @@ Termitomyces    litter_saprotroph   termite_symbiont   agaricoid
 Chalciporus     mycoparasite        Specific_hosts = Amanita
 Tzeanania       mycoparasite        Specific_hosts = Ophiocordyceps   (which in turn parasitises insects)
 ```
+
+- **What `Specific_hosts` holds** (read for `db:import-fungal-hosts`, 2026-11-02): 662 of the 10,771 rows name a host, 684 host mentions of 263 distinct values. About two thirds are scientific names at genus, family or order level (`Eucalyptus`, `Poaceae`, `Mucorales`), sometimes with the part of the host attached (`Pinaceae_needles`, `Simuliidae_larvae`, `Claviceps_sclerotia`); the rest are informal groups, the commonest being `algae` (57), `mosses` (42), `angiosperms` (27), `nematodes` (15), `ferns` (14), `bamboo` (12), `amoebae` (10) and `scale_insects` (10), with a few typos (`rotents`, `Drospophila_gut`). Twenty-three genera list two hosts. The termite symbiosis of *Termitomyces* and the insect hosts of *Ophiocordyceps* are not in this column but in `Animal_biotrophic_capacity_template` (`termite_symbiont`, `animal_parasite`, `arthropod_parasite`, `nematophagous`, `opportunistic_human_parasite`), which the import also reads. Informal groups that one taxon covers are read as that taxon and flagged `informal_group_name`; `algae`, `amoebae`, `herbivores`, `mangroves` and `fish` are left out. The import stores 1,347 links of 1,243 genera to 231 hosts, adding 1,435 organisms at genus or coarser rank.
 
 **fun^fun** (traitecoevo/fungaltraits, MIT licence)
 - **Format:** a 51,000-row long table, one trait value per row: spore size, fruiting body size, melanin content, and gene counts such as chitinase.
@@ -223,7 +229,8 @@ B631.       Human offspring from marriage to animal.
   It holds Indigenous knowledge, so ask before reusing it.
 - **D-PLACE:** cultural variables at the level of whole societies, not species.
 - **MGnify:** 38,000 human-associated microbiome samples. Per-sample taxonomy tables are not straightforward to retrieve through its API.
-- **HGTree:** genes transferred sideways between prokaryotes, about 6.4 million.
+- **HGTree:** genes transferred sideways between prokaryotes, about 6.4 million. Checked on 2026-11-02: neither hgtree.snu.ac.kr nor hgtree2.snu.ac.kr answered (connection refused or reset), and no licence or bulk-download terms are stated in the papers (Jeong et al. 2016; HGTree v2.0, 2023). ICEberg's pages returned 404. Sheinman et al. (2021, eLife, CC BY) publish only per-genus-pair rates of identical-sequence transfer, not events between named organisms; the fungal timetree deposit of Ocaña-Pallarès et al. (figshare 28046594, CC BY 4.0) holds its pectinase transfers only as PDF trees.
+- **Lateral gene transfer among grasses** (Hibdige, Raimondeau, Christin & Dunning 2021, New Phytologist 230(6), doi 10.1111/nph.17328; CC BY 4.0): the source used for `db:import-gene-transfers`. Seventeen grass genomes were scanned; transferred genes were found in thirteen, each assigned to a donor lineage (the tribes Andropogoneae and Paniceae, the subtribes Cenchrinae and Panicinae, the subfamilies Chloridoideae and Pooideae) and, by short reads and transcriptomes, to the other grasses it also occurs in. Wiley's supporting-information download refuses clients that are not browsers, so the tables are read from the supplement of the preprint's third version on bioRxiv (doi 10.1101/2020.02.17.952150), a 4.8 MB zip under CC BY-NC-ND 4.0, whose Tables S2 and S4 list each gene copy with its gene tree, species, donor and protein. The import stores 130 transferred genes, as substance nodes, with 333 links among 47 grasses and lineages.
 - **No open, machine-readable source known:** kigo (haiku seasonal words) and lichen symbiosis data.
 
 ## 3. Candidate artifacts

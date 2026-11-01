@@ -18,9 +18,11 @@ describe("bodySets", () => {
     expect(bare.map((set) => set.id)).toEqual([]);
   });
 
-  it("lists the flower surveys before the sets drawn from across the database", () => {
+  it("lists the flower surveys first and the sets drawn from across the database last", () => {
     expect(groupBodySets(bodySets).map(([group]) => group)).toEqual([
       "From flower surveys",
+      "From food webs",
+      "From other studies",
       "From across the database",
     ]);
   });

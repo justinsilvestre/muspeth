@@ -381,8 +381,844 @@
     },
     {
       "relation": "descent",
-      "licences": [],
-      "links": []
+      "licences": ["CC-BY-4.0"],
+      "links": [
+        {
+          "body": "Termitomyces",
+          "partner": "Agaricales (order)",
+          "flags": []
+        },
+        {
+          "body": "Termitosphaera",
+          "partner": "Agaricales (order)",
+          "flags": []
+        },
+        {
+          "body": "Chalciporus",
+          "partner": "Agaricomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Termitomyces",
+          "partner": "Agaricomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Termitosphaera",
+          "partner": "Agaricomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Arthrobotrys",
+          "partner": "Arthrobotrys (genus)",
+          "flags": []
+        },
+        {
+          "body": "Trichophyton",
+          "partner": "Arthrodermataceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Arthrobotrys",
+          "partner": "Ascomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Aspergillus",
+          "partner": "Ascomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Candida",
+          "partner": "Ascomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Cordyceps",
+          "partner": "Ascomycota (phylum)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Escovopsis",
+          "partner": "Ascomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Eudarluca",
+          "partner": "Ascomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Harposporium",
+          "partner": "Ascomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Laboulbenia",
+          "partner": "Ascomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Metarhizium",
+          "partner": "Ascomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Ophiocordyceps",
+          "partner": "Ascomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Pneumocystis",
+          "partner": "Ascomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Podostroma",
+          "partner": "Ascomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Sphaerostilbella",
+          "partner": "Ascomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Sporophagomyces",
+          "partner": "Ascomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Tolypocladium",
+          "partner": "Ascomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Trichophyton",
+          "partner": "Ascomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Tyrannicordyceps",
+          "partner": "Ascomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Tzeanania",
+          "partner": "Ascomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Aspergillus",
+          "partner": "Aspergillaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Aspergillus",
+          "partner": "Aspergillus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Chalciporus",
+          "partner": "Basidiomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Septobasidium",
+          "partner": "Basidiomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Termitomyces",
+          "partner": "Basidiomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Termitosphaera",
+          "partner": "Basidiomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Tilletia",
+          "partner": "Basidiomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Ustilago",
+          "partner": "Basidiomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Chalciporus",
+          "partner": "Boletaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Chalciporus",
+          "partner": "Boletales (order)",
+          "flags": []
+        },
+        {
+          "body": "Candida",
+          "partner": "Candida (genus)",
+          "flags": []
+        },
+        {
+          "body": "Chalciporus",
+          "partner": "Chalciporus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Harposporium",
+          "partner": "Clavicipitaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Metarhizium",
+          "partner": "Clavicipitaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Tyrannicordyceps",
+          "partner": "Clavicipitaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Cordyceps",
+          "partner": "Cordyceps (genus)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Cordyceps",
+          "partner": "Cordycipitaceae (family)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Candida",
+          "partner": "Debaryomycetaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Dispira",
+          "partner": "Dimargaritaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Dispira",
+          "partner": "Dimargaritales (order)",
+          "flags": []
+        },
+        {
+          "body": "Dispira",
+          "partner": "Dispira (genus)",
+          "flags": []
+        },
+        {
+          "body": "Eudarluca",
+          "partner": "Dothideomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Tzeanania",
+          "partner": "Dothideomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Entomophthora",
+          "partner": "Entomophthora (genus)",
+          "flags": []
+        },
+        {
+          "body": "Entomophthora",
+          "partner": "Entomophthoraceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Entomophthora",
+          "partner": "Entomophthorales (order)",
+          "flags": []
+        },
+        {
+          "body": "Entomophthora",
+          "partner": "Entomophthoromycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Entomophthora",
+          "partner": "Entomophthoromycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Escovopsis",
+          "partner": "Escovopsis (genus)",
+          "flags": []
+        },
+        {
+          "body": "Eudarluca",
+          "partner": "Eudarluca (genus)",
+          "flags": []
+        },
+        {
+          "body": "Aspergillus",
+          "partner": "Eurotiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Aspergillus",
+          "partner": "Eurotiomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Trichophyton",
+          "partner": "Eurotiomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Tilletia",
+          "partner": "Exobasidiomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Arthrobotrys",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Aspergillus",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Candida",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Chalciporus",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Cordyceps",
+          "partner": "Fungi (kingdom)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Dispira",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Entomophthora",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Escovopsis",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Eudarluca",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Harposporium",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Laboulbenia",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Metarhizium",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Ophiocordyceps",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Piptocephalis",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Pneumocystis",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Podostroma",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Septobasidium",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Sphaerostilbella",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Sporophagomyces",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Syncephalis",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Termitomyces",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Termitosphaera",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Tilletia",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Tolypocladium",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Trichophyton",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Tyrannicordyceps",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Tzeanania",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Ustilago",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Harposporium",
+          "partner": "Harposporium (genus)",
+          "flags": []
+        },
+        {
+          "body": "Escovopsis",
+          "partner": "Hypocreaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Podostroma",
+          "partner": "Hypocreaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Sphaerostilbella",
+          "partner": "Hypocreaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Sporophagomyces",
+          "partner": "Hypocreaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Cordyceps",
+          "partner": "Hypocreales (order)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Escovopsis",
+          "partner": "Hypocreales (order)",
+          "flags": []
+        },
+        {
+          "body": "Harposporium",
+          "partner": "Hypocreales (order)",
+          "flags": []
+        },
+        {
+          "body": "Metarhizium",
+          "partner": "Hypocreales (order)",
+          "flags": []
+        },
+        {
+          "body": "Ophiocordyceps",
+          "partner": "Hypocreales (order)",
+          "flags": []
+        },
+        {
+          "body": "Podostroma",
+          "partner": "Hypocreales (order)",
+          "flags": []
+        },
+        {
+          "body": "Sphaerostilbella",
+          "partner": "Hypocreales (order)",
+          "flags": []
+        },
+        {
+          "body": "Sporophagomyces",
+          "partner": "Hypocreales (order)",
+          "flags": []
+        },
+        {
+          "body": "Tolypocladium",
+          "partner": "Hypocreales (order)",
+          "flags": []
+        },
+        {
+          "body": "Tyrannicordyceps",
+          "partner": "Hypocreales (order)",
+          "flags": []
+        },
+        {
+          "body": "Laboulbenia",
+          "partner": "Laboulbenia (genus)",
+          "flags": []
+        },
+        {
+          "body": "Laboulbenia",
+          "partner": "Laboulbeniaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Laboulbenia",
+          "partner": "Laboulbeniales (order)",
+          "flags": []
+        },
+        {
+          "body": "Laboulbenia",
+          "partner": "Laboulbeniomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Termitomyces",
+          "partner": "Lyophyllaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Termitosphaera",
+          "partner": "Lyophyllaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Metarhizium",
+          "partner": "Metarhizium (genus)",
+          "flags": []
+        },
+        {
+          "body": "Dispira",
+          "partner": "Mucoromycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Trichophyton",
+          "partner": "Onygenales (order)",
+          "flags": []
+        },
+        {
+          "body": "Ophiocordyceps",
+          "partner": "Ophiocordyceps (genus)",
+          "flags": []
+        },
+        {
+          "body": "Ophiocordyceps",
+          "partner": "Ophiocordycipitaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Tolypocladium",
+          "partner": "Ophiocordycipitaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Arthrobotrys",
+          "partner": "Orbiliaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Arthrobotrys",
+          "partner": "Orbiliales (order)",
+          "flags": []
+        },
+        {
+          "body": "Arthrobotrys",
+          "partner": "Orbiliomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Eudarluca",
+          "partner": "Phaeosphaeriaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Piptocephalis",
+          "partner": "Piptocephalidaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Syncephalis",
+          "partner": "Piptocephalidaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Piptocephalis",
+          "partner": "Piptocephalis (genus)",
+          "flags": []
+        },
+        {
+          "body": "Eudarluca",
+          "partner": "Pleosporales (order)",
+          "flags": []
+        },
+        {
+          "body": "Tzeanania",
+          "partner": "Pleosporales (order)",
+          "flags": []
+        },
+        {
+          "body": "Pneumocystis",
+          "partner": "Pneumocystaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Pneumocystis",
+          "partner": "Pneumocystales (order)",
+          "flags": []
+        },
+        {
+          "body": "Pneumocystis",
+          "partner": "Pneumocystis (genus)",
+          "flags": []
+        },
+        {
+          "body": "Pneumocystis",
+          "partner": "Pneumocystomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Podostroma",
+          "partner": "Podostroma (genus)",
+          "flags": []
+        },
+        {
+          "body": "Septobasidium",
+          "partner": "Pucciniomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Candida",
+          "partner": "Saccharomycetales (order)",
+          "flags": []
+        },
+        {
+          "body": "Candida",
+          "partner": "Saccharomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Septobasidium",
+          "partner": "Septobasidiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Septobasidium",
+          "partner": "Septobasidiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Septobasidium",
+          "partner": "Septobasidium (genus)",
+          "flags": []
+        },
+        {
+          "body": "Cordyceps",
+          "partner": "Sordariomycetes (class)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Escovopsis",
+          "partner": "Sordariomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Harposporium",
+          "partner": "Sordariomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Metarhizium",
+          "partner": "Sordariomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Ophiocordyceps",
+          "partner": "Sordariomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Podostroma",
+          "partner": "Sordariomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Sphaerostilbella",
+          "partner": "Sordariomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Sporophagomyces",
+          "partner": "Sordariomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Tolypocladium",
+          "partner": "Sordariomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Tyrannicordyceps",
+          "partner": "Sordariomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Sphaerostilbella",
+          "partner": "Sphaerostilbella (genus)",
+          "flags": []
+        },
+        {
+          "body": "Sporophagomyces",
+          "partner": "Sporophagomyces (genus)",
+          "flags": []
+        },
+        {
+          "body": "Syncephalis",
+          "partner": "Syncephalis (genus)",
+          "flags": []
+        },
+        {
+          "body": "Termitomyces",
+          "partner": "Termitomyces (genus)",
+          "flags": []
+        },
+        {
+          "body": "Termitosphaera",
+          "partner": "Termitosphaera (genus)",
+          "flags": []
+        },
+        {
+          "body": "Tilletia",
+          "partner": "Tilletia (genus)",
+          "flags": []
+        },
+        {
+          "body": "Tilletia",
+          "partner": "Tilletiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Tilletia",
+          "partner": "Tilletiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Tolypocladium",
+          "partner": "Tolypocladium (genus)",
+          "flags": []
+        },
+        {
+          "body": "Trichophyton",
+          "partner": "Trichophyton (genus)",
+          "flags": []
+        },
+        {
+          "body": "Tyrannicordyceps",
+          "partner": "Tyrannicordyceps (genus)",
+          "flags": []
+        },
+        {
+          "body": "Tzeanania",
+          "partner": "Tzeanania (genus)",
+          "flags": []
+        },
+        {
+          "body": "Tzeanania",
+          "partner": "Tzeananiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Ustilago",
+          "partner": "Ustilaginaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Ustilago",
+          "partner": "Ustilaginales (order)",
+          "flags": []
+        },
+        {
+          "body": "Ustilago",
+          "partner": "Ustilaginomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Ustilago",
+          "partner": "Ustilago (genus)",
+          "flags": []
+        },
+        {
+          "body": "Piptocephalis",
+          "partner": "Zoopagales (order)",
+          "flags": []
+        },
+        {
+          "body": "Syncephalis",
+          "partner": "Zoopagales (order)",
+          "flags": []
+        },
+        {
+          "body": "Piptocephalis",
+          "partner": "Zoopagomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Syncephalis",
+          "partner": "Zoopagomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Piptocephalis",
+          "partner": "Zoopagomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Syncephalis",
+          "partner": "Zoopagomycota (phylum)",
+          "flags": []
+        }
+      ]
     }
   ]
 }
