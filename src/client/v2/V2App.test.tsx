@@ -4,7 +4,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { ColorSchemeProvider } from "../theme/useColorScheme";
 import { V2App } from "./V2App";
 
-vi.mock("./scene/BlankScene", () => ({ default: () => null }));
+vi.mock("./scene/CellScene", () => ({ default: () => null }));
 
 afterEach(cleanup);
 
