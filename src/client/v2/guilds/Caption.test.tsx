@@ -29,7 +29,7 @@ describe("Caption", () => {
     };
     render(<Caption set={set} relation={relations.visitors} table={table} />);
     expect(screen.getByText(/Each dot/).textContent).toBe(
-      "Each dot is a plant. Each membrane wraps the plants that the same visitor was seen on. 1 visitor recorded; 2 of the 3 plants have a recorded visitor.",
+      "Each dot is a plant. Each membrane wraps the plants that one and the same visitor comes to. 1 visitor recorded; 2 of the 3 plants have a recorded visitor.",
     );
   });
 

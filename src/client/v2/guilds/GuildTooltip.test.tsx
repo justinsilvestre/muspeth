@@ -53,7 +53,7 @@ describe("GuildTooltip", () => {
       />,
     );
     expect(screen.getByRole("tooltip").textContent).toBe(
-      "D. carota, L. corniculatusA. mellifera was seen on exactly these plants.cohesiveness 0.50 · subgroupiness 0.5",
+      "D. carota, L. corniculatusA. mellifera visits these 2 plants and no other plant here.cohesiveness 0.50 · subgroupiness 0.5",
     );
   });
 
@@ -69,7 +69,22 @@ describe("GuildTooltip", () => {
       />,
     );
     expect(screen.getByRole("tooltip").textContent).toContain(
-      "a, b, c, d, e, f and 2 molecules more are found in exactly these plants.",
+      "A, b, c, d, e, f and 2 molecules more occur in these 2 plants and no other plant here.",
+    );
+  });
+
+  it("names a taxon with its rank first", () => {
+    render(
+      <GuildTooltip
+        hovered={{ kind: "subgroup", subgroup: guildOf(["Magnoliopsida (class)"]) }}
+        pointer={pointer}
+        set={set}
+        relation={relations.descent}
+        sharedCounts={new Map()}
+      />,
+    );
+    expect(screen.getByRole("tooltip").textContent).toContain(
+      "The class Magnoliopsida holds these 2 plants and no other plant here.",
     );
   });
 

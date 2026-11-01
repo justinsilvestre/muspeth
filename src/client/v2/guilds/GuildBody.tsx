@@ -6,6 +6,7 @@ import type { InnovationTable } from "../glottometry/parseInnovationsCsv";
 import { placeLabels } from "../glottometry/placeLabels";
 import { scoreSubgroups } from "../glottometry/scoreSubgroups";
 import type { Appearance } from "../scene/appearance";
+import { FitCamera } from "../scene/FitCamera";
 import { LanguageNucleus } from "../scene/LanguageNucleus";
 import { Membrane } from "../scene/Membrane";
 import { type Hovered, pickHovered } from "../scene/pickHovered";
@@ -17,7 +18,11 @@ import { useGlidingPositions } from "./useGlidingPositions";
 const diagramExtent = 6.5;
 const labelHeight = 0.3;
 /** How close two nuclei may lie, by how long their labels run; closer ones are nudged apart so that both can be seen and labelled. */
-const leastNucleusDistance = { species: 0.55, plain: 0.9 };
+const leastNucleusDistance = { species: 1.3, plain: 1.1 };
+/** The angle the diagram is turned by, so that its likeness axes do not line up with the screen. */
+const diagramRotation = Math.PI / 4;
+/** How far beyond the dots the view reaches, for the outer membrane and the labels. */
+const viewMargin = 1.2;
 
 type GuildBodyProps = {
   set: BodySet;
@@ -31,6 +36,7 @@ type GuildBodyProps = {
   appearance: Appearance;
   hovered: Hovered | undefined;
   onHover: (hovered: Hovered | undefined) => void;
+  fitRequest: number;
 };
 
 /**
@@ -38,7 +44,8 @@ type GuildBodyProps = {
  * When the layout changes, the nuclei glide to their new places while the new membranes fade in around them.
  */
 export function GuildBody(props: GuildBodyProps) {
-  const { set, fullTable, table, isDark, threshold, appearance, hovered, onHover } = props;
+  const { set, fullTable, table, isDark, threshold, appearance, hovered, onHover, fitRequest } =
+    props;
   const bodies = table.languages;
   const layout = useMemo(() => {
     const likeness = layoutByLikeness(fullTable, diagramExtent, "jaccard");
@@ -77,14 +84,21 @@ export function GuildBody(props: GuildBodyProps) {
   const hoveredGuild = hovered?.kind === "subgroup" ? hovered.subgroup : undefined;
   const hoveredMembers = useMemo(() => new Set(hoveredGuild?.members), [hoveredGuild]);
   const { paddingBase, paddingPerMember } = appearance.shape;
+  const setPadding = paddingBase + paddingPerMember * bodies.length + 0.3;
   const handlePointerMove = (event: ThreeEvent<PointerEvent>) =>
     onHover(pickHovered(event.intersections));
   return (
-    <group rotation-z={Math.PI / 4}>
+    <group rotation-z={diagramRotation}>
+      <FitCamera
+        points={setPoints}
+        padding={setPadding + viewMargin}
+        rotation={diagramRotation}
+        fitRequest={fitRequest}
+      />
       <group onPointerMove={handlePointerMove} onPointerLeave={() => onHover(undefined)}>
         <Membrane
           points={setPoints}
-          padding={paddingBase + paddingPerMember * bodies.length + 0.3}
+          padding={setPadding}
           color={appearance.color.family}
           thickness={0.6}
           order={bodies.length + 1}

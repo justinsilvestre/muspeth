@@ -34,6 +34,23 @@ export function GuildTooltip({ hovered, pointer, set, relation, sharedCounts }: 
   );
 }
 
+/** How one shared thing is named in a sentence: a species abbreviated, a taxon with its rank first, anything else as it is. */
+function sharedLabel(relation: Relation) {
+  if (relation.sharedAreSpecies) return abbreviateSpecies;
+  if (relation.id === "descent") return nameTaxon;
+  return (text: string) => text;
+}
+
+/** Turns "Magnoliopsida (class)" into "the class Magnoliopsida". */
+function nameTaxon(label: string) {
+  const match = /^(.+) \((\w+)\)$/.exec(label);
+  return match ? `the ${match[2]} ${match[1]}` : label;
+}
+
+function upperFirst(text: string) {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
 function describeDot(name: string, set: BodySet, relation: Relation, shared: number) {
   const body = bodyOf(set, name);
   return (
@@ -73,18 +90,22 @@ function Credit({ image }: { image: NonNullable<Body["image"]> }) {
   );
 }
 
+/**
+ * Says what holds a guild together: the things shared by exactly its members, as a sentence such as
+ * "M. domestica visits these 3 plants and no other plant here".
+ */
 function describeGuild(guild: Subgroup, set: BodySet, relation: Relation) {
   const { members, supporters, cohesiveness, subgroupiness } = guild;
-  const label = relation.sharedAreSpecies ? abbreviateSpecies : (text: string) => text;
-  const named = supporters.slice(0, namedSharedLimit).map(label).join(", ");
+  const named = supporters.slice(0, namedSharedLimit).map(sharedLabel(relation)).join(", ");
   const rest = supporters.length - namedSharedLimit;
   const verb = supporters.length === 1 ? relation.guildVerb.one : relation.guildVerb.many;
   return (
     <>
       <b>{members.map((member) => labelOf(set, member)).join(", ")}</b>
       <br />
-      {named}
-      {rest > 0 && ` and ${countOf(rest, relation.shared)} more`} {verb} {set.bodyNoun.many}.
+      {upperFirst(named)}
+      {rest > 0 && ` and ${countOf(rest, relation.shared)} more`} {verb} these{" "}
+      {countOf(members.length, set.bodyNoun)} and no other {set.bodyNoun.one} here.
       <br />
       <span className="text-muted">
         cohesiveness {cohesiveness.toFixed(2)} · subgroupiness {subgroupiness.toFixed(1)}

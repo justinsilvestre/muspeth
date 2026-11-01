@@ -25,6 +25,7 @@ export function GuildView() {
   const [threshold, setThreshold] = useState(0);
   const [appearance, setAppearance] = useState<Appearance>(defaultAppearance);
   const [hovered, setHovered] = useState<Hovered>();
+  const [fitRequest, setFitRequest] = useState(0);
   const [pointer, setPointer] = useState({ x: 0, y: 0 });
   const relation = relationOf(sharing.relation);
   const steps = useMemo(() => weightSteps(sharing), [sharing]);
@@ -82,6 +83,13 @@ export function GuildView() {
           setPointer({ x: event.clientX - bounds.left, y: event.clientY - bounds.top });
         }}
       >
+        <button
+          type="button"
+          onClick={() => setFitRequest((count) => count + 1)}
+          className="absolute top-2 right-2 z-10 rounded border border-line bg-panel/80 px-2 py-0.5 text-muted text-xs hover:text-ink"
+        >
+          Fit to view
+        </button>
         <GuildTooltip
           hovered={hovered}
           pointer={pointer}
@@ -92,6 +100,7 @@ export function GuildView() {
         <Suspense fallback={<p className="p-3">Loading the scene…</p>}>
           <GuildScene
             set={set}
+            fitRequest={fitRequest}
             fullTable={fullTable}
             table={shownTable}
             threshold={shownThreshold}
