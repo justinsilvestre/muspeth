@@ -1,0 +1,1302 @@
+{
+  "id": "flores-plants",
+  "name": "Plants of Flores, Azores",
+  "group": "From flower surveys",
+  "description": "Flower visitors on the coast of Flores in the Azores, counted in the summer of 2000, from the same study of invaded island networks.",
+  "bodyNoun": {
+    "one": "plant",
+    "many": "plants"
+  },
+  "labelStyle": "species",
+  "citation": {
+    "text": "Jens M. Olesen and Louise I. Eskildsen and Shadila Venkatasamy (2002). Invasion of pollination networks on oceanic islands: importance of invader complexes and endemic super generalists.",
+    "url": "https://doi.org/10.1046/j.1472-4642.2002.00148.x"
+  },
+  "bodies": [
+    {
+      "id": "wikidata:Q794040",
+      "name": "Azorina vidalii",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Azorina_vidalii0.jpg",
+        "credit": null,
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Azorina_vidalii0.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q165191",
+      "name": "Beta vulgaris",
+      "commonName": "Beet",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Beta_vulgaris_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-167.jpg",
+        "credit": "Walther Otto Müller",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Beta_vulgaris_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-167.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q19796619",
+      "name": "Chamomilla suaveolens",
+      "commonName": "Disc Mayweed",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Pineapple_Mayweed_%28Chamomilla_suaveolens%29_-_geograph.org.uk_-_497544.jpg",
+        "credit": "Anne Burgess",
+        "licence": "CC-BY-SA-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Pineapple_Mayweed_(Chamomilla_suaveolens)_-_geograph.org.uk_-_497544.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q1136311",
+      "name": "Crithmum maritimum",
+      "commonName": "samphire",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Crithmum_maritimum.jpg/960px-Crithmum_maritimum.jpg",
+        "credit": "Júlio Reis ( Tintazul )",
+        "licence": "CC-BY-SA-2.5",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Crithmum_maritimum.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q30056",
+      "name": "Daucus carota",
+      "commonName": "Queen Anne's Lace",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Daucus_carota.jpg/960px-Daucus_carota.jpg",
+        "credit": "User:Tigerente",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Daucus_carota.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q15235186",
+      "name": "Freesia refracta",
+      "commonName": "Garden Freesia",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/FreesiaRefracta1.JPG/960px-FreesiaRefracta1.JPG",
+        "credit": "Senet",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:FreesiaRefracta1.JPG"
+      }
+    },
+    {
+      "id": "wikidata:Q29907",
+      "name": "Lotus corniculatus",
+      "commonName": "Bird's-foot Trefoil",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/%28MHNT%29_Lotus_corniculatus_-_Plant_habit.jpg/960px-%28MHNT%29_Lotus_corniculatus_-_Plant_habit.jpg",
+        "credit": "Didier Descouens",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:(MHNT)_Lotus_corniculatus_-_Plant_habit.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q157927",
+      "name": "Reseda luteola",
+      "commonName": "Weld",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Reseda_luteola_sl3.jpg/960px-Reseda_luteola_sl3.jpg",
+        "credit": "Stefan.lefnaer",
+        "licence": "CC BY-SA 3.0 at",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Reseda_luteola_sl3.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q511103",
+      "name": "Silene vulgaris",
+      "commonName": "Maidenstears",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/SileneVulgaris-bloem.jpg/960px-SileneVulgaris-bloem.jpg",
+        "credit": null,
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:SileneVulgaris-bloem.jpg"
+      }
+    },
+    {
+      "id": "mangal:Solidago sempervivens",
+      "name": "Solidago sempervivens"
+    }
+  ],
+  "sharings": [
+    {
+      "relation": "visitors",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Solidago sempervivens",
+          "partner": "Halictus sp.",
+          "weight": 141,
+          "flags": ["placeholder_species", "unmatched_name"]
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Musca domestica",
+          "weight": 102,
+          "flags": []
+        },
+        {
+          "body": "Azorina vidalii",
+          "partner": "Halictus sp.",
+          "weight": 98,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "Lucilia sericata",
+          "weight": 93,
+          "flags": []
+        },
+        {
+          "body": "Azorina vidalii",
+          "partner": "Apis mellifera",
+          "weight": 89,
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "Micropeza thoracicum",
+          "weight": 87,
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "Musca domestica",
+          "weight": 83,
+          "flags": []
+        },
+        {
+          "body": "Azorina vidalii",
+          "partner": "Micropeza thoracicum",
+          "weight": 51,
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "Bombus ruderatus",
+          "weight": 47,
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "Musca domestica",
+          "weight": 42,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Azorina vidalii",
+          "partner": "Lasius niger",
+          "weight": 37,
+          "flags": []
+        },
+        {
+          "body": "Silene vulgaris",
+          "partner": "Micropeza thoracicum",
+          "weight": 30,
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "Anothomyia pluvialis",
+          "weight": 23,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Azorina vidalii",
+          "partner": "Musca domestica",
+          "weight": 23,
+          "flags": []
+        },
+        {
+          "body": "Solidago sempervivens",
+          "partner": "Agrotis ipsilon",
+          "weight": 22,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "Colias crocea",
+          "weight": 21,
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "Halictus sp.",
+          "weight": 21,
+          "flags": ["placeholder_species", "unmatched_name"]
+        },
+        {
+          "body": "Azorina vidalii",
+          "partner": "Calliphora vemitoria",
+          "weight": 13,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Freesia refracta",
+          "partner": "Colias crocea",
+          "weight": 12,
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "Eristalix tenax",
+          "weight": 12,
+          "flags": []
+        },
+        {
+          "body": "Freesia refracta",
+          "partner": "Bombus ruderatus",
+          "weight": 11,
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Halictus sp.",
+          "weight": 11,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Reseda luteola",
+          "partner": "Halictus sp.",
+          "weight": 11,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "Apis mellifera",
+          "weight": 9,
+          "flags": []
+        },
+        {
+          "body": "Reseda luteola",
+          "partner": "Apis mellifera",
+          "weight": 9,
+          "flags": []
+        },
+        {
+          "body": "Azorina vidalii",
+          "partner": "Bombus ruderatus",
+          "weight": 9,
+          "flags": []
+        },
+        {
+          "body": "Azorina vidalii",
+          "partner": "Colias crocea",
+          "weight": 9,
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Lucilia sericata",
+          "weight": 8,
+          "flags": []
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "Micropeza thoracicum",
+          "weight": 8,
+          "flags": []
+        },
+        {
+          "body": "Silene vulgaris",
+          "partner": "Halictus sp.",
+          "weight": 7,
+          "flags": ["placeholder_species"]
+        }
+      ]
+    },
+    {
+      "relation": "compounds",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Lotus corniculatus",
+          "partner": "(-)-epigallocatechin",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "(-)-germacrene D",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "(+)-catechin",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "(+)-gallocatechin",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "(+)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "(+)-procyanidin B2",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "(±)-3-carene",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "(−)-epicatechin",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "(−)-epicatechin",
+          "flags": []
+        },
+        {
+          "body": "Silene vulgaris",
+          "partner": "(22R)-22-(Benzoyloxy)-2beta,3beta,14,20,25-pentahydroxy-5beta-cholest-7-en-6-one",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "(3Z)-3-hexenyl isovalerate",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "(4E,9E)-heptadeca-1,4,9-trien-6-yne-3,8-diol",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "(4E,9Z)-heptadeca-1,4,9-trien-6-yne-3,8-diol",
+          "flags": []
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "(E)-p-coumaric acid",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "(E)-p-coumaric acid",
+          "flags": []
+        },
+        {
+          "body": "Reseda luteola",
+          "partner": "(R)-(+)-2-Phenylglycinol",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "(S,1Z,6Z)-8-Isopropyl-1-methyl-5-methylenecyclodeca-1,6-diene",
+          "flags": []
+        },
+        {
+          "body": "Reseda luteola",
+          "partner": "[3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl] 2-(1H-indol-3-yl)-N-sulfooxyethanimidothioate",
+          "flags": []
+        },
+        {
+          "body": "Reseda luteola",
+          "partner": "[3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl] 3-phenyl-N-sulfooxypropanimidothioate",
+          "flags": []
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "1-aminocyclopropanecarboxylic acid",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "1,6-bis-O-galloyl-beta-D-glucose",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "13-Hydroxyoctadeca-9,11-dienoic acid",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "2-(3,4-dihydroxyphenyl)-5,7-dihydroxy-3-[(2S,3R,4R,5R,6S)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxychromen-4-one",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "2-(3,4-dihydroxyphenyl)-5,7-dihydroxy-3-[(2S,3R,4R,5R,6S)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxychromen-4-one",
+          "flags": []
+        },
+        {
+          "body": "Silene vulgaris",
+          "partner": "2-Deoxy-20-hydroxyecdysone",
+          "flags": []
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "3,4-dihydroxybenzoic acid",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "3,4,5-trimethoxyallyl benzene",
+          "flags": []
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "4-hydroxybenzoic acid",
+          "flags": []
+        },
+        {
+          "body": "Silene vulgaris",
+          "partner": "6-[(8a-Carboxy-4-formyl-4,6a,6b,11,11,14b-hexamethyl-1,2,3,4a,5,6,7,8,9,10,12,12a,14,14a-tetradecahydropicen-3-yl)oxy]-3-hydroxy-5-[3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxy-4-(3,4,5-trihydroxyoxan-2-yl)oxyoxane-2-carboxylic acid",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "7-methoxycoumarin",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "alpha-pinene",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "alpha-pinene",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "alpha-terpineol",
+          "flags": []
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "apigenin",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "Astragalin",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "benzophenone",
+          "flags": []
+        },
+        {
+          "body": "Silene vulgaris",
+          "partner": "beta-D-Glucopyranosiduronic acid, (3beta,4alpha,16alpha)-17-carboxy-16-hydroxy-23-oxo-28-norolean-12-en-3-yl",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "beta-pinene",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "beta-pinene",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "beta-pinene",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "beta-sitosterol",
+          "flags": []
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "betanin",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "camphene",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "caryophyllene",
+          "flags": []
+        },
+        {
+          "body": "Reseda luteola",
+          "partner": "cinnamamide",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "crotonic acid",
+          "flags": []
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "dopamine",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "epigallocatechin gallate",
+          "flags": []
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "ferulic acid",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "fluorene",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "gallic acid",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "geraniin",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "geranyl isovalerate",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "gossypetin",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "humulene",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "hyperoside",
+          "flags": []
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "hypoxanthine",
+          "flags": []
+        },
+        {
+          "body": "Silene vulgaris",
+          "partner": "Integristerone A",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "isoquercetin",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "isorhamnetin",
+          "flags": []
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Reseda luteola",
+          "partner": "kaempferol 3-O-beta-D-glucopyranosyl-7-O-alpha-L-rhamnopyranoside",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "Kaempferol 3-rhamnoside-7-glucoside",
+          "flags": []
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "L-cystine",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "linalool",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "lupeol",
+          "flags": []
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "luteolin",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "luteolin",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "luteolin",
+          "flags": []
+        },
+        {
+          "body": "Reseda luteola",
+          "partner": "luteolin",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "luteoloside",
+          "flags": []
+        },
+        {
+          "body": "Reseda luteola",
+          "partner": "luteoloside",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Reseda luteola",
+          "partner": "N-phenyl-2-naphthylamine",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "O-Geranylvanillin",
+          "flags": []
+        },
+        {
+          "body": "Silene vulgaris",
+          "partner": "oleanolic acid",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "p-cymene",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "phenethyl isovalerate",
+          "flags": []
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "quercitrin",
+          "flags": []
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "rutin",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "rutin",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "rutin",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "sabinene",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "solanesol",
+          "flags": []
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "stigmasterol",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "stigmasterol",
+          "flags": []
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "syringic acid",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "terpinolene",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "trans-caffeic acid",
+          "flags": []
+        },
+        {
+          "body": "Reseda luteola",
+          "partner": "trans-cinnamamide",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "trifolin",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "umbelliferone",
+          "flags": []
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "vanillic acid",
+          "flags": []
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "vanillin",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "vidarabine",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "α-amyrin",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "α-phellandrene",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "α-terpinene",
+          "flags": []
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "β-amyrin",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "β-amyrin",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "γ‑terpinene",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "names",
+      "licences": ["CC-BY-4.0", "CC0-1.0"],
+      "links": [
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "Afal",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "fenouil",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "finocchio",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "funcho",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "hinojo",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Queen",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "repaňi",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "草",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Silene vulgaris",
+          "partner": "草",
+          "flags": ["text_match"]
+        }
+      ]
+    },
+    {
+      "relation": "stories",
+      "licences": ["CC-BY-4.0"],
+      "links": [
+        {
+          "body": "Daucus carota",
+          "partner": "J2712.1. Guess what I have in my hand and I will give it to you to make egg-cake with. What does it look like? What outside and yellow inside. It is a hollowed turnip filled with carrots.",
+          "flags": ["text_match"]
+        }
+      ]
+    },
+    {
+      "relation": "sites",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Azorina vidalii",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Freesia refracta",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Reseda luteola",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Silene vulgaris",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Solidago sempervivens",
+          "partner": "Flores, Azores",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "descent",
+      "licences": ["CC-BY-4.0"],
+      "links": [
+        {
+          "body": "Beta vulgaris",
+          "partner": "Amaranthaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "Apiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Apiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "Apiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Apiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Freesia refracta",
+          "partner": "Asparagales (order)",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "Asteraceae (family)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Solidago sempervivens",
+          "partner": "Asteraceae (family)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Azorina vidalii",
+          "partner": "Asterales (order)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "Asterales (order)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Solidago sempervivens",
+          "partner": "Asterales (order)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "Beta (genus)",
+          "flags": []
+        },
+        {
+          "body": "Reseda luteola",
+          "partner": "Brassicales (order)",
+          "flags": []
+        },
+        {
+          "body": "Azorina vidalii",
+          "partner": "Campanula (genus)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Azorina vidalii",
+          "partner": "Campanulaceae (family)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Silene vulgaris",
+          "partner": "Caryophyllaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "Caryophyllales (order)",
+          "flags": []
+        },
+        {
+          "body": "Silene vulgaris",
+          "partner": "Caryophyllales (order)",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "Crithmum (genus)",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Daucus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "Fabaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "Fabales (order)",
+          "flags": []
+        },
+        {
+          "body": "Freesia refracta",
+          "partner": "Freesia (genus)",
+          "flags": []
+        },
+        {
+          "body": "Freesia refracta",
+          "partner": "Iridaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Freesia refracta",
+          "partner": "Liliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "Lotus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Azorina vidalii",
+          "partner": "Magnoliopsida (class)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "Magnoliopsida (class)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Reseda luteola",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Silene vulgaris",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Solidago sempervivens",
+          "partner": "Magnoliopsida (class)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "Matricaria (genus)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Azorina vidalii",
+          "partner": "Plantae (kingdom)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "Plantae (kingdom)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Freesia refracta",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Reseda luteola",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Silene vulgaris",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Solidago sempervivens",
+          "partner": "Plantae (kingdom)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Reseda luteola",
+          "partner": "Reseda (genus)",
+          "flags": []
+        },
+        {
+          "body": "Reseda luteola",
+          "partner": "Resedaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Silene vulgaris",
+          "partner": "Silene (genus)",
+          "flags": []
+        },
+        {
+          "body": "Solidago sempervivens",
+          "partner": "Solidago (genus)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Azorina vidalii",
+          "partner": "Tracheophyta (phylum)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Beta vulgaris",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Chamomilla suaveolens",
+          "partner": "Tracheophyta (phylum)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Freesia refracta",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Lotus corniculatus",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Reseda luteola",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Silene vulgaris",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Solidago sempervivens",
+          "partner": "Tracheophyta (phylum)",
+          "flags": ["fuzzy_name_match"]
+        }
+      ]
+    }
+  ]
+}

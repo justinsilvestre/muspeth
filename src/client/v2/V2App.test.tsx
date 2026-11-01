@@ -5,7 +5,7 @@ import { ColorSchemeProvider } from "../theme/useColorScheme";
 import { V2App } from "./V2App";
 
 vi.mock("./scene/CellScene", () => ({ default: () => null }));
-vi.mock("./pollination/GuildScene", () => ({ default: () => null }));
+vi.mock("./guilds/GuildScene", () => ({ default: () => null }));
 
 afterEach(cleanup);
 
@@ -27,10 +27,10 @@ describe("V2App", () => {
     ).toBe("page");
   });
 
-  it("marks the Pollination guilds tab as open at its address", () => {
-    renderV2App("/v2/pollination");
+  it("marks the Biological glottometry tab as open at its address", () => {
+    renderV2App("/v2/biological-glottometry");
     expect(
-      screen.getByRole("link", { name: "Pollination guilds" }).getAttribute("aria-current"),
+      screen.getByRole("link", { name: "Biological glottometry" }).getAttribute("aria-current"),
     ).toBe("page");
   });
 });

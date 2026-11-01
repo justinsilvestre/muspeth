@@ -1,0 +1,1103 @@
+{
+  "id": "catimbau-plants",
+  "name": "Plants of Catimbau, Brazil",
+  "group": "From flower surveys",
+  "description": "Oil-collecting Centris bees and the Malpighiaceae flowers they take floral oil from, in a dry caatinga park in Pernambuco, counted over a year from 2006. Visits run into the thousands.",
+  "bodyNoun": {
+    "one": "plant",
+    "many": "plants"
+  },
+  "labelStyle": "species",
+  "citation": {
+    "text": "Elisangela L.S. Bezerra and Isabel C. Machado and Marco A. R. Mello (2009). Pollination networks of oil-flowers: a tiny world within the smallest of all worlds.",
+    "url": "https://doi.org/10.1111/j.1365-2656.2009.01567.x"
+  },
+  "bodies": [
+    {
+      "id": "wikidata:Q15385436",
+      "name": "Banisteriopsis muricata",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Banisteriopsis_muricata.jpg/960px-Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Banisteriopsis_muricata.jpg",
+        "credit": "João Medeiros",
+        "licence": "CC-BY-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Banisteriopsis_muricata.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q15385468",
+      "name": "Banisteriopsis schizoptera",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/MALPIGHIACEAE_Banisteriopsis_schizoptera_%28A.Juss.%29_B.Gates%2C_INMA_%28MBML044380%29.pdf/page1-960px-MALPIGHIACEAE_Banisteriopsis_schizoptera_%28A.Juss.%29_B.Gates%2C_INMA_%28MBML044380%29.pdf.jpg",
+        "credit": "Instituto Nacional da Mata Atlântica - INMA",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:MALPIGHIACEAE_Banisteriopsis_schizoptera_(A.Juss.)_B.Gates,_INMA_(MBML044380).pdf"
+      }
+    },
+    {
+      "id": "wikidata:Q15386007",
+      "name": "Banisteriopsis stellaris",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/MALPIGHIACEAE_Banisteriopsis_stellaris_%28Griseb.%29_B.Gates%2C_INMA_%28MBML006796%29.pdf/page1-960px-MALPIGHIACEAE_Banisteriopsis_stellaris_%28Griseb.%29_B.Gates%2C_INMA_%28MBML006796%29.pdf.jpg",
+        "credit": "Instituto Nacional da Mata Atlântica - INMA",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:MALPIGHIACEAE_Banisteriopsis_stellaris_(Griseb.)_B.Gates,_INMA_(MBML006796).pdf"
+      }
+    },
+    {
+      "id": "gbif:3985904",
+      "name": "Byrsonima gardnerana"
+    },
+    {
+      "id": "wikidata:Q15390889",
+      "name": "Carolus chasei"
+    },
+    {
+      "id": "wikidata:Q15371859",
+      "name": "Dicella bracteosa",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/MALPIGHIACEAE_dicella_bracteosa_Griseb%2C_INMA_%28MBML035528%29.pdf/page1-960px-MALPIGHIACEAE_dicella_bracteosa_Griseb%2C_INMA_%28MBML035528%29.pdf.jpg",
+        "credit": "Instituto Nacional da Mata Atlântica - INMA",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:MALPIGHIACEAE_dicella_bracteosa_Griseb,_INMA_(MBML035528).pdf"
+      }
+    },
+    {
+      "id": "wikidata:Q15372960",
+      "name": "Diplopterys pubipetala",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Diplopterys_pubipetala_%28_A._Juss.%29_W._R._Anderson_%5E_C._Davis_-_Flickr_-_Alex_Popovkin%2C_Bahia%2C_Brazil_%282%29.jpg/960px-Diplopterys_pubipetala_%28_A._Juss.%29_W._R._Anderson_%5E_C._Davis_-_Flickr_-_Alex_Popovkin%2C_Bahia%2C_Brazil_%282%29.jpg",
+        "credit": "Alex Popovkin, Bahia, Brazil from Brazil",
+        "licence": "CC-BY-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Diplopterys_pubipetala_(_A._Juss.)_W._R._Anderson_%5E_C._Davis_-_Flickr_-_Alex_Popovkin,_Bahia,_Brazil_(2).jpg"
+      }
+    },
+    {
+      "id": "mangal:929/Heteropterys sp1",
+      "name": "Heteropterys sp1",
+      "commonName": "Withe"
+    },
+    {
+      "id": "mangal:929/Heteropterys sp2",
+      "name": "Heteropterys sp2",
+      "commonName": "Withe"
+    },
+    {
+      "id": "wikidata:Q15391729",
+      "name": "Janusia anisandra",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Janusia_anisandra_%28A.Juss.%29_Griseb._%288122192808%29.jpg/960px-Janusia_anisandra_%28A.Juss.%29_Griseb._%288122192808%29.jpg",
+        "credit": "Alex Popovkin, Bahia, Brazil from Brazil",
+        "licence": "CC-BY-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Janusia_anisandra_(A.Juss.)_Griseb._(8122192808).jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q15381792",
+      "name": "Stigmaphyllon auriculatum",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/MALPIGHIACEAE_stigmaphyllon_auriculatum_A.Juss%2C_INMA_%28MBML023850%29.pdf/page1-960px-MALPIGHIACEAE_stigmaphyllon_auriculatum_A.Juss%2C_INMA_%28MBML023850%29.pdf.jpg",
+        "credit": "Instituto Nacional da Mata Atlântica - INMA",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:MALPIGHIACEAE_stigmaphyllon_auriculatum_A.Juss,_INMA_(MBML023850).pdf"
+      }
+    },
+    {
+      "id": "wikidata:Q15383235",
+      "name": "Stigmaphyllon ciliatum",
+      "commonName": "Amazonvine",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Stigmaphyllon_ciliatum_-_illustration.jpg/960px-Stigmaphyllon_ciliatum_-_illustration.jpg",
+        "credit": "Louis Aristide Léon Constans",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Stigmaphyllon_ciliatum_-_illustration.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q15382886",
+      "name": "Stigmaphyllon paralias",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Stigmaphyllon_paralias.jpg/960px-Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Stigmaphyllon_paralias.jpg",
+        "credit": "João Medeiros",
+        "licence": "CC-BY-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Stigmaphyllon_paralias.jpg"
+      }
+    }
+  ],
+  "sharings": [
+    {
+      "relation": "visitors",
+      "licences": ["LicenseRef-web-of-life-attribution"],
+      "links": [
+        {
+          "body": "Byrsonima gardnerana",
+          "partner": "Centris caxiensis",
+          "weight": 2108,
+          "flags": []
+        },
+        {
+          "body": "Diplopterys pubipetala",
+          "partner": "Centris aenea",
+          "weight": 1368,
+          "flags": []
+        },
+        {
+          "body": "Diplopterys pubipetala",
+          "partner": "Centris fuscata",
+          "weight": 1364,
+          "flags": []
+        },
+        {
+          "body": "Byrsonima gardnerana",
+          "partner": "Centris aenea",
+          "weight": 924,
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis muricata",
+          "partner": "Centris obsoleta",
+          "weight": 912,
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon paralias",
+          "partner": "Centris fuscata",
+          "weight": 816,
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp1",
+          "partner": "Centris aenea",
+          "weight": 764,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Heteropterys sp2",
+          "partner": "Centris aenea",
+          "weight": 740,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Diplopterys pubipetala",
+          "partner": "Centris caxiensis",
+          "weight": 740,
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp1",
+          "partner": "Centris fuscata",
+          "weight": 680,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Heteropterys sp2",
+          "partner": "Centris fuscata",
+          "weight": 656,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Banisteriopsis muricata",
+          "partner": "Centris trigonoides",
+          "weight": 652,
+          "flags": []
+        },
+        {
+          "body": "Carolus chasei",
+          "partner": "Centris aenea",
+          "weight": 604,
+          "flags": []
+        },
+        {
+          "body": "Dicella bracteosa",
+          "partner": "Centris aenea",
+          "weight": 556,
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp1",
+          "partner": "Centris caxiensis",
+          "weight": 528,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Heteropterys sp2",
+          "partner": "Centris caxiensis",
+          "weight": 528,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Dicella bracteosa",
+          "partner": "Centris flavifrons",
+          "weight": 524,
+          "flags": []
+        },
+        {
+          "body": "Dicella bracteosa",
+          "partner": "Centris fuscata",
+          "weight": 512,
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon paralias",
+          "partner": "Centris aenea",
+          "weight": 504,
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis muricata",
+          "partner": "Centris fuscata",
+          "weight": 468,
+          "flags": []
+        },
+        {
+          "body": "Byrsonima gardnerana",
+          "partner": "Centris tarsata",
+          "weight": 464,
+          "flags": []
+        },
+        {
+          "body": "Diplopterys pubipetala",
+          "partner": "Centris tarsata",
+          "weight": 460,
+          "flags": []
+        },
+        {
+          "body": "Carolus chasei",
+          "partner": "Centris fuscata",
+          "weight": 452,
+          "flags": []
+        },
+        {
+          "body": "Carolus chasei",
+          "partner": "Centris caxiensis",
+          "weight": 432,
+          "flags": []
+        },
+        {
+          "body": "Diplopterys pubipetala",
+          "partner": "Centris flavifrons",
+          "weight": 416,
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp1",
+          "partner": "Centris flavifrons",
+          "weight": 404,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Banisteriopsis muricata",
+          "partner": "Centris aenea",
+          "weight": 396,
+          "flags": []
+        },
+        {
+          "body": "Diplopterys pubipetala",
+          "partner": "Centris sp1",
+          "weight": 368,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Banisteriopsis muricata",
+          "partner": "Centris sp2",
+          "weight": 368,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Diplopterys pubipetala",
+          "partner": "Apis mellifera",
+          "weight": 364,
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis muricata",
+          "partner": "Epicharis sp1",
+          "weight": 364,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Dicella bracteosa",
+          "partner": "Centris caxiensis",
+          "weight": 356,
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp2",
+          "partner": "Centris tarsata",
+          "weight": 332,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Diplopterys pubipetala",
+          "partner": "Epicharis sp1",
+          "weight": 328,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Heteropterys sp2",
+          "partner": "Centris trigonoides",
+          "weight": 324,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Byrsonima gardnerana",
+          "partner": "Centris fuscata",
+          "weight": 320,
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp1",
+          "partner": "Centris tarsata",
+          "weight": 308,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Banisteriopsis stellaris",
+          "partner": "Centris fuscata",
+          "weight": 300,
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp1",
+          "partner": "Centris trigonoides",
+          "weight": 300,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Banisteriopsis stellaris",
+          "partner": "Centris aenea",
+          "weight": 292,
+          "flags": []
+        },
+        {
+          "body": "Byrsonima gardnerana",
+          "partner": "Centris flavifrons",
+          "weight": 284,
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis muricata",
+          "partner": "Centris flavifrons",
+          "weight": 272,
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon ciliatum",
+          "partner": "Centris aenea",
+          "weight": 268,
+          "flags": []
+        },
+        {
+          "body": "Diplopterys pubipetala",
+          "partner": "Centris trigonoides",
+          "weight": 256,
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis stellaris",
+          "partner": "Centris caxiensis",
+          "weight": 244,
+          "flags": []
+        },
+        {
+          "body": "Janusia anisandra",
+          "partner": "Centris fuscata",
+          "weight": 244,
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon auriculatum",
+          "partner": "Centris aenea",
+          "weight": 240,
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis schizoptera",
+          "partner": "Centris aenea",
+          "weight": 228,
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis schizoptera",
+          "partner": "Centris fuscata",
+          "weight": 224,
+          "flags": []
+        },
+        {
+          "body": "Carolus chasei",
+          "partner": "Centris tarsata",
+          "weight": 200,
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon auriculatum",
+          "partner": "Centris flavifrons",
+          "weight": 196,
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon ciliatum",
+          "partner": "Centris fuscata",
+          "weight": 196,
+          "flags": []
+        },
+        {
+          "body": "Janusia anisandra",
+          "partner": "Centris aenea",
+          "weight": 188,
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon ciliatum",
+          "partner": "Centris flavifrons",
+          "weight": 164,
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon auriculatum",
+          "partner": "Centris fuscata",
+          "weight": 164,
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis muricata",
+          "partner": "Xylocopa sp1",
+          "weight": 164,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Banisteriopsis muricata",
+          "partner": "Centris tarsata",
+          "weight": 140,
+          "flags": []
+        },
+        {
+          "body": "Dicella bracteosa",
+          "partner": "Centris tarsata",
+          "weight": 132,
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis schizoptera",
+          "partner": "Centris caxiensis",
+          "weight": 124,
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis schizoptera",
+          "partner": "Centris tarsata",
+          "weight": 120,
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp2",
+          "partner": "Apis mellifera",
+          "weight": 116,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Banisteriopsis stellaris",
+          "partner": "Centris tarsata",
+          "weight": 116,
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp2",
+          "partner": "Epicharis sp1",
+          "weight": 116,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Banisteriopsis muricata",
+          "partner": "Centris caxiensis",
+          "weight": 108,
+          "flags": []
+        },
+        {
+          "body": "Janusia anisandra",
+          "partner": "Centris tarsata",
+          "weight": 96,
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis muricata",
+          "partner": "Xylocopa grisescens",
+          "weight": 84,
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp1",
+          "partner": "Xylocopa sp1",
+          "weight": 76,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Stigmaphyllon auriculatum",
+          "partner": "Centris caxiensis",
+          "weight": 68,
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis muricata",
+          "partner": "Apis mellifera",
+          "weight": 44,
+          "flags": []
+        },
+        {
+          "body": "Byrsonima gardnerana",
+          "partner": "Apis mellifera",
+          "weight": 28,
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp1",
+          "partner": "Epicharis sp1",
+          "weight": 28,
+          "flags": ["placeholder_species"]
+        }
+      ]
+    },
+    {
+      "relation": "compounds",
+      "licences": [],
+      "links": []
+    },
+    {
+      "relation": "names",
+      "licences": ["CC-BY-4.0", "CC0-1.0"],
+      "links": [
+        {
+          "body": "Heteropterys sp1",
+          "partner": "Heteropteris",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp2",
+          "partner": "Heteropteris",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp1",
+          "partner": "rôznokrídlec",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp2",
+          "partner": "rôznokrídlec",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp1",
+          "partner": "Withe",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp2",
+          "partner": "Withe",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp1",
+          "partner": "гетероптерис",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp2",
+          "partner": "гетероптерис",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp1",
+          "partner": "ഹെറ്റെറോപ്റ്ററീസ്",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp2",
+          "partner": "ഹെറ്റെറോപ്റ്ററീസ്",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp1",
+          "partner": "异翅藤",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp2",
+          "partner": "异翅藤",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "stories",
+      "licences": [],
+      "links": []
+    },
+    {
+      "relation": "sites",
+      "licences": ["LicenseRef-web-of-life-attribution"],
+      "links": [
+        {
+          "body": "Banisteriopsis muricata",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis schizoptera",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis stellaris",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Byrsonima gardnerana",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Carolus chasei",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Dicella bracteosa",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Diplopterys pubipetala",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp1",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp2",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Janusia anisandra",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon auriculatum",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon ciliatum",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon paralias",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "descent",
+      "licences": ["CC-BY-4.0"],
+      "links": [
+        {
+          "body": "Banisteriopsis muricata",
+          "partner": "Banisteriopsis (genus)",
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis schizoptera",
+          "partner": "Banisteriopsis (genus)",
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis stellaris",
+          "partner": "Banisteriopsis (genus)",
+          "flags": []
+        },
+        {
+          "body": "Byrsonima gardnerana",
+          "partner": "Byrsonima (genus)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Carolus chasei",
+          "partner": "Carolus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Dicella bracteosa",
+          "partner": "Dicella (genus)",
+          "flags": []
+        },
+        {
+          "body": "Diplopterys pubipetala",
+          "partner": "Diplopterys (genus)",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp1",
+          "partner": "Heteropterys (genus)",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp2",
+          "partner": "Heteropterys (genus)",
+          "flags": []
+        },
+        {
+          "body": "Janusia anisandra",
+          "partner": "Janusia (genus)",
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis muricata",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis schizoptera",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis stellaris",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Byrsonima gardnerana",
+          "partner": "Magnoliopsida (class)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Carolus chasei",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Dicella bracteosa",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Diplopterys pubipetala",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp1",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp2",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Janusia anisandra",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon auriculatum",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon ciliatum",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon paralias",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis muricata",
+          "partner": "Malpighiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis schizoptera",
+          "partner": "Malpighiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis stellaris",
+          "partner": "Malpighiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Byrsonima gardnerana",
+          "partner": "Malpighiaceae (family)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Carolus chasei",
+          "partner": "Malpighiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Dicella bracteosa",
+          "partner": "Malpighiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Diplopterys pubipetala",
+          "partner": "Malpighiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp1",
+          "partner": "Malpighiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp2",
+          "partner": "Malpighiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Janusia anisandra",
+          "partner": "Malpighiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon auriculatum",
+          "partner": "Malpighiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon ciliatum",
+          "partner": "Malpighiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon paralias",
+          "partner": "Malpighiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis muricata",
+          "partner": "Malpighiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis schizoptera",
+          "partner": "Malpighiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis stellaris",
+          "partner": "Malpighiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Byrsonima gardnerana",
+          "partner": "Malpighiales (order)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Carolus chasei",
+          "partner": "Malpighiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Dicella bracteosa",
+          "partner": "Malpighiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Diplopterys pubipetala",
+          "partner": "Malpighiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp1",
+          "partner": "Malpighiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp2",
+          "partner": "Malpighiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Janusia anisandra",
+          "partner": "Malpighiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon auriculatum",
+          "partner": "Malpighiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon ciliatum",
+          "partner": "Malpighiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon paralias",
+          "partner": "Malpighiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis muricata",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis schizoptera",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis stellaris",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Byrsonima gardnerana",
+          "partner": "Plantae (kingdom)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Carolus chasei",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Dicella bracteosa",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Diplopterys pubipetala",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp1",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp2",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Janusia anisandra",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon auriculatum",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon ciliatum",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon paralias",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon auriculatum",
+          "partner": "Stigmaphyllon (genus)",
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon ciliatum",
+          "partner": "Stigmaphyllon (genus)",
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon paralias",
+          "partner": "Stigmaphyllon (genus)",
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis muricata",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis schizoptera",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Banisteriopsis stellaris",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Byrsonima gardnerana",
+          "partner": "Tracheophyta (phylum)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Carolus chasei",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Dicella bracteosa",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Diplopterys pubipetala",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp1",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Heteropterys sp2",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Janusia anisandra",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon auriculatum",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon ciliatum",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Stigmaphyllon paralias",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        }
+      ]
+    }
+  ]
+}

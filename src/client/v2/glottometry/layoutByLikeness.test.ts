@@ -20,6 +20,22 @@ function distance(layout: Map<string, { x: number; y: number }>, a: string, b: s
 }
 
 describe("layoutByLikeness", () => {
+  it("by Jaccard distance, keeps a language with many innovations close to one sharing most of them", () => {
+    const lopsided = {
+      languages: ["A", "B", "C"],
+      innovations: [
+        ...Array.from({ length: 20 }, (_, i) => ({
+          label: `ab${i}`,
+          members: new Set(["A", "B"]),
+        })),
+        ...Array.from({ length: 10 }, (_, i) => ({ label: `a${i}`, members: new Set(["A"]) })),
+        { label: "c", members: new Set(["C"]) },
+      ],
+    };
+    const { positions } = layoutByLikeness(lopsided, 8, "jaccard");
+    expect(distance(positions, "A", "B")).toBeLessThan(distance(positions, "B", "C"));
+  });
+
   it("places languages sharing innovations closer than those sharing none", () => {
     const { positions } = layoutByLikeness(table, 8);
     expect(distance(positions, "A", "B")).toBeLessThan(distance(positions, "A", "C"));

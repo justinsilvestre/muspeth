@@ -1,0 +1,3737 @@
+{
+  "id": "piedmont-visitors",
+  "name": "Visitors of Piedmont forest, North Carolina",
+  "group": "From flower surveys",
+  "description": "Spring wildflowers of a deciduous forest and their insect visitors, counted through the springs of 1977 to 1979 before the trees leaf out.",
+  "bodyNoun": {
+    "one": "visitor",
+    "many": "visitors"
+  },
+  "labelStyle": "species",
+  "citation": {
+    "text": "Alexander F. Motten (1982). Pollination Ecology of the Spring Wildflower Community of a Temperate Deciduous Forest.",
+    "url": "https://doi.org/10.2307/2937269"
+  },
+  "bodies": [
+    {
+      "id": "wikidata:Q2268519",
+      "name": "Andrena arabis",
+      "commonName": "Mustard Miner",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Andrena_arabis%2C_M%2C_Face%2C_NY%2C_Orange_Co_2013-06-07-17.49.58_ZS_PMax.jpg/960px-Andrena_arabis%2C_M%2C_Face%2C_NY%2C_Orange_Co_2013-06-07-17.49.58_ZS_PMax.jpg",
+        "credit": "Sam Droege",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Andrena_arabis,_M,_Face,_NY,_Orange_Co_2013-06-07-17.49.58_ZS_PMax.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q2142269",
+      "name": "Andrena carlini",
+      "commonName": "Carlinville Miner",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Andrena_carlini.jpg/960px-Andrena_carlini.jpg",
+        "credit": "Sam Droege",
+        "licence": "CC-BY-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Andrena_carlini.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q2582171",
+      "name": "Andrena ceanothi",
+      "commonName": "Ceanothus Miner",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Andrena_ceanothi_f.jpg/960px-Andrena_ceanothi_f.jpg",
+        "credit": "USGS Native Bee Inventory and Monitoring Laboratory",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Andrena_ceanothi_f.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q2176883",
+      "name": "Andrena dunningi",
+      "commonName": "Dunning's Miner",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Andrena_dunningi%2C_F%2C_face%2C_MD%2C_Harford_County_2013-04-29-17.07_%2841040658574%29.jpg/960px-Andrena_dunningi%2C_F%2C_face%2C_MD%2C_Harford_County_2013-04-29-17.07_%2841040658574%29.jpg",
+        "credit": "USGS Bee Inventory and Monitoring Lab from Beltsville, Maryland, USA",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Andrena_dunningi,_F,_face,_MD,_Harford_County_2013-04-29-17.07_(41040658574).jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q2164934",
+      "name": "Andrena erigeniae",
+      "commonName": "Spring Beauty Miner",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Day_94_-_Spring_Beauty_Bee_-_Andrena_erigeniae%2C_Riverbend_Park%2C_Great_Falls%2C_Virginia.jpg/960px-Day_94_-_Spring_Beauty_Bee_-_Andrena_erigeniae%2C_Riverbend_Park%2C_Great_Falls%2C_Virginia.jpg",
+        "credit": "Judy Gallagher",
+        "licence": "CC-BY-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Day_94_-_Spring_Beauty_Bee_-_Andrena_erigeniae,_Riverbend_Park,_Great_Falls,_Virginia.jpg"
+      }
+    },
+    {
+      "id": "mangal:Andrena imatrix",
+      "name": "Andrena imatrix"
+    },
+    {
+      "id": "wikidata:Q2205365",
+      "name": "Andrena nasonii",
+      "commonName": "Bumped Miner Bee",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Andrena_nasonii%2C_F%2C_side%2C_New_York%2C_Kings_County_2013-02-07-14.17.02_ZS_PMax_%288488019346%29.jpg/960px-Andrena_nasonii%2C_F%2C_side%2C_New_York%2C_Kings_County_2013-02-07-14.17.02_ZS_PMax_%288488019346%29.jpg",
+        "credit": "USGS Native Bee Inventory and Monitoring Laboratory from Beltsville, USA",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Andrena_nasonii,_F,_side,_New_York,_Kings_County_2013-02-07-14.17.02_ZS_PMax_(8488019346).jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q10733699",
+      "name": "Andrena nigrihirta",
+      "commonName": "Black-haired Miner",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Andrena_nigrihirta.jpg/960px-Andrena_nigrihirta.jpg",
+        "credit": "USGS Native Bee Inventory and Monitoring Laboratory",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Andrena_nigrihirta.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q2365893",
+      "name": "Andrena personata",
+      "commonName": "Echo Mini-Miner",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Andrena_personata%2C_f%2C_md%2C_eastern_neck_nwr%2C_side_2015-05-26-05.52.54_ZS_PMax_%2818042715968%29.jpg/960px-Andrena_personata%2C_f%2C_md%2C_eastern_neck_nwr%2C_side_2015-05-26-05.52.54_ZS_PMax_%2818042715968%29.jpg",
+        "credit": "USGS Bee Inventory and Monitoring Lab from Beltsville, Maryland, USA",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Andrena_personata,_f,_md,_eastern_neck_nwr,_side_2015-05-26-05.52.54_ZS_PMax_(18042715968).jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q2718369",
+      "name": "Andrena tridens",
+      "commonName": "Tridentate Miner"
+    },
+    {
+      "id": "wikidata:Q2243956",
+      "name": "Andrena violae",
+      "commonName": "Violet Miner",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Violet_Miner_imported_from_iNaturalist_photo_360154750_on_21_May_2024.jpg/960px-Violet_Miner_imported_from_iNaturalist_photo_360154750_on_21_May_2024.jpg",
+        "credit": "(c) James Kindt, some rights reserved (CC BY)",
+        "licence": "CC-BY-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Violet_Miner_imported_from_iNaturalist_photo_360154750_on_21_May_2024.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q10733725",
+      "name": "Andrena ziziaeformis",
+      "commonName": "Ephemeral Miner",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Andrena_ziziaformis%2C_M%2C_Side%2C_VA%2C_Giles_County_2014-01-31-17.09.55_ZS_PMax.jpg/960px-Andrena_ziziaformis%2C_M%2C_Side%2C_VA%2C_Giles_County_2014-01-31-17.09.55_ZS_PMax.jpg",
+        "credit": "USGS Bee Inventory and Monitoring Lab",
+        "licence": "CC-BY-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Andrena_ziziaformis,_M,_Side,_VA,_Giles_County_2014-01-31-17.09.55_ZS_PMax.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q30034",
+      "name": "Apis mellifera",
+      "commonName": "Honey Bee",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/%28MHNT%29_Apis_mellifera_%28female%29_-_on_viburnum_tinus_flowers.jpg/960px-%28MHNT%29_Apis_mellifera_%28female%29_-_on_viburnum_tinus_flowers.jpg",
+        "credit": "Didier Descouens",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:(MHNT)_Apis_mellifera_(female)_-_on_viburnum_tinus_flowers.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q5517118",
+      "name": "Augochlora pura",
+      "commonName": "Pure Green Sweat bee",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Augochlora_pura_f.jpg/960px-Augochlora_pura_f.jpg",
+        "credit": "The Packer Lab",
+        "licence": "Attribution",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Augochlora_pura_f.jpg"
+      }
+    },
+    {
+      "id": "mangal:Augochorella striata",
+      "name": "Augochorella striata"
+    },
+    {
+      "id": "wikidata:Q2389840",
+      "name": "Bombus bimaculatus",
+      "commonName": "Two-spotted Bumblebee",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Bombus_bimaculatus1.jpg/960px-Bombus_bimaculatus1.jpg",
+        "credit": "The Packer Lab",
+        "licence": "Attribution",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Bombus_bimaculatus1.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q726901",
+      "name": "Bombus pensylvanicus",
+      "commonName": "Bumble Bee",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Bombus_pensylvanicus_male_on_rough_blazingstar_Ellison_Creek-7907.jpg/960px-Bombus_pensylvanicus_male_on_rough_blazingstar_Ellison_Creek-7907.jpg",
+        "credit": "Angella Moorehouse",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Bombus_pensylvanicus_male_on_rough_blazingstar_Ellison_Creek-7907.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q1549111",
+      "name": "Bombylius major",
+      "commonName": "Bee Fly",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Grosser_Wollschweber_Bombylius_major.jpg/960px-Grosser_Wollschweber_Bombylius_major.jpg",
+        "credit": "Richard Bartz , Munich aka Makro Freak",
+        "licence": "CC-BY-SA-2.5",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Grosser_Wollschweber_Bombylius_major.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q2520020",
+      "name": "Ceratina calcarata",
+      "commonName": "Spurred Ceratina",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Ceratina_calcarata_f.jpg/960px-Ceratina_calcarata_f.jpg",
+        "credit": "The Packer Lab",
+        "licence": "Attribution",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Ceratina_calcarata_f.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q49414428",
+      "name": "Dialictus abanci"
+    },
+    {
+      "id": "mangal:Dialictus cressonii",
+      "name": "Dialictus cressonii"
+    },
+    {
+      "id": "mangal:Ephemoropsis laboriosa",
+      "name": "Ephemoropsis laboriosa"
+    },
+    {
+      "id": "mangal:Euchlo lotta",
+      "name": "Euchlo lotta"
+    },
+    {
+      "id": "mangal:Evylaeus macoupinensis",
+      "name": "Evylaeus macoupinensis"
+    },
+    {
+      "id": "mangal:945/Gonia sp.",
+      "name": "Gonia sp."
+    },
+    {
+      "id": "mangal:945/halictid sp.",
+      "name": "halictid sp."
+    },
+    {
+      "id": "mangal:Hylema platura",
+      "name": "Hylema platura"
+    },
+    {
+      "id": "mangal:Lassioglossum fuscipenne",
+      "name": "Lassioglossum fuscipenne"
+    },
+    {
+      "id": "mangal:Lycaenopsis argiolus",
+      "name": "Lycaenopsis argiolus",
+      "commonName": "Holly Blue"
+    },
+    {
+      "id": "mangal:Nomada bishopii",
+      "name": "Nomada bishopii"
+    },
+    {
+      "id": "wikidata:Q2732450",
+      "name": "Nomada luteola",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Nomada_luteola%2C_F%2C_face%2C_Maryland%2C_Somerset_County_2013-02-06-14.36.54_ZS_PMax_%288471065269%29.jpg/960px-Nomada_luteola%2C_F%2C_face%2C_Maryland%2C_Somerset_County_2013-02-06-14.36.54_ZS_PMax_%288471065269%29.jpg",
+        "credit": "USGS Native Bee Inventory and Monitoring Laboratory from Beltsville, USA",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Nomada_luteola,_F,_face,_Maryland,_Somerset_County_2013-02-06-14.36.54_ZS_PMax_(8471065269).jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q2025959",
+      "name": "Nomada perplexa",
+      "commonName": "Perplexing Nomad"
+    },
+    {
+      "id": "wikidata:Q632214",
+      "name": "Nomada pygmaea",
+      "commonName": "Pygmy Nomad"
+    },
+    {
+      "id": "wikidata:Q2029875",
+      "name": "Nomada sayi",
+      "commonName": "Say's Nomad",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Nomada_sayi_Female.jpg/960px-Nomada_sayi_Female.jpg",
+        "credit": "The Packer Lab",
+        "licence": "Attribution",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Nomada_sayi_Female.jpg"
+      }
+    },
+    {
+      "id": "mangal:945/Nomada sp.",
+      "name": "Nomada sp."
+    },
+    {
+      "id": "wikidata:Q2463422",
+      "name": "Osmia atriventris",
+      "commonName": "Black-bellied Mason",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Osmia_atriventris%2C_F%2C_Back%2C_MD%2C_Washington_County_2013-08-09-17.28.28_ZS_PMax_%2810329236695%29.jpg/960px-Osmia_atriventris%2C_F%2C_Back%2C_MD%2C_Washington_County_2013-08-09-17.28.28_ZS_PMax_%2810329236695%29.jpg",
+        "credit": "USGS Bee Inventory and Monitoring Lab from Beltsville, USA",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Osmia_atriventris,_F,_Back,_MD,_Washington_County_2013-08-09-17.28.28_ZS_PMax_(10329236695).jpg"
+      }
+    },
+    {
+      "id": "mangal:Osmia conjucta",
+      "name": "Osmia conjucta"
+    },
+    {
+      "id": "wikidata:Q2243042",
+      "name": "Osmia lignaria",
+      "commonName": "Blue Orchard Bee",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Blue_orchard_bee.jpg",
+        "credit": null,
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Blue_orchard_bee.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q2650514",
+      "name": "Osmia simillima",
+      "commonName": "Cup-legged Mason",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Osmia_simillima.jpg/960px-Osmia_simillima.jpg",
+        "credit": "USGS Native Bee Inventory and Monitoring Laboratory",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Osmia_simillima.jpg"
+      }
+    },
+    {
+      "id": "mangal:945/Osmia sp.",
+      "name": "Osmia sp."
+    },
+    {
+      "id": "wikidata:Q14327824",
+      "name": "Platycheirus obscurus",
+      "commonName": "Eastern Forest Sedgesitter"
+    },
+    {
+      "id": "mangal:Toxomerous geminatus",
+      "name": "Toxomerous geminatus"
+    },
+    {
+      "id": "mangal:945/unknown sp.",
+      "name": "unknown sp."
+    },
+    {
+      "id": "wikidata:Q2149448",
+      "name": "Xylocopa virginica",
+      "commonName": "Carpenter Bee",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Carpenter_bee.jpg/960px-Carpenter_bee.jpg",
+        "credit": "Daniel Schwen",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Carpenter_bee.jpg"
+      }
+    }
+  ],
+  "sharings": [
+    {
+      "relation": "flowers",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Bombylius major",
+          "partner": "Claytonia virginica",
+          "weight": 418,
+          "flags": []
+        },
+        {
+          "body": "Andrena erigeniae",
+          "partner": "Claytonia virginica",
+          "weight": 378,
+          "flags": []
+        },
+        {
+          "body": "Andrena nigrihirta",
+          "partner": "Erythronium umbilicatum",
+          "weight": 273,
+          "flags": []
+        },
+        {
+          "body": "Bombylius major",
+          "partner": "Thalictrum thalictroides",
+          "weight": 130,
+          "flags": []
+        },
+        {
+          "body": "Bombylius major",
+          "partner": "Stellaria pubera",
+          "weight": 122,
+          "flags": []
+        },
+        {
+          "body": "Bombylius major",
+          "partner": "Cardamine angustata angustata",
+          "weight": 79,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Andrena tridens",
+          "partner": "Erythronium umbilicatum",
+          "weight": 72,
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Erythronium umbilicatum",
+          "weight": 52,
+          "flags": []
+        },
+        {
+          "body": "Nomada sp.",
+          "partner": "Stellaria pubera",
+          "weight": 44,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Gonia sp.",
+          "partner": "Claytonia virginica",
+          "weight": 37,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Nomada sp.",
+          "partner": "Claytonia virginica",
+          "weight": 32,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Andrena nigrihirta",
+          "partner": "Hepatica americana",
+          "weight": 27,
+          "flags": []
+        },
+        {
+          "body": "Bombus bimaculatus",
+          "partner": "Aesculus sylvatica",
+          "weight": 25,
+          "flags": []
+        },
+        {
+          "body": "halictid sp.",
+          "partner": "Claytonia virginica",
+          "weight": 22,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Sangiunaria canadensis",
+          "weight": 21,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Bombylius major",
+          "partner": "Hepatica americana",
+          "weight": 20,
+          "flags": []
+        },
+        {
+          "body": "Bombylius major",
+          "partner": "Sangiunaria canadensis",
+          "weight": 20,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Bombus bimaculatus",
+          "partner": "Tiarella cordifolia collina",
+          "weight": 18,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Bombylius major",
+          "partner": "Viola papilionacea",
+          "weight": 17,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Andrena nigrihirta",
+          "partner": "Cardamine angustata angustata",
+          "weight": 16,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Hylema platura",
+          "partner": "Claytonia virginica",
+          "weight": 16,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Andrena nigrihirta",
+          "partner": "Uvularia sessilifolia",
+          "weight": 15,
+          "flags": []
+        },
+        {
+          "body": "Andrena nigrihirta",
+          "partner": "Claytonia virginica",
+          "weight": 13,
+          "flags": []
+        },
+        {
+          "body": "Platycheirus obscurus",
+          "partner": "Claytonia virginica",
+          "weight": 10,
+          "flags": []
+        },
+        {
+          "body": "Andrena tridens",
+          "partner": "Hepatica americana",
+          "weight": 9,
+          "flags": []
+        },
+        {
+          "body": "halictid sp.",
+          "partner": "Thalictrum thalictroides",
+          "weight": 9,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Andrena nasonii",
+          "partner": "Stellaria pubera",
+          "weight": 8,
+          "flags": []
+        },
+        {
+          "body": "Bombylius major",
+          "partner": "Tiarella cordifolia collina",
+          "weight": 8,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Gonia sp.",
+          "partner": "Thalictrum thalictroides",
+          "weight": 8,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Hylema platura",
+          "partner": "Hepatica americana",
+          "weight": 8,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Nomada perplexa",
+          "partner": "Erythronium umbilicatum",
+          "weight": 8,
+          "flags": []
+        },
+        {
+          "body": "Nomada pygmaea",
+          "partner": "Claytonia virginica",
+          "weight": 8,
+          "flags": []
+        },
+        {
+          "body": "Andrena carlini",
+          "partner": "Cardamine angustata angustata",
+          "weight": 7,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Dialictus abanci",
+          "partner": "Claytonia virginica",
+          "weight": 7,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Osmia conjucta",
+          "partner": "Claytonia virginica",
+          "weight": 7,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Osmia conjucta",
+          "partner": "Stellaria pubera",
+          "weight": 7,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Osmia sp.",
+          "partner": "Erythronium umbilicatum",
+          "weight": 7,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Andrena nigrihirta",
+          "partner": "Stellaria pubera",
+          "weight": 6,
+          "flags": []
+        },
+        {
+          "body": "Dialictus abanci",
+          "partner": "Thalictrum thalictroides",
+          "weight": 6,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Nomada perplexa",
+          "partner": "Claytonia virginica",
+          "weight": 6,
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Cardamine angustata angustata",
+          "weight": 5,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Bombus bimaculatus",
+          "partner": "Cardamine angustata angustata",
+          "weight": 5,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Dialictus abanci",
+          "partner": "Hepatica americana",
+          "weight": 5,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Dialictus cressonii",
+          "partner": "Claytonia virginica",
+          "weight": 5,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Euchlo lotta",
+          "partner": "Claytonia virginica",
+          "weight": 5,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Evylaeus macoupinensis",
+          "partner": "Hepatica americana",
+          "weight": 5,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Nomada pygmaea",
+          "partner": "Stellaria pubera",
+          "weight": 5,
+          "flags": []
+        },
+        {
+          "body": "Andrena carlini",
+          "partner": "Erythronium umbilicatum",
+          "weight": 4,
+          "flags": []
+        },
+        {
+          "body": "Andrena tridens",
+          "partner": "Cardamine angustata angustata",
+          "weight": 4,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Andrena violae",
+          "partner": "Viola papilionacea",
+          "weight": 4,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Claytonia virginica",
+          "weight": 4,
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Hepatica americana",
+          "weight": 4,
+          "flags": []
+        },
+        {
+          "body": "Evylaeus macoupinensis",
+          "partner": "Claytonia virginica",
+          "weight": 4,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Gonia sp.",
+          "partner": "Hepatica americana",
+          "weight": 4,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Gonia sp.",
+          "partner": "Stellaria pubera",
+          "weight": 4,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Nomada perplexa",
+          "partner": "Stellaria pubera",
+          "weight": 4,
+          "flags": []
+        },
+        {
+          "body": "Nomada sp.",
+          "partner": "Hepatica americana",
+          "weight": 4,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Osmia conjucta",
+          "partner": "Erythronium umbilicatum",
+          "weight": 4,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Osmia lignaria",
+          "partner": "Erythronium umbilicatum",
+          "weight": 4,
+          "flags": []
+        },
+        {
+          "body": "Osmia sp.",
+          "partner": "Claytonia virginica",
+          "weight": 4,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Platycheirus obscurus",
+          "partner": "Cardamine angustata angustata",
+          "weight": 4,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Toxomerous geminatus",
+          "partner": "Claytonia virginica",
+          "weight": 4,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Andrena erigeniae",
+          "partner": "Stellaria pubera",
+          "weight": 3,
+          "flags": []
+        },
+        {
+          "body": "Andrena nasonii",
+          "partner": "Claytonia virginica",
+          "weight": 3,
+          "flags": []
+        },
+        {
+          "body": "Augochlora pura",
+          "partner": "Cardamine angustata angustata",
+          "weight": 3,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Augochlora pura",
+          "partner": "Stellaria pubera",
+          "weight": 3,
+          "flags": []
+        },
+        {
+          "body": "Bombus bimaculatus",
+          "partner": "Podophyllum peltatum",
+          "weight": 3,
+          "flags": []
+        },
+        {
+          "body": "Ceratina calcarata",
+          "partner": "Claytonia virginica",
+          "weight": 3,
+          "flags": []
+        },
+        {
+          "body": "Dialictus abanci",
+          "partner": "Erythronium umbilicatum",
+          "weight": 3,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Dialictus abanci",
+          "partner": "Stellaria pubera",
+          "weight": 3,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Nomada luteola",
+          "partner": "Stellaria pubera",
+          "weight": 3,
+          "flags": []
+        },
+        {
+          "body": "Osmia atriventris",
+          "partner": "Stellaria pubera",
+          "weight": 3,
+          "flags": []
+        },
+        {
+          "body": "Osmia atriventris",
+          "partner": "Viola papilionacea",
+          "weight": 3,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Osmia lignaria",
+          "partner": "Claytonia virginica",
+          "weight": 3,
+          "flags": []
+        },
+        {
+          "body": "Osmia sp.",
+          "partner": "Stellaria pubera",
+          "weight": 3,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Toxomerous geminatus",
+          "partner": "Stellaria pubera",
+          "weight": 3,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Andrena arabis",
+          "partner": "Cardamine angustata angustata",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Andrena carlini",
+          "partner": "Sangiunaria canadensis",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Andrena carlini",
+          "partner": "Stellaria pubera",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Andrena erigeniae",
+          "partner": "Cardamine angustata angustata",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Andrena nasonii",
+          "partner": "Cardamine angustata angustata",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Andrena tridens",
+          "partner": "Claytonia virginica",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Andrena tridens",
+          "partner": "Uvularia sessilifolia",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Bombus bimaculatus",
+          "partner": "Hepatica americana",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Bombus bimaculatus",
+          "partner": "Trillium catesbei",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Bombus pensylvanicus",
+          "partner": "Aesculus sylvatica",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Bombylius major",
+          "partner": "Erythronium umbilicatum",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Ceratina calcarata",
+          "partner": "Stellaria pubera",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Ceratina calcarata",
+          "partner": "Thalictrum thalictroides",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Dialictus abanci",
+          "partner": "Uvularia sessilifolia",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Ephemoropsis laboriosa",
+          "partner": "Tiarella cordifolia collina",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Euchlo lotta",
+          "partner": "Cardamine angustata angustata",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Gonia sp.",
+          "partner": "Cardamine angustata angustata",
+          "weight": 2,
+          "flags": ["placeholder_species", "unmatched_name"]
+        },
+        {
+          "body": "Lycaenopsis argiolus",
+          "partner": "Claytonia virginica",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Nomada perplexa",
+          "partner": "Cardamine angustata angustata",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Nomada sp.",
+          "partner": "Cardamine angustata angustata",
+          "weight": 2,
+          "flags": ["placeholder_species", "unmatched_name"]
+        },
+        {
+          "body": "Osmia conjucta",
+          "partner": "Viola papilionacea",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Osmia lignaria",
+          "partner": "Cardamine angustata angustata",
+          "weight": 2,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Platycheirus obscurus",
+          "partner": "Thalictrum thalictroides",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Xylocopa virginica",
+          "partner": "Erythronium umbilicatum",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "unknown sp.",
+          "partner": "Cardamine angustata angustata",
+          "weight": 2,
+          "flags": ["placeholder_species", "unmatched_name"]
+        },
+        {
+          "body": "Andrena carlini",
+          "partner": "Claytonia virginica",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Andrena carlini",
+          "partner": "Hepatica americana",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Andrena carlini",
+          "partner": "Trillium catesbei",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Andrena ceanothi",
+          "partner": "Claytonia virginica",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Andrena dunningi",
+          "partner": "Cardamine angustata angustata",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Andrena erigeniae",
+          "partner": "Thalictrum thalictroides",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Andrena imatrix",
+          "partner": "Claytonia virginica",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Andrena personata",
+          "partner": "Stellaria pubera",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Andrena ziziaeformis",
+          "partner": "Claytonia virginica",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Andrena ziziaeformis",
+          "partner": "Uvularia sessilifolia",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Tiarella cordifolia collina",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Augochlora pura",
+          "partner": "Claytonia virginica",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Augochlora pura",
+          "partner": "Erythronium umbilicatum",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Augochorella striata",
+          "partner": "Claytonia virginica",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Augochorella striata",
+          "partner": "Erythronium umbilicatum",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Bombus bimaculatus",
+          "partner": "Sangiunaria canadensis",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Bombus pensylvanicus",
+          "partner": "Cardamine angustata angustata",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Dialictus cressonii",
+          "partner": "Sangiunaria canadensis",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Dialictus cressonii",
+          "partner": "Tiarella cordifolia collina",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Ephemoropsis laboriosa",
+          "partner": "Aesculus sylvatica",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Evylaeus macoupinensis",
+          "partner": "Thalictrum thalictroides",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Evylaeus macoupinensis",
+          "partner": "Tiarella cordifolia collina",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Evylaeus macoupinensis",
+          "partner": "Uvularia sessilifolia",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Lassioglossum fuscipenne",
+          "partner": "Cardamine angustata angustata",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Nomada bishopii",
+          "partner": "Stellaria pubera",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Nomada pygmaea",
+          "partner": "Cardamine angustata angustata",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Nomada sayi",
+          "partner": "Stellaria pubera",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Nomada sp.",
+          "partner": "Erythronium umbilicatum",
+          "weight": 1,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Nomada sp.",
+          "partner": "Thalictrum thalictroides",
+          "weight": 1,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Osmia conjucta",
+          "partner": "Cardamine angustata angustata",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Osmia conjucta",
+          "partner": "Tiarella cordifolia collina",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Osmia simillima",
+          "partner": "Viola papilionacea",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Osmia sp.",
+          "partner": "Cardamine angustata angustata",
+          "weight": 1,
+          "flags": ["placeholder_species", "unmatched_name"]
+        },
+        {
+          "body": "Osmia sp.",
+          "partner": "Thalictrum thalictroides",
+          "weight": 1,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Platycheirus obscurus",
+          "partner": "Stellaria pubera",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Toxomerous geminatus",
+          "partner": "Sangiunaria canadensis",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Xylocopa virginica",
+          "partner": "Cardamine angustata angustata",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Xylocopa virginica",
+          "partner": "Claytonia virginica",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Xylocopa virginica",
+          "partner": "Podophyllum peltatum",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Xylocopa virginica",
+          "partner": "Sangiunaria canadensis",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Xylocopa virginica",
+          "partner": "Trillium catesbei",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "halictid sp.",
+          "partner": "Hepatica americana",
+          "weight": 1,
+          "flags": ["placeholder_species"]
+        }
+      ]
+    },
+    {
+      "relation": "compounds",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Apis mellifera",
+          "partner": "(+/-)-2-amino-6,7-dihydroxytetralin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "(E)-cinnamic acid",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "3-hydroxydecanoic acid",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Apis mellifera queen cell",
+          "flags": ["unreferenced_statement"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "beta-sitosterol",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "campesterol",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "cholesterol",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "chrysin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ferulic acid",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "genistein",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Isocupressic acid",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "isorhamnetin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "melittin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pimaric acid",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pinocembrin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "stigmasterol",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "tertiapin",
+          "flags": ["unreferenced_statement"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "trans-caffeic acid",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "names",
+      "licences": ["CC-BY-4.0", "CC0-1.0"],
+      "links": [
+        {
+          "body": "Apis mellifera",
+          "partner": "`iniseka",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "3puluŋ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "4kʷʰe 2napraŋ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "abeja",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Xylocopa virginica",
+          "partner": "abeja",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "abija",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "aƀəʕʕuš",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "akoyek",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "albină",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ba'armo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Bal arısı",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bebet",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Andrena arabis",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Andrena carlini",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Andrena ceanothi",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Andrena dunningi",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Andrena erigeniae",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Andrena nasonii",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Andrena nigrihirta",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Andrena tridens",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Andrena violae",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Augochlora pura",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Bombus bimaculatus",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Bombus pensylvanicus",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Bombylius major",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Nomada pygmaea",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Nomada sayi",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Osmia atriventris",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Osmia lignaria",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Osmia simillima",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Xylocopa virginica",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Bombylius major",
+          "partner": "Bee Fly",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bey",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bibikèly",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bij",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bini",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Osmia atriventris",
+          "partner": "Blueberry",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bugari",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Bombus bimaculatus",
+          "partner": "Bumble Bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Bombus pensylvanicus",
+          "partner": "Bumble Bee",
+          "flags": []
+        },
+        {
+          "body": "Bombus bimaculatus",
+          "partner": "Bumblebee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bɯst",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Xylocopa virginica",
+          "partner": "Carpenter Bee",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "chanul pom",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "chon",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "côn trùng",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Osmia simillima",
+          "partner": "Cup-legged Mason",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "dʒu:gdu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Bombylius major",
+          "partner": "fly",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "fullánka",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "gäne",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "hanibi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "honey bee",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "hö́ni",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Honigbiene",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Honingbij",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "honungsbi",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "hüt’-qumur",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "insect",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "insectă",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "insekt",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "insekto",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ɨŋɨrɨa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kab",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kachimpa pom",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kevar",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kolmenä",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kolmenia",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kolonp’un",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kùlí",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kúlìkə̀mágə̀n",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kʊlɪkan",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ƙwàaróo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "lamtol",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "lebah",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "lway",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "makwu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mantoun",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "matsitaj",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mdudu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mermeho",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "míhėčkė",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "miliχˤutːu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mishik’ pom",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mous dimyel",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "muumu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "muv",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "næŋʔã´w",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nakwu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nakwutaj",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nalo meli",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nama",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "neslo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nucodaq t’ot’",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nuwalhek",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nyuki",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ong",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pcołka",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pemtsaj",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pini",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "püḻü",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "renitantely",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Lycaenopsis argiolus",
+          "partner": "rovo",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "sâu bọ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "seer",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "serangga",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "simhat",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Osmia simillima",
+          "partner": "Similar Mason Bee",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "supfwetaj",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "t’ant’",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "t’oonaqo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "tawon",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "tiklha",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ton pom",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ŧizizwa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "üön",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "üön-köyüːr",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "wano",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "wun’a",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "yoeria",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "zensek",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ziwlliñ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "zu'we",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "zúmàa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ʔaake piyatte",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Μέλισσα",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "жыва",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ме̄даш",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ผึ้ง",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ภมร",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "แมง",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "แมลง",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "꿀벌",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "昆虫",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "虫",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "蜜蜂",
+          "flags": ["text_match"]
+        }
+      ]
+    },
+    {
+      "relation": "stories",
+      "licences": ["CC-BY-4.0"],
+      "links": [
+        {
+          "body": "Apis mellifera",
+          "partner": "A1297. First human being killed by jealous brothers (reptiles and insects).",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A13.3. Insect as creator.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2000. Creation of insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2001. Insects from body of slain monster. Usually the monster is burnt; sometimes the insects come from his head, sometimes from his body as it burns. (Cf. A1716.1.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2001.1. Insects from brains, blood, and bones of slain helpful animal.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2002. Origin of insects from various experiences of saint.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2002.1. The god Mahadeo turns wood chips into insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2003. Origin of insects: released from sack. God places them in a sack and gives it to hare to carry to stream. He must not look in the sack. When he does so the insects escape. The hare laughs and this is…",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2004. Insects from devil's post-hole. Devil is given enough land to dig a post-hole. From this come all kinds of insects. To stop them a burning log is put in the hole. Insects therefore hate smoke.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2005. Origin of insects: God throws sand on lazy shepherds. (Cf. A1716.1).",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2006. Origin of insects: monstrous births from brother-sister incest.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012. Creation of bee.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012.0.1. Creation of honey-bees: transformed man.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012.1. Creation of bee to provide wax for candles in church. (Cf. B259.4.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012.2. First bees in Ireland.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012.3. God sends stinging bees to punish men.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2070. Creation of miscellaneous insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2095. Creation of lac insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2231.3.2. Bees work on Sabbath: may not get honey from red clover. (Cf. A2435.5.1.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2232.2. Bees pray for sting: punishment, first sting suicidal. (Cf. A2346.1.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2332.6.9. Why bee is blind.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2346.1. Why bees die after they sting. (Cf. A2232.2.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2385.3. Honey as excrement of bees.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2411.3. Origin of color of insect.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2411.3.1. Origin of color of bee.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2412.3. Markings on insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2426.3. Sounds of insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2433.5. Haunts of insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.3.8. Why ant-bear eats insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.5. Food of insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.5.1. Why bees may not get honey from red clover. (Cf. A2231.3.2.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.5.1.1. Why bees eat their own children.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.5.2. Insect fries human blood and eats it.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A33.3. Insect as creator's companion.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A33.3.1. Bee as God's spy. God, the creator, sends a bee to overhear the devil's secrets.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A773.6. Pleiades as swarm of bees.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B147.3.1.2. Bees (ants) leave honey on lips of infant to show future greatness.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B171.1.0.1. Magic cock carries great loads in his ear (load of grain, fox, tiger, bees, wasps, etc., also fire and water).",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B291.0.2. Unwelcome bird (insect) proves to be messenger.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B524.2.1. Helpful bees (hornets) sting opposing army.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B524.2.1.1. Saint sends swarm of bees or wasps against enemies.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "G225.1. Insect as witch's familiar. (Fly, bee, gnat, spider.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "J1762.5. Bees (wasps) mistaken for Jutlanders, etc.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "J2102.8. Frogs to eat insects, snakes to eat frogs. Snakes eat numskull's family.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "J512.15. Frogs want to collect honey like bees.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "K1975.1. Sham miracle: wallet (bee-hive) changes to wasps. Tricksters put a wasp nest in the wallet (bee-hive). When the master claims it they give it to him with the curse, \"May it turn to wasps!\" It does.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "K2351.2.2. Ashes transformed into bees, wasps, scorpions and snakes drive invading army away for hero.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "X1205. Lie: venom of animal (snake, hornet, bee) causes object to swell.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "X1280.1.1. Bumblebees imported to rout mosquitoes; the two insects crossbreed and have stingers on both ends.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        }
+      ]
+    },
+    {
+      "relation": "sites",
+      "licences": ["CC0-1.0", "LicenseRef-web-of-life-attribution"],
+      "links": [
+        {
+          "body": "Apis mellifera",
+          "partner": "Black River Gorges, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Cass, New Zealand",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Craigieburn, New Zealand",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Garajonay, La Gomera",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Lake Hazen, Ellesmere Island",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Mahé, Seychelles",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Morant Point, Jamaica",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Mt. Kushigata, Japan",
+          "flags": []
+        },
+        {
+          "body": "Bombylius major",
+          "partner": "Mt. Kushigata, Japan",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Mt. Yufu, Japan",
+          "flags": []
+        },
+        {
+          "body": "Bombylius major",
+          "partner": "Mt. Yufu, Japan",
+          "flags": []
+        },
+        {
+          "body": "Andrena arabis",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Andrena carlini",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Andrena ceanothi",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Andrena dunningi",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Andrena erigeniae",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Andrena imatrix",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Andrena nasonii",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Andrena nigrihirta",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Andrena personata",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Andrena tridens",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Andrena violae",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Andrena ziziaeformis",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Augochlora pura",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Augochorella striata",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Bombus bimaculatus",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Bombus pensylvanicus",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Bombylius major",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Ceratina calcarata",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Dialictus abanci",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Dialictus cressonii",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Ephemoropsis laboriosa",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Euchlo lotta",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Evylaeus macoupinensis",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Gonia sp.",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "halictid sp.",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Hylema platura",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Lassioglossum fuscipenne",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Lycaenopsis argiolus",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Nomada bishopii",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Nomada luteola",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Nomada perplexa",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Nomada pygmaea",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Nomada sayi",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Nomada sp.",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Osmia atriventris",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Osmia conjucta",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Osmia lignaria",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Osmia simillima",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Osmia sp.",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Platycheirus obscurus",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Toxomerous geminatus",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "unknown sp.",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Xylocopa virginica",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Tenerife",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "descent",
+      "licences": ["CC-BY-4.0"],
+      "links": [
+        {
+          "body": "Andrena arabis",
+          "partner": "Andrena (genus)",
+          "flags": []
+        },
+        {
+          "body": "Andrena carlini",
+          "partner": "Andrena (genus)",
+          "flags": []
+        },
+        {
+          "body": "Andrena ceanothi",
+          "partner": "Andrena (genus)",
+          "flags": []
+        },
+        {
+          "body": "Andrena dunningi",
+          "partner": "Andrena (genus)",
+          "flags": []
+        },
+        {
+          "body": "Andrena erigeniae",
+          "partner": "Andrena (genus)",
+          "flags": []
+        },
+        {
+          "body": "Andrena imatrix",
+          "partner": "Andrena (genus)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Andrena nasonii",
+          "partner": "Andrena (genus)",
+          "flags": []
+        },
+        {
+          "body": "Andrena nigrihirta",
+          "partner": "Andrena (genus)",
+          "flags": []
+        },
+        {
+          "body": "Andrena personata",
+          "partner": "Andrena (genus)",
+          "flags": []
+        },
+        {
+          "body": "Andrena tridens",
+          "partner": "Andrena (genus)",
+          "flags": []
+        },
+        {
+          "body": "Andrena violae",
+          "partner": "Andrena (genus)",
+          "flags": []
+        },
+        {
+          "body": "Andrena ziziaeformis",
+          "partner": "Andrena (genus)",
+          "flags": []
+        },
+        {
+          "body": "Andrena arabis",
+          "partner": "Andrenidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Andrena carlini",
+          "partner": "Andrenidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Andrena ceanothi",
+          "partner": "Andrenidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Andrena dunningi",
+          "partner": "Andrenidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Andrena erigeniae",
+          "partner": "Andrenidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Andrena imatrix",
+          "partner": "Andrenidae (family)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Andrena nasonii",
+          "partner": "Andrenidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Andrena nigrihirta",
+          "partner": "Andrenidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Andrena personata",
+          "partner": "Andrenidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Andrena tridens",
+          "partner": "Andrenidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Andrena violae",
+          "partner": "Andrenidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Andrena ziziaeformis",
+          "partner": "Andrenidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Andrena arabis",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Andrena carlini",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Andrena ceanothi",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Andrena dunningi",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Andrena erigeniae",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Andrena imatrix",
+          "partner": "Animalia (kingdom)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Andrena nasonii",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Andrena nigrihirta",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Andrena personata",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Andrena tridens",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Andrena violae",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Andrena ziziaeformis",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Augochlora pura",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Bombus bimaculatus",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Bombus pensylvanicus",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Bombylius major",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Ceratina calcarata",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Dialictus abanci",
+          "partner": "Animalia (kingdom)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Dialictus cressonii",
+          "partner": "Animalia (kingdom)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Euchlo lotta",
+          "partner": "Animalia (kingdom)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Evylaeus macoupinensis",
+          "partner": "Animalia (kingdom)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Gonia sp.",
+          "partner": "Animalia (kingdom)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Lassioglossum fuscipenne",
+          "partner": "Animalia (kingdom)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Lycaenopsis argiolus",
+          "partner": "Animalia (kingdom)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Nomada bishopii",
+          "partner": "Animalia (kingdom)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Nomada luteola",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Nomada perplexa",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Nomada pygmaea",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Nomada sayi",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Nomada sp.",
+          "partner": "Animalia (kingdom)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Osmia atriventris",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Osmia conjucta",
+          "partner": "Animalia (kingdom)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Osmia lignaria",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Osmia simillima",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Platycheirus obscurus",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Toxomerous geminatus",
+          "partner": "Animalia (kingdom)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "unknown sp.",
+          "partner": "Animalia (kingdom)",
+          "flags": ["higher_rank_match", "globi_lineage_hint"]
+        },
+        {
+          "body": "Xylocopa virginica",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Bombus bimaculatus",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Bombus pensylvanicus",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Ceratina calcarata",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Nomada bishopii",
+          "partner": "Apidae (family)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Nomada luteola",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Nomada perplexa",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Nomada pygmaea",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Nomada sayi",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Nomada sp.",
+          "partner": "Apidae (family)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Xylocopa virginica",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Apis (genus)",
+          "flags": []
+        },
+        {
+          "body": "Andrena arabis",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Andrena carlini",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Andrena ceanothi",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Andrena dunningi",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Andrena erigeniae",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Andrena imatrix",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Andrena nasonii",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Andrena nigrihirta",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Andrena personata",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Andrena tridens",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Andrena violae",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Andrena ziziaeformis",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Augochlora pura",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Bombus bimaculatus",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Bombus pensylvanicus",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Bombylius major",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Ceratina calcarata",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Dialictus abanci",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Dialictus cressonii",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Euchlo lotta",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Evylaeus macoupinensis",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Gonia sp.",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Lassioglossum fuscipenne",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Lycaenopsis argiolus",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Nomada bishopii",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Nomada luteola",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Nomada perplexa",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Nomada pygmaea",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Nomada sayi",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Nomada sp.",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Osmia atriventris",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Osmia conjucta",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Osmia lignaria",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Osmia simillima",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Platycheirus obscurus",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Toxomerous geminatus",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "unknown sp.",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["higher_rank_match", "globi_lineage_hint"]
+        },
+        {
+          "body": "Xylocopa virginica",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Augochlora pura",
+          "partner": "Augochlora (genus)",
+          "flags": []
+        },
+        {
+          "body": "Bombus bimaculatus",
+          "partner": "Bombus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Bombus pensylvanicus",
+          "partner": "Bombus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Bombylius major",
+          "partner": "Bombyliidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Bombylius major",
+          "partner": "Bombylius (genus)",
+          "flags": []
+        },
+        {
+          "body": "Lycaenopsis argiolus",
+          "partner": "Celastrina (genus)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Ceratina calcarata",
+          "partner": "Ceratina (genus)",
+          "flags": []
+        },
+        {
+          "body": "Dialictus abanci",
+          "partner": "Dialictus (genus)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Dialictus cressonii",
+          "partner": "Dialictus (genus)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Bombylius major",
+          "partner": "Diptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Gonia sp.",
+          "partner": "Diptera (order)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Platycheirus obscurus",
+          "partner": "Diptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Toxomerous geminatus",
+          "partner": "Diptera (order)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "unknown sp.",
+          "partner": "Diptera (order)",
+          "flags": ["higher_rank_match", "globi_lineage_hint"]
+        },
+        {
+          "body": "unknown sp.",
+          "partner": "Drosophilidae (family)",
+          "flags": ["higher_rank_match", "globi_lineage_hint"]
+        },
+        {
+          "body": "Euchlo lotta",
+          "partner": "Euchloe (genus)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Evylaeus macoupinensis",
+          "partner": "Evylaeus (genus)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Gonia sp.",
+          "partner": "Gonia (genus)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Augochlora pura",
+          "partner": "Halictidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Dialictus abanci",
+          "partner": "Halictidae (family)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Dialictus cressonii",
+          "partner": "Halictidae (family)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Evylaeus macoupinensis",
+          "partner": "Halictidae (family)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Lassioglossum fuscipenne",
+          "partner": "Halictidae (family)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Andrena arabis",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Andrena carlini",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Andrena ceanothi",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Andrena dunningi",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Andrena erigeniae",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Andrena imatrix",
+          "partner": "Hymenoptera (order)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Andrena nasonii",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Andrena nigrihirta",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Andrena personata",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Andrena tridens",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Andrena violae",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Andrena ziziaeformis",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Augochlora pura",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Bombus bimaculatus",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Bombus pensylvanicus",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Ceratina calcarata",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Dialictus abanci",
+          "partner": "Hymenoptera (order)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Dialictus cressonii",
+          "partner": "Hymenoptera (order)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Evylaeus macoupinensis",
+          "partner": "Hymenoptera (order)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Lassioglossum fuscipenne",
+          "partner": "Hymenoptera (order)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Nomada bishopii",
+          "partner": "Hymenoptera (order)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Nomada luteola",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Nomada perplexa",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Nomada pygmaea",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Nomada sayi",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Nomada sp.",
+          "partner": "Hymenoptera (order)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Osmia atriventris",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Osmia conjucta",
+          "partner": "Hymenoptera (order)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Osmia lignaria",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Osmia simillima",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Xylocopa virginica",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Andrena arabis",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Andrena carlini",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Andrena ceanothi",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Andrena dunningi",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Andrena erigeniae",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Andrena imatrix",
+          "partner": "Insecta (class)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Andrena nasonii",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Andrena nigrihirta",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Andrena personata",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Andrena tridens",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Andrena violae",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Andrena ziziaeformis",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Augochlora pura",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Bombus bimaculatus",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Bombus pensylvanicus",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Bombylius major",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Ceratina calcarata",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Dialictus abanci",
+          "partner": "Insecta (class)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Dialictus cressonii",
+          "partner": "Insecta (class)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Euchlo lotta",
+          "partner": "Insecta (class)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Evylaeus macoupinensis",
+          "partner": "Insecta (class)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Gonia sp.",
+          "partner": "Insecta (class)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Lassioglossum fuscipenne",
+          "partner": "Insecta (class)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Lycaenopsis argiolus",
+          "partner": "Insecta (class)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Nomada bishopii",
+          "partner": "Insecta (class)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Nomada luteola",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Nomada perplexa",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Nomada pygmaea",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Nomada sayi",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Nomada sp.",
+          "partner": "Insecta (class)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Osmia atriventris",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Osmia conjucta",
+          "partner": "Insecta (class)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Osmia lignaria",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Osmia simillima",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Platycheirus obscurus",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Toxomerous geminatus",
+          "partner": "Insecta (class)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "unknown sp.",
+          "partner": "Insecta (class)",
+          "flags": ["higher_rank_match", "globi_lineage_hint"]
+        },
+        {
+          "body": "Xylocopa virginica",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Lassioglossum fuscipenne",
+          "partner": "Lasioglossum (genus)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Euchlo lotta",
+          "partner": "Lepidoptera (order)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Lycaenopsis argiolus",
+          "partner": "Lepidoptera (order)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Lycaenopsis argiolus",
+          "partner": "Lycaenidae (family)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Osmia atriventris",
+          "partner": "Megachilidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Osmia conjucta",
+          "partner": "Megachilidae (family)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Osmia lignaria",
+          "partner": "Megachilidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Osmia simillima",
+          "partner": "Megachilidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Nomada bishopii",
+          "partner": "Nomada (genus)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Nomada luteola",
+          "partner": "Nomada (genus)",
+          "flags": []
+        },
+        {
+          "body": "Nomada perplexa",
+          "partner": "Nomada (genus)",
+          "flags": []
+        },
+        {
+          "body": "Nomada pygmaea",
+          "partner": "Nomada (genus)",
+          "flags": []
+        },
+        {
+          "body": "Nomada sayi",
+          "partner": "Nomada (genus)",
+          "flags": []
+        },
+        {
+          "body": "Nomada sp.",
+          "partner": "Nomada (genus)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Osmia atriventris",
+          "partner": "Osmia (genus)",
+          "flags": []
+        },
+        {
+          "body": "Osmia conjucta",
+          "partner": "Osmia (genus)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Osmia lignaria",
+          "partner": "Osmia (genus)",
+          "flags": []
+        },
+        {
+          "body": "Osmia simillima",
+          "partner": "Osmia (genus)",
+          "flags": []
+        },
+        {
+          "body": "Euchlo lotta",
+          "partner": "Pieridae (family)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Platycheirus obscurus",
+          "partner": "Platycheirus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Platycheirus obscurus",
+          "partner": "Syrphidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Toxomerous geminatus",
+          "partner": "Syrphidae (family)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Gonia sp.",
+          "partner": "Tachinidae (family)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Toxomerous geminatus",
+          "partner": "Toxomerus (genus)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Xylocopa virginica",
+          "partner": "Xylocopa (genus)",
+          "flags": []
+        }
+      ]
+    }
+  ]
+}

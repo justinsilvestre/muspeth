@@ -1,0 +1,2709 @@
+{
+  "id": "ile-aux-aigrettes-visitors",
+  "name": "Visitors of Île aux Aigrettes, Mauritius",
+  "group": "From flower surveys",
+  "description": "Flower visitors on a small coral islet off Mauritius, counted over the 1999 flowering season. The introduced honey bee visits most of the plants, and the endemic day gecko Phelsuma ornata pollinates alongside the insects.",
+  "bodyNoun": {
+    "one": "visitor",
+    "many": "visitors"
+  },
+  "labelStyle": "species",
+  "citation": {
+    "text": "Jens M. Olesen and Louise I. Eskildsen and Shadila Venkatasamy (2002). Invasion of pollination networks on oceanic islands: importance of invader complexes and endemic super generalists.",
+    "url": "https://doi.org/10.1046/j.1472-4642.2002.00148.x"
+  },
+  "bodies": [
+    {
+      "id": "wikidata:Q30034",
+      "name": "Apis mellifera",
+      "commonName": "Honey Bee",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/%28MHNT%29_Apis_mellifera_%28female%29_-_on_viburnum_tinus_flowers.jpg/960px-%28MHNT%29_Apis_mellifera_%28female%29_-_on_viburnum_tinus_flowers.jpg",
+        "credit": "Didier Descouens",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:(MHNT)_Apis_mellifera_(female)_-_on_viburnum_tinus_flowers.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q146320",
+      "name": "Borbo borbonica",
+      "commonName": "Zeller's Skipper",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Borbo_borbonica_%2810.3897-BDJ.8.e50543%29_Figure_28.jpg/960px-Borbo_borbonica_%2810.3897-BDJ.8.e50543%29_Figure_28.jpg",
+        "credit": "Delabye S, Maicher V, Sáfián S, Potocký P, Mertens JE.J, Przybyłowicz Ł, Murkwe M, Kobe IN, Fokam EB, Janeček Š, Tropek R (2020) First records of 31 species of butterflies and moths (Lepidoptera) in Cameroon, with remarks on their elevational ranges. Biodiversity Data Journal 8: e50543. https://doi.",
+        "licence": "CC-BY-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Borbo_borbonica_(10.3897-BDJ.8.e50543)_Figure_28.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q1303045",
+      "name": "Leptotes pirithous",
+      "commonName": "Common Zebra Blue",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Butterfly_%282%29.jpg/960px-Butterfly_%282%29.jpg",
+        "credit": "claudiogennari",
+        "licence": "CC-BY-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Butterfly_(2).jpg"
+      }
+    },
+    {
+      "id": "mangal:934/Lucilia sp.",
+      "name": "Lucilia sp."
+    },
+    {
+      "id": "mangal:934/Megachile sp.",
+      "name": "Megachile sp."
+    },
+    {
+      "id": "wikidata:Q166111",
+      "name": "Musca domestica",
+      "commonName": "House Fly",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Musca_domestica_housefly.jpg/960px-Musca_domestica_housefly.jpg",
+        "credit": "Muhammad Mahdi Karim",
+        "licence": "GFDL 1.2",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Musca_domestica_housefly.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q10803095",
+      "name": "Ornidia obesa",
+      "commonName": "Syrphid fly",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Hoverfly._Ornidia_obesa_-_Flickr_-_gailhampshire_%281%29.jpg/960px-Hoverfly._Ornidia_obesa_-_Flickr_-_gailhampshire_%281%29.jpg",
+        "credit": "gailhampshire from Cradley, Malvern, U.K",
+        "licence": "CC-BY-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Hoverfly._Ornidia_obesa_-_Flickr_-_gailhampshire_(1).jpg"
+      }
+    },
+    {
+      "id": "mangal:Phalantha phalantha",
+      "name": "Phalantha phalantha",
+      "commonName": "Common Leopard"
+    },
+    {
+      "id": "wikidata:Q3090700",
+      "name": "Phelsuma ornata",
+      "commonName": "Vinson's Gecko",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Mauritius_ornate_day_gecko_%28Phelsuma_ornata%29_2.jpg/960px-Mauritius_ornate_day_gecko_%28Phelsuma_ornata%29_2.jpg",
+        "credit": "Charles J. Sharp",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Mauritius_ornate_day_gecko_(Phelsuma_ornata)_2.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q2929541",
+      "name": "Protaetia aurichalcea",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Protaetia_aurichalcea.JPG/960px-Protaetia_aurichalcea.JPG",
+        "credit": "Brd",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Protaetia_aurichalcea.JPG"
+      }
+    },
+    {
+      "id": "mangal:934/Stratiomydae sp.",
+      "name": "Stratiomydae sp."
+    },
+    {
+      "id": "mangal:934/Syrphid sp.",
+      "name": "Syrphid sp."
+    },
+    {
+      "id": "wikidata:Q2676870",
+      "name": "Xylocopa fenestrata",
+      "commonName": "Windowed Carpenter"
+    }
+  ],
+  "sharings": [
+    {
+      "relation": "flowers",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Apis mellifera",
+          "partner": "Polyscias maraisiana",
+          "weight": 149,
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Talipariti tiliaceum",
+          "weight": 138,
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Ipomoea murucoides",
+          "weight": 126,
+          "flags": []
+        },
+        {
+          "body": "Phalantha phalantha",
+          "partner": "Pemphis acidula",
+          "weight": 117,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Morinda citrifolia",
+          "weight": 115,
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Pemphis acidula",
+          "weight": 103,
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Scaevola sericea",
+          "weight": 92,
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Thespesia populnea",
+          "weight": 69,
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Heliotropium foertherianum",
+          "weight": 57,
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Leucaena leucocephala",
+          "weight": 46,
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Passiflora suberosa",
+          "weight": 34,
+          "flags": []
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "Dracaena concinna",
+          "weight": 33,
+          "flags": []
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "Polyscias maraisiana",
+          "weight": 30,
+          "flags": []
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "Talipariti tiliaceum",
+          "weight": 28,
+          "flags": []
+        },
+        {
+          "body": "Phalantha phalantha",
+          "partner": "Stachytapheta jamaicencis",
+          "weight": 26,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Suriana maritima",
+          "weight": 23,
+          "flags": []
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "Morinda citrifolia",
+          "weight": 23,
+          "flags": []
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "Pemphis acidula",
+          "weight": 21,
+          "flags": []
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "Scaevola sericea",
+          "weight": 19,
+          "flags": []
+        },
+        {
+          "body": "Syrphid sp.",
+          "partner": "Dracaena concinna",
+          "weight": 17,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Lucilia sp.",
+          "partner": "Polyscias maraisiana",
+          "weight": 16,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Polyscias maraisiana",
+          "weight": 16,
+          "flags": []
+        },
+        {
+          "body": "Ornidia obesa",
+          "partner": "Polyscias maraisiana",
+          "weight": 16,
+          "flags": []
+        },
+        {
+          "body": "Stratiomydae sp.",
+          "partner": "Polyscias maraisiana",
+          "weight": 16,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Xylocopa fenestrata",
+          "partner": "Pemphis acidula",
+          "weight": 16,
+          "flags": []
+        },
+        {
+          "body": "Megachile sp.",
+          "partner": "Scaevola sericea",
+          "weight": 15,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Protaetia aurichalcea",
+          "partner": "Polyscias maraisiana",
+          "weight": 15,
+          "flags": []
+        },
+        {
+          "body": "Xylocopa fenestrata",
+          "partner": "Scaevola sericea",
+          "weight": 15,
+          "flags": []
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "Thespesia populnea",
+          "weight": 14,
+          "flags": []
+        },
+        {
+          "body": "Megachile sp.",
+          "partner": "Suriana maritima",
+          "weight": 13,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "Heliotropium foertherianum",
+          "weight": 12,
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Dracaena concinna",
+          "weight": 11,
+          "flags": []
+        },
+        {
+          "body": "Stratiomydae sp.",
+          "partner": "Pemphis acidula",
+          "weight": 11,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "Leucaena leucocephala",
+          "weight": 9,
+          "flags": []
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "Passiflora suberosa",
+          "weight": 7,
+          "flags": []
+        },
+        {
+          "body": "Stratiomydae sp.",
+          "partner": "Thespesia populnea",
+          "weight": 7,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Heliotropium foertherianum",
+          "weight": 6,
+          "flags": []
+        },
+        {
+          "body": "Syrphid sp.",
+          "partner": "Heliotropium foertherianum",
+          "weight": 6,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Stratiomydae sp.",
+          "partner": "Leucaena leucocephala",
+          "weight": 5,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Borbo borbonica",
+          "partner": "Thespesia populnea",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Leptotes pirithous",
+          "partner": "Morinda citrifolia",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Leptotes pirithous",
+          "partner": "Polyscias maraisiana",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Megachile sp.",
+          "partner": "Turnera angustifolia",
+          "weight": 2,
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Stratiomydae sp.",
+          "partner": "Stachytapheta jamaicencis",
+          "weight": 2,
+          "flags": ["placeholder_species", "unmatched_name"]
+        },
+        {
+          "body": "Syrphid sp.",
+          "partner": "Stachytapheta jamaicencis",
+          "weight": 2,
+          "flags": ["placeholder_species", "unmatched_name"]
+        },
+        {
+          "body": "Xylocopa fenestrata",
+          "partner": "Turnera angustifolia",
+          "weight": 2,
+          "flags": []
+        },
+        {
+          "body": "Borbo borbonica",
+          "partner": "Stachytapheta jamaicencis",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Borbo borbonica",
+          "partner": "Turnera angustifolia",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Leptotes pirithous",
+          "partner": "Pemphis acidula",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Leptotes pirithous",
+          "partner": "Stachytapheta jamaicencis",
+          "weight": 1,
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Leptotes pirithous",
+          "partner": "Suriana maritima",
+          "weight": 1,
+          "flags": []
+        },
+        {
+          "body": "Stratiomydae sp.",
+          "partner": "Turnera angustifolia",
+          "weight": 1,
+          "flags": ["placeholder_species"]
+        }
+      ]
+    },
+    {
+      "relation": "compounds",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Apis mellifera",
+          "partner": "(+/-)-2-amino-6,7-dihydroxytetralin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "(E)-cinnamic acid",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "(S)-glyceryl 1-phosphate",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "3-hydroxydecanoic acid",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "acetylcholine",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "adenosine diphosphate",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "adenosine monophosphate",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "adenosine triphosphate",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Apis mellifera queen cell",
+          "flags": ["unreferenced_statement"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "beta-sitosterol",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "beta-sitosterol",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "campesterol",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "cholesterol",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "chrysin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ferulic acid",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "genistein",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Isocupressic acid",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "isorhamnetin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "melittin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pimaric acid",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pinocembrin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "stigmasterol",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "tertiapin",
+          "flags": ["unreferenced_statement"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "trans-caffeic acid",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "names",
+      "licences": ["CC-BY-4.0", "CC0-1.0"],
+      "links": [
+        {
+          "body": "Apis mellifera",
+          "partner": "`iniseka",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "2napraŋ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "2pukri",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "3puluŋ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "4kʷʰe 2napraŋ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "4pʰra 1tikja",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "7okotz",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "abeja",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "abija",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "aƀəʕʕuš",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "afwotsaj",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "aħāmšā",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "akoyek",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "alawoi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "albină",
+          "flags": []
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "andròngo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "asakaimo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "atak",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "b’ujl",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "ba'ár",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ba'armo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "baakot",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "baba’atukut",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Bal arısı",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bebet",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "bekela",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bey",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "bə́g",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bibikèly",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "bibilàva",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bij",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bini",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bugari",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bɯst",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "ƀusəkka",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "chal’a",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "chanul pom",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "charaypuka",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "chon",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "chon",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "chuspi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "cicak",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "cíì",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "côn trùng",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "dayshimo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "ďíko",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "dilkə:tʃən",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "dʒu:gdu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "egidehsa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "erien üön",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "fiɣā’",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "fillkuñ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "filu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "flioga",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "fly",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Ornidia obesa",
+          "partner": "fly",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "fullánka",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "gàdángàré",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "gäne",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "gbdai",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "gin'we̲",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "gùrjámà",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "hagedis",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "hanibi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "hapaappe",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "hilku",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "honey bee",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "hö́ni",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Honigbiene",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Honingbij",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "honungsbi",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "hüt’-qumur",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "insect",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "insectă",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "insekt",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "insekto",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "iʃələ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "izi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ɨŋɨrɨa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "jašćerica",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "jaˤt'i",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "k’anti’",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "k’emusa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "k'eñä",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kab",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kachimpa pom",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "kadal",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "kádí",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "kaluwá",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "kankasapa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "kelesia",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kevar",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "kijó",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "kirrawa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "kíyí",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kolmenä",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kolmenia",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kolonp’un",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "korga",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "koulev",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "külgeri",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kùlí",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "kulibra",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kúlìkə̀mágə̀n",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "kuljany",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kʊlɪkan",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "kʊlɪn",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "ƙàdángárèe",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "ƙúdáa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ƙwàaróo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "lalat",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "làlitra",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "lamtol",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "lebah",
+          "flags": []
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "lezar",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "lizard",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "lungkura",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "lway",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "m’æ̌h",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "mácìijíi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "makwu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mantoun",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "máťhi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "matsitaj",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mdudu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mermeho",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "míhėčkė",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "miliχˤutːu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mishik’ pom",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "mjusi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "mo`o",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "moɣoy",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "mot",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "mous",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mous dimyel",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "mucha",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "muscă",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "muumu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "muv",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "nab",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "nab-qa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "næŋʔã´w",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "nahesa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nakwu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nakwutaj",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "nalo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nalo meli",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nama",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "neslo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nucodaq t’ot’",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nuwalhek",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "nyoka",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nyuki",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "nzi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "okoyu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ong",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "pa̲",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "palu kuku",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "palum",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "patish",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pcołka",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "peik",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pemtsaj",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pini",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "püḻü",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "püḻü",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "qajmuk",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "rắn",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "renitantely",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "ruổi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "sandu̲ga",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "şarpe",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "sâu bọ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "saχsɨrɣa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "se’eboi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "seer",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "serangga",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "serpan",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "simhat",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "sindéki",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "slang",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "slango",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "snake",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "şopârlă",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "supfwetaj",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "t’ant’",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "t’oonaqo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "t’ot’",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "talon",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "tawo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "tawon",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "thằn lằn",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "tìɣ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Leptotes pirithous",
+          "partner": "Tijgerblauwtje",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "tiklha",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "tɨ̃hɨ̃´y",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "tolokok",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ton pom",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "tsathi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "tulin",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "ŧařəfsa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "ŧazəřmumməšŧ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ŧizizwa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "ular",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "üön",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "üön-köyüːr",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "utz’",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "uˤnšːəla",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Leptotes pirithous",
+          "partner": "Vandreblåfugl",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "vlieg",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "vo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "waima",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "walngirn",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "wano",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "welewele",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "wë́nwën",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "wikuim",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "wowǒw",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "wun’a",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "wuž",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "yay",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "yoeria",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "yoov",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "zensek",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ziwlliñ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "zu'we",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "zúmàa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ʔaake piyatte",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "ʔinnakko",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "ʔɔ́w",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Μέλισσα",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "жыва",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "кӯввьт",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ме̄даш",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "те̄йнчлиӈк",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "чуэраш",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "งู",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "จิ้้้งจก",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ผึ้ง",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ภมร",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "แมง",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "แมลง",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "แมลงวัน",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "อสรพิษ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "꿀벌",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "昆虫",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "蒼蠅",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "虫",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "蛇",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "蜜蜂",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "蜥蜴",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "蠅",
+          "flags": ["derived_from_coarser_level"]
+        }
+      ]
+    },
+    {
+      "relation": "stories",
+      "licences": ["CC-BY-4.0"],
+      "links": [
+        {
+          "body": "Apis mellifera",
+          "partner": "A1297. First human being killed by jealous brothers (reptiles and insects).",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A13.3. Insect as creator.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "A1319.12.1. Why man does not change his skin: ancient contest lost by toad, representing man, won by lizard.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2000. Creation of insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2001. Insects from body of slain monster. Usually the monster is burnt; sometimes the insects come from his head, sometimes from his body as it burns. (Cf. A1716.1.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2001.1. Insects from brains, blood, and bones of slain helpful animal.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2002. Origin of insects from various experiences of saint.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2002.1. The god Mahadeo turns wood chips into insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2003. Origin of insects: released from sack. God places them in a sack and gives it to hare to carry to stream. He must not look in the sack. When he does so the insects escape. The hare laughs and this is…",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2004. Insects from devil's post-hole. Devil is given enough land to dig a post-hole. From this come all kinds of insects. To stop them a burning log is put in the hole. Insects therefore hate smoke.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2005. Origin of insects: God throws sand on lazy shepherds. (Cf. A1716.1).",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2006. Origin of insects: monstrous births from brother-sister incest.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012. Creation of bee.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012.0.1. Creation of honey-bees: transformed man.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012.1. Creation of bee to provide wax for candles in church. (Cf. B259.4.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012.2. First bees in Ireland.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012.3. God sends stinging bees to punish men.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2070. Creation of miscellaneous insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2095. Creation of lac insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2231.3.2. Bees work on Sabbath: may not get honey from red clover. (Cf. A2435.5.1.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2232.2. Bees pray for sting: punishment, first sting suicidal. (Cf. A2346.1.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "A2250.2. Lizard wins contest with toad: why snakes and lizards change their skins.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "A2255.2. Lizard loses lawsuit: must bob his head. Lizard and ant accused of theft of king's crow. Ant pours boiling water down lizard's throat. When case is tried, lizard cannot talk but only bobs head up and…",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2332.6.9. Why bee is blind.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2346.1. Why bees die after they sting. (Cf. A2232.2.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2385.3. Honey as excrement of bees.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2411.3. Origin of color of insect.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2411.3.1. Origin of color of bee.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2412.3. Markings on insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2426.3. Sounds of insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2433.5. Haunts of insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.3.8. Why ant-bear eats insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.5. Food of insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.5.1. Why bees may not get honey from red clover. (Cf. A2231.3.2.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.5.1.1. Why bees eat their own children.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.5.2. Insect fries human blood and eats it.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "A2493.25. Friendship between snake and crow.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "A2494.16.1. Enmity between frog and snake.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "A2494.16.4. Enmity between bird and lizard. Latter muddies water.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A33.3. Insect as creator's companion.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A33.3.1. Bee as God's spy. God, the creator, sends a bee to overhear the devil's secrets.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A773.6. Pleiades as swarm of bees.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B147.3.1.2. Bees (ants) leave honey on lips of infant to show future greatness.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B171.1.0.1. Magic cock carries great loads in his ear (load of grain, fox, tiger, bees, wasps, etc., also fire and water).",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B291.0.2. Unwelcome bird (insect) proves to be messenger.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "B364.4. Bird grateful for being saved from attacking serpent.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "B524.1.6. Helpful bird kills snake attacking master's wife and child.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B524.2.1. Helpful bees (hornets) sting opposing army.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B524.2.1.1. Saint sends swarm of bees or wasps against enemies.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "B547.4. Frog rescues man from kingdom of the snakes.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "B784.2.1.1. Snake (frog) in human body enticed out by milk (water).",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "D1517.1. Body of housefly as remedy for hornet sting. (Cf. D1010.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "D1620.2.5. Automatic figures on harp – birds, serpents, hounds.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "D2091.2.1. Magic army of snakes and frogs drawn down on foe.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "D418.1.3. Transformation: serpent to mosquito.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "D441.8. Transformation: piece of cotton to snake.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "E425.1.6. Revenant as horrible female figure. Covered with snakes and toads.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "F455.4.2.2. Trolls eat from golden dishes, but food is frogs and snakes.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "F628.1.3.1. Man kills serpents, toads, dragons with own hands.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "F827.3. Ornaments of snakes, hornets, scorpions, dirt, and a toad.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "G225.1. Insect as witch's familiar. (Fly, bee, gnat, spider.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "G243.3.1. Witch gives birth to toads and snakes after union with devil.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "H659.2.1. What four things are hardest to hold? Wolf by eyebrows, bear by claws, snake by tail, hawk by beak.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "J1762.5. Bees (wasps) mistaken for Jutlanders, etc.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "J2102.8. Frogs to eat insects, snakes to eat frogs. Snakes eat numskull's family.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "J2102.8. Frogs to eat insects, snakes to eat frogs. Snakes eat numskull's family.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "J512.15. Frogs want to collect honey like bees.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "K1975.1. Sham miracle: wallet (bee-hive) changes to wasps. Tricksters put a wasp nest in the wallet (bee-hive). When the master claims it they give it to him with the curse, \"May it turn to wasps!\" It does.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "K2351.2.2. Ashes transformed into bees, wasps, scorpions and snakes drive invading army away for hero.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "K2351.2.2. Ashes transformed into bees, wasps, scorpions and snakes drive invading army away for hero.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "X1205. Lie: venom of animal (snake, hornet, bee) causes object to swell.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "X1205. Lie: venom of animal (snake, hornet, bee) causes object to swell.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "X1280.1.1. Bumblebees imported to rout mosquitoes; the two insects crossbreed and have stingers on both ends.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "Z41.6.1. Gram (parched grain) sticks in post; parrot goes to raja, etc., for help. Final formula: at last creeper took pity on birds, and elephant feared creeper, and ocean feared elephant, and fire feared oc…",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "Z49.10. Lizard eats cricket, frog eats lizard, snake eats frog, eagle eats snake, man shoots eagle; animals escape except lizard. Man takes eagle home.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        }
+      ]
+    },
+    {
+      "relation": "sites",
+      "licences": ["CC0-1.0", "LicenseRef-web-of-life-attribution"],
+      "links": [
+        {
+          "body": "Apis mellifera",
+          "partner": "Black River Gorges, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Black River Gorges, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Ornidia obesa",
+          "partner": "Black River Gorges, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Cass, New Zealand",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Craigieburn, New Zealand",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Garajonay, La Gomera",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Borbo borbonica",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Leptotes pirithous",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Lucilia sp.",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Megachile sp.",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Ornidia obesa",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Phalantha phalantha",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Protaetia aurichalcea",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Stratiomydae sp.",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Syrphid sp.",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Xylocopa fenestrata",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Lake Hazen, Ellesmere Island",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Mahé, Seychelles",
+          "flags": []
+        },
+        {
+          "body": "Ornidia obesa",
+          "partner": "Mahé, Seychelles",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Morant Point, Jamaica",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Mt. Kushigata, Japan",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Mt. Yufu, Japan",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Tenerife",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "descent",
+      "licences": ["CC-BY-4.0"],
+      "links": [
+        {
+          "body": "Apis mellifera",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Borbo borbonica",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Leptotes pirithous",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Megachile sp.",
+          "partner": "Animalia (kingdom)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Ornidia obesa",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Phalantha phalantha",
+          "partner": "Animalia (kingdom)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Protaetia aurichalcea",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Stratiomydae sp.",
+          "partner": "Animalia (kingdom)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Xylocopa fenestrata",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Xylocopa fenestrata",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Apis (genus)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Borbo borbonica",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Leptotes pirithous",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Megachile sp.",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Ornidia obesa",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Phalantha phalantha",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Protaetia aurichalcea",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Stratiomydae sp.",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Xylocopa fenestrata",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Borbo borbonica",
+          "partner": "Borbo (genus)",
+          "flags": []
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "Chordata (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Protaetia aurichalcea",
+          "partner": "Coleoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Diptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Ornidia obesa",
+          "partner": "Diptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Stratiomydae sp.",
+          "partner": "Diptera (order)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "Gekkonidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Borbo borbonica",
+          "partner": "Hesperiidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Megachile sp.",
+          "partner": "Hymenoptera (order)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Xylocopa fenestrata",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Borbo borbonica",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Leptotes pirithous",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Megachile sp.",
+          "partner": "Insecta (class)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Ornidia obesa",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Phalantha phalantha",
+          "partner": "Insecta (class)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Protaetia aurichalcea",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Stratiomydae sp.",
+          "partner": "Insecta (class)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Xylocopa fenestrata",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Borbo borbonica",
+          "partner": "Lepidoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Leptotes pirithous",
+          "partner": "Lepidoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Phalantha phalantha",
+          "partner": "Lepidoptera (order)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Leptotes pirithous",
+          "partner": "Leptotes (genus)",
+          "flags": []
+        },
+        {
+          "body": "Leptotes pirithous",
+          "partner": "Lycaenidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Megachile sp.",
+          "partner": "Megachile (genus)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Megachile sp.",
+          "partner": "Megachilidae (family)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Musca (genus)",
+          "flags": []
+        },
+        {
+          "body": "Musca domestica",
+          "partner": "Muscidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Phalantha phalantha",
+          "partner": "Nymphalidae (family)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Ornidia obesa",
+          "partner": "Ornidia (genus)",
+          "flags": []
+        },
+        {
+          "body": "Phalantha phalantha",
+          "partner": "Phalanta (genus)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "Phelsuma (genus)",
+          "flags": []
+        },
+        {
+          "body": "Protaetia aurichalcea",
+          "partner": "Protaetia (genus)",
+          "flags": []
+        },
+        {
+          "body": "Protaetia aurichalcea",
+          "partner": "Scarabaeidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Phelsuma ornata",
+          "partner": "Squamata (class)",
+          "flags": []
+        },
+        {
+          "body": "Stratiomydae sp.",
+          "partner": "Stratiomydae (family)",
+          "flags": ["higher_rank_match"]
+        },
+        {
+          "body": "Ornidia obesa",
+          "partner": "Syrphidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Xylocopa fenestrata",
+          "partner": "Xylocopa (genus)",
+          "flags": []
+        }
+      ]
+    }
+  ]
+}

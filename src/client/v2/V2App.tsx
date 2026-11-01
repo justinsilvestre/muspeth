@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router";
 import { ColorSchemeSwitcher } from "../theme/ColorSchemeSwitcher";
-import { GuildView } from "./pollination/GuildView";
+import { GuildView } from "./guilds/GuildView";
 import { SceneView } from "./scene/SceneView";
 import { V2Navigation } from "./V2Navigation";
 
@@ -15,7 +15,7 @@ export function V2App() {
       <V2Navigation />
       <Routes>
         <Route index element={<SceneView />} />
-        <Route path="pollination" element={<GuildView />} />
+        <Route path="biological-glottometry" element={<GuildView />} />
       </Routes>
     </main>
   );

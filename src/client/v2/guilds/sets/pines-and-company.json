@@ -1,0 +1,3619 @@
+{
+  "id": "pines-and-company",
+  "name": "Pines and their company",
+  "description": "The red pine and matsutake of the sample with the honey bee, other conifers, and the herbs that share the most compounds with the red pine: resin terpenes bind a fennel to a larch.",
+  "bodyNoun": {
+    "one": "organism",
+    "many": "organisms"
+  },
+  "organisms": [
+    "Pinus densiflora",
+    "Tricholoma matsutake",
+    "Apis mellifera",
+    "Pinus sylvestris",
+    "Pinus massoniana",
+    "Pinus strobus",
+    "Larix kaempferi",
+    "Cedrus libani",
+    "Picea abies",
+    "Cryptomeria japonica",
+    "Cistus monspeliensis",
+    "Foeniculum vulgare",
+    "Cinnamomum verum",
+    "Daucus carota",
+    "Achillea millefolium",
+    "Crithmum maritimum"
+  ],
+  "group": "From across the database",
+  "labelStyle": "species",
+  "bodies": [
+    {
+      "id": "wikidata:Q25408",
+      "name": "Achillea millefolium",
+      "commonName": "Yarrow",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Achillea_millefolium_-_Museo_Tazzetti_Herbarium_159-2024.tif/lossy-page1-960px-Achillea_millefolium_-_Museo_Tazzetti_Herbarium_159-2024.tif.jpg",
+        "credit": "Epgrande",
+        "licence": "CC-BY-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Achillea_millefolium_-_Museo_Tazzetti_Herbarium_159-2024.tif"
+      }
+    },
+    {
+      "id": "wikidata:Q30034",
+      "name": "Apis mellifera",
+      "commonName": "Honey Bee",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/%28MHNT%29_Apis_mellifera_%28female%29_-_on_viburnum_tinus_flowers.jpg/960px-%28MHNT%29_Apis_mellifera_%28female%29_-_on_viburnum_tinus_flowers.jpg",
+        "credit": "Didier Descouens",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:(MHNT)_Apis_mellifera_(female)_-_on_viburnum_tinus_flowers.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q61105",
+      "name": "Cedrus libani",
+      "commonName": "Cedar of Lebanon",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/C%C3%A8dre_du_Liban_Barouk_2005.jpg/960px-C%C3%A8dre_du_Liban_Barouk_2005.jpg",
+        "credit": "Olivier BEZES",
+        "licence": "CC-BY-2.5",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:C%C3%A8dre_du_Liban_Barouk_2005.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q370239",
+      "name": "Cinnamomum verum",
+      "commonName": "Cinnamon",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Cinnamomum_verum1.jpg",
+        "credit": null,
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Cinnamomum_verum1.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q1414643",
+      "name": "Cistus monspeliensis",
+      "commonName": "Montpelier Cistus",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Cistus_May_2014-7.jpg/960px-Cistus_May_2014-7.jpg",
+        "credit": "Alvesgaspar",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Cistus_May_2014-7.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q1136311",
+      "name": "Crithmum maritimum",
+      "commonName": "samphire",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Crithmum_maritimum.jpg/960px-Crithmum_maritimum.jpg",
+        "credit": "Júlio Reis ( Tintazul )",
+        "licence": "CC-BY-SA-2.5",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Crithmum_maritimum.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q147388",
+      "name": "Cryptomeria japonica",
+      "commonName": "Japanese Cedar",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Jhomonsugi_in_Yaku_Island_Japan_001.JPG",
+        "credit": "Yosemite",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Jhomonsugi_in_Yaku_Island_Japan_001.JPG"
+      }
+    },
+    {
+      "id": "wikidata:Q30056",
+      "name": "Daucus carota",
+      "commonName": "Queen Anne's Lace",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Daucus_carota.jpg/960px-Daucus_carota.jpg",
+        "credit": "User:Tigerente",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Daucus_carota.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q43511",
+      "name": "Foeniculum vulgare",
+      "commonName": "Fennel",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Fennel_%28Foeniculum_vulgare%29_-_Parc_Natural_de_s%27Albufera%2C_Spain_2022-04-18_%2802%29.jpg/960px-Fennel_%28Foeniculum_vulgare%29_-_Parc_Natural_de_s%27Albufera%2C_Spain_2022-04-18_%2802%29.jpg",
+        "credit": "Ryan Hodnett",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Fennel_(Foeniculum_vulgare)_-_Parc_Natural_de_s%27Albufera,_Spain_2022-04-18_(02).jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q147439",
+      "name": "Larix kaempferi",
+      "commonName": "Japanese Larch",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Japanese_Larch_Larix_Cone.JPG/960px-Japanese_Larch_Larix_Cone.JPG",
+        "credit": "御粥",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Japanese_Larch_Larix_Cone.JPG"
+      }
+    },
+    {
+      "id": "wikidata:Q145992",
+      "name": "Picea abies",
+      "commonName": "White Spruce",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Kuusk_Keila-Paldiski_rdt_%C3%A4%C3%A4res.jpg/960px-Kuusk_Keila-Paldiski_rdt_%C3%A4%C3%A4res.jpg",
+        "credit": "Ivar Leidus",
+        "licence": "CC BY-SA 3.0 ee",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Kuusk_Keila-Paldiski_rdt_%C3%A4%C3%A4res.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q1044186",
+      "name": "Pinus densiflora",
+      "commonName": "Japanese Pine",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Pinus_densiflora_01.JPG/960px-Pinus_densiflora_01.JPG",
+        "credit": "Dalgial",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Pinus_densiflora_01.JPG"
+      }
+    },
+    {
+      "id": "wikidata:Q716571",
+      "name": "Pinus massoniana",
+      "commonName": "Masson's Pine",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Pinus_massoniana_2.jpg/960px-Pinus_massoniana_2.jpg",
+        "credit": "Doctoroftcm",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Pinus_massoniana_2.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q157230",
+      "name": "Pinus strobus",
+      "commonName": "Weymouth Pine",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Eastern_White_Pine_%28Pinus_strobus%29_-_Killarney%2C_Ontario_01.jpg/960px-Eastern_White_Pine_%28Pinus_strobus%29_-_Killarney%2C_Ontario_01.jpg",
+        "credit": "Ryan Hodnett",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Eastern_White_Pine_(Pinus_strobus)_-_Killarney,_Ontario_01.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q133128",
+      "name": "Pinus sylvestris",
+      "commonName": "Scots Pine",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Pinus_sylvestris_Glenmuick.jpg/960px-Pinus_sylvestris_Glenmuick.jpg",
+        "credit": "Hello, I am Bruce on Flickr",
+        "licence": "CC-BY-SA-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Pinus_sylvestris_Glenmuick.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q509308",
+      "name": "Tricholoma matsutake",
+      "commonName": "Matsutake",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Matsutake.jpg/960px-Matsutake.jpg",
+        "credit": "Tomomarusan",
+        "licence": "CC-BY-2.5",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Matsutake.jpg"
+      }
+    }
+  ],
+  "sharings": [
+    {
+      "relation": "compounds",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Cedrus libani",
+          "partner": "(-)-beta-pinene",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "(-)-catechin",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "(-)-germacrene D",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "(+)-catechin",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "(+)-catechin",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "(+)-catechin",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "(+)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "(+)-pinoresinol",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "(+)-pinoresinol",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "(+)-taxifolin",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "(+)-δ-cadinene",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "(+)-δ-cadinene",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "(+)-δ-cadinene",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "(+/-)-2-amino-6,7-dihydroxytetralin",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "(±)-3-carene",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "(±)-3-carene",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "(±)-3-carene",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "(±)-3-carene",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "(±)-3-carene",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "(−)-α-thujone",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "(1R,4aS,9S,10aR)-9-hydroxy-1,4a-dimethyl-7-prop-1-en-2-yl-2,3,4,9,10,10a-hexahydrophenanthrene-1-carboxylic acid",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "(1R,6R)-alpha-himachalene",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "(1R,6R)-γ-himachalene",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "(22E,24R)-3beta,5alpha-dihydroxyergosta-7,22-dien-6-one",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "(22E,24R)-ergosta-7,22-diene-3beta,5alpha,6beta,9alpha-tetrol",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "(22E)-5alpha,6alpha-Epoxyergosta-8,14,22-triene-3beta,7alpha-diol",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "(2R,3R,4R,5R,6S)-2-[(2S,3R)-3-hydroxy-3-(4-hydroxy-3-methoxyphenyl)-2-[4-(3-hydroxypropyl)-2-methoxyphenoxy]propoxy]-6-methyloxane-3,4,5-triol",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "(2R,3R,4S,5S,6R)-2-[(2S,3R)-3-hydroxy-3-(4-hydroxy-3-methoxyphenyl)-2-[4-(3-hydroxypropyl)-2-methoxyphenoxy]propoxy]-6-(hydroxymethyl)oxane-3,4,5-triol",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "(2R,3R,4S,5S,6R)-2-[[(1R,2S,3R)-7-hydroxy-1-(4-hydroxy-3-methoxyphenyl)-3-(hydroxymethyl)-6-methoxy-1,2,3,4-tetrahydronaphthalen-2-yl]methoxy]-6-(hydroxymethyl)oxane-3,4,5-triol",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "(2S,3R,4S,5S,6R)-2-[4-[(3S,3aR,6S,6aR)-3-(4-hydroxy-3-methoxyphenyl)-1,3,3a,4,6,6a-hexahydrofuro[3,4-c]furan-6-yl]-2-methoxyphenoxy]-6-(hydroxymethyl)oxane-3,4,5-triol",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "(4E,9E)-heptadeca-1,4,9-trien-6-yne-3,8-diol",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "(4E,9Z)-heptadeca-1,4,9-trien-6-yne-3,8-diol",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "(E)-chlorogenic acid",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "(E)-cinnamic acid",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "(E)-cinnamic acid",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "(E)-cinnamyl acetate",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "(E)-p-coumaric acid",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "(E)-p-coumaric acid",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "(E)-p-coumaric acid",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "(E)-p-coumaric acid",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "(E)-p-coumaric acid",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "(R)-beta-bisabolene",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "(R)-cis-verbenol",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "(R)-β-himachalene",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "(RS)-mandelic acid",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "(S)-2,3-Dihydro-5,7-dihydroxy-6-methyl-2-phenyl-4-benzopyrone",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "1-hexanol",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "1-hexanol",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "1-octanol",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "1,2-Dimethoxy-4-(prop-1-en-2-yl)benzene",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "1,8-dimethyl-4-(prop-1-en-2-yl)spiro[4.5]dec-7-ene",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "15-Hydroxyabietic acid methyl ester",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "2-(3,4-dihydroxyphenyl)-5,7-dihydroxy-3-[(2S,3R,4R,5R,6S)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxychromen-4-one",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "2-(3,4-dihydroxyphenyl)-5,7-dihydroxy-3-[(2S,3R,4R,5R,6S)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxychromen-4-one",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "2-(3,4-dihydroxyphenyl)-5,7-dihydroxy-3-[(2S,3R,4R,5R,6S)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxychromen-4-one",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "2-(3,4-dihydroxyphenyl)-5,7-dihydroxy-3-[(2S,3R,4R,5R,6S)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxychromen-4-one",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "2-(3,4-dihydroxyphenyl)-5,7-dihydroxy-3-[(2S,3R,4R,5R,6S)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxychromen-4-one",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "2-(3,4-dihydroxyphenyl)-5,7-dihydroxy-3-[(2S,3R,4R,5R,6S)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxychromen-4-one",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "2-[(Z)-1,5-Dimethyl-1-hexenyl]-5-(hydroxymethyl)phenol",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "2-furoic acid",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "2-Hexylfuran",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "2-methylbutyric acid",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "2,5-dimethylfuran",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "3-hydroxydecanoic acid",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "3-Methoxybenzoic acid",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "3-phenylpropionaldehyde",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "3,4-dihydroxybenzoic acid",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "3,4-dihydroxybenzoic acid",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "3,4-dihydroxybenzoic acid",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "3,4-dihydroxybenzoic acid",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "3,4,5-trimethoxyallyl benzene",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "3',5-dihydroxy-3,4',5',7-tetramethoxyflavone",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "4-acetylanisole",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "4-chloroindole-3-acetic acid",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "4-hydroxybenzoic acid",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "8-Hydroxycarvotanacetone",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "abietic acid",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "abietic acid",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "alpha-pinene",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "alpha-pinene",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "alpha-pinene",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "alpha-pinene",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "alpha-pinene",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "alpha-pinene",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "alpha-pinene",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "alpha-pinene",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "alpha-pinene",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "alpha-pinene",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "alpha-pinene",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "alpha-pinene",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "alpha-pinene",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "alpha-pinene",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "alpha-pinene",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "alpha-terpineol",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "alpha-terpineol",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "anisole",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "apigenin",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "apigenin 7,4'-dimethyl ether",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Apis mellifera queen cell",
+          "flags": ["unreferenced_statement"]
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "aspergillusene A",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "axillarin",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "benzaldehyde",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "Benzene, 1-allyl-2,4-dimethoxy-",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "benzophenone",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "benzyl alcohol",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "beta-pinene",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "beta-pinene",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "beta-pinene",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "beta-pinene",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "beta-pinene",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "beta-pinene",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "beta-pinene",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "beta-pinene",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "beta-pinene",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "beta-pinene",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "beta-pinene",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "beta-pinene",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "beta-sitosterol",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "beta-sitosterol",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "beta-sitosterol",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "beta-sitosterol",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "beta-sitosterol",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "beta-sitosterol",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "betonicine",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "bornyl acetate",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "campesterol",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "camphene",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "camphene",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "camphene",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "carnosic acid",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "caryophyllene",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "caryophyllene",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "caryophyllene",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "caryophyllene",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "caryophyllene",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "caryophyllene",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "caryophyllene",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "caryophyllene",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "caryophyllene",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "caryophyllene",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "caryophyllene",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "caryophyllene",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "cholesterol",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "chrysin",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "cis-cinnamic acid",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "coumarin",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "creosol",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "crotonic acid",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "cyclopropane",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "dehydroabietic acid",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "dehydroabietic acid",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "dehydroabietic acid",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "dehydroabietic acid",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "dolichol-20",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "elaidic acid",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "enniatin B4",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "ethyl benzoate",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "ethyl salicylate",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "ferulic acid",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ferulic acid",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "ferulic acid",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "ferulic acid",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "ferulic acid",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "Flaxseeds extract",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "fluorene",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "gallic acid",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "gallic acid",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "genistein",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "guaiol",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "hexanal",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "himachalol",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "honokiol",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "humulene",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "humulene",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "humulene",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "humulene",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "humulene",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "humulene",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "humulene",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "humulene",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "humulene",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "humulene",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "humulene",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "humulene",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Isocupressic acid",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "isorhamnetin",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "isorhamnetin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "kumatakenin",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "linalool",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "luteolin",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "luteolin",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "luteolin",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "luteolin",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "manool oxide",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "melittin",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "naphthalene",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "O-Geranylvanillin",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "oct-1-en-3-ol",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "oct-1-en-3-ol",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "p-cymene",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "p-cymene",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "p-cymene",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "p-cymene",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "p-cymene",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "p-cymene",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "p-cymene",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "p-cymene",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "p-cymene",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "palmitic acid",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "palmitic acid",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "palmitic acid",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "palmitic acid",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "phenethyl acetate",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "phenylacetaldehyde",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "pimara-8(14),15-diene",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pimaric acid",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pinocembrin",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "pinocembrin",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "pinosylvin",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "pinosylvin",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "Pinosylvin methyl ether",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "Pinosylvin methyl ether",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "proanthocyanidin A2",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "pseudolaric acid B beta-D-glucoside",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "Pyrenophorol",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "raspberryketone glucoside",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "retusin",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "rhamnacine",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "rutin",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "rutin",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "rutin",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "rutin",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "rutin",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "rutin",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "rutin",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "sabinene",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "sabinene",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "sclarene",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "senkyunolide i",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "sorbic acid",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "Stigmastane-3,6-dione",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "stigmasterol",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "stigmasterol",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "stigmasterol",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "stigmasterol",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "terpinolene",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "terpinolene",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "terpinolene",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "terpinolene",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "terpinolene",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "terpinolene",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "tertiapin",
+          "flags": ["unreferenced_statement"]
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "trans-abienol",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "trans-caffeic acid",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "trans-caffeic acid",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "trans-caffeic acid",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "trans-caffeic acid",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "trans-caffeic acid",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "trans-caffeic acid",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "trans-caffeic acid",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "vanillic acid",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "vidarabine",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "α-phellandrene",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "α-phellandrene",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "α-terpinene",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "α-terpinene",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "β-bisabolene",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "β-caryophyllene oxide",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "β-caryophyllene oxide",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "β-phellandrene",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "γ‑terpinene",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "γ‑terpinene",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "γ‑terpinene",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "γ‑terpinene",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "γ‑terpinene",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "names",
+      "licences": ["CC-BY-4.0", "CC0-1.0"],
+      "links": [
+        {
+          "body": "Apis mellifera",
+          "partner": "`iniseka",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "3puluŋ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "4kʷʰe 2napraŋ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "abeja",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "abija",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "aƀəʕʕuš",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "akoyek",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "albină",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ba'armo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Bal arısı",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bebet",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bee",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bey",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bibikèly",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bij",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bini",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "borovica",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "borovice",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "borovice",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bugari",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "bɯst",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "canela",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "cây thông rụng lá",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "Cedrwydden",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "Cedrwydden",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "chanul pom",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "chon",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "Čirůvka",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "côn trùng",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "den",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "den",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "dʒu:gdu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "fenouil",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "fenouil",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "Ffynidwydd",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "Fichte",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "finocchio",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "finocchio",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "fullánka",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "funcho",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "funcho",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "furu",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "gäne",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "Gąska",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "Grove den",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "hanibi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "hinojo",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "hinojo",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "honey bee",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "hö́ni",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Honigbiene",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Honingbij",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "honungsbi",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "hüt’-qumur",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "insect",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "insectă",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "insekt",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "insekto",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ɨŋɨrɨa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kab",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kachimpa pom",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Picea abies",
+          "partner": "karáčoňiko kašt",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kevar",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "Kiefer",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "Kiefer",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kolmenä",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kolmenia",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kolonp’un",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kùlí",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kúlìkə̀mágə̀n",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "kʊlɪkan",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ƙwàaróo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "lamtol",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "larch",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "larik",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "lariks",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "lebah",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "lerihha",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "lway",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "makwu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mantoun",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "matsitaj",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mdudu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mermeho",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "míhėčkė",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "miliχˤutːu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mishik’ pom",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "mous dimyel",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "muumu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "muv",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "næŋʔã´w",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nakwu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nakwutaj",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nalo meli",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nama",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "neslo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nucodaq t’ot’",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nuwalhek",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "nyuki",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ong",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "parast",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pcołka",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pemtsaj",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "Pin",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "Pin",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "Pin",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "Pin",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "pin blanc",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "pin rouge",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "pine",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "pine",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "pine",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "pine",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "pinheiro",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "pinheiro",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "pinheiro",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "pinheiro-branco",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "pini",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "pino",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "pino",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "pino rosso",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "pino rosso",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "püḻü",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Queen",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "Red Pine",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "Red Pine",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "renitantely",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "repaňi",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "Ridderhat",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "Şam ağacı",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "sâu bọ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "seer",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "serangga",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "seˀs",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "simhat",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "Sosna",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "Sosna",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "Sosna",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "supfwetaj",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "t’ant’",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "t’oonaqo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "tall",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "tall",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "tawon",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "tiːt",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "tiklha",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ton pom",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "Tricholome",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ŧizizwa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "üön",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "üön-köyüːr",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "wano",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "wun’a",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "Yarrow",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "yoeria",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "zadă",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "zensek",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ziwlliñ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "zu'we",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "zúmàa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ʔaake piyatte",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Μέλισσα",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "жыва",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "лэ̄сст-мӯрр",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ме̄даш",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "Сосна",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "صنوبر",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "کاج",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ผึ้ง",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "ภมร",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "แมง",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "แมลง",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "꿀벌",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "삼나무",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "소나무",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "송이",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "アカマツ",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "スギ",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "マツ",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "マツ",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "唐松",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "昆虫",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "杉",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "松",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "松",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "松",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "柳",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "茸",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "草",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "落叶松",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "虫",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "蜜蜂",
+          "flags": ["text_match"]
+        }
+      ]
+    },
+    {
+      "relation": "stories",
+      "licences": ["CC-BY-4.0"],
+      "links": [
+        {
+          "body": "Apis mellifera",
+          "partner": "A1297. First human being killed by jealous brothers (reptiles and insects).",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A13.3. Insect as creator.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Picea abies",
+          "partner": "A1681.1. Why Indians chew spruce gum.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2000. Creation of insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2001. Insects from body of slain monster. Usually the monster is burnt; sometimes the insects come from his head, sometimes from his body as it burns. (Cf. A1716.1.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2001.1. Insects from brains, blood, and bones of slain helpful animal.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2002. Origin of insects from various experiences of saint.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2002.1. The god Mahadeo turns wood chips into insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2003. Origin of insects: released from sack. God places them in a sack and gives it to hare to carry to stream. He must not look in the sack. When he does so the insects escape. The hare laughs and this is…",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2004. Insects from devil's post-hole. Devil is given enough land to dig a post-hole. From this come all kinds of insects. To stop them a burning log is put in the hole. Insects therefore hate smoke.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2005. Origin of insects: God throws sand on lazy shepherds. (Cf. A1716.1).",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2006. Origin of insects: monstrous births from brother-sister incest.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012. Creation of bee.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012.0.1. Creation of honey-bees: transformed man.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012.1. Creation of bee to provide wax for candles in church. (Cf. B259.4.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012.2. First bees in Ireland.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2012.3. God sends stinging bees to punish men.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2070. Creation of miscellaneous insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2095. Creation of lac insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2231.3.2. Bees work on Sabbath: may not get honey from red clover. (Cf. A2435.5.1.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2232.2. Bees pray for sting: punishment, first sting suicidal. (Cf. A2346.1.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2332.6.9. Why bee is blind.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2346.1. Why bees die after they sting. (Cf. A2232.2.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2385.3. Honey as excrement of bees.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2411.3. Origin of color of insect.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2411.3.1. Origin of color of bee.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2412.3. Markings on insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2426.3. Sounds of insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2433.5. Haunts of insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.3.8. Why ant-bear eats insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.5. Food of insects.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.5.1. Why bees may not get honey from red clover. (Cf. A2231.3.2.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.5.1.1. Why bees eat their own children.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A2435.5.2. Insect fries human blood and eats it.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A33.3. Insect as creator's companion.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A33.3.1. Bee as God's spy. God, the creator, sends a bee to overhear the devil's secrets.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "A773.6. Pleiades as swarm of bees.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B147.3.1.2. Bees (ants) leave honey on lips of infant to show future greatness.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B171.1.0.1. Magic cock carries great loads in his ear (load of grain, fox, tiger, bees, wasps, etc., also fire and water).",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B291.0.2. Unwelcome bird (insect) proves to be messenger.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B524.2.1. Helpful bees (hornets) sting opposing army.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "B524.2.1.1. Saint sends swarm of bees or wasps against enemies.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "G225.1. Insect as witch's familiar. (Fly, bee, gnat, spider.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "J1762.5. Bees (wasps) mistaken for Jutlanders, etc.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "J2102.8. Frogs to eat insects, snakes to eat frogs. Snakes eat numskull's family.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "J2712.1. Guess what I have in my hand and I will give it to you to make egg-cake with. What does it look like? What outside and yellow inside. It is a hollowed turnip filled with carrots.",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "J512.15. Frogs want to collect honey like bees.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "K1975.1. Sham miracle: wallet (bee-hive) changes to wasps. Tricksters put a wasp nest in the wallet (bee-hive). When the master claims it they give it to him with the curse, \"May it turn to wasps!\" It does.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "K2351.2.2. Ashes transformed into bees, wasps, scorpions and snakes drive invading army away for hero.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "X1205. Lie: venom of animal (snake, hornet, bee) causes object to swell.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "X1280.1.1. Bumblebees imported to rout mosquitoes; the two insects crossbreed and have stingers on both ends.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        }
+      ]
+    },
+    {
+      "relation": "sites",
+      "licences": ["CC0-1.0", "LicenseRef-web-of-life-attribution"],
+      "links": [
+        {
+          "body": "Apis mellifera",
+          "partner": "Black River Gorges, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "Cass, New Zealand",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Cass, New Zealand",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Catimbau, Brazil",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Craigieburn, New Zealand",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Garajonay, La Gomera",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "Garajonay, La Gomera",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Île aux Aigrettes, Mauritius",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Lake Hazen, Ellesmere Island",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Mahé, Seychelles",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "Mahé, Seychelles",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Morant Point, Jamaica",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Mt. Kushigata, Japan",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Mt. Yufu, Japan",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Piedmont, North Carolina",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Tenerife",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "descent",
+      "licences": ["CC-BY-4.0"],
+      "links": [
+        {
+          "body": "Achillea millefolium",
+          "partner": "Achillea (genus)",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "Agaricales (order)",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "Agaricomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "Apiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Apiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "Apiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "Apiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Apiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "Apiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Apidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Apis (genus)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "Asteraceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "Asterales (order)",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "Basidiomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "Cedrus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "Cinnamomum (genus)",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "Cistaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "Cistus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "Crithmum (genus)",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "Cryptomeria (genus)",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "Cupressaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Daucus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "Foeniculum (genus)",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Apis mellifera",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "Larix (genus)",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "Lauraceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "Laurales (order)",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "Malvales (order)",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "Picea (genus)",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "Pinaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "Pinaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "Pinaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "Pinaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "Pinaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "Pinaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "Pinaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "Pinales (order)",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "Pinales (order)",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "Pinales (order)",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "Pinales (order)",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "Pinales (order)",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "Pinales (order)",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "Pinales (order)",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "Pinales (order)",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "Pinopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "Pinopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "Pinopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "Pinopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "Pinopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "Pinopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "Pinopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "Pinopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "Pinus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "Pinus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "Pinus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "Pinus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Achillea millefolium",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Cedrus libani",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Cistus monspeliensis",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Crithmum maritimum",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Cryptomeria japonica",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Larix kaempferi",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Picea abies",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Pinus densiflora",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Pinus massoniana",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Pinus strobus",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Pinus sylvestris",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "Tricholoma (genus)",
+          "flags": []
+        },
+        {
+          "body": "Tricholoma matsutake",
+          "partner": "Tricholomataceae (family)",
+          "flags": []
+        }
+      ]
+    }
+  ]
+}

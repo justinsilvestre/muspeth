@@ -4,8 +4,9 @@ import { SliderField } from "../scene/controls/SliderField";
 /** How long the replay dwells on each step of the minimum, in milliseconds. */
 const replayStepMs = 220;
 
-type VisitsControlProps = {
-  /** The distinct visit counts of the network, from the smallest to the largest. */
+type WeightControlProps = {
+  words: { label: string; one: string; many: string };
+  /** The distinct weights of the relation, from the smallest to the largest. */
   steps: number[];
   /** The index of the step that is the current minimum. */
   value: number;
@@ -15,11 +16,11 @@ type VisitsControlProps = {
 };
 
 /**
- * Sets how many times an encounter must have been counted before it joins the diagram,
+ * Sets how heavily an encounter must have been counted before it joins the diagram,
  * and replays the season: starting from the most frequent encounter alone, it admits rarer ones step by step.
  */
-export function VisitsControl(props: VisitsControlProps) {
-  const { steps, value, onChange, isReplaying, onReplayChange } = props;
+export function WeightControl(props: WeightControlProps) {
+  const { words, steps, value, onChange, isReplaying, onReplayChange } = props;
   useEffect(() => {
     if (!isReplaying) return;
     const timer = setInterval(() => {
@@ -30,14 +31,14 @@ export function VisitsControl(props: VisitsControlProps) {
   }, [isReplaying, value, onChange, onReplayChange]);
   const minimum = steps[value] ?? 1;
   return (
-    <div className="grid grid-cols-[auto_1fr_4.5rem_auto] items-center gap-x-3 text-sm">
+    <div className="grid grid-cols-[minmax(0,auto)_minmax(6rem,1fr)_4.5rem_auto] items-center gap-x-3 text-sm">
       <SliderField
-        label="Encounters seen at least"
+        label={words.label}
         value={value}
         min={0}
         max={Math.max(steps.length - 1, 0)}
         step={1}
-        format={() => `${minimum} ${minimum === 1 ? "time" : "times"}`}
+        format={() => `${minimum} ${minimum === 1 ? words.one : words.many}`}
         onChange={(index) => {
           onReplayChange(false);
           onChange(index);

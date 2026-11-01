@@ -1,22 +1,25 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useColorScheme } from "../../theme/useColorScheme";
+import type { InnovationTable } from "../glottometry/parseInnovationsCsv";
 import type { Appearance } from "../scene/appearance";
 import type { Hovered } from "../scene/pickHovered";
+import type { BodySet } from "./BodySet";
 import { GuildBody } from "./GuildBody";
-import type { PollinationNetwork, Side } from "./PollinationNetwork";
 
 type GuildSceneProps = {
-  network: PollinationNetwork;
-  side: Side;
-  minimumVisits: number;
+  set: BodySet;
+  /** A number that, when it changes, brings the whole diagram back into view. */
+  fitRequest: number;
+  fullTable: InnovationTable;
+  table: InnovationTable;
   threshold: number;
   appearance: Appearance;
   hovered: Hovered | undefined;
   onHover: (hovered: Hovered | undefined) => void;
 };
 
-/** Renders one side of a pollination network as a slowly undulating cell, lit as the glottometric cell is. */
+/** Renders a set of bodies and their guilds as a slowly undulating cell, lit as the glottometric cell is. */
 export default function GuildScene(props: GuildSceneProps) {
   const { colorScheme } = useColorScheme();
   const isDark = colorScheme === "dark";
@@ -27,10 +30,9 @@ export default function GuildScene(props: GuildSceneProps) {
       <pointLight position={[0, 0, 3]} intensity={isDark ? 12 : 6} color="#ffe2b0" />
       <GuildBody isDark={isDark} {...props} />
       <OrbitControls
-        target={[0, -1, 0]}
-        enablePan={false}
-        minDistance={4}
-        maxDistance={20}
+        makeDefault
+        minDistance={3}
+        maxDistance={60}
         autoRotate={props.appearance.movement.autoRotate}
         autoRotateSpeed={0.6}
       />

@@ -1,0 +1,3234 @@
+{
+  "id": "kitchen-plants",
+  "name": "Kitchen plants",
+  "description": "Sixteen crops, herbs and weeds of the kitchen garden, those with the most compounds listed in Wikidata, from tea and apple to dandelion.",
+  "bodyNoun": {
+    "one": "plant",
+    "many": "plants"
+  },
+  "organisms": [
+    "Camellia sinensis",
+    "Borago officinalis",
+    "Malus domestica",
+    "Cucurbita pepo",
+    "Foeniculum vulgare",
+    "Coriandrum sativum",
+    "Cinnamomum verum",
+    "Rubus idaeus",
+    "Cichorium intybus",
+    "Triticum aestivum",
+    "Medicago sativa",
+    "Fagopyrum esculentum",
+    "Brassica juncea",
+    "Helianthus annuus",
+    "Taraxacum officinale",
+    "Daucus carota"
+  ],
+  "group": "From across the database",
+  "labelStyle": "species",
+  "bodies": [
+    {
+      "id": "wikidata:Q147075",
+      "name": "Borago officinalis",
+      "commonName": "Borage",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/00_2100_Borretsch_%28Borago_officinalis%29.jpg/960px-00_2100_Borretsch_%28Borago_officinalis%29.jpg",
+        "credit": "W. Bulach",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:00_2100_Borretsch_(Borago_officinalis).jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q504781",
+      "name": "Brassica juncea",
+      "commonName": "Brown mustard",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Brassica_juncea_var._juncea.JPG/960px-Brassica_juncea_var._juncea.JPG",
+        "credit": "Dalgial",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Brassica_juncea_var._juncea.JPG"
+      }
+    },
+    {
+      "id": "wikidata:Q101815",
+      "name": "Camellia sinensis",
+      "commonName": "Tea",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Csinensis.jpg/960px-Csinensis.jpg",
+        "credit": "AxelBoldt at en.wikipedia",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Csinensis.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q2544599",
+      "name": "Cichorium intybus",
+      "commonName": "Chicory",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Cichorium_intybus_-_Chicory_01.jpg/960px-Cichorium_intybus_-_Chicory_01.jpg",
+        "credit": "Zeynel Cebeci",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Cichorium_intybus_-_Chicory_01.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q370239",
+      "name": "Cinnamomum verum",
+      "commonName": "Cinnamon",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Cinnamomum_verum1.jpg",
+        "credit": null,
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Cinnamomum_verum1.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q41611",
+      "name": "Coriandrum sativum",
+      "commonName": "Coriander",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/A_scene_of_Coriander_leaves.JPG/960px-A_scene_of_Coriander_leaves.JPG",
+        "credit": "Thamizhpparithi Maari",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:A_scene_of_Coriander_leaves.JPG"
+      }
+    },
+    {
+      "id": "wikidata:Q7229863",
+      "name": "Cucurbita pepo",
+      "commonName": "Marrow",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Cucurbita_pepo_collage_1.png/960px-Cucurbita_pepo_collage_1.png",
+        "credit": "Various",
+        "licence": "CC-BY-SA-1.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Cucurbita_pepo_collage_1.png"
+      }
+    },
+    {
+      "id": "wikidata:Q30056",
+      "name": "Daucus carota",
+      "commonName": "Queen Anne's Lace",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Daucus_carota.jpg/960px-Daucus_carota.jpg",
+        "credit": "User:Tigerente",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Daucus_carota.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q132734",
+      "name": "Fagopyrum esculentum",
+      "commonName": "Buckwheat",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Fagopyrum_esculentum_1DS-II_3-0312.jpg/960px-Fagopyrum_esculentum_1DS-II_3-0312.jpg",
+        "credit": "SAplants",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Fagopyrum_esculentum_1DS-II_3-0312.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q43511",
+      "name": "Foeniculum vulgare",
+      "commonName": "Fennel",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Fennel_%28Foeniculum_vulgare%29_-_Parc_Natural_de_s%27Albufera%2C_Spain_2022-04-18_%2802%29.jpg/960px-Fennel_%28Foeniculum_vulgare%29_-_Parc_Natural_de_s%27Albufera%2C_Spain_2022-04-18_%2802%29.jpg",
+        "credit": "Ryan Hodnett",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Fennel_(Foeniculum_vulgare)_-_Parc_Natural_de_s%27Albufera,_Spain_2022-04-18_(02).jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q171497",
+      "name": "Helianthus annuus",
+      "commonName": "Sunflower",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Helianthus_annuus_exposed_2004-05-22.jpg",
+        "credit": "Jon Sullivan",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Helianthus_annuus_exposed_2004-05-22.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q18674606",
+      "name": "Malus domestica",
+      "commonName": "Apple",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Tree_with_red_apples_in_Barkedal_4.jpg/960px-Tree_with_red_apples_in_Barkedal_4.jpg",
+        "credit": "W.carter",
+        "licence": "CC0-1.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Tree_with_red_apples_in_Barkedal_4.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q156106",
+      "name": "Medicago sativa",
+      "commonName": "Alfalfa",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/75_Medicago_sativa_L.jpg",
+        "credit": "Amédée Masclef",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:75_Medicago_sativa_L.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q12252383",
+      "name": "Rubus idaeus",
+      "commonName": "Raspberry",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/%28MHNT%29_Rubus_idaeus_-_Feuillage.jpg/960px-%28MHNT%29_Rubus_idaeus_-_Feuillage.jpg",
+        "credit": "Didier Descouens",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:(MHNT)_Rubus_idaeus_-_Feuillage.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q131219",
+      "name": "Taraxacum officinale",
+      "commonName": "Dandelion",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Maskros_2.jpg",
+        "credit": null,
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Maskros_2.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q161098",
+      "name": "Triticum aestivum",
+      "commonName": "Bread Wheat",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/202304_8_Tr.aestivum_color.svg/960px-202304_8_Tr.aestivum_color.svg.png",
+        "credit": "DataBase Center for Life Science (DBCLS)",
+        "licence": "CC-BY-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:202304_8_Tr.aestivum_color.svg"
+      }
+    }
+  ],
+  "sharings": [
+    {
+      "relation": "compounds",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Cinnamomum verum",
+          "partner": "(+)-catechin",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "(+)-catechin",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "(+)-catechin",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "(+)-catechin",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "(+)-catechin",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "(+)-catechin",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "(+)-gallocatechin",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "(+)-pinoresinol",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "(+)-pinoresinol",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "(+)-sesamin",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "(±)-limonene",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "(−)-epicatechin",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "(−)-epicatechin",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "(−)-epicatechin",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "(−)-epicatechin",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "(−)-epicatechin",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "(2E)-2-hexenyl acetate",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "(E)-chlorogenic acid",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "(E)-chlorogenic acid",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "(E)-chlorogenic acid",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "(E)-chlorogenic acid",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "(E)-chlorogenic acid",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "(E)-chlorogenic acid",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "(E)-cinnamyl acetate",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "(E)-p-coumaric acid",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "(E)-p-coumaric acid",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "(E)-p-coumaric acid",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "(E)-p-coumaric acid",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "(E)-p-coumaric acid",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "(E)-p-coumaric acid",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "(E)-p-coumaric acid",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "(E)-p-coumaric acid",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "(E)-p-coumaric acid",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "(E)-p-coumaric acid",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "(E)-sinapic acid",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "(E/Z)-ferulic acid",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "(EZ)-aconitic acid",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "(R)-pyroglutamic acid",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "[3,4,5-Trihydroxy-6-(hydroxymethyl)oxan-2-yl] 10-methyl-3-methylidene-2-oxo-3a,4,7,8,9,11a-hexahydrocyclodeca[b]furan-6-carboxylate",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "1-kestose",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "11beta,13-dihydrolactucin",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "1H-indole",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "2-(3,4-dihydroxyphenyl)-5,7-dihydroxy-3-[(2S,3R,4R,5R,6S)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxychromen-4-one",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "2-(3,4-dihydroxyphenyl)-5,7-dihydroxy-3-[(2S,3R,4R,5R,6S)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxychromen-4-one",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "2-(3,4-dihydroxyphenyl)-5,7-dihydroxy-3-[(2S,3R,4R,5R,6S)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxychromen-4-one",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "2-(3,4-dihydroxyphenyl)-5,7-dihydroxy-3-[(2S,3R,4R,5R,6S)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxychromen-4-one",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "2-(4-Hydroxyphenyl)-3,5,7-trimethoxy-4H-1-benzopyran-4-one",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "2-butanol",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "2-hydroxybenzylamine",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "2-methylbutyric acid",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "24-Methylene,25-methylcholesta-5-en-3beta-ol",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "2H-[1,2]Thiazolo[5,4-b]indole",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "3-Cyanoindole",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "3-indolepropionic acid",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "3-phenylpropionaldehyde",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "3,4-dihydroxybenzoic acid",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "3,4-dihydroxybenzoic acid",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "3,4-dihydroxybenzoic acid",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "3,4-dihydroxybenzoic acid",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "3,4-dihydroxybenzoic acid",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "3,4-dihydroxybenzoic acid",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "3,4-dihydroxybenzoic acid",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "3,4,5-trimethoxyallyl benzene",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "3,5-Bis[3-(3,4-dihydroxyphenyl)prop-2-enoyloxy]-1,4-dihydroxycyclohexane-1-carboxylic acid",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "4-acetylanisole",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "4-coumaric acid",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "4-coumaric acid",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "4-coumaric acid",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "4-coumaric acid",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "4-coumaric acid",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "4-hydroxybenzoic acid",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "4-hydroxybenzoic acid",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "4-hydroxybenzoic acid",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "4-hydroxybenzylamine",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "4,11,13,15-Tetrahydroridentin B",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "5-(hydroxymethyl)-2-methoxyphenol",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "5-caffeoylshikimic acid",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "allyl cyanide",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "alpha carotene (stereochemistry specified)",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "alpha-linolenic acid",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "alpha-pinene",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "alpha-pinene",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "alpha-pinene",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "alpha-pinene",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "alpha-pinene",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "alpha-pinene",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "amabiline",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "amyl acetate",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "aniline",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "antheraxanthin",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "anthranilic acid",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "apigenin",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "apigenin",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "apigenin",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "Astragalin",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "benzaldehyde",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "benzophenone",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "beta-pinene",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "beta-pinene",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "beta-pinene",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "beta-pinene",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "beta-sitosterol",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "beta-sitosterol",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "beta-sitosterol",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "beta-sitosterol",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "beta-sitosterol",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "beta-sitosterol",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "beta-sitosterol",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "bryonolic acid",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "Bryonolic acid",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "butyl acetate",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "campesterol",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "campesterol",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "caprolactam",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "carnosic acid",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "caryophyllene",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "caryophyllene",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "caryophyllene",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "caryophyllene",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "caryophyllene",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "caryophyllene",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "caryophyllene",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "cholecalciferol",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "coriandrin",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "Crinosterol",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "crotonic acid",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "Cyanidin 3-O-sophoroside",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "cyclododecanol",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "cyclohexyl acetate",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "cyclopropane",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "cytosine",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "D-galacturonic acid",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "dimethoxybenzyl alcohol",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "elaidic acid",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "Epicatechin 3-O-p-hydroxybenzoate",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "ergocalciferol",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "erucic acid",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "ferulic acid",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "ferulic acid",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "ferulic acid",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "ferulic acid",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "ferulic acid",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "ferulic acid",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "ferulic acid",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "ferulic acid",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "fluorene",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "gallic acid",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "gallic acid",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "gamolenic acid",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "glucaric acid",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "hexadecane",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "humulene",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "humulene",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "humulene",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "humulene",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "humulene",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "hydroxyacetic acid",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "hyperoside",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "hyperoside",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "hyperoside",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "isoquercetin",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "isovitexin",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "lactucin",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "lactucopicrin",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "Lettucenin A",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "linoleic acid",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "linoleic acid",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "linoleic acid",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "linoleic acid",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "lorazepam",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "lormetazepam",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "lupeol",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "lutein",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "luteolin",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "luteolin",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "luteolin",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "luteolin",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "luteolin",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "luteolin",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "luteolin",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "luteolin",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "luteolin",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "lycopsamine",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "maltitol",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "maltose",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "matairesinol",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "Methyl alpha-galactoside",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "methyl palmitate",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "myrcene",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "naphthalene",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "naringin",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "oleanolic acid",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "oleic acid",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "oleic acid",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "oleic acid",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "oleic acid",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "oleic acid",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "oleic acid",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "oleic acid",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "orientin",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "p-cymene",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "p-cymene",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "p-cymene",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "p-cymene",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "p-cymene",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "palmitic acid",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "palmitic acid",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "palmitic acid",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "palmitic acid",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "palmitic acid",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "palmitic acid",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "palmitic acid",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "palmitic acid",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "palmitic acid",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "palmitic acid",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "palmitic acid",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "pelargonidin 3-glucoside ion",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "pelargonidin 3-O-(6-O-malonyl-beta-D-glucoside)",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "pelargonidin 3-O-rutinoside",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "pentadecane",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "phenethyl acetate",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "phenylacetaldehyde",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "phenylethyl alcohol",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "phosphoric acid",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "proanthocyanidin A2",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "propyl butyrate",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "pyruvic acid",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "quercetin",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "quercitrin",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "quercitrin",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "resorcin",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "rutin",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "rutin",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "rutin",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "rutin",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "rutin",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "rutin",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "rutin",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "rutin",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "rutin",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "rutin",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "sabinene",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "sesamolin",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "sitogluside",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "sorbic acid",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "spermine",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "stearic acid",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "stearic acid",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "stearic acid",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "stearic acid",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "stigmasterol",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "stigmasterol",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "stigmasterol",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "stigmasterol",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "stigmasterol",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "stigmasterol",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "syringic acid",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "tartaric acid",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "terpinolene",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "terpinolene",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "terpinolene",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "theobromine",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "thesinine",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "thesinine-4'-O-β-D-glucoside",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "trans-caffeic acid",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "trans-caffeic acid",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "trans-caffeic acid",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "trans-caffeic acid",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "trans-caffeic acid",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "trans-caffeic acid",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "trans-caffeic acid",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "trans-caffeic acid",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "trans-caffeic acid",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "trans-caffeic acid",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "trans-caffeic acid",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "tulipanin",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "undecanal",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "ursolic acid",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "ursolic acid",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "vanillic acid",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "vanillic acid",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "vidarabine",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "vitexin",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "α-amyrin",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "β-amyrin",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "β-amyrin",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "β-amyrin",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "names",
+      "licences": ["CC-BY-4.0", "CC0-1.0"],
+      "links": [
+        {
+          "body": "Triticum aestivum",
+          "partner": "(h)weizzi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "1tʃʰi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "4ʂo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "Abobrinha",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "Achicoria",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "Æble",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "Afal",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "Agurotis",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "àhitra",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "àlkámàa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "alma",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "angaano",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "Apfel",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "Apple",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "arrƀiʕ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "baso",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "borragem",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "borraja",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "box",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "bringebær",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "Buğday",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "Buğday",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "canela",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "Castilla",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "cǐh",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "cìyáawàa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "cỏ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "Courge",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "daan",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "Dandelion",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "Dente-de-leão",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "dible",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "Dynia",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "elma",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "fenouil",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "finocchio",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "framboise",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "Framboisier",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "funcho",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "gaási",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "gandum",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "garas",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "gitsoo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "gnaffur",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "Græskar",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "gras",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "grass",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "grâu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "gresskar",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "Gwenith",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "Gwenith",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "hep",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "Himbeere",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "hinojo",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "hobel",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "hogu̲t'e̲i",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "hoti",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "huika",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "iađən",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "iarbă",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "ichaj",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "itupu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "jablana",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "jabloň",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "Jabłoń",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "jani",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "jiwa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "kaacce",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "kachilla",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "kachu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "kàzêm",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "làámà",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "Lampone",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "lerb",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "lúa mì",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "macieira",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "mau`u",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "mezó",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "məyʃə",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "mog",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "ngano",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "nyasi",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "nyom",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "Obelis",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "ot",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "ɔrɔktɔ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "pach'aya'",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "parast",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "pasto",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "Pommier",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "pompoen",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "pšenica",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "pumpkin",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "qibo",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "qoqol",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Queen",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "Raspberry",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "Red Raspberry",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "repaňi",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "rumput",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "sawi",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "seliehiney",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "Sunflower",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "šužo jiv",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "tarwe",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "Tea",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "tekvica",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "terigu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "thé",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "tiikom",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "tiliwa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "Tłʼoh waaʼí",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "tök",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "trigo",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "trigo",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "trigu",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "triiw",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "triko",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "tšawa",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "Txikoria",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "Txikoria",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "tykev",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "varimbazàha",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "wheat",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "wit",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "Yonca",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "yuka",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "ʕaško",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "ра̄ссь",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "Тыква",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "ше̄ннҍ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "Яблоня",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "Яблуня",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "Ябълка",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "ตฤณ",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "สาลี",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "หญ้า",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "민들레",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "사과",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "호박",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "カボチャ",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "ソバ",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "ヒマワリ",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "南瓜",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "向日葵",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "小麦",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "草",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "草",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "葫芦",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "蘋果",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "青草",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "麦",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "麦",
+          "flags": ["derived_from_coarser_level"]
+        }
+      ]
+    },
+    {
+      "relation": "stories",
+      "licences": ["CC-BY-4.0"],
+      "links": [
+        {
+          "body": "Triticum aestivum",
+          "partner": "A1656.1. Origin of Polish noblemen: from wheat dough that a bitch devours.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "A2793.2. Why grain of wheat is divided.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "A2793.2.1. Why wheat must be planted in one year and harvested in the next.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "A2793.9. Why buckwheat produces twice a year.",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "B159.2. Horse lies down when grain of wheat falls from load.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "B16.6.3. Destructive locusts (with wings of iron) eat wheat crop.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "D1033.2. Magic wheat.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "D1318.15. Mill will not grind stolen wheat. (Cf. D1263.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "D1472.1.22.2. Saint's inexhaustible sack of wheat.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "D1652.1.3.3. Inexhaustible wheat. (Cf. D1033.2.)",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "D2157.2.2. Saint causes wheat to ripen prematurely in the time of a famine.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "D451.2.2. Transformation: wheat to barley.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "D451.2.3. Transformation: oats to wheat.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "F681.12. Runner runs so swiftly that he does not snap the ears of wheat (bend grass).",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "F962.6.1. Shower of wheat.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "J1341.12. Hired man shows in saying grace how better food has resulted from arrival of unexpected guests. Nebraska text: O Lord of Love who art above|Thy blessings have descended:|Biscuits and tea for supper I…",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "J1732.3. Woman is unacquainted with tea, serves the boiled leaves with butter.",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "J1813.7. Savory tea. The peasant entertains a priest at tea. Making it, puts in all the tea, six pounds of sugar, a piece of bacon, etc.",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "J1851.1.2. Numskull feeds his wheat to frogs. He has been sent to mill to have it ground.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "J2712.1. Guess what I have in my hand and I will give it to you to make egg-cake with. What does it look like? What outside and yellow inside. It is a hollowed turnip filled with carrots.",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "J461.5. Rice, wheat, and dal dispute as to which is the best.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "N346. Pigeon hastily kills his mate for stealing wheat. It has merely dried out and no longer fills the nest. When the dampness later swells the wheat, he sees his mistake and kills himself in remorse.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "T543.6.1. Birth from wheat.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "U32. Smallness of offense no excuse when hunter prepares to kill lark. She has stolen but a single grain of wheat.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "V211.1.8.3. Christ as infant in mother's arms causes bare hillside to become field of wheat as protection.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "Z141.2.1. Martyrs called \"red wheat\"; saints, \"Dei triticum\" (God's wheat).",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "Z141.2.2. Mill in which two men are slain said to grind \"red wheat\".",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "Z21.1. Origin of chess. Inventor asks one wheat-grain for first square, two for the second, four for the third, eight for the fourth, etc. The king cannot pay.",
+          "flags": ["text_match", "derived_from_coarser_level"]
+        }
+      ]
+    },
+    {
+      "relation": "sites",
+      "licences": ["CC0-1.0", "LicenseRef-web-of-life-attribution"],
+      "links": [
+        {
+          "body": "Daucus carota",
+          "partner": "Flores, Azores",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "Mahé, Seychelles",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "descent",
+      "licences": ["CC-BY-4.0"],
+      "links": [
+        {
+          "body": "Coriandrum sativum",
+          "partner": "Apiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Apiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "Apiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "Apiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Apiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "Apiales (order)",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "Asteraceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "Asteraceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "Asteraceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "Asterales (order)",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "Asterales (order)",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "Asterales (order)",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "Boraginaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "Boraginales (order)",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "Borago (genus)",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "Brassica (genus)",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "Brassicaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "Brassicales (order)",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "Camellia (genus)",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "Caryophyllales (order)",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "Cichorium (genus)",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "Cinnamomum (genus)",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "Coriandrum (genus)",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "Cucurbita (genus)",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "Cucurbitaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "Cucurbitales (order)",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Daucus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "Ericales (order)",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "Fabaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "Fabales (order)",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "Fagopyrum (genus)",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "Foeniculum (genus)",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "Helianthus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "Lauraceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "Laurales (order)",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "Liliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "Magnoliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "Malus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "Medicago (genus)",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "Poaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "Poales (order)",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "Polygonaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "Rosaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "Rosaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "Rosales (order)",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "Rosales (order)",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "Rubus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "Taraxacum (genus)",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "Theaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Borago officinalis",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Brassica juncea",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Camellia sinensis",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Cichorium intybus",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Cinnamomum verum",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Coriandrum sativum",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Cucurbita pepo",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Daucus carota",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Fagopyrum esculentum",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Foeniculum vulgare",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Helianthus annuus",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Malus domestica",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Medicago sativa",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Rubus idaeus",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Taraxacum officinale",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Triticum aestivum",
+          "partner": "Triticum (genus)",
+          "flags": []
+        }
+      ]
+    }
+  ]
+}

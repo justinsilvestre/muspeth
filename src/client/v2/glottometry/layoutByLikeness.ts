@@ -2,17 +2,25 @@ import type { LanguageLayout, PlanePoint } from "./layoutLanguages";
 import type { InnovationTable } from "./parseInnovationsCsv";
 
 /**
+ * How far apart two languages are: by "difference", the number of innovations one has and the other lacks;
+ * by "jaccard", that number as a share of the innovations either has, so that a language with many innovations
+ * does not stand far from everything merely by having many.
+ */
+export type LikenessDistance = "difference" | "jaccard";
+
+/**
  * Places languages on a plane so that languages sharing many innovations lie close together,
  * for families whose geography is unknown. Uses classical multidimensional scaling of the
- * distances between languages, where the distance is the number of innovations one has and the other lacks,
- * then centers and scales the result to span the given extent on its longer axis.
+ * distances between languages, then centers and scales the result to span the given extent on its longer axis.
  */
-export function layoutByLikeness({ languages, innovations }: InnovationTable, extent: number) {
+export function layoutByLikeness(
+  { languages, innovations }: InnovationTable,
+  extent: number,
+  distance: LikenessDistance = "difference",
+) {
   const count = languages.length;
   const distances = languages.map((a) =>
-    languages.map(
-      (b) => innovations.filter(({ members }) => members.has(a) !== members.has(b)).length,
-    ),
+    languages.map((b) => distanceBetween(a, b, innovations, distance)),
   );
   const gram = doubleCenter(distances.map((row) => row.map((distance) => distance ** 2)));
   const first = principalAxis(
@@ -28,6 +36,22 @@ export function layoutByLikeness({ languages, innovations }: InnovationTable, ex
     first.map((x, i) => ({ x, y: second[i] ?? 0 })),
     extent,
   );
+}
+
+function distanceBetween(
+  a: string,
+  b: string,
+  innovations: InnovationTable["innovations"],
+  distance: LikenessDistance,
+) {
+  let differing = 0;
+  let either = 0;
+  for (const { members } of innovations) {
+    if (members.has(a) !== members.has(b)) differing++;
+    if (members.has(a) || members.has(b)) either++;
+  }
+  if (distance === "difference") return differing;
+  return either === 0 ? 1 : differing / either;
 }
 
 /** Turns squared distances into inner products about the centroid, as classical scaling requires. */
