@@ -6,7 +6,7 @@ import { LanguageNucleus } from "./LanguageNucleus";
 import { Membrane } from "./Membrane";
 
 const diagramExtent = 7;
-/** The subgroupiness of the strongest subgroup in the family, to which rim thicknesses are scaled. */
+/** The subgroupiness of the strongest subgroup in the family, to which membrane thicknesses are scaled. */
 const strongest = scoreSubgroups(demoFamily)[0]?.subgroupiness ?? 1;
 
 type CellBodyProps = {
@@ -31,9 +31,9 @@ export function CellBody({ isDark, threshold }: CellBodyProps) {
       <Membrane
         points={familyPoints}
         padding={1.6}
-        rimThickness={0.07}
         color={isDark ? "#7fb8a4" : "#3d8c74"}
-        bodyOpacity={isDark ? 0.1 : 0.08}
+        bodyOpacity={isDark ? 0.05 : 0.04}
+        thickness={0.6}
         order={demoFamily.languages.length + 1}
       />
       {subgroups.map(({ subgroup, points }) => (
@@ -41,9 +41,9 @@ export function CellBody({ isDark, threshold }: CellBodyProps) {
           key={subgroup.members.join()}
           points={points}
           padding={padding(subgroup)}
-          rimThickness={0.015 + 0.06 * (subgroup.subgroupiness / strongest)}
           color={membraneColor(subgroup, isDark)}
-          bodyOpacity={0.04 + 0.12 * subgroup.cohesiveness}
+          bodyOpacity={0.02 + 0.06 * subgroup.cohesiveness}
+          thickness={subgroup.subgroupiness / strongest}
           order={subgroup.members.length}
         />
       ))}

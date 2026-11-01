@@ -1,67 +1,45 @@
 import { useMemo } from "react";
-import { CatmullRomCurve3, TubeGeometry, Vector3 } from "three";
+import { DoubleSide } from "three";
 import type { PlanePoint } from "../glottometry/layoutLanguages";
-import { membraneContour } from "../glottometry/membraneContour";
 import { paddedHullSurface } from "../glottometry/paddedHullSurface";
 import { buildBlobGeometry } from "./buildBlobGeometry";
 import { useUndulatingMaterial } from "./undulation";
 
-/** Blobs are squashed vertically to this share of their padding, giving them a lens-like shape. */
+/** Membranes are squashed vertically to this share of their padding, giving them a lens-like shape. */
 const flattening = 0.45;
-const surfaceDetail = { rings: 24, segments: 96 };
+const surfaceDetail = { rings: 32, segments: 128 };
 
 type MembraneProps = {
   /** The positions enclosed by the membrane. */
   points: PlanePoint[];
   /** The distance by which the membrane surrounds its points. */
   padding: number;
-  /** Radius of the rim tube running around the membrane's equator. */
-  rimThickness: number;
   color: string;
+  /** How opaque the membrane is where it faces the viewer. */
   bodyOpacity: number;
+  /** How far the membrane's edge-on thickening reaches in from its silhouette, from 0 to 1. */
+  thickness: number;
   /** Membranes with a higher order are drawn later, so outer membranes should have a higher order than inner ones. */
   order: number;
 };
 
-/** Draws a translucent three-dimensional body enclosing some points, with a rim around its widest extent. */
-export function Membrane({
-  points,
-  padding,
-  rimThickness,
-  color,
-  bodyOpacity,
-  order,
-}: MembraneProps) {
-  const body = useMemo(
+/** Draws a translucent lens-shaped membrane enclosing some points, thickening toward its edge like a cell wall. */
+export function Membrane({ points, padding, color, bodyOpacity, thickness, order }: MembraneProps) {
+  const geometry = useMemo(
     () => buildBlobGeometry(paddedHullSurface(points, padding, flattening, surfaceDetail)),
     [points, padding],
   );
-  const rim = useMemo(
-    () => buildRim(membraneContour(points, padding, surfaceDetail.segments), rimThickness),
-    [points, padding, rimThickness],
+  const material = useUndulatingMaterial(
+    {
+      color,
+      transparent: true,
+      opacity: bodyOpacity,
+      depthWrite: false,
+      side: DoubleSide,
+      roughness: 0.4,
+      clearcoat: 0.5,
+    },
+    { strength: 0.5 + 0.5 * thickness, width: 0.2 + 0.6 * thickness },
   );
-  const rimMaterial = useUndulatingMaterial({ color, roughness: 0.35, clearcoat: 1 });
-  const bodyMaterial = useUndulatingMaterial({
-    color,
-    transparent: true,
-    opacity: bodyOpacity,
-    depthWrite: false,
-    roughness: 0.25,
-    clearcoat: 0.6,
-  });
-  return (
-    <group renderOrder={order}>
-      <mesh geometry={rim} material={rimMaterial} renderOrder={order} />
-      <mesh geometry={body} material={bodyMaterial} renderOrder={order} />
-    </group>
-  );
-}
-
-function buildRim(contour: PlanePoint[], thickness: number) {
-  const curve = new CatmullRomCurve3(
-    contour.map(({ x, y }) => new Vector3(x, y, 0)),
-    true,
-    "centripetal",
-  );
-  return new TubeGeometry(curve, contour.length * 2, thickness, 10, true);
+  return <mesh geometry={geometry} material={material} renderOrder={order} />;
 }

@@ -1,13 +1,25 @@
 import { BufferGeometry, Float32BufferAttribute } from "three";
-import type { SpacePoint } from "../glottometry/paddedHullSurface";
+import type { SurfaceSample } from "../glottometry/paddedHullSurface";
 
-/** Turns rings of surface samples, as returned by paddedHullSurface, into a smooth-shaded closed mesh. */
-export function buildBlobGeometry(rings: SpacePoint[][]) {
-  const positions = rings.flat().flatMap(({ x, y, z }) => [x, y, z]);
+/** Turns rings of surface samples, as returned by paddedHullSurface, into a closed mesh with the samples' normals. */
+export function buildBlobGeometry(rings: SurfaceSample[][]) {
+  const samples = rings.flat();
   const geometry = new BufferGeometry();
-  geometry.setAttribute("position", new Float32BufferAttribute(positions, 3));
+  geometry.setAttribute(
+    "position",
+    new Float32BufferAttribute(
+      samples.flatMap(({ position }) => [position.x, position.y, position.z]),
+      3,
+    ),
+  );
+  geometry.setAttribute(
+    "normal",
+    new Float32BufferAttribute(
+      samples.flatMap(({ normal }) => [normal.x, normal.y, normal.z]),
+      3,
+    ),
+  );
   geometry.setIndex(gridIndices(rings.length, rings[0]?.length ?? 0));
-  geometry.computeVertexNormals();
   return geometry;
 }
 

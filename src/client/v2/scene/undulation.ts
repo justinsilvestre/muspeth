@@ -18,21 +18,41 @@ const undulationGlsl = /* glsl */ `
   }
 `;
 
+/**
+ * How a translucent surface thickens toward its silhouette, like the wall of a cell seen edge-on.
+ * Strength is the opacity added at the very edge, and width is how far the thickening reaches in from the edge.
+ */
+export type EdgeGlow = { strength: number; width: number };
+
+const noEdgeGlow = { strength: 0, width: 1 } satisfies EdgeGlow;
+
 /** Creates a physical material whose vertices drift with the shared undulation field, advancing it every frame. */
 export function useUndulatingMaterial(
   parameters: MeshPhysicalMaterialParameters,
+  edgeGlow: EdgeGlow = noEdgeGlow,
   amplitude = 0.12,
 ) {
   // The material is created once; later parameter changes are applied by the mesh's props instead.
-  const [{ material, uniforms }] = useState(() => createUndulatingMaterial(parameters, amplitude));
+  const [{ material, uniforms }] = useState(() =>
+    createUndulatingMaterial(parameters, edgeGlow, amplitude),
+  );
   useFrame(({ clock }) => {
     uniforms.uTime.value = clock.elapsedTime;
   });
   return material;
 }
 
-function createUndulatingMaterial(parameters: MeshPhysicalMaterialParameters, amplitude: number) {
-  const uniforms = { uTime: { value: 0 }, uAmplitude: { value: amplitude } };
+function createUndulatingMaterial(
+  parameters: MeshPhysicalMaterialParameters,
+  edgeGlow: EdgeGlow,
+  amplitude: number,
+) {
+  const uniforms = {
+    uTime: { value: 0 },
+    uAmplitude: { value: amplitude },
+    uEdgeStrength: { value: edgeGlow.strength },
+    uEdgePower: { value: 1 / edgeGlow.width },
+  };
   const material = new MeshPhysicalMaterial(parameters);
   material.onBeforeCompile = (shader) => {
     Object.assign(shader.uniforms, uniforms);
@@ -43,6 +63,17 @@ function createUndulatingMaterial(parameters: MeshPhysicalMaterialParameters, am
         `#include <begin_vertex>
          vec3 worldPosition = (modelMatrix * vec4(position, 1.0)).xyz;
          transformed += undulate(worldPosition);`,
+      );
+    shader.fragmentShader = shader.fragmentShader
+      .replace(
+        "#include <common>",
+        "#include <common>\nuniform float uEdgeStrength;\nuniform float uEdgePower;",
+      )
+      .replace(
+        "#include <normal_fragment_maps>",
+        `#include <normal_fragment_maps>
+         float facing = abs(dot(normalize(vViewPosition), normal));
+         diffuseColor.a = min(1.0, diffuseColor.a + uEdgeStrength * pow(1.0 - facing, uEdgePower));`,
       );
   };
   return { material, uniforms };

@@ -2,8 +2,17 @@ import type { PlanePoint } from "./layoutLanguages";
 
 export type SpacePoint = { x: number; y: number; z: number };
 
+/** One sample of a surface: where it is, and the unit vector pointing outward from it. */
+export type SurfaceSample = { position: SpacePoint; normal: SpacePoint };
+
 /**
- * Samples a smooth closed surface around a set of points lying in the plane: the convex hull of the points,
+ * How sharply the surface follows the convex hull's corners: higher values give a hull with flatter sides,
+ * lower values a rounder body that bulges between the points.
+ */
+const cornerSharpness = 3;
+
+/**
+ * Samples a smooth closed surface around a set of points lying in the plane: a rounded version of the points' convex hull,
  * swept with a ball of the padding's radius, then squashed along the vertical axis by the flattening factor.
  * Returns rings of samples from the bottom pole to the top pole, each ring going around once.
  */
@@ -22,26 +31,52 @@ export function paddedHullSurface(
         y: Math.cos(latitude) * Math.sin(longitude),
         z: Math.sin(latitude),
       };
-      const extreme = findExtremePoint(points, direction);
-      return {
-        x: extreme.x + direction.x * padding,
-        y: extreme.y + direction.y * padding,
-        z: direction.z * padding * flattening,
-      } satisfies SpacePoint;
+      return sampleInDirection(points, padding, flattening, direction);
     });
   });
 }
 
-/** Finds the point reaching furthest in the given direction, which depends only on the direction's horizontal part. */
-function findExtremePoint(points: PlanePoint[], direction: SpacePoint) {
-  let best = points[0] ?? { x: 0, y: 0 };
-  let bestReach = Number.NEGATIVE_INFINITY;
-  for (const point of points) {
-    const reach = point.x * direction.x + point.y * direction.y;
-    if (reach > bestReach) {
-      best = point;
-      bestReach = reach;
-    }
-  }
-  return best;
+/**
+ * The swept hull's surface point in a direction is the hull's point reaching furthest that way, pushed out by the padding,
+ * and the surface's normal there is the direction itself. Squashing the surface vertically stretches the normal the other way.
+ */
+function sampleInDirection(
+  points: PlanePoint[],
+  padding: number,
+  flattening: number,
+  direction: SpacePoint,
+) {
+  const extreme = findSoftExtremePoint(points, direction);
+  const normalLength = Math.hypot(direction.x, direction.y, direction.z / flattening);
+  return {
+    position: {
+      x: extreme.x + direction.x * padding,
+      y: extreme.y + direction.y * padding,
+      z: direction.z * padding * flattening,
+    },
+    normal: {
+      x: direction.x / normalLength,
+      y: direction.y / normalLength,
+      z: direction.z / flattening / normalLength,
+    },
+  } satisfies SurfaceSample;
+}
+
+/**
+ * Finds a weighted average of the points, favoring those reaching furthest in the given direction,
+ * which depends only on the direction's horizontal part. Taking the furthest point alone would give the exact convex hull,
+ * with flat sides and sharp corners; the weighted average rounds it off.
+ */
+function findSoftExtremePoint(points: PlanePoint[], direction: SpacePoint) {
+  const reaches = points.map((point) => point.x * direction.x + point.y * direction.y);
+  const furthest = Math.max(...reaches);
+  const weights = reaches.map((reach) => Math.exp(cornerSharpness * (reach - furthest)));
+  const totalWeight = weights.reduce((sum, weight) => sum + weight, 0);
+  const average = { x: 0, y: 0 };
+  points.forEach((point, index) => {
+    const weight = (weights[index] ?? 0) / totalWeight;
+    average.x += point.x * weight;
+    average.y += point.y * weight;
+  });
+  return average;
 }
