@@ -6,8 +6,10 @@ test.describe("app versions", () => {
     await expect(page).toHaveURL(/\/v1\/paths$/);
   });
 
-  test("shows a canvas in the second version's Scene tab", async ({ page }) => {
+  test("shows a canvas in the second version's Historical glottometry tab", async ({ page }) => {
     await page.goto("/v2");
-    await expect(page.getByRole("region", { name: "Scene" }).locator("canvas")).toBeVisible();
+    await expect(
+      page.getByRole("region", { name: "Historical glottometry" }).locator("canvas"),
+    ).toBeVisible();
   });
 });

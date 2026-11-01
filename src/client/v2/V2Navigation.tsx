@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { NavLink } from "react-router";
 
-const views = [{ label: "Scene", path: "/v2" }];
+const views = [{ label: "Historical glottometry", path: "/v2" }];
 
 /** Links to each view of the second version, marking the one that is open. */
 export function V2Navigation() {
