@@ -1,7 +1,7 @@
 /// <reference lib="dom" />
 import { expect, type Page, test } from "@playwright/test";
 
-const matsutakePath = `/organisms/${encodeURIComponent("wikidata:Q509308")}`;
+const matsutakePath = `/v1/organisms/${encodeURIComponent("wikidata:Q509308")}`;
 
 function measurePageWidth(page: Page) {
   return page.evaluate<number>("document.documentElement.scrollWidth");
@@ -17,14 +17,14 @@ test.describe("on a narrow screen", () => {
   });
 
   test("fits the node search's matches within the screen's width", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/v1");
     await page.getByRole("searchbox", { name: "Search nodes" }).fill("pentaoxa");
     await expect(page.getByRole("link", { name: /pentaoxaoctacyclo/ })).toBeVisible();
     expect(await measurePageWidth(page)).toBeLessThanOrEqual(375);
   });
 
   test("fits the path pickers within the screen's width", async ({ page }) => {
-    await page.goto(`/paths?from=${encodeURIComponent("e2e:octacycle")}`);
+    await page.goto(`/v1/paths?from=${encodeURIComponent("e2e:octacycle")}`);
     await page.getByRole("combobox", { name: "To" }).fill("pentaoxa");
     await expect(page.getByRole("option", { name: /pentaoxaoctacyclo/ })).toBeVisible();
     expect(await measurePageWidth(page)).toBeLessThanOrEqual(375);

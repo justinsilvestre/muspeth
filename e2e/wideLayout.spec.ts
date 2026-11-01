@@ -1,7 +1,7 @@
 /// <reference lib="dom" />
 import { expect, type Locator, test } from "@playwright/test";
 
-const matsutakePath = `/organisms/${encodeURIComponent("wikidata:Q509308")}`;
+const matsutakePath = `/v1/organisms/${encodeURIComponent("wikidata:Q509308")}`;
 
 /** Returns how far below the top of the screen the scrolling column around an element ends. */
 function measureColumnBottom(element: Locator) {

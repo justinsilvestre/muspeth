@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const matsutakePath = `/organisms/${encodeURIComponent("wikidata:Q509308")}`;
+const matsutakePath = `/v1/organisms/${encodeURIComponent("wikidata:Q509308")}`;
 
 test.describe("following connections to the next node", () => {
   test("opens a neighbour's page from its name in a connection", async ({ page }) => {
@@ -16,7 +16,7 @@ test.describe("following connections to the next node", () => {
     await page.goto(`${matsutakePath}?basis=attributed`);
     const connections = page.getByRole("region", { name: "Connections of matsutake" });
     await connections.getByRole("link", { name: "matsu" }).click();
-    await expect(page).toHaveURL(/\/organisms\/e2e%3Amatsu\?basis=attributed$/);
+    await expect(page).toHaveURL(/\/v1\/organisms\/e2e%3Amatsu\?basis=attributed$/);
   });
 
   test("links back to the node it came from", async ({ page }) => {

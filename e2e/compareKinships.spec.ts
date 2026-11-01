@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 
 test.describe("comparing kinships under several groupings", () => {
   test("names the matsutake's closest kin by interaction", async ({ page }) => {
-    await page.goto("/kinships");
+    await page.goto("/v1/kinships");
     const interaction = page
       .getByRole("term")
       .filter({ hasText: /^interaction$/ })
@@ -12,7 +12,7 @@ test.describe("comparing kinships under several groupings", () => {
   });
 
   test("says when an organism shares nothing by descent", async ({ page }) => {
-    await page.goto("/kinships");
+    await page.goto("/v1/kinships");
     const descent = page
       .getByRole("term")
       .filter({ hasText: /^descent$/ })
@@ -21,7 +21,7 @@ test.describe("comparing kinships under several groupings", () => {
   });
 
   test("faces the descent tree with the grouping chosen", async ({ page }) => {
-    await page.goto("/kinships");
+    await page.goto("/v1/kinships");
     await page
       .getByRole("combobox", { name: "Compare descent with" })
       .selectOption({ label: "shared substance" });
@@ -32,7 +32,7 @@ test.describe("comparing kinships under several groupings", () => {
     test.use({ viewport: { width: 375, height: 812 } });
 
     test("fits the page within the screen's width", async ({ page }) => {
-      await page.goto("/kinships");
+      await page.goto("/v1/kinships");
       await expect(page.locator("figure svg")).toBeVisible();
       expect(
         await page.evaluate<number>("document.documentElement.scrollWidth"),

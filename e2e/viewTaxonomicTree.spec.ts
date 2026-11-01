@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 test.describe("viewing the taxonomic tree", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("/taxonomy");
+    await page.goto("/v1/taxonomy");
   });
 
   test("outlines the matsutake's lineage from its kingdom", async ({ page }) => {

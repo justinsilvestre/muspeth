@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 
-const honeyBeePath = `/organisms/${encodeURIComponent("wikidata:Q30034")}`;
-const matsutakePath = `/organisms/${encodeURIComponent("wikidata:Q509308")}`;
+const honeyBeePath = `/v1/organisms/${encodeURIComponent("wikidata:Q30034")}`;
+const matsutakePath = `/v1/organisms/${encodeURIComponent("wikidata:Q509308")}`;
 
 test.describe("filtering connections", () => {
   test("hides connections that carry a quality flag", async ({ page }) => {

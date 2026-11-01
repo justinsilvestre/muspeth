@@ -2,12 +2,12 @@ import { expect, test } from "@playwright/test";
 
 test.describe("the graphics of the Paths view", () => {
   test("sketch how paths work on an empty page", async ({ page }) => {
-    await page.goto("/paths");
+    await page.goto("/v1/paths");
     await expect(page.getByRole("img", { name: /^How paths work/ })).toBeVisible();
   });
 
   test("draw the paths of an example search together", async ({ page }) => {
-    await page.goto("/paths");
+    await page.goto("/v1/paths");
     await page.getByRole("link", { name: /matsutake → Japanese red pine/i }).click();
     await expect(page.getByRole("button", { name: /^Japanese red pine,/ })).toBeVisible();
   });
@@ -15,20 +15,20 @@ test.describe("the graphics of the Paths view", () => {
 
 test.describe("the graphics of the Places and periods view", () => {
   test("sketch how searching works on an empty page", async ({ page }) => {
-    await page.goto("/places");
+    await page.goto("/v1/places");
     await expect(
       page.getByRole("img", { name: /^How searching by place and period works/ }),
     ).toBeVisible();
   });
 
   test("draw a timeline for an example period", async ({ page }) => {
-    await page.goto("/places");
+    await page.goto("/v1/places");
     await page.getByRole("link", { name: "From 1990 to 1992" }).click();
     await expect(page.getByRole("img", { name: /^Timeline of when/ })).toBeVisible();
   });
 
   test("map every place where connections were recorded", async ({ page }) => {
-    await page.goto("/places?near=35.01,135.77");
+    await page.goto("/v1/places?near=35.01,135.77");
     await expect(page.getByRole("region", { name: /^Map of where/ })).toContainText(
       "3 connections marked at 3 places",
     );

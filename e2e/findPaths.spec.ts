@@ -1,10 +1,10 @@
 import { expect, test } from "@playwright/test";
 
-const fromHoneyBeeToMatsutake = `/paths?from=${encodeURIComponent("wikidata:Q30034")}&to=${encodeURIComponent("wikidata:Q509308")}`;
+const fromHoneyBeeToMatsutake = `/v1/paths?from=${encodeURIComponent("wikidata:Q30034")}&to=${encodeURIComponent("wikidata:Q509308")}`;
 
 test.describe("finding paths between two nodes", () => {
   test("ranks the path through a quiet place first", async ({ page }) => {
-    await page.goto("/paths");
+    await page.goto("/v1/paths");
     await page.getByRole("combobox", { name: "From" }).fill("honey");
     await page.getByRole("option", { name: /western honey bee/ }).click();
     await page.getByRole("combobox", { name: "To" }).fill("マツタケ");

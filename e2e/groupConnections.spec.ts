@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const honeyBeePath = `/organisms/${encodeURIComponent("wikidata:Q30034")}`;
+const honeyBeePath = `/v1/organisms/${encodeURIComponent("wikidata:Q30034")}`;
 
 test.describe("grouping a node's connections", () => {
   test("heads each kind with its count", async ({ page }) => {
