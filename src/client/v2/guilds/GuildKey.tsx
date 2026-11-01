@@ -48,8 +48,9 @@ export function GuildKey({ set, relation, sharing, appearance }: GuildKeyProps) 
           </p>
           <p>
             Hovering over a membrane lists the {shared.many} shared by exactly the {dots} inside it.
-            Hovering over a dot shows its name, its picture and how many {shared.many} it has. Drag
-            to turn the picture, scroll to zoom, and drag with the right button to move it.
+            Hovering over a dot shows its name, its picture and how many {shared.many} it{" "}
+            {relation.dotVerb}. Drag to turn the picture, scroll to zoom, and drag with the right
+            button to move it.
           </p>
           <p className="text-xs">
             Data:{" "}
