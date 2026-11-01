@@ -1,14 +1,15 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
-import { defaultFamily } from "../glottometry/families";
+import { demoFamily } from "../glottometry/families";
 import { HoverTooltip } from "./HoverTooltip";
 
 afterEach(cleanup);
+
 const pointer = { x: 10, y: 20 };
 
 describe("HoverTooltip", () => {
   it("shows nothing while the pointer is on nothing", () => {
-    render(<HoverTooltip hovered={undefined} pointer={pointer} family={defaultFamily} />);
+    render(<HoverTooltip hovered={undefined} pointer={pointer} family={demoFamily} />);
     expect(screen.queryByRole("tooltip")).toBeNull();
   });
 
@@ -18,7 +19,7 @@ describe("HoverTooltip", () => {
       <HoverTooltip
         hovered={{ kind: "subgroup", subgroup }}
         pointer={pointer}
-        family={defaultFamily}
+        family={demoFamily}
       />,
     );
     expect(screen.getByRole("tooltip").textContent).toBe(
@@ -31,7 +32,7 @@ describe("HoverTooltip", () => {
       <HoverTooltip
         hovered={{ kind: "language", name: "ⓁA" }}
         pointer={pointer}
-        family={defaultFamily}
+        family={demoFamily}
       />,
     );
     expect(screen.getByRole("tooltip").textContent).toBe("ⓁA (A)");
@@ -42,7 +43,7 @@ describe("HoverTooltip", () => {
       <HoverTooltip
         hovered={{ kind: "language", name: "ⓁA" }}
         pointer={pointer}
-        family={defaultFamily}
+        family={demoFamily}
       />,
     );
     expect(screen.getByRole("tooltip").style.left).toBe("24px");

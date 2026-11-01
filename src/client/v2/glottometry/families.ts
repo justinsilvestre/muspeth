@@ -9,26 +9,8 @@ export { type LanguageFamily, labelOf } from "./LanguageFamily";
 import { parseCoordinatesCsv } from "./parseCoordinatesCsv";
 import { parseInnovationsCsv } from "./parseInnovationsCsv";
 
-/** The families the view can draw, in the order they are offered. */
+/** The families the view can draw, in the order they are offered; the first is shown at the start. */
 export const families = [
-  {
-    id: "demo",
-    name: "Demo family",
-    description:
-      "The sample family distributed with the Historical Glottometry engine: eighteen languages named A to R, with 474 innovations and made-up coordinates.",
-    citation: {
-      text: "Kalyan, Siva & Alexandre François. Historical Glottometry online analyzer, sample data.",
-      url: "https://marama.huma-num.fr/AF_Glottometry.htm",
-    },
-    table: parseInnovationsCsv(demoInnovationsCsv),
-    coordinates: parseCoordinatesCsv(demoCoordinatesCsv),
-    abbreviations: Object.fromEntries(
-      parseInnovationsCsv(demoInnovationsCsv).languages.map((name) => [
-        name,
-        name.replace("Ⓛ", ""),
-      ]),
-    ),
-  },
   {
     id: "germanic",
     name: "Early Germanic languages",
@@ -49,6 +31,24 @@ export const families = [
     },
   },
   {
+    id: "demo",
+    name: "Demo family",
+    description:
+      "The sample family distributed with the Historical Glottometry engine: eighteen languages named A to R, with 474 innovations and made-up coordinates.",
+    citation: {
+      text: "Kalyan, Siva & Alexandre François. Historical Glottometry online analyzer, sample data.",
+      url: "https://marama.huma-num.fr/AF_Glottometry.htm",
+    },
+    table: parseInnovationsCsv(demoInnovationsCsv),
+    coordinates: parseCoordinatesCsv(demoCoordinatesCsv),
+    abbreviations: Object.fromEntries(
+      parseInnovationsCsv(demoInnovationsCsv).languages.map((name) => [
+        name,
+        name.replace("Ⓛ", ""),
+      ]),
+    ),
+  },
+  {
     id: "boni",
     name: "Boni dialects",
     description:
@@ -62,3 +62,6 @@ export const families = [
 ] satisfies LanguageFamily[];
 
 export const defaultFamily = families[0] as LanguageFamily;
+
+/** The engine's sample family, whose languages carry abbreviations; handy in tests. */
+export const demoFamily = families.find((family) => family.id === "demo") as LanguageFamily;
