@@ -9,6 +9,7 @@ import {
 import type { QueryParseResult } from "../shared/queryParameters";
 import { exportGraph, listConnectionSourceNames } from "./graphExportQueries";
 import { findNode, listConnectionMedia, listConnections, listNodes } from "./graphQueries";
+import { listKinships } from "./kinshipQueries";
 import { findPathsBetween } from "./pathQueries";
 import { listConnectionsByPlaceAndPeriod } from "./placeQueries";
 import { listDateSummaries, listPlaceSummaries } from "./placeSummaryQueries";
@@ -71,6 +72,7 @@ const app = new Hono<AppEnv>()
     if (!filter.ok) return badRequest(context, filter);
     return context.json(await exportGraph(context.env.DB, filter.value));
   })
+  .get("/kinships", async (context) => context.json(await listKinships(context.env.DB)))
   .get("/sources", async (context) =>
     context.json({ sources: await listConnectionSourceNames(context.env.DB) }),
   )

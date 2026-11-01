@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router";
 import type { GraphNode } from "../shared/graph";
 import { precomputedResponsePaths } from "../shared/precomputedResponsePaths";
 import { ConnectionsView } from "./ConnectionsView";
+import { KinshipsView } from "./kinships/KinshipsView";
 import { NotFoundView } from "./NotFoundView";
 import { PathsView } from "./paths/PathsView";
 import { PlacesView } from "./places/PlacesView";
@@ -36,6 +37,7 @@ export function App() {
           />
           <Route path="/paths" element={<PathsView nodes={nodesResource.data.nodes} />} />
           <Route path="/places" element={<PlacesView nodes={nodesResource.data.nodes} />} />
+          <Route path="/kinships" element={<KinshipsView nodes={nodesResource.data.nodes} />} />
           <Route path="/taxonomy" element={<TaxonomyView nodes={nodesResource.data.nodes} />} />
           <Route path="*" element={<NotFoundView />} />
         </Routes>

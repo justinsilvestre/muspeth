@@ -38,7 +38,7 @@ Each node has a stable identifier, preferably a Wikidata ID, otherwise the sourc
 - the **taxonomic level** the source supports, for example species, genus or a coarse group;
 - optional weight, place and date;
 - the source, citation and licence;
-- **quality flags**, for example an unmatched name, a placeholder species, a suspected error, or a known sampling bias.
+- **quality flags**, for example an unmatched name, a placeholder species, a suspected error, or a known sampling bias. [quality-flags.md](quality-flags.md) lists every flag.
 
 ## Rules
 
