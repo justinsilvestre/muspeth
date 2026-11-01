@@ -24,7 +24,7 @@ export type Relation = {
   reach: Forms;
   /** What a dot does with what it shares, before a count of them: "draws", as in "draws 8 visitors". */
   dotVerb: string;
-  /** What the things a guild shares do to its members, between their names and "these plants": "visits" and "visit". */
+  /** What the things a membrane shares do to its members, between their names and "these plants": "visits" and "visit". */
   guildVerb: Forms;
   /** Whether the shared things are organisms with scientific names, to be abbreviated like dots. */
   sharedAreSpecies: boolean;
@@ -61,7 +61,7 @@ export const relations = {
     sharedAreSpecies: true,
     weight: visits,
     explanation:
-      "Plants bound together by the visitors they share are a guild. Where a glottometric membrane is drawn around languages by an innovation they underwent together, this one is drawn around plants by another organism that moves between them. A visitor that cuts across a guild is not evidence against it, as a cross-cutting innovation is against a subgroup, but a generalist that belongs to several guilds at once.",
+      "Plants that share visitors form a group of their own. Where a glottometric membrane is drawn around languages by an innovation they underwent together, this one is drawn around plants by another organism that moves between them. A visitor that cuts across a group is not evidence against it, as a cross-cutting innovation is against a subgroup, but a generalist that belongs to several groups at once.",
     citesSet: true,
     citations: [],
   },
@@ -76,7 +76,7 @@ export const relations = {
     sharedAreSpecies: true,
     weight: visits,
     explanation:
-      "Visitors bound together by the flowers they share are a guild too: the insects, birds or geckos that work the same blossoms. A flower that cuts across a guild is one that draws visitors from several guilds at once.",
+      "Visitors that share flowers form groups of their own: the insects, birds or geckos that work the same blossoms. A flower that cuts across a group is one that draws visitors from several groups at once.",
     citesSet: true,
     citations: [],
   },

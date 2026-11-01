@@ -15,7 +15,7 @@ export function V2App() {
       <V2Navigation />
       <Routes>
         <Route index element={<SceneView />} />
-        <Route path="guilds" element={<GuildView />} />
+        <Route path="biological-glottometry" element={<GuildView />} />
       </Routes>
     </main>
   );

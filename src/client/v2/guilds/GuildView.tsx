@@ -50,7 +50,7 @@ export function GuildView() {
     setHovered(undefined);
   };
   return (
-    <section aria-label="Organism guilds" className="flex flex-col gap-3">
+    <section aria-label="Biological glottometry" className="flex flex-col gap-3">
       <p className="flex flex-wrap items-center gap-x-2 gap-y-2 text-base">
         <BodySetSelect value={set} onChange={(next) => choose(next, sameOrFirst(next, sharing))} />
         <RelationSelect set={set} value={sharing} onChange={(next) => choose(set, next)} />

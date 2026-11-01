@@ -3,7 +3,7 @@ import { NavLink } from "react-router";
 
 const views = [
   { label: "Historical glottometry", path: "/v2" },
-  { label: "Organism guilds", path: "/v2/guilds" },
+  { label: "Biological glottometry", path: "/v2/biological-glottometry" },
 ];
 
 /** Links to each view of the second version, marking the one that is open. */
