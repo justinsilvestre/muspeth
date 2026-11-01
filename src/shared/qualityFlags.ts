@@ -27,6 +27,8 @@ export const qualityFlags = {
   text_match: "The connection was found by matching words in the source's text, not stated by it.",
   uncertain_borrowing: "The source rates the word's borrowing as uncertain.",
   unreferenced_statement: "The source gives no reference for the statement behind the connection.",
+  informal_group_name:
+    "The source names an organism only by an informal group, such as mosses or scale insects, read as the taxon that covers it.",
 } satisfies Record<string, string>;
 
 export type QualityFlag = keyof typeof qualityFlags;
