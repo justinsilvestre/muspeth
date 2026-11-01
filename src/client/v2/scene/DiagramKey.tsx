@@ -1,4 +1,4 @@
-import type { LanguageFamily } from "../glottometry/families";
+import { type LanguageFamily, labelOf } from "../glottometry/families";
 import type { Subgroup } from "../glottometry/scoreSubgroups";
 import type { Appearance } from "./appearance";
 
@@ -41,7 +41,9 @@ export function DiagramKey({ family, appearance, hovered }: DiagramKeyProps) {
         </ul>
         <div className="space-y-2 text-muted">
           <p role="status">
-            {hovered ? describe(hovered) : "Point at a membrane to see its subgroup and scores."}
+            {hovered
+              ? describe(hovered, family)
+              : "Point at a membrane to see its subgroup and scores."}
           </p>
           <p className="text-xs">
             Data:{" "}
@@ -72,8 +74,11 @@ function Swatch({ color }: { color: string }) {
   );
 }
 
-function describe({ members, support, cohesiveness, subgroupiness }: Subgroup) {
-  const names = members.map((member) => member.replace("Ⓛ", "")).join(" ");
+function describe(
+  { members, support, cohesiveness, subgroupiness }: Subgroup,
+  family: LanguageFamily,
+) {
+  const names = members.map((member) => labelOf(family, member)).join(", ");
   const plural = support === 1 ? "innovation" : "innovations";
   return `Subgroup ${names}: ${support} supporting ${plural}, cohesiveness ${cohesiveness.toFixed(2)}, subgroupiness ${subgroupiness.toFixed(1)}.`;
 }

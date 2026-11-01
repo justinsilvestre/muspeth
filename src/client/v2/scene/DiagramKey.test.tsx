@@ -27,7 +27,7 @@ describe("DiagramKey", () => {
     const hovered = { members: ["ⓁA", "ⓁB"], support: 17, cohesiveness: 0.706, subgroupiness: 12 };
     render(<DiagramKey family={defaultFamily} appearance={defaultAppearance} hovered={hovered} />);
     expect(screen.getByRole("status").textContent).toBe(
-      "Subgroup A B: 17 supporting innovations, cohesiveness 0.71, subgroupiness 12.0.",
+      "Subgroup A, B: 17 supporting innovations, cohesiveness 0.71, subgroupiness 12.0.",
     );
   });
 });

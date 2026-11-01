@@ -1,9 +1,10 @@
 import type { ThreeEvent } from "@react-three/fiber";
 import { useMemo } from "react";
 import { Color } from "three";
-import type { LanguageFamily } from "../glottometry/families";
+import { type LanguageFamily, labelOf } from "../glottometry/families";
 import { layoutByLikeness } from "../glottometry/layoutByLikeness";
 import { type LanguageLayout, layoutLanguages } from "../glottometry/layoutLanguages";
+import { placeLabels } from "../glottometry/placeLabels";
 import { type Subgroup, scoreSubgroups } from "../glottometry/scoreSubgroups";
 import type { Appearance } from "./appearance";
 import { GeographicAxes } from "./GeographicAxes";
@@ -12,6 +13,7 @@ import { Membrane } from "./Membrane";
 import { pickInnermostSubgroup } from "./pickInnermostSubgroup";
 
 const diagramExtent = 6.5;
+const labelHeight = 0.4;
 
 type CellBodyProps = {
   family: LanguageFamily;
@@ -42,6 +44,18 @@ export function CellBody({
     [table, coordinates],
   );
   const familyPoints = useMemo(() => positionsOf(table.languages, layout), [table, layout]);
+  const labelOffsets = useMemo(
+    () =>
+      placeLabels(
+        table.languages.map((name) => ({
+          name,
+          text: labelOf(family, name),
+          position: layout.positions.get(name) ?? { x: 0, y: 0 },
+        })),
+        labelHeight,
+      ),
+    [family, table, layout],
+  );
   const scored = useMemo(() => scoreSubgroups(table), [table]);
   // Membrane thicknesses are scaled to the strongest subgroup of the family.
   const strongest = scored[0]?.subgroupiness ?? 1;
@@ -92,8 +106,10 @@ export function CellBody({
       {table.languages.map((name) => (
         <LanguageNucleus
           key={name}
-          name={name}
+          label={labelOf(family, name)}
           position={layout.positions.get(name) ?? { x: 0, y: 0 }}
+          labelOffset={labelOffsets.get(name) ?? { dx: labelHeight, dy: -labelHeight }}
+          labelHeight={labelHeight}
           labelColor={inkColor}
           appearance={appearance}
         />

@@ -1,18 +1,22 @@
 import { useMemo } from "react";
 import type { PlanePoint } from "../glottometry/layoutLanguages";
+import type { LabelOffset } from "../glottometry/placeLabels";
 import type { Appearance } from "./appearance";
 import { TextSprite } from "./TextSprite";
 import { useUndulatingMaterial } from "./undulation";
 
 type LanguageNucleusProps = {
-  name: string;
+  label: string;
   position: PlanePoint;
+  labelOffset: LabelOffset;
+  labelHeight: number;
   labelColor: string;
   appearance: Appearance;
 };
 
 /** Marks one language as a small bright body, with its name floating beside it. */
-export function LanguageNucleus({ name, position, labelColor, appearance }: LanguageNucleusProps) {
+export function LanguageNucleus(props: LanguageNucleusProps) {
+  const { label, position, labelOffset, labelHeight, labelColor, appearance } = props;
   const nucleusColor = appearance.color.nucleus;
   const parameters = useMemo(
     () => ({ color: nucleusColor, emissive: nucleusColor, emissiveIntensity: 0.9, roughness: 0.3 }),
@@ -24,8 +28,8 @@ export function LanguageNucleus({ name, position, labelColor, appearance }: Lang
       <mesh material={material}>
         <sphereGeometry args={[0.11, 24, 24]} />
       </mesh>
-      <group position={[0.25, -0.25, 0.3]}>
-        <TextSprite text={name.replace("Ⓛ", "")} color={labelColor} height={0.45} />
+      <group position={[labelOffset.dx, labelOffset.dy, 0.3]}>
+        <TextSprite text={label} color={labelColor} height={labelHeight} anchor={labelOffset} />
       </group>
     </group>
   );

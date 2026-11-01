@@ -9,13 +9,19 @@ type TextSpriteProps = {
   color: string;
   /** The height of the text in scene units; its width follows from the text. */
   height: number;
+  /**
+   * Which way the text extends from its position: with dx positive it starts there and runs rightward,
+   * with dx negative it ends there. Centered when left out.
+   */
+  anchor?: { dx: number };
 };
 
 /** Shows a short text as a flat sprite facing the camera, drawn over everything else, on a canvas so that no fonts need loading. */
-export function TextSprite({ text, color, height }: TextSpriteProps) {
+export function TextSprite({ text, color, height, anchor }: TextSpriteProps) {
   const { texture, aspect } = useMemo(() => drawTexture(text, color), [text, color]);
+  const centerX = anchor ? (Math.sign(anchor.dx) * (height * aspect)) / 2 : 0;
   return (
-    <sprite scale={[height * aspect, height, 1]} renderOrder={100}>
+    <sprite scale={[height * aspect, height, 1]} position-x={centerX} renderOrder={100}>
       <spriteMaterial map={texture} transparent depthWrite={false} depthTest={false} />
     </sprite>
   );
