@@ -15,15 +15,33 @@
   "bodies": [
     {
       "id": "wikidata:Q15385436",
-      "name": "Banisteriopsis muricata"
+      "name": "Banisteriopsis muricata",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Banisteriopsis_muricata.jpg/240px-Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Banisteriopsis_muricata.jpg",
+        "credit": "João Medeiros",
+        "licence": "CC-BY-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Banisteriopsis_muricata.jpg"
+      }
     },
     {
       "id": "wikidata:Q15385468",
-      "name": "Banisteriopsis schizoptera"
+      "name": "Banisteriopsis schizoptera",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/MALPIGHIACEAE_Banisteriopsis_schizoptera_%28A.Juss.%29_B.Gates%2C_INMA_%28MBML044380%29.pdf/page1-960px-MALPIGHIACEAE_Banisteriopsis_schizoptera_%28A.Juss.%29_B.Gates%2C_INMA_%28MBML044380%29.pdf.jpg",
+        "credit": "Instituto Nacional da Mata Atlântica - INMA",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:MALPIGHIACEAE_Banisteriopsis_schizoptera_(A.Juss.)_B.Gates,_INMA_(MBML044380).pdf"
+      }
     },
     {
       "id": "wikidata:Q15386007",
-      "name": "Banisteriopsis stellaris"
+      "name": "Banisteriopsis stellaris",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/MALPIGHIACEAE_Banisteriopsis_stellaris_%28Griseb.%29_B.Gates%2C_INMA_%28MBML006796%29.pdf/page1-960px-MALPIGHIACEAE_Banisteriopsis_stellaris_%28Griseb.%29_B.Gates%2C_INMA_%28MBML006796%29.pdf.jpg",
+        "credit": "Instituto Nacional da Mata Atlântica - INMA",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:MALPIGHIACEAE_Banisteriopsis_stellaris_(Griseb.)_B.Gates,_INMA_(MBML006796).pdf"
+      }
     },
     {
       "id": "gbif:3985904",
@@ -35,35 +53,74 @@
     },
     {
       "id": "wikidata:Q15371859",
-      "name": "Dicella bracteosa"
+      "name": "Dicella bracteosa",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/MALPIGHIACEAE_dicella_bracteosa_Griseb%2C_INMA_%28MBML035528%29.pdf/page1-960px-MALPIGHIACEAE_dicella_bracteosa_Griseb%2C_INMA_%28MBML035528%29.pdf.jpg",
+        "credit": "Instituto Nacional da Mata Atlântica - INMA",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:MALPIGHIACEAE_dicella_bracteosa_Griseb,_INMA_(MBML035528).pdf"
+      }
     },
     {
       "id": "wikidata:Q15372960",
-      "name": "Diplopterys pubipetala"
+      "name": "Diplopterys pubipetala",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Diplopterys_pubipetala_%28_A._Juss.%29_W._R._Anderson_%5E_C._Davis_-_Flickr_-_Alex_Popovkin%2C_Bahia%2C_Brazil_%282%29.jpg/240px-Diplopterys_pubipetala_%28_A._Juss.%29_W._R._Anderson_%5E_C._Davis_-_Flickr_-_Alex_Popovkin%2C_Bahia%2C_Brazil_%282%29.jpg",
+        "credit": "Alex Popovkin, Bahia, Brazil from Brazil",
+        "licence": "CC-BY-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Diplopterys_pubipetala_(_A._Juss.)_W._R._Anderson_%5E_C._Davis_-_Flickr_-_Alex_Popovkin,_Bahia,_Brazil_(2).jpg"
+      }
     },
     {
       "id": "mangal:929/Heteropterys sp1",
-      "name": "Heteropterys sp1"
+      "name": "Heteropterys sp1",
+      "commonName": "Withe"
     },
     {
       "id": "mangal:929/Heteropterys sp2",
-      "name": "Heteropterys sp2"
+      "name": "Heteropterys sp2",
+      "commonName": "Withe"
     },
     {
       "id": "wikidata:Q15391729",
-      "name": "Janusia anisandra"
+      "name": "Janusia anisandra",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Janusia_anisandra_%28A.Juss.%29_Griseb._%288122192808%29.jpg/240px-Janusia_anisandra_%28A.Juss.%29_Griseb._%288122192808%29.jpg",
+        "credit": "Alex Popovkin, Bahia, Brazil from Brazil",
+        "licence": "CC-BY-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Janusia_anisandra_(A.Juss.)_Griseb._(8122192808).jpg"
+      }
     },
     {
       "id": "wikidata:Q15381792",
-      "name": "Stigmaphyllon auriculatum"
+      "name": "Stigmaphyllon auriculatum",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/MALPIGHIACEAE_stigmaphyllon_auriculatum_A.Juss%2C_INMA_%28MBML023850%29.pdf/page1-960px-MALPIGHIACEAE_stigmaphyllon_auriculatum_A.Juss%2C_INMA_%28MBML023850%29.pdf.jpg",
+        "credit": "Instituto Nacional da Mata Atlântica - INMA",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:MALPIGHIACEAE_stigmaphyllon_auriculatum_A.Juss,_INMA_(MBML023850).pdf"
+      }
     },
     {
       "id": "wikidata:Q15383235",
-      "name": "Stigmaphyllon ciliatum"
+      "name": "Stigmaphyllon ciliatum",
+      "commonName": "Amazonvine",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Stigmaphyllon_ciliatum_-_illustration.jpg/240px-Stigmaphyllon_ciliatum_-_illustration.jpg",
+        "credit": "Louis Aristide Léon Constans",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Stigmaphyllon_ciliatum_-_illustration.jpg"
+      }
     },
     {
       "id": "wikidata:Q15382886",
-      "name": "Stigmaphyllon paralias"
+      "name": "Stigmaphyllon paralias",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Stigmaphyllon_paralias.jpg/240px-Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Stigmaphyllon_paralias.jpg",
+        "credit": "João Medeiros",
+        "licence": "CC-BY-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Stigmaphyllon_paralias.jpg"
+      }
     }
   ],
   "sharings": [

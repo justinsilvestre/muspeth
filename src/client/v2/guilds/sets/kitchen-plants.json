@@ -29,67 +29,179 @@
   "bodies": [
     {
       "id": "wikidata:Q147075",
-      "name": "Borago officinalis"
+      "name": "Borago officinalis",
+      "commonName": "Borage",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/00_2100_Borretsch_%28Borago_officinalis%29.jpg/240px-00_2100_Borretsch_%28Borago_officinalis%29.jpg",
+        "credit": "W. Bulach",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:00_2100_Borretsch_(Borago_officinalis).jpg"
+      }
     },
     {
       "id": "wikidata:Q504781",
-      "name": "Brassica juncea"
+      "name": "Brassica juncea",
+      "commonName": "Brown mustard",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Brassica_juncea_var._juncea.JPG/240px-Brassica_juncea_var._juncea.JPG",
+        "credit": "Dalgial",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Brassica_juncea_var._juncea.JPG"
+      }
     },
     {
       "id": "wikidata:Q101815",
-      "name": "Camellia sinensis"
+      "name": "Camellia sinensis",
+      "commonName": "Tea",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Csinensis.jpg/240px-Csinensis.jpg",
+        "credit": "AxelBoldt at en.wikipedia",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Csinensis.jpg"
+      }
     },
     {
       "id": "wikidata:Q2544599",
-      "name": "Cichorium intybus"
+      "name": "Cichorium intybus",
+      "commonName": "Chicory",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Cichorium_intybus_-_Chicory_01.jpg/240px-Cichorium_intybus_-_Chicory_01.jpg",
+        "credit": "Zeynel Cebeci",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Cichorium_intybus_-_Chicory_01.jpg"
+      }
     },
     {
       "id": "wikidata:Q370239",
-      "name": "Cinnamomum verum"
+      "name": "Cinnamomum verum",
+      "commonName": "Cinnamon",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Cinnamomum_verum1.jpg",
+        "credit": null,
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Cinnamomum_verum1.jpg"
+      }
     },
     {
       "id": "wikidata:Q41611",
-      "name": "Coriandrum sativum"
+      "name": "Coriandrum sativum",
+      "commonName": "Coriander",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/A_scene_of_Coriander_leaves.JPG/240px-A_scene_of_Coriander_leaves.JPG",
+        "credit": "Thamizhpparithi Maari",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:A_scene_of_Coriander_leaves.JPG"
+      }
     },
     {
       "id": "wikidata:Q7229863",
-      "name": "Cucurbita pepo"
+      "name": "Cucurbita pepo",
+      "commonName": "Marrow",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Cucurbita_pepo_collage_1.png/240px-Cucurbita_pepo_collage_1.png",
+        "credit": "Various",
+        "licence": "CC-BY-SA-1.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Cucurbita_pepo_collage_1.png"
+      }
     },
     {
       "id": "wikidata:Q30056",
-      "name": "Daucus carota"
+      "name": "Daucus carota",
+      "commonName": "Queen Anne's Lace",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Daucus_carota.jpg/240px-Daucus_carota.jpg",
+        "credit": "User:Tigerente",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Daucus_carota.jpg"
+      }
     },
     {
       "id": "wikidata:Q132734",
-      "name": "Fagopyrum esculentum"
+      "name": "Fagopyrum esculentum",
+      "commonName": "Buckwheat",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Fagopyrum_esculentum_1DS-II_3-0312.jpg/240px-Fagopyrum_esculentum_1DS-II_3-0312.jpg",
+        "credit": "SAplants",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Fagopyrum_esculentum_1DS-II_3-0312.jpg"
+      }
     },
     {
       "id": "wikidata:Q43511",
-      "name": "Foeniculum vulgare"
+      "name": "Foeniculum vulgare",
+      "commonName": "Fennel",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Fennel_%28Foeniculum_vulgare%29_-_Parc_Natural_de_s%27Albufera%2C_Spain_2022-04-18_%2802%29.jpg/240px-Fennel_%28Foeniculum_vulgare%29_-_Parc_Natural_de_s%27Albufera%2C_Spain_2022-04-18_%2802%29.jpg",
+        "credit": "Ryan Hodnett",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Fennel_(Foeniculum_vulgare)_-_Parc_Natural_de_s%27Albufera,_Spain_2022-04-18_(02).jpg"
+      }
     },
     {
       "id": "wikidata:Q171497",
-      "name": "Helianthus annuus"
+      "name": "Helianthus annuus",
+      "commonName": "Sunflower",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Helianthus_annuus_exposed_2004-05-22.jpg",
+        "credit": "Jon Sullivan",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Helianthus_annuus_exposed_2004-05-22.jpg"
+      }
     },
     {
       "id": "wikidata:Q18674606",
-      "name": "Malus domestica"
+      "name": "Malus domestica",
+      "commonName": "Apple",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Tree_with_red_apples_in_Barkedal_4.jpg/240px-Tree_with_red_apples_in_Barkedal_4.jpg",
+        "credit": "W.carter",
+        "licence": "CC0-1.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Tree_with_red_apples_in_Barkedal_4.jpg"
+      }
     },
     {
       "id": "wikidata:Q156106",
-      "name": "Medicago sativa"
+      "name": "Medicago sativa",
+      "commonName": "Alfalfa",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/75_Medicago_sativa_L.jpg",
+        "credit": "Amédée Masclef",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:75_Medicago_sativa_L.jpg"
+      }
     },
     {
       "id": "wikidata:Q12252383",
-      "name": "Rubus idaeus"
+      "name": "Rubus idaeus",
+      "commonName": "Raspberry",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/%28MHNT%29_Rubus_idaeus_-_Feuillage.jpg/240px-%28MHNT%29_Rubus_idaeus_-_Feuillage.jpg",
+        "credit": "Didier Descouens",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:(MHNT)_Rubus_idaeus_-_Feuillage.jpg"
+      }
     },
     {
       "id": "wikidata:Q131219",
-      "name": "Taraxacum officinale"
+      "name": "Taraxacum officinale",
+      "commonName": "Dandelion",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Maskros_2.jpg",
+        "credit": null,
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Maskros_2.jpg"
+      }
     },
     {
       "id": "wikidata:Q161098",
-      "name": "Triticum aestivum"
+      "name": "Triticum aestivum",
+      "commonName": "Bread Wheat",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/202304_8_Tr.aestivum_color.svg/240px-202304_8_Tr.aestivum_color.svg.png",
+        "credit": "DataBase Center for Life Science (DBCLS)",
+        "licence": "CC-BY-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:202304_8_Tr.aestivum_color.svg"
+      }
     }
   ],
   "sharings": [

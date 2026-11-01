@@ -12,7 +12,13 @@ import { organismSets, placeSetId, siteLabels, siteNames, surveys } from "./guil
 
 const outputDirectory = path.resolve(import.meta.dirname, "../src/client/v2/guilds/sets");
 
-type Body = { id: string; name: string; label?: string };
+type Body = {
+  id: string;
+  name: string;
+  label?: string;
+  commonName?: string;
+  image?: { url: string; credit: string | null; licence: string | null; pageUrl: string | null };
+};
 type Link = { body: string; partner: string; weight?: number; flags: string[] };
 type Sharing = { relation: string; licences: string[]; links: Link[] };
 
@@ -204,7 +210,11 @@ function writeSet(set: {
   bodies: Body[];
   sharings: Sharing[];
 }) {
-  writeFileSync(path.join(outputDirectory, `${set.id}.json`), `${JSON.stringify(set, null, 2)}\n`);
+  const enriched = { ...set, bodies: set.bodies.map(describeBody) };
+  writeFileSync(
+    path.join(outputDirectory, `${set.id}.json`),
+    `${JSON.stringify(enriched, null, 2)}\n`,
+  );
   const summary = set.sharings
     .map(
       ({ relation, links }) =>
@@ -224,6 +234,32 @@ function countMembranes(links: Link[], bodyCount: number) {
       .filter((set) => set.size >= 2 && set.size < bodyCount)
       .map((set) => [...set].sort().join()),
   ).size;
+}
+
+/** Adds a body's shortest English name and its image, where the database has them. */
+function describeBody(body: Body): Body {
+  const [node] = queryDatabase<{
+    media_url: string | null;
+    media_credit: string | null;
+    media_licence: string | null;
+    media_page_url: string | null;
+  }>(
+    `SELECT media_url, media_credit, media_licence, media_page_url FROM nodes WHERE id = '${body.id.replace(/'/g, "''")}'`,
+  );
+  const names = queryDatabase<{ name: string }>(
+    `SELECT name FROM node_names WHERE node_id = '${body.id.replace(/'/g, "''")}' AND language = 'en' ORDER BY length(name), name`,
+  );
+  const described: Body = { ...body };
+  if (names[0]) described.commonName = names[0].name;
+  if (node?.media_url)
+    described.image = {
+      // The database links a 960-pixel thumbnail; a tooltip needs a far smaller one.
+      url: node.media_url.replace(/\/960px-/, "/240px-"),
+      credit: node.media_credit,
+      licence: node.media_licence,
+      pageUrl: node.media_page_url,
+    };
+  return described;
 }
 
 function uniqueBodies(bodies: Body[]) {

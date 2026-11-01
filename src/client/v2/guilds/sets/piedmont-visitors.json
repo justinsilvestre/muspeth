@@ -15,23 +15,58 @@
   "bodies": [
     {
       "id": "wikidata:Q2268519",
-      "name": "Andrena arabis"
+      "name": "Andrena arabis",
+      "commonName": "Mustard Miner",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Andrena_arabis%2C_M%2C_Face%2C_NY%2C_Orange_Co_2013-06-07-17.49.58_ZS_PMax.jpg/240px-Andrena_arabis%2C_M%2C_Face%2C_NY%2C_Orange_Co_2013-06-07-17.49.58_ZS_PMax.jpg",
+        "credit": "Sam Droege",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Andrena_arabis,_M,_Face,_NY,_Orange_Co_2013-06-07-17.49.58_ZS_PMax.jpg"
+      }
     },
     {
       "id": "wikidata:Q2142269",
-      "name": "Andrena carlini"
+      "name": "Andrena carlini",
+      "commonName": "Carlinville Miner",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Andrena_carlini.jpg/240px-Andrena_carlini.jpg",
+        "credit": "Sam Droege",
+        "licence": "CC-BY-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Andrena_carlini.jpg"
+      }
     },
     {
       "id": "wikidata:Q2582171",
-      "name": "Andrena ceanothi"
+      "name": "Andrena ceanothi",
+      "commonName": "Ceanothus Miner",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Andrena_ceanothi_f.jpg/240px-Andrena_ceanothi_f.jpg",
+        "credit": "USGS Native Bee Inventory and Monitoring Laboratory",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Andrena_ceanothi_f.jpg"
+      }
     },
     {
       "id": "wikidata:Q2176883",
-      "name": "Andrena dunningi"
+      "name": "Andrena dunningi",
+      "commonName": "Dunning's Miner",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Andrena_dunningi%2C_F%2C_face%2C_MD%2C_Harford_County_2013-04-29-17.07_%2841040658574%29.jpg/240px-Andrena_dunningi%2C_F%2C_face%2C_MD%2C_Harford_County_2013-04-29-17.07_%2841040658574%29.jpg",
+        "credit": "USGS Bee Inventory and Monitoring Lab from Beltsville, Maryland, USA",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Andrena_dunningi,_F,_face,_MD,_Harford_County_2013-04-29-17.07_(41040658574).jpg"
+      }
     },
     {
       "id": "wikidata:Q2164934",
-      "name": "Andrena erigeniae"
+      "name": "Andrena erigeniae",
+      "commonName": "Spring Beauty Miner",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Day_94_-_Spring_Beauty_Bee_-_Andrena_erigeniae%2C_Riverbend_Park%2C_Great_Falls%2C_Virginia.jpg/240px-Day_94_-_Spring_Beauty_Bee_-_Andrena_erigeniae%2C_Riverbend_Park%2C_Great_Falls%2C_Virginia.jpg",
+        "credit": "Judy Gallagher",
+        "licence": "CC-BY-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Day_94_-_Spring_Beauty_Bee_-_Andrena_erigeniae,_Riverbend_Park,_Great_Falls,_Virginia.jpg"
+      }
     },
     {
       "id": "mangal:Andrena imatrix",
@@ -39,35 +74,85 @@
     },
     {
       "id": "wikidata:Q2205365",
-      "name": "Andrena nasonii"
+      "name": "Andrena nasonii",
+      "commonName": "Bumped Miner Bee",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Andrena_nasonii%2C_F%2C_side%2C_New_York%2C_Kings_County_2013-02-07-14.17.02_ZS_PMax_%288488019346%29.jpg/240px-Andrena_nasonii%2C_F%2C_side%2C_New_York%2C_Kings_County_2013-02-07-14.17.02_ZS_PMax_%288488019346%29.jpg",
+        "credit": "USGS Native Bee Inventory and Monitoring Laboratory from Beltsville, USA",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Andrena_nasonii,_F,_side,_New_York,_Kings_County_2013-02-07-14.17.02_ZS_PMax_(8488019346).jpg"
+      }
     },
     {
       "id": "wikidata:Q10733699",
-      "name": "Andrena nigrihirta"
+      "name": "Andrena nigrihirta",
+      "commonName": "Black-haired Miner",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Andrena_nigrihirta.jpg/240px-Andrena_nigrihirta.jpg",
+        "credit": "USGS Native Bee Inventory and Monitoring Laboratory",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Andrena_nigrihirta.jpg"
+      }
     },
     {
       "id": "wikidata:Q2365893",
-      "name": "Andrena personata"
+      "name": "Andrena personata",
+      "commonName": "Echo Mini-Miner",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Andrena_personata%2C_f%2C_md%2C_eastern_neck_nwr%2C_side_2015-05-26-05.52.54_ZS_PMax_%2818042715968%29.jpg/240px-Andrena_personata%2C_f%2C_md%2C_eastern_neck_nwr%2C_side_2015-05-26-05.52.54_ZS_PMax_%2818042715968%29.jpg",
+        "credit": "USGS Bee Inventory and Monitoring Lab from Beltsville, Maryland, USA",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Andrena_personata,_f,_md,_eastern_neck_nwr,_side_2015-05-26-05.52.54_ZS_PMax_(18042715968).jpg"
+      }
     },
     {
       "id": "wikidata:Q2718369",
-      "name": "Andrena tridens"
+      "name": "Andrena tridens",
+      "commonName": "Tridentate Miner"
     },
     {
       "id": "wikidata:Q2243956",
-      "name": "Andrena violae"
+      "name": "Andrena violae",
+      "commonName": "Violet Miner",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Violet_Miner_imported_from_iNaturalist_photo_360154750_on_21_May_2024.jpg/240px-Violet_Miner_imported_from_iNaturalist_photo_360154750_on_21_May_2024.jpg",
+        "credit": "(c) James Kindt, some rights reserved (CC BY)",
+        "licence": "CC-BY-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Violet_Miner_imported_from_iNaturalist_photo_360154750_on_21_May_2024.jpg"
+      }
     },
     {
       "id": "wikidata:Q10733725",
-      "name": "Andrena ziziaeformis"
+      "name": "Andrena ziziaeformis",
+      "commonName": "Ephemeral Miner",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Andrena_ziziaformis%2C_M%2C_Side%2C_VA%2C_Giles_County_2014-01-31-17.09.55_ZS_PMax.jpg/240px-Andrena_ziziaformis%2C_M%2C_Side%2C_VA%2C_Giles_County_2014-01-31-17.09.55_ZS_PMax.jpg",
+        "credit": "USGS Bee Inventory and Monitoring Lab",
+        "licence": "CC-BY-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Andrena_ziziaformis,_M,_Side,_VA,_Giles_County_2014-01-31-17.09.55_ZS_PMax.jpg"
+      }
     },
     {
       "id": "wikidata:Q30034",
-      "name": "Apis mellifera"
+      "name": "Apis mellifera",
+      "commonName": "Honey Bee",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/%28MHNT%29_Apis_mellifera_%28female%29_-_on_viburnum_tinus_flowers.jpg/240px-%28MHNT%29_Apis_mellifera_%28female%29_-_on_viburnum_tinus_flowers.jpg",
+        "credit": "Didier Descouens",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:(MHNT)_Apis_mellifera_(female)_-_on_viburnum_tinus_flowers.jpg"
+      }
     },
     {
       "id": "wikidata:Q5517118",
-      "name": "Augochlora pura"
+      "name": "Augochlora pura",
+      "commonName": "Pure Green Sweat bee",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Augochlora_pura_f.jpg/240px-Augochlora_pura_f.jpg",
+        "credit": "The Packer Lab",
+        "licence": "Attribution",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Augochlora_pura_f.jpg"
+      }
     },
     {
       "id": "mangal:Augochorella striata",
@@ -75,19 +160,47 @@
     },
     {
       "id": "wikidata:Q2389840",
-      "name": "Bombus bimaculatus"
+      "name": "Bombus bimaculatus",
+      "commonName": "Two-spotted Bumblebee",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Bombus_bimaculatus1.jpg/240px-Bombus_bimaculatus1.jpg",
+        "credit": "The Packer Lab",
+        "licence": "Attribution",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Bombus_bimaculatus1.jpg"
+      }
     },
     {
       "id": "wikidata:Q726901",
-      "name": "Bombus pensylvanicus"
+      "name": "Bombus pensylvanicus",
+      "commonName": "Bumble Bee",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Bombus_pensylvanicus_male_on_rough_blazingstar_Ellison_Creek-7907.jpg/240px-Bombus_pensylvanicus_male_on_rough_blazingstar_Ellison_Creek-7907.jpg",
+        "credit": "Angella Moorehouse",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Bombus_pensylvanicus_male_on_rough_blazingstar_Ellison_Creek-7907.jpg"
+      }
     },
     {
       "id": "wikidata:Q1549111",
-      "name": "Bombylius major"
+      "name": "Bombylius major",
+      "commonName": "Bee Fly",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Grosser_Wollschweber_Bombylius_major.jpg/240px-Grosser_Wollschweber_Bombylius_major.jpg",
+        "credit": "Richard Bartz , Munich aka Makro Freak",
+        "licence": "CC-BY-SA-2.5",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Grosser_Wollschweber_Bombylius_major.jpg"
+      }
     },
     {
       "id": "wikidata:Q2520020",
-      "name": "Ceratina calcarata"
+      "name": "Ceratina calcarata",
+      "commonName": "Spurred Ceratina",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Ceratina_calcarata_f.jpg/240px-Ceratina_calcarata_f.jpg",
+        "credit": "The Packer Lab",
+        "licence": "Attribution",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Ceratina_calcarata_f.jpg"
+      }
     },
     {
       "id": "wikidata:Q49414428",
@@ -127,7 +240,8 @@
     },
     {
       "id": "mangal:Lycaenopsis argiolus",
-      "name": "Lycaenopsis argiolus"
+      "name": "Lycaenopsis argiolus",
+      "commonName": "Holly Blue"
     },
     {
       "id": "mangal:Nomada bishopii",
@@ -135,19 +249,34 @@
     },
     {
       "id": "wikidata:Q2732450",
-      "name": "Nomada luteola"
+      "name": "Nomada luteola",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Nomada_luteola%2C_F%2C_face%2C_Maryland%2C_Somerset_County_2013-02-06-14.36.54_ZS_PMax_%288471065269%29.jpg/240px-Nomada_luteola%2C_F%2C_face%2C_Maryland%2C_Somerset_County_2013-02-06-14.36.54_ZS_PMax_%288471065269%29.jpg",
+        "credit": "USGS Native Bee Inventory and Monitoring Laboratory from Beltsville, USA",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Nomada_luteola,_F,_face,_Maryland,_Somerset_County_2013-02-06-14.36.54_ZS_PMax_(8471065269).jpg"
+      }
     },
     {
       "id": "wikidata:Q2025959",
-      "name": "Nomada perplexa"
+      "name": "Nomada perplexa",
+      "commonName": "Perplexing Nomad"
     },
     {
       "id": "wikidata:Q632214",
-      "name": "Nomada pygmaea"
+      "name": "Nomada pygmaea",
+      "commonName": "Pygmy Nomad"
     },
     {
       "id": "wikidata:Q2029875",
-      "name": "Nomada sayi"
+      "name": "Nomada sayi",
+      "commonName": "Say's Nomad",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Nomada_sayi_Female.jpg/240px-Nomada_sayi_Female.jpg",
+        "credit": "The Packer Lab",
+        "licence": "Attribution",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Nomada_sayi_Female.jpg"
+      }
     },
     {
       "id": "mangal:945/Nomada sp.",
@@ -155,7 +284,14 @@
     },
     {
       "id": "wikidata:Q2463422",
-      "name": "Osmia atriventris"
+      "name": "Osmia atriventris",
+      "commonName": "Black-bellied Mason",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Osmia_atriventris%2C_F%2C_Back%2C_MD%2C_Washington_County_2013-08-09-17.28.28_ZS_PMax_%2810329236695%29.jpg/240px-Osmia_atriventris%2C_F%2C_Back%2C_MD%2C_Washington_County_2013-08-09-17.28.28_ZS_PMax_%2810329236695%29.jpg",
+        "credit": "USGS Bee Inventory and Monitoring Lab from Beltsville, USA",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Osmia_atriventris,_F,_Back,_MD,_Washington_County_2013-08-09-17.28.28_ZS_PMax_(10329236695).jpg"
+      }
     },
     {
       "id": "mangal:Osmia conjucta",
@@ -163,11 +299,25 @@
     },
     {
       "id": "wikidata:Q2243042",
-      "name": "Osmia lignaria"
+      "name": "Osmia lignaria",
+      "commonName": "Blue Orchard Bee",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Blue_orchard_bee.jpg",
+        "credit": null,
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Blue_orchard_bee.jpg"
+      }
     },
     {
       "id": "wikidata:Q2650514",
-      "name": "Osmia simillima"
+      "name": "Osmia simillima",
+      "commonName": "Cup-legged Mason",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Osmia_simillima.jpg/240px-Osmia_simillima.jpg",
+        "credit": "USGS Native Bee Inventory and Monitoring Laboratory",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Osmia_simillima.jpg"
+      }
     },
     {
       "id": "mangal:945/Osmia sp.",
@@ -175,7 +325,8 @@
     },
     {
       "id": "wikidata:Q14327824",
-      "name": "Platycheirus obscurus"
+      "name": "Platycheirus obscurus",
+      "commonName": "Eastern Forest Sedgesitter"
     },
     {
       "id": "mangal:Toxomerous geminatus",
@@ -187,7 +338,14 @@
     },
     {
       "id": "wikidata:Q2149448",
-      "name": "Xylocopa virginica"
+      "name": "Xylocopa virginica",
+      "commonName": "Carpenter Bee",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Carpenter_bee.jpg/240px-Carpenter_bee.jpg",
+        "credit": "Daniel Schwen",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Carpenter_bee.jpg"
+      }
     }
   ],
   "sharings": [

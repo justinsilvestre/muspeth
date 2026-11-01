@@ -15,15 +15,36 @@
   "bodies": [
     {
       "id": "wikidata:Q30034",
-      "name": "Apis mellifera"
+      "name": "Apis mellifera",
+      "commonName": "Honey Bee",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/%28MHNT%29_Apis_mellifera_%28female%29_-_on_viburnum_tinus_flowers.jpg/240px-%28MHNT%29_Apis_mellifera_%28female%29_-_on_viburnum_tinus_flowers.jpg",
+        "credit": "Didier Descouens",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:(MHNT)_Apis_mellifera_(female)_-_on_viburnum_tinus_flowers.jpg"
+      }
     },
     {
       "id": "wikidata:Q146320",
-      "name": "Borbo borbonica"
+      "name": "Borbo borbonica",
+      "commonName": "Zeller's Skipper",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Borbo_borbonica_%2810.3897-BDJ.8.e50543%29_Figure_28.jpg/240px-Borbo_borbonica_%2810.3897-BDJ.8.e50543%29_Figure_28.jpg",
+        "credit": "Delabye S, Maicher V, Sáfián S, Potocký P, Mertens JE.J, Przybyłowicz Ł, Murkwe M, Kobe IN, Fokam EB, Janeček Š, Tropek R (2020) First records of 31 species of butterflies and moths (Lepidoptera) in Cameroon, with remarks on their elevational ranges. Biodiversity Data Journal 8: e50543. https://doi.",
+        "licence": "CC-BY-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Borbo_borbonica_(10.3897-BDJ.8.e50543)_Figure_28.jpg"
+      }
     },
     {
       "id": "wikidata:Q1303045",
-      "name": "Leptotes pirithous"
+      "name": "Leptotes pirithous",
+      "commonName": "Common Zebra Blue",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Butterfly_%282%29.jpg/240px-Butterfly_%282%29.jpg",
+        "credit": "claudiogennari",
+        "licence": "CC-BY-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Butterfly_(2).jpg"
+      }
     },
     {
       "id": "mangal:934/Lucilia sp.",
@@ -35,23 +56,51 @@
     },
     {
       "id": "wikidata:Q166111",
-      "name": "Musca domestica"
+      "name": "Musca domestica",
+      "commonName": "House Fly",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Musca_domestica_housefly.jpg/240px-Musca_domestica_housefly.jpg",
+        "credit": "Muhammad Mahdi Karim",
+        "licence": "GFDL 1.2",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Musca_domestica_housefly.jpg"
+      }
     },
     {
       "id": "wikidata:Q10803095",
-      "name": "Ornidia obesa"
+      "name": "Ornidia obesa",
+      "commonName": "Syrphid fly",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Hoverfly._Ornidia_obesa_-_Flickr_-_gailhampshire_%281%29.jpg/240px-Hoverfly._Ornidia_obesa_-_Flickr_-_gailhampshire_%281%29.jpg",
+        "credit": "gailhampshire from Cradley, Malvern, U.K",
+        "licence": "CC-BY-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Hoverfly._Ornidia_obesa_-_Flickr_-_gailhampshire_(1).jpg"
+      }
     },
     {
       "id": "mangal:Phalantha phalantha",
-      "name": "Phalantha phalantha"
+      "name": "Phalantha phalantha",
+      "commonName": "Common Leopard"
     },
     {
       "id": "wikidata:Q3090700",
-      "name": "Phelsuma ornata"
+      "name": "Phelsuma ornata",
+      "commonName": "Vinson's Gecko",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Mauritius_ornate_day_gecko_%28Phelsuma_ornata%29_2.jpg/240px-Mauritius_ornate_day_gecko_%28Phelsuma_ornata%29_2.jpg",
+        "credit": "Charles J. Sharp",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Mauritius_ornate_day_gecko_(Phelsuma_ornata)_2.jpg"
+      }
     },
     {
       "id": "wikidata:Q2929541",
-      "name": "Protaetia aurichalcea"
+      "name": "Protaetia aurichalcea",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Protaetia_aurichalcea.JPG/240px-Protaetia_aurichalcea.JPG",
+        "credit": "Brd",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Protaetia_aurichalcea.JPG"
+      }
     },
     {
       "id": "mangal:934/Stratiomydae sp.",
@@ -63,7 +112,8 @@
     },
     {
       "id": "wikidata:Q2676870",
-      "name": "Xylocopa fenestrata"
+      "name": "Xylocopa fenestrata",
+      "commonName": "Windowed Carpenter"
     }
   ],
   "sharings": [

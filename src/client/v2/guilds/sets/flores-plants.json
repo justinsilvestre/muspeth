@@ -15,39 +15,101 @@
   "bodies": [
     {
       "id": "wikidata:Q794040",
-      "name": "Azorina vidalii"
+      "name": "Azorina vidalii",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Azorina_vidalii0.jpg",
+        "credit": null,
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Azorina_vidalii0.jpg"
+      }
     },
     {
       "id": "wikidata:Q165191",
-      "name": "Beta vulgaris"
+      "name": "Beta vulgaris",
+      "commonName": "Beet",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Beta_vulgaris_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-167.jpg",
+        "credit": "Walther Otto Müller",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Beta_vulgaris_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-167.jpg"
+      }
     },
     {
       "id": "wikidata:Q19796619",
-      "name": "Chamomilla suaveolens"
+      "name": "Chamomilla suaveolens",
+      "commonName": "Disc Mayweed",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Pineapple_Mayweed_%28Chamomilla_suaveolens%29_-_geograph.org.uk_-_497544.jpg",
+        "credit": "Anne Burgess",
+        "licence": "CC-BY-SA-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Pineapple_Mayweed_(Chamomilla_suaveolens)_-_geograph.org.uk_-_497544.jpg"
+      }
     },
     {
       "id": "wikidata:Q1136311",
-      "name": "Crithmum maritimum"
+      "name": "Crithmum maritimum",
+      "commonName": "samphire",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Crithmum_maritimum.jpg/240px-Crithmum_maritimum.jpg",
+        "credit": "Júlio Reis ( Tintazul )",
+        "licence": "CC-BY-SA-2.5",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Crithmum_maritimum.jpg"
+      }
     },
     {
       "id": "wikidata:Q30056",
-      "name": "Daucus carota"
+      "name": "Daucus carota",
+      "commonName": "Queen Anne's Lace",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Daucus_carota.jpg/240px-Daucus_carota.jpg",
+        "credit": "User:Tigerente",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Daucus_carota.jpg"
+      }
     },
     {
       "id": "wikidata:Q15235186",
-      "name": "Freesia refracta"
+      "name": "Freesia refracta",
+      "commonName": "Garden Freesia",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/FreesiaRefracta1.JPG/240px-FreesiaRefracta1.JPG",
+        "credit": "Senet",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:FreesiaRefracta1.JPG"
+      }
     },
     {
       "id": "wikidata:Q29907",
-      "name": "Lotus corniculatus"
+      "name": "Lotus corniculatus",
+      "commonName": "Bird's-foot Trefoil",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/%28MHNT%29_Lotus_corniculatus_-_Plant_habit.jpg/240px-%28MHNT%29_Lotus_corniculatus_-_Plant_habit.jpg",
+        "credit": "Didier Descouens",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:(MHNT)_Lotus_corniculatus_-_Plant_habit.jpg"
+      }
     },
     {
       "id": "wikidata:Q157927",
-      "name": "Reseda luteola"
+      "name": "Reseda luteola",
+      "commonName": "Weld",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Reseda_luteola_sl3.jpg/240px-Reseda_luteola_sl3.jpg",
+        "credit": "Stefan.lefnaer",
+        "licence": "CC BY-SA 3.0 at",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Reseda_luteola_sl3.jpg"
+      }
     },
     {
       "id": "wikidata:Q511103",
-      "name": "Silene vulgaris"
+      "name": "Silene vulgaris",
+      "commonName": "Maidenstears",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/SileneVulgaris-bloem.jpg/240px-SileneVulgaris-bloem.jpg",
+        "credit": null,
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:SileneVulgaris-bloem.jpg"
+      }
     },
     {
       "id": "mangal:Solidago sempervivens",

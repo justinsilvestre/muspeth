@@ -15,27 +15,63 @@
   "bodies": [
     {
       "id": "wikidata:Q150691",
-      "name": "Aesculus sylvatica"
+      "name": "Aesculus sylvatica",
+      "commonName": "painted buckeye",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Painted_buckeye_Aesculus_sylvatica_flowers_leaves.jpg/240px-Painted_buckeye_Aesculus_sylvatica_flowers_leaves.jpg",
+        "credit": "Dcrjsr",
+        "licence": "CC-BY-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Painted_buckeye_Aesculus_sylvatica_flowers_leaves.jpg"
+      }
     },
     {
       "id": "mangal:Cardamine angustata angustata",
-      "name": "Cardamine angustata angustata"
+      "name": "Cardamine angustata angustata",
+      "commonName": "slender toothwort"
     },
     {
       "id": "wikidata:Q671939",
-      "name": "Claytonia virginica"
+      "name": "Claytonia virginica",
+      "commonName": "Purslane",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Claytonia_virginica_2_Radnor_Lake.jpg/240px-Claytonia_virginica_2_Radnor_Lake.jpg",
+        "credit": "Kaldari",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Claytonia_virginica_2_Radnor_Lake.jpg"
+      }
     },
     {
       "id": "wikidata:Q1288713",
-      "name": "Erythronium umbilicatum"
+      "name": "Erythronium umbilicatum",
+      "commonName": "dimpled troutlily",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Trout_lily_pair_square.jpg/240px-Trout_lily_pair_square.jpg",
+        "credit": "Dcrjsr",
+        "licence": "CC-BY-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Trout_lily_pair_square.jpg"
+      }
     },
     {
       "id": "wikidata:Q50346843",
-      "name": "Hepatica americana"
+      "name": "Hepatica americana",
+      "commonName": "American hepatica",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Anemone_americana_5445458.jpg/240px-Anemone_americana_5445458.jpg",
+        "credit": "Rob Routledge, Sault College, Bugwood.org",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Anemone_americana_5445458.jpg"
+      }
     },
     {
       "id": "wikidata:Q1572090",
-      "name": "Podophyllum peltatum"
+      "name": "Podophyllum peltatum",
+      "commonName": "Mayapple",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Podophyllum_peltatum.jpg/240px-Podophyllum_peltatum.jpg",
+        "credit": "Jennifer Anderson, USDA",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Podophyllum_peltatum.jpg"
+      }
     },
     {
       "id": "mangal:Sangiunaria canadensis",
@@ -43,15 +79,30 @@
     },
     {
       "id": "wikidata:Q7607225",
-      "name": "Stellaria pubera"
+      "name": "Stellaria pubera",
+      "commonName": "star chickweed",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Stellaria_pubera_WV.jpg/240px-Stellaria_pubera_WV.jpg",
+        "credit": "Mason Brock ( Masebrock )",
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Stellaria_pubera_WV.jpg"
+      }
     },
     {
       "id": "wikidata:Q18121632",
-      "name": "Thalictrum thalictroides"
+      "name": "Thalictrum thalictroides",
+      "commonName": "windflower",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Rue_Anemone_Thalictrum_thalictroides_Flower_2479px.jpg/240px-Rue_Anemone_Thalictrum_thalictroides_Flower_2479px.jpg",
+        "credit": "Photo by and (c)2007 Derek Ramsey ( Ram-Man )",
+        "licence": "GFDL 1.2",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Rue_Anemone_Thalictrum_thalictroides_Flower_2479px.jpg"
+      }
     },
     {
       "id": "mangal:Tiarella cordifolia collina",
-      "name": "Tiarella cordifolia collina"
+      "name": "Tiarella cordifolia collina",
+      "commonName": "Foamflower"
     },
     {
       "id": "mangal:Trillium catesbei",
@@ -59,11 +110,25 @@
     },
     {
       "id": "wikidata:Q4468869",
-      "name": "Uvularia sessilifolia"
+      "name": "Uvularia sessilifolia",
+      "commonName": "Straw-lily",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Uvularia_sessilifolia_-_Meehan.jpg",
+        "credit": null,
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Uvularia_sessilifolia_-_Meehan.jpg"
+      }
     },
     {
       "id": "wikidata:Q42313556",
-      "name": "Viola papilionacea"
+      "name": "Viola papilionacea",
+      "commonName": "Downy Blue Violet",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Viola_%283500057741%29.jpg/240px-Viola_%283500057741%29.jpg",
+        "credit": "Audrey from Central Pennsylvania, USA",
+        "licence": "CC-BY-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Viola_(3500057741).jpg"
+      }
     }
   ],
   "sharings": [

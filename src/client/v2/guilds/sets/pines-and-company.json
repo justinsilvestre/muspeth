@@ -29,67 +29,179 @@
   "bodies": [
     {
       "id": "wikidata:Q25408",
-      "name": "Achillea millefolium"
+      "name": "Achillea millefolium",
+      "commonName": "Yarrow",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Achillea_millefolium_-_Museo_Tazzetti_Herbarium_159-2024.tif/lossy-page1-960px-Achillea_millefolium_-_Museo_Tazzetti_Herbarium_159-2024.tif.jpg",
+        "credit": "Epgrande",
+        "licence": "CC-BY-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Achillea_millefolium_-_Museo_Tazzetti_Herbarium_159-2024.tif"
+      }
     },
     {
       "id": "wikidata:Q30034",
-      "name": "Apis mellifera"
+      "name": "Apis mellifera",
+      "commonName": "Honey Bee",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/%28MHNT%29_Apis_mellifera_%28female%29_-_on_viburnum_tinus_flowers.jpg/240px-%28MHNT%29_Apis_mellifera_%28female%29_-_on_viburnum_tinus_flowers.jpg",
+        "credit": "Didier Descouens",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:(MHNT)_Apis_mellifera_(female)_-_on_viburnum_tinus_flowers.jpg"
+      }
     },
     {
       "id": "wikidata:Q61105",
-      "name": "Cedrus libani"
+      "name": "Cedrus libani",
+      "commonName": "Cedar of Lebanon",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/C%C3%A8dre_du_Liban_Barouk_2005.jpg/240px-C%C3%A8dre_du_Liban_Barouk_2005.jpg",
+        "credit": "Olivier BEZES",
+        "licence": "CC-BY-2.5",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:C%C3%A8dre_du_Liban_Barouk_2005.jpg"
+      }
     },
     {
       "id": "wikidata:Q370239",
-      "name": "Cinnamomum verum"
+      "name": "Cinnamomum verum",
+      "commonName": "Cinnamon",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Cinnamomum_verum1.jpg",
+        "credit": null,
+        "licence": "Public domain",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Cinnamomum_verum1.jpg"
+      }
     },
     {
       "id": "wikidata:Q1414643",
-      "name": "Cistus monspeliensis"
+      "name": "Cistus monspeliensis",
+      "commonName": "Montpelier Cistus",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Cistus_May_2014-7.jpg/240px-Cistus_May_2014-7.jpg",
+        "credit": "Alvesgaspar",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Cistus_May_2014-7.jpg"
+      }
     },
     {
       "id": "wikidata:Q1136311",
-      "name": "Crithmum maritimum"
+      "name": "Crithmum maritimum",
+      "commonName": "samphire",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Crithmum_maritimum.jpg/240px-Crithmum_maritimum.jpg",
+        "credit": "Júlio Reis ( Tintazul )",
+        "licence": "CC-BY-SA-2.5",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Crithmum_maritimum.jpg"
+      }
     },
     {
       "id": "wikidata:Q147388",
-      "name": "Cryptomeria japonica"
+      "name": "Cryptomeria japonica",
+      "commonName": "Japanese Cedar",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Jhomonsugi_in_Yaku_Island_Japan_001.JPG",
+        "credit": "Yosemite",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Jhomonsugi_in_Yaku_Island_Japan_001.JPG"
+      }
     },
     {
       "id": "wikidata:Q30056",
-      "name": "Daucus carota"
+      "name": "Daucus carota",
+      "commonName": "Queen Anne's Lace",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Daucus_carota.jpg/240px-Daucus_carota.jpg",
+        "credit": "User:Tigerente",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Daucus_carota.jpg"
+      }
     },
     {
       "id": "wikidata:Q43511",
-      "name": "Foeniculum vulgare"
+      "name": "Foeniculum vulgare",
+      "commonName": "Fennel",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Fennel_%28Foeniculum_vulgare%29_-_Parc_Natural_de_s%27Albufera%2C_Spain_2022-04-18_%2802%29.jpg/240px-Fennel_%28Foeniculum_vulgare%29_-_Parc_Natural_de_s%27Albufera%2C_Spain_2022-04-18_%2802%29.jpg",
+        "credit": "Ryan Hodnett",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Fennel_(Foeniculum_vulgare)_-_Parc_Natural_de_s%27Albufera,_Spain_2022-04-18_(02).jpg"
+      }
     },
     {
       "id": "wikidata:Q147439",
-      "name": "Larix kaempferi"
+      "name": "Larix kaempferi",
+      "commonName": "Japanese Larch",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Japanese_Larch_Larix_Cone.JPG/240px-Japanese_Larch_Larix_Cone.JPG",
+        "credit": "御粥",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Japanese_Larch_Larix_Cone.JPG"
+      }
     },
     {
       "id": "wikidata:Q145992",
-      "name": "Picea abies"
+      "name": "Picea abies",
+      "commonName": "White Spruce",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Kuusk_Keila-Paldiski_rdt_%C3%A4%C3%A4res.jpg/240px-Kuusk_Keila-Paldiski_rdt_%C3%A4%C3%A4res.jpg",
+        "credit": "Ivar Leidus",
+        "licence": "CC BY-SA 3.0 ee",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Kuusk_Keila-Paldiski_rdt_%C3%A4%C3%A4res.jpg"
+      }
     },
     {
       "id": "wikidata:Q1044186",
-      "name": "Pinus densiflora"
+      "name": "Pinus densiflora",
+      "commonName": "Japanese Pine",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Pinus_densiflora_01.JPG/240px-Pinus_densiflora_01.JPG",
+        "credit": "Dalgial",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Pinus_densiflora_01.JPG"
+      }
     },
     {
       "id": "wikidata:Q716571",
-      "name": "Pinus massoniana"
+      "name": "Pinus massoniana",
+      "commonName": "Masson's Pine",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Pinus_massoniana_2.jpg/240px-Pinus_massoniana_2.jpg",
+        "credit": "Doctoroftcm",
+        "licence": "CC-BY-SA-3.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Pinus_massoniana_2.jpg"
+      }
     },
     {
       "id": "wikidata:Q157230",
-      "name": "Pinus strobus"
+      "name": "Pinus strobus",
+      "commonName": "Weymouth Pine",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Eastern_White_Pine_%28Pinus_strobus%29_-_Killarney%2C_Ontario_01.jpg/240px-Eastern_White_Pine_%28Pinus_strobus%29_-_Killarney%2C_Ontario_01.jpg",
+        "credit": "Ryan Hodnett",
+        "licence": "CC-BY-SA-4.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Eastern_White_Pine_(Pinus_strobus)_-_Killarney,_Ontario_01.jpg"
+      }
     },
     {
       "id": "wikidata:Q133128",
-      "name": "Pinus sylvestris"
+      "name": "Pinus sylvestris",
+      "commonName": "Scots Pine",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Pinus_sylvestris_Glenmuick.jpg/240px-Pinus_sylvestris_Glenmuick.jpg",
+        "credit": "Hello, I am Bruce on Flickr",
+        "licence": "CC-BY-SA-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Pinus_sylvestris_Glenmuick.jpg"
+      }
     },
     {
       "id": "wikidata:Q509308",
-      "name": "Tricholoma matsutake"
+      "name": "Tricholoma matsutake",
+      "commonName": "Matsutake",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Matsutake.jpg/240px-Matsutake.jpg",
+        "credit": "Tomomarusan",
+        "licence": "CC-BY-2.5",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Matsutake.jpg"
+      }
     }
   ],
   "sharings": [
