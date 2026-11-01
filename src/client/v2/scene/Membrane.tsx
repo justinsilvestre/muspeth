@@ -1,12 +1,11 @@
-import { useMemo } from "react";
-import { DoubleSide } from "three";
+import { useEffect, useMemo } from "react";
 import type { PlanePoint } from "../glottometry/layoutLanguages";
 import { paddedHullSurface } from "../glottometry/paddedHullSurface";
 import { type Appearance, finishes } from "./appearance";
 import { buildBlobGeometry } from "./buildBlobGeometry";
 import { useUndulatingMaterial } from "./undulation";
 
-const surfaceDetail = { rings: 32, segments: 128 };
+const surfaceDetail = { rings: 24, segments: 96 };
 
 type MembraneProps = {
   /** The positions enclosed by the membrane. */
@@ -32,20 +31,24 @@ export function Membrane({ points, padding, color, thickness, order, appearance 
       ),
     [points, padding, depth, cornerSharpness],
   );
-  const material = useUndulatingMaterial(
-    {
+  useEffect(() => () => geometry.dispose(), [geometry]);
+  const parameters = useMemo(
+    () => ({
       color,
       transparent: true,
       opacity: bodyOpacity,
       depthWrite: false,
-      side: DoubleSide,
       ...finishes[finish],
-    },
-    appearance.movement,
-    {
+    }),
+    [color, bodyOpacity, finish],
+  );
+  const edgeGlow = useMemo(
+    () => ({
       strength: edgeStrength * (0.4 + 0.6 * thickness),
       width: edgeWidth * (0.3 + 0.7 * thickness),
-    },
+    }),
+    [edgeStrength, edgeWidth, thickness],
   );
+  const material = useUndulatingMaterial(parameters, appearance.movement, edgeGlow);
   return <mesh geometry={geometry} material={material} renderOrder={order} />;
 }

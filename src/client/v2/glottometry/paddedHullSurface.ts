@@ -1,10 +1,5 @@
 import type { PlanePoint } from "./layoutLanguages";
 
-export type SpacePoint = { x: number; y: number; z: number };
-
-/** One sample of a surface: where it is, and the unit vector pointing outward from it. */
-export type SurfaceSample = { position: SpacePoint; normal: SpacePoint };
-
 /**
  * Padding is the radius of the ball swept around the hull. Flattening scales the surface's height.
  * Corner sharpness sets how closely the surface follows the hull's corners: higher values give flatter sides,
@@ -12,74 +7,89 @@ export type SurfaceSample = { position: SpacePoint; normal: SpacePoint };
  */
 export type HullSurfaceShape = { padding: number; flattening: number; cornerSharpness: number };
 
+export type SurfaceDetail = { rings: number; segments: number };
+
+/**
+ * A closed surface sampled in rings from the bottom pole to the top pole, each ring going around once.
+ * Positions and normals hold three numbers per sample, ring by ring, with each ring's first sample repeated at its end.
+ */
+export type SampledSurface = SurfaceDetail & { positions: Float32Array; normals: Float32Array };
+
 /**
  * Samples a smooth closed surface around a set of points lying in the plane: a rounded version of the points' convex hull,
  * swept with a ball of the padding's radius, then squashed along the vertical axis by the flattening factor.
- * Returns rings of samples from the bottom pole to the top pole, each ring going around once.
+ * The surface's point in a direction is the hull's point reaching furthest that way, pushed out by the padding,
+ * and its normal there is the direction itself, stretched the other way from the squashing.
  */
 export function paddedHullSurface(
   points: PlanePoint[],
-  shape: HullSurfaceShape,
-  { rings, segments }: { rings: number; segments: number },
-) {
-  return Array.from({ length: rings + 1 }, (_, ringIndex) => {
-    const latitude = (ringIndex / rings - 0.5) * Math.PI;
-    return Array.from({ length: segments + 1 }, (_, segmentIndex) => {
-      const longitude = (segmentIndex / segments) * 2 * Math.PI;
-      const direction = {
-        x: Math.cos(latitude) * Math.cos(longitude),
-        y: Math.cos(latitude) * Math.sin(longitude),
-        z: Math.sin(latitude),
-      };
-      return sampleInDirection(points, shape, direction);
-    });
-  });
-}
-
-/**
- * The swept hull's surface point in a direction is the hull's point reaching furthest that way, pushed out by the padding,
- * and the surface's normal there is the direction itself. Squashing the surface vertically stretches the normal the other way.
- */
-function sampleInDirection(
-  points: PlanePoint[],
   { padding, flattening, cornerSharpness }: HullSurfaceShape,
-  direction: SpacePoint,
+  { rings, segments }: SurfaceDetail,
 ) {
-  const extreme = findSoftExtremePoint(points, direction, cornerSharpness);
-  const normalLength = Math.hypot(direction.x, direction.y, direction.z / flattening);
+  const sampleCount = (rings + 1) * (segments + 1);
+  const positions = new Float32Array(sampleCount * 3);
+  const normals = new Float32Array(sampleCount * 3);
+  const average = { x: 0, y: 0 };
+  let offset = 0;
+  for (let ring = 0; ring <= rings; ring++) {
+    const latitude = (ring / rings - 0.5) * Math.PI;
+    const horizontal = Math.cos(latitude);
+    const vertical = Math.sin(latitude);
+    for (let segment = 0; segment <= segments; segment++) {
+      const longitude = (segment / segments) * 2 * Math.PI;
+      const directionX = horizontal * Math.cos(longitude);
+      const directionY = horizontal * Math.sin(longitude);
+      averageTowards(points, directionX, directionY, cornerSharpness, average);
+      positions[offset] = average.x + directionX * padding;
+      positions[offset + 1] = average.y + directionY * padding;
+      positions[offset + 2] = vertical * padding * flattening;
+      const normalLength = Math.hypot(directionX, directionY, vertical / flattening);
+      normals[offset] = directionX / normalLength;
+      normals[offset + 1] = directionY / normalLength;
+      normals[offset + 2] = vertical / flattening / normalLength;
+      offset += 3;
+    }
+  }
+  return { rings, segments, positions, normals } satisfies SampledSurface;
+}
+
+/** Reads one sample of a surface, for inspection. */
+export function sampleAt(
+  { segments, positions, normals }: SampledSurface,
+  ring: number,
+  segment: number,
+) {
+  const offset = (ring * (segments + 1) + segment) * 3;
   return {
-    position: {
-      x: extreme.x + direction.x * padding,
-      y: extreme.y + direction.y * padding,
-      z: direction.z * padding * flattening,
-    },
-    normal: {
-      x: direction.x / normalLength,
-      y: direction.y / normalLength,
-      z: direction.z / flattening / normalLength,
-    },
-  } satisfies SurfaceSample;
+    position: { x: positions[offset], y: positions[offset + 1], z: positions[offset + 2] },
+    normal: { x: normals[offset], y: normals[offset + 1], z: normals[offset + 2] },
+  };
 }
 
 /**
- * Finds a weighted average of the points, favoring those reaching furthest in the given direction,
- * which depends only on the direction's horizontal part. Taking the furthest point alone would give the exact convex hull,
- * with flat sides and sharp corners; the weighted average rounds it off.
+ * Writes into the result a weighted average of the points, favoring those reaching furthest in the given direction.
+ * Taking the furthest point alone would give the exact convex hull, with flat sides and sharp corners;
+ * the weighted average rounds it off. Writing into a reused result avoids allocating in this innermost loop.
  */
-function findSoftExtremePoint(
+function averageTowards(
   points: PlanePoint[],
-  direction: SpacePoint,
-  cornerSharpness: number,
+  directionX: number,
+  directionY: number,
+  sharpness: number,
+  result: PlanePoint,
 ) {
-  const reaches = points.map((point) => point.x * direction.x + point.y * direction.y);
-  const furthest = Math.max(...reaches);
-  const weights = reaches.map((reach) => Math.exp(cornerSharpness * (reach - furthest)));
-  const totalWeight = weights.reduce((sum, weight) => sum + weight, 0);
-  const average = { x: 0, y: 0 };
-  points.forEach((point, index) => {
-    const weight = (weights[index] ?? 0) / totalWeight;
-    average.x += point.x * weight;
-    average.y += point.y * weight;
-  });
-  return average;
+  let furthest = Number.NEGATIVE_INFINITY;
+  for (const point of points)
+    furthest = Math.max(furthest, point.x * directionX + point.y * directionY);
+  let totalWeight = 0;
+  result.x = 0;
+  result.y = 0;
+  for (const point of points) {
+    const weight = Math.exp(sharpness * (point.x * directionX + point.y * directionY - furthest));
+    totalWeight += weight;
+    result.x += point.x * weight;
+    result.y += point.y * weight;
+  }
+  result.x /= totalWeight;
+  result.y /= totalWeight;
 }

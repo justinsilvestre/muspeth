@@ -24,7 +24,7 @@ export function AppearanceControls({ value, onChange, onReset }: AppearanceContr
           Reset
         </button>
       </summary>
-      <div className="grid gap-x-6 gap-y-3 px-3 pt-1 pb-3 sm:grid-cols-2 xl:grid-cols-4">
+      <div className="grid gap-x-6 gap-y-3 px-3 pt-1 pb-3 sm:grid-cols-2">
         <ShapeControls value={value.shape} onChange={set("shape")} />
         <MaterialControls value={value.material} onChange={set("material")} />
         <ColorControls value={value.color} onChange={set("color")} />

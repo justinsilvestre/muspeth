@@ -19,8 +19,10 @@ function renderV2App() {
 }
 
 describe("V2App", () => {
-  it("marks the Scene tab as open", () => {
+  it("marks the Historical glottometry tab as open", () => {
     renderV2App();
-    expect(screen.getByRole("link", { name: "Scene" }).getAttribute("aria-current")).toBe("page");
+    expect(
+      screen.getByRole("link", { name: "Historical glottometry" }).getAttribute("aria-current"),
+    ).toBe("page");
   });
 });

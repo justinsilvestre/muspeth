@@ -31,7 +31,8 @@ const noEdgeGlow = { strength: 0, width: 1 } satisfies EdgeGlow;
 
 /**
  * Creates a physical material whose vertices drift with the shared undulation field, advancing it every frame,
- * and keeps it in step with the given parameters as they change.
+ * and keeps it in step with the given parameters as they change. Callers should memoize the parameter objects,
+ * since the material is updated whenever they are replaced.
  */
 export function useUndulatingMaterial(
   parameters: MeshPhysicalMaterialParameters,
@@ -41,10 +42,12 @@ export function useUndulatingMaterial(
   const [{ material, uniforms }] = useState(createUndulatingMaterial);
   useEffect(() => {
     material.setValues(parameters);
+  }, [material, parameters]);
+  useEffect(() => {
     uniforms.uAmplitude.value = motion.amplitude;
     uniforms.uEdgeStrength.value = edgeGlow.strength;
     uniforms.uEdgePower.value = 1 / edgeGlow.width;
-  });
+  }, [uniforms, motion.amplitude, edgeGlow.strength, edgeGlow.width]);
   useFrame((_, delta) => {
     uniforms.uTime.value += delta * motion.speed;
   });

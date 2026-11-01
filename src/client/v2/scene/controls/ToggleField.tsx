@@ -1,3 +1,5 @@
+import { useId } from "react";
+
 /** A labelled checkbox for an on-or-off setting. Lays out as one row of a control grid. */
 export function ToggleField({
   label,
@@ -8,16 +10,20 @@ export function ToggleField({
   value: boolean;
   onChange: (value: boolean) => void;
 }) {
+  const id = useId();
   return (
-    <label className="contents">
-      <span className="truncate text-muted">{label}</span>
+    <>
+      <label htmlFor={id} className="truncate text-muted">
+        {label}
+      </label>
       <input
+        id={id}
         type="checkbox"
         checked={value}
         onChange={(event) => onChange(event.target.checked)}
         className="justify-self-start accent-ink"
       />
       <span />
-    </label>
+    </>
   );
 }

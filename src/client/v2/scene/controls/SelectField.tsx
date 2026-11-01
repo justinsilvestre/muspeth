@@ -1,3 +1,5 @@
+import { useId } from "react";
+
 type SelectFieldProps<Option extends string> = {
   label: string;
   value: Option;
@@ -12,10 +14,14 @@ export function SelectField<Option extends string>({
   options,
   onChange,
 }: SelectFieldProps<Option>) {
+  const id = useId();
   return (
-    <label className="contents">
-      <span className="truncate text-muted">{label}</span>
+    <>
+      <label htmlFor={id} className="truncate text-muted">
+        {label}
+      </label>
       <select
+        id={id}
         value={value}
         onChange={(event) => onChange(event.target.value as Option)}
         className="col-span-2 rounded border border-line bg-panel px-1 py-0.5"
@@ -26,6 +32,6 @@ export function SelectField<Option extends string>({
           </option>
         ))}
       </select>
-    </label>
+    </>
   );
 }

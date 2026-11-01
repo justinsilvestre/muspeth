@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import type { PlanePoint } from "../glottometry/layoutLanguages";
 import type { Appearance } from "./appearance";
 import { LanguageLabel } from "./LanguageLabel";
@@ -12,15 +13,12 @@ type LanguageNucleusProps = {
 
 /** Marks one language as a small bright body, with its name floating beside it. */
 export function LanguageNucleus({ name, position, labelColor, appearance }: LanguageNucleusProps) {
-  const material = useUndulatingMaterial(
-    {
-      color: appearance.color.nucleus,
-      emissive: appearance.color.nucleus,
-      emissiveIntensity: 0.9,
-      roughness: 0.3,
-    },
-    appearance.movement,
+  const nucleusColor = appearance.color.nucleus;
+  const parameters = useMemo(
+    () => ({ color: nucleusColor, emissive: nucleusColor, emissiveIntensity: 0.9, roughness: 0.3 }),
+    [nucleusColor],
   );
+  const material = useUndulatingMaterial(parameters, appearance.movement);
   return (
     <group position={[position.x, position.y, 0.1]}>
       <mesh material={material}>
