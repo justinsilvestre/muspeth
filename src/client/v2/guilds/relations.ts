@@ -76,7 +76,7 @@ export const relations = {
     sharedAreSpecies: true,
     weight: visits,
     explanation:
-      "This is the same survey turned inside out: the plants that were membranes are now what holds guilds of visitors together. A flower that cuts across a guild is one that draws visitors from several guilds at once.",
+      "Visitors bound together by the flowers they share are a guild too: the insects, birds or geckos that work the same blossoms. A flower that cuts across a guild is one that draws visitors from several guilds at once.",
     citesSet: true,
     citations: [],
   },
