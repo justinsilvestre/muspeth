@@ -35,7 +35,6 @@ export function LanguageNucleus(props: LanguageNucleusProps) {
   const { name, label, sublabel, position, labelOffset, labelHeight, labelColor, appearance } =
     props;
   const { isDimmed, emphasis } = props;
-  const sublabelHeight = labelHeight * 0.75;
   const nucleusColor = appearance.color.nucleus;
   const parameters = useMemo(
     () => ({
@@ -59,18 +58,13 @@ export function LanguageNucleus(props: LanguageNucleusProps) {
         <meshBasicMaterial transparent opacity={0} depthWrite={false} />
       </mesh>
       <group position={[labelOffset.dx, labelOffset.dy, 0.3]}>
-        <TextSprite text={label} color={labelColor} height={labelHeight} anchor={labelOffset} />
-        {sublabel && (
-          <group position-y={-(labelHeight + sublabelHeight) / 2 - 0.02}>
-            <TextSprite
-              text={sublabel}
-              color={labelColor}
-              height={sublabelHeight}
-              anchor={labelOffset}
-              opacity={0.7}
-            />
-          </group>
-        )}
+        <TextSprite
+          text={label}
+          secondText={sublabel}
+          color={labelColor}
+          height={labelHeight}
+          anchor={labelOffset}
+        />
       </group>
     </group>
   );

@@ -11,8 +11,8 @@ type LabelSpec = {
   position: PlanePoint;
 };
 
-/** How tall a label with a second line is, as a multiple of a one-line label. */
-export const twoLineHeight = 1.7;
+/** How tall a label with a second line is, as a multiple of a one-line label; the same as the sprite that draws it. */
+const twoLineHeight = 1.7;
 
 /** The corners a label may be placed at, tried in this order: to the lower right first, as reads most naturally. */
 const corners = [
