@@ -1,8 +1,25 @@
 import { abbreviateSpecies } from "./abbreviateSpecies";
 import type { RelationId } from "./relations";
 
-/** One body of a set: an organism, or a survey site, with its identifier in the first version's graph and a short label where its name is long. */
-export type Body = { id: string; name: string; label?: string };
+/** An image of a body, linked from Wikimedia Commons, with the credit its licence asks for. */
+export type BodyImage = {
+  url: string;
+  credit: string | null;
+  licence: string | null;
+  pageUrl: string | null;
+};
+
+/**
+ * One body of a set: an organism, or a survey site, with its identifier in the first version's graph,
+ * a short label where its name is long, and its English name and image where the database has them.
+ */
+export type Body = {
+  id: string;
+  name: string;
+  label?: string;
+  commonName?: string;
+  image?: BodyImage;
+};
 
 /** One body standing in a relation to one partner, with a weight where the source counted the encounters. */
 export type Link = { body: string; partner: string; weight?: number; flags: string[] };
@@ -33,11 +50,25 @@ export type BodySet = {
   sharings: Sharing[];
 };
 
-/** The short form of a body's name, as labelled in the scene. */
+/** The longest common name that still fits beneath a dot's label. */
+const longestSublabel = 22;
+
+/** The body of a set with the given name. */
+export function bodyOf(set: BodySet, name: string) {
+  return set.bodies.find((body) => body.name === name);
+}
+
+/** The short form of a body's name, as labelled in the scene: its given label, else its scientific name abbreviated, or its plain name as it is. */
 export function labelOf(set: BodySet, name: string) {
-  const given = set.bodies.find((body) => body.name === name)?.label;
+  const given = bodyOf(set, name)?.label;
   if (given) return given;
   return set.labelStyle === "species" ? abbreviateSpecies(name) : name;
+}
+
+/** The body's English name, shown beneath its label when it has one short enough to fit. */
+export function sublabelOf(set: BodySet, name: string) {
+  const common = bodyOf(set, name)?.commonName;
+  return common && common.length <= longestSublabel ? common : undefined;
 }
 
 /** A noun with its indefinite article, as "a plant" or "an organism". */

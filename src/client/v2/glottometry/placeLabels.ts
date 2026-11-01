@@ -3,7 +3,16 @@ import type { PlanePoint } from "./layoutLanguages";
 /** Where a label sits relative to the point it names. */
 export type LabelOffset = { dx: number; dy: number };
 
-type LabelSpec = { name: string; text: string; position: PlanePoint };
+type LabelSpec = {
+  name: string;
+  text: string;
+  /** A smaller second line beneath the text, which the label makes room for. */
+  secondText?: string;
+  position: PlanePoint;
+};
+
+/** How tall a label with a second line is, as a multiple of a one-line label; the same as the sprite that draws it. */
+const twoLineHeight = 1.7;
 
 /** The corners a label may be placed at, tried in this order: to the lower right first, as reads most naturally. */
 const corners = [
@@ -35,16 +44,17 @@ export function placeLabels(labels: LabelSpec[], height: number) {
 
 type Box = { left: number; right: number; bottom: number; top: number };
 
-/** A label's text is about half as wide per character as it is tall, in a proportional font. */
-function boxFor({ text, position }: LabelSpec, corner: LabelOffset, height: number) {
-  const width = text.length * height * 0.55;
+/** A label's text is about half as wide per character as it is tall, in a proportional font; a second line hangs below the first. */
+function boxFor({ text, secondText, position }: LabelSpec, corner: LabelOffset, height: number) {
+  const width = Math.max(text.length, (secondText?.length ?? 0) * 0.75) * height * 0.55;
+  const boxHeight = secondText ? height * twoLineHeight : height;
   const centerX = position.x + corner.dx * (height + width / 2);
-  const centerY = position.y + corner.dy * height;
+  const top = position.y + corner.dy * height + height / 2;
   return {
     left: centerX - width / 2,
     right: centerX + width / 2,
-    bottom: centerY - height / 2,
-    top: centerY + height / 2,
+    bottom: top - boxHeight,
+    top,
   } satisfies Box;
 }
 

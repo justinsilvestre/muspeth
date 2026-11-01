@@ -9,6 +9,8 @@ import { GuildBody } from "./GuildBody";
 
 type GuildSceneProps = {
   set: BodySet;
+  /** A number that, when it changes, brings the whole diagram back into view. */
+  fitRequest: number;
   fullTable: InnovationTable;
   table: InnovationTable;
   threshold: number;
@@ -28,10 +30,9 @@ export default function GuildScene(props: GuildSceneProps) {
       <pointLight position={[0, 0, 3]} intensity={isDark ? 12 : 6} color="#ffe2b0" />
       <GuildBody isDark={isDark} {...props} />
       <OrbitControls
-        target={[0, -1, 0]}
-        enablePan={false}
-        minDistance={4}
-        maxDistance={20}
+        makeDefault
+        minDistance={3}
+        maxDistance={60}
         autoRotate={props.appearance.movement.autoRotate}
         autoRotateSpeed={0.6}
       />

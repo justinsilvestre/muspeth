@@ -268,8 +268,7 @@ function describeBody(body: Body): Body {
   if (names[0]) described.commonName = names[0].name;
   if (node?.media_url)
     described.image = {
-      // The database links a 960-pixel thumbnail; a tooltip needs a far smaller one.
-      url: node.media_url.replace(/\/960px-/, "/240px-"),
+      url: node.media_url,
       credit: node.media_credit,
       licence: node.media_licence,
       pageUrl: node.media_page_url,

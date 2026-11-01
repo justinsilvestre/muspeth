@@ -15,7 +15,19 @@ const set = {
   description: "",
   bodyNoun: { one: "plant", many: "plants" },
   labelStyle: "species",
-  bodies: [],
+  bodies: [
+    {
+      id: "carrot",
+      name: "Daucus carota",
+      commonName: "Queen Anne's Lace",
+      image: {
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Daucus_carota.jpg/960px-Daucus_carota.jpg",
+        credit: "A. Painter",
+        licence: "CC0",
+        pageUrl: null,
+      },
+    },
+  ],
   sharings: [],
 } satisfies BodySet;
 
@@ -41,7 +53,7 @@ describe("GuildTooltip", () => {
       />,
     );
     expect(screen.getByRole("tooltip").textContent).toBe(
-      "D. carota, L. corniculatusA. mellifera was seen on exactly these plants.cohesiveness 0.50 · subgroupiness 0.5",
+      "D. carota, L. corniculatusA. mellifera visits these 2 plants and no other plant here.cohesiveness 0.50 · subgroupiness 0.5",
     );
   });
 
@@ -57,11 +69,26 @@ describe("GuildTooltip", () => {
       />,
     );
     expect(screen.getByRole("tooltip").textContent).toContain(
-      "a, b, c, d, e, f and 2 molecules more are found in exactly these plants.",
+      "A, b, c, d, e, f and 2 molecules more occur in these 2 plants and no other plant here.",
     );
   });
 
-  it("names a dot with the count of what it shares", () => {
+  it("names a taxon with its rank first", () => {
+    render(
+      <GuildTooltip
+        hovered={{ kind: "subgroup", subgroup: guildOf(["Magnoliopsida (class)"]) }}
+        pointer={pointer}
+        set={set}
+        relation={relations.descent}
+        sharedCounts={new Map()}
+      />,
+    );
+    expect(screen.getByRole("tooltip").textContent).toContain(
+      "The class Magnoliopsida holds these 2 plants and no other plant here.",
+    );
+  });
+
+  it("names a dot by its common and scientific names with the count of what it shares", () => {
     render(
       <GuildTooltip
         hovered={{ kind: "language", name: "Daucus carota" }}
@@ -71,6 +98,23 @@ describe("GuildTooltip", () => {
         sharedCounts={new Map([["Daucus carota", 3]])}
       />,
     );
-    expect(screen.getByRole("tooltip").textContent).toBe("Daucus carotacontains 3 molecules");
+    expect(screen.getByRole("tooltip").textContent).toBe(
+      "Queen Anne's LaceDaucus carotacontains 3 moleculesPhoto: A. Painter, CC0",
+    );
+  });
+
+  it("shows a dot's picture at a small standard width", () => {
+    render(
+      <GuildTooltip
+        hovered={{ kind: "language", name: "Daucus carota" }}
+        pointer={pointer}
+        set={set}
+        relation={relations.compounds}
+        sharedCounts={new Map()}
+      />,
+    );
+    expect(screen.getByRole("tooltip").querySelector("img")?.getAttribute("src")).toBe(
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Daucus_carota.jpg/250px-Daucus_carota.jpg",
+    );
   });
 });

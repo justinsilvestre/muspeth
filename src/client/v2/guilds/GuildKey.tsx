@@ -42,13 +42,15 @@ export function GuildKey({ set, relation, sharing, appearance }: GuildKeyProps) 
         </ul>
         <div className="space-y-2 text-muted">
           <p>
-            The sentence above the controls chooses the dots and what groups them.
+            The two menus above the picture choose the dots and what groups them.
             {relation.weight &&
-              ` The visits slider counts an encounter only once the survey saw it that many times, and Replay starts from the single most frequent encounter and admits rarer ones step by step, so that the membranes grow and merge as the season fills in.`}
+              " The visits slider counts an encounter only once the survey saw it that many times. Replay starts from the single most frequent encounter and admits rarer ones step by step, so that the membranes grow and merge as the season fills in."}
           </p>
           <p>
-            Point at a membrane to see which {shared.many} hold it together, or at a dot to see its
-            name.
+            Hovering over a membrane lists the {shared.many} shared by exactly the {dots} inside it.
+            Hovering over a dot shows its name, its picture and how many {shared.many} it{" "}
+            {relation.dotVerb}. Drag to turn the picture, scroll to zoom, and drag with the right
+            button to move it.
           </p>
           <p className="text-xs">
             Data:{" "}

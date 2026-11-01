@@ -33,7 +33,7 @@
       "name": "Apis mellifera",
       "commonName": "Honey Bee",
       "image": {
-        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/%28MHNT%29_Apis_mellifera_%28female%29_-_on_viburnum_tinus_flowers.jpg/240px-%28MHNT%29_Apis_mellifera_%28female%29_-_on_viburnum_tinus_flowers.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/%28MHNT%29_Apis_mellifera_%28female%29_-_on_viburnum_tinus_flowers.jpg/960px-%28MHNT%29_Apis_mellifera_%28female%29_-_on_viburnum_tinus_flowers.jpg",
         "credit": "Didier Descouens",
         "licence": "CC-BY-SA-4.0",
         "pageUrl": "https://commons.wikimedia.org/wiki/File:(MHNT)_Apis_mellifera_(female)_-_on_viburnum_tinus_flowers.jpg"
@@ -44,7 +44,7 @@
       "name": "Bombus ruderatus",
       "commonName": "Ruderal Bumblebee",
       "image": {
-        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Apidae_-_Bombus_ruderatus.JPG/240px-Apidae_-_Bombus_ruderatus.JPG",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Apidae_-_Bombus_ruderatus.JPG/960px-Apidae_-_Bombus_ruderatus.JPG",
         "credit": "Hectonichus",
         "licence": "CC-BY-SA-3.0",
         "pageUrl": "https://commons.wikimedia.org/wiki/File:Apidae_-_Bombus_ruderatus.JPG"
@@ -58,7 +58,7 @@
       "id": "wikidata:Q136367434",
       "name": "Colias crocea",
       "image": {
-        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Clouded_yellow_%28Colias_croceus%29_female_underside.jpg/240px-Clouded_yellow_%28Colias_croceus%29_female_underside.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Clouded_yellow_%28Colias_croceus%29_female_underside.jpg/960px-Clouded_yellow_%28Colias_croceus%29_female_underside.jpg",
         "credit": "Charles J. Sharp",
         "licence": "CC-BY-SA-4.0",
         "pageUrl": "https://commons.wikimedia.org/wiki/File:Clouded_yellow_(Colias_croceus)_female_underside.jpg"
@@ -88,7 +88,7 @@
       "name": "Lucilia sericata",
       "commonName": "Blow Fly",
       "image": {
-        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/%28MHNT%29_Lucilia_sericata_on_ammis_majus.jpg/240px-%28MHNT%29_Lucilia_sericata_on_ammis_majus.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/%28MHNT%29_Lucilia_sericata_on_ammis_majus.jpg/960px-%28MHNT%29_Lucilia_sericata_on_ammis_majus.jpg",
         "credit": "Didier Descouens",
         "licence": "CC-BY-SA-4.0",
         "pageUrl": "https://commons.wikimedia.org/wiki/File:(MHNT)_Lucilia_sericata_on_ammis_majus.jpg"
@@ -103,7 +103,7 @@
       "name": "Musca domestica",
       "commonName": "House Fly",
       "image": {
-        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Musca_domestica_housefly.jpg/240px-Musca_domestica_housefly.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Musca_domestica_housefly.jpg/960px-Musca_domestica_housefly.jpg",
         "credit": "Muhammad Mahdi Karim",
         "licence": "GFDL 1.2",
         "pageUrl": "https://commons.wikimedia.org/wiki/File:Musca_domestica_housefly.jpg"

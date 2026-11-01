@@ -27,10 +27,10 @@ describe("V2App", () => {
     ).toBe("page");
   });
 
-  it("marks the Organism guilds tab as open at its address", () => {
-    renderV2App("/v2/guilds");
-    expect(screen.getByRole("link", { name: "Organism guilds" }).getAttribute("aria-current")).toBe(
-      "page",
-    );
+  it("marks the Biological glottometry tab as open at its address", () => {
+    renderV2App("/v2/biological-glottometry");
+    expect(
+      screen.getByRole("link", { name: "Biological glottometry" }).getAttribute("aria-current"),
+    ).toBe("page");
   });
 });

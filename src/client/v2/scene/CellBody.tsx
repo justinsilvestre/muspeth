@@ -99,7 +99,9 @@ export function CellBody({
             order={subgroup.members.length}
             appearance={appearance}
             subgroup={subgroup}
-            isHighlighted={hovered?.kind === "subgroup" && hovered.subgroup === subgroup}
+            emphasis={
+              hovered?.kind === "subgroup" && hovered.subgroup === subgroup ? "raised" : undefined
+            }
           />
         ))}
         {table.languages.map((name) => (

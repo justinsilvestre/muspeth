@@ -1,4 +1,5 @@
 import { useEffect, useMemo } from "react";
+import { Color } from "three";
 import type { PlanePoint } from "../glottometry/layoutLanguages";
 import { paddedHullSurface } from "../glottometry/paddedHullSurface";
 import type { Subgroup } from "../glottometry/scoreSubgroups";
@@ -21,12 +22,18 @@ type MembraneProps = {
   appearance: Appearance;
   /** The subgroup the membrane stands for, if any, so that pointing at the membrane can name it. */
   subgroup?: Subgroup;
-  isHighlighted?: boolean;
+  /** Raised, the membrane stands out from the others; muted, it recedes so that a raised one stands out. */
+  emphasis?: Emphasis;
+  /** How far the membrane has faded in, from 0 (invisible) to 1; fully in when left out. */
+  fade?: number;
 };
+
+export type Emphasis = "raised" | "muted";
 
 /** Draws a translucent lens-shaped membrane enclosing some points, thickening toward its edge like a cell wall. */
 export function Membrane(props: MembraneProps) {
-  const { points, padding, color, thickness, order, appearance, subgroup, isHighlighted } = props;
+  const { points, padding, color, thickness, order, appearance, subgroup, emphasis } = props;
+  const fade = props.fade ?? 1;
   const { depth, cornerSharpness } = appearance.shape;
   const { bodyOpacity, edgeStrength, edgeWidth, finish } = appearance.material;
   const geometry = useMemo(
@@ -39,22 +46,35 @@ export function Membrane(props: MembraneProps) {
   useEffect(() => () => geometry.dispose(), [geometry]);
   const parameters = useMemo(
     () => ({
-      color,
+      color: emphasis === "raised" ? lighten(color) : color,
       transparent: true,
-      opacity: bodyOpacity,
+      opacity: fade * emphasize(bodyOpacity, emphasis),
       depthWrite: false,
       ...finishes[finish],
     }),
-    [color, bodyOpacity, finish],
+    [color, bodyOpacity, finish, emphasis, fade],
   );
   const edgeGlow = useMemo(
     () => ({
-      strength: isHighlighted ? 1 : edgeStrength * (0.4 + 0.6 * thickness),
+      strength:
+        fade *
+        (emphasis === "raised" ? 1 : emphasize(edgeStrength * (0.4 + 0.6 * thickness), emphasis)),
       width: edgeWidth * (0.3 + 0.7 * thickness),
     }),
-    [edgeStrength, edgeWidth, thickness, isHighlighted],
+    [edgeStrength, edgeWidth, thickness, emphasis, fade],
   );
   const material = useUndulatingMaterial(parameters, appearance.movement, edgeGlow);
   const userData = useMemo(() => ({ subgroup }), [subgroup]);
   return <mesh geometry={geometry} material={material} renderOrder={order} userData={userData} />;
+}
+
+/** A raised membrane is a good deal more opaque, and a muted one fainter, than it would be on its own. */
+function emphasize(value: number, emphasis: Emphasis | undefined) {
+  if (emphasis === "raised") return Math.min(value + 0.2, 0.7);
+  if (emphasis === "muted") return value * 0.35;
+  return value;
+}
+
+function lighten(color: string) {
+  return `#${new Color(color).lerp(new Color("#ffffff"), 0.3).getHexString()}`;
 }
