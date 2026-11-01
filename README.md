@@ -4,7 +4,7 @@ An experiment in exploring connections between organisms and the things around t
 
 ## Versions
 
-The first version is served under `/v1`, and the second, so far one view drawing a glottometric diagram as a living cell, under `/v2`. [docs/v1.md](docs/v1.md) and [docs/v2.md](docs/v2.md) describe each version's addresses, views and code.
+The first version is served under `/v1`, and the second, so far two views drawing glottometric diagrams of languages and of pollination networks as living cells, under `/v2`. [docs/v1.md](docs/v1.md) and [docs/v2.md](docs/v2.md) describe each version's addresses, views and code.
 
 ## Repository structure
 
@@ -62,6 +62,8 @@ The order matters: GloBI starts from the sample's organisms, the next imports wo
 | `npm run db:import-words-motifs` | Adds vernacular names from the [GBIF backbone](https://doi.org/10.15468/39omei) and the words those names share, words and their loanword sources from the [World Loanword Database](https://wold.clld.org), and motifs that name organisms from [Thompson's Motif-Index](https://doi.org/10.17605/OSF.IO/XEB67). |
 | `npm run db:import-images` | Links images from [Wikimedia Commons](https://commons.wikimedia.org) to the organisms that have a Wikidata item: the organism's own image, and works that [Wikidata](https://www.wikidata.org) says depict the organism or its genus, added as artworks (at most 10 per organism). Each image is linked, not copied, with its licence, author and Commons page, and images without a known free licence are left out. |
 | `npm run db:import-taxa` | Places every organism in the [GBIF backbone taxonomy](https://doi.org/10.15468/39omei). |
+
+The second version's pollination view bundles four small networks copied out of the database by `npm run v2:export-pollination`; run it again after re-importing the networks.
 
 Each script writes to `db/muspeth.sqlite`, or to the file that `DATABASE_PATH` names. Commit the updated file to publish the data: the next deploy ships it. Each script can be re-run: it replaces what its previous run wrote instead of duplicating it. Each node records the import that added it in `nodes.source`, and hand-entered nodes belong to `sample`. Re-running an import removes only the nodes that no other import or the sample still uses. Matches by text, links pushed down from a coarser taxonomic group, and other doubtful records are kept and carry quality flags (`src/shared/qualityFlags.ts`).
 
