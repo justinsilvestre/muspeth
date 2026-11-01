@@ -3,7 +3,7 @@ import { CanvasTexture } from "three";
 
 const textureSize = 128;
 
-/** Shows a short text as a flat sprite facing the camera, drawn on a canvas so that no fonts need loading. */
+/** Shows a short text as a flat sprite facing the camera, drawn over everything else, on a canvas so that no fonts need loading. */
 export function LanguageLabel({
   text,
   color,
@@ -15,8 +15,8 @@ export function LanguageLabel({
 }) {
   const texture = useMemo(() => drawTexture(text, color), [text, color]);
   return (
-    <sprite scale={[size, size, 1]}>
-      <spriteMaterial map={texture} transparent depthWrite={false} />
+    <sprite scale={[size, size, 1]} renderOrder={100}>
+      <spriteMaterial map={texture} transparent depthWrite={false} depthTest={false} />
     </sprite>
   );
 }

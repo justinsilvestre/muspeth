@@ -9,7 +9,7 @@ export function LanguageNucleus({ name, position, labelColor }: LanguageNucleusP
   const material = useUndulatingMaterial({
     color: "#f5e9c8",
     emissive: "#d9a441",
-    emissiveIntensity: 0.6,
+    emissiveIntensity: 1.4,
     roughness: 0.3,
   });
   return (
