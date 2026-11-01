@@ -34,7 +34,7 @@ export function GuildView() {
     () => toSharingTable(set, sharing, minimumWeight),
     [set, sharing, minimumWeight],
   );
-  const partnerCounts = useMemo(() => countPartners(table.innovations), [table]);
+  const sharedCounts = useMemo(() => countShared(table.innovations), [table]);
   const changeWeightStep = useCallback((step: number) => setWeightStep(step), []);
   const changeReplaying = useCallback((next: boolean) => setReplaying(next), []);
   // The scene follows the controls with a delay when it cannot keep up, so that the controls themselves stay responsive.
@@ -50,13 +50,15 @@ export function GuildView() {
   };
   return (
     <section aria-label="Organism guilds" className="flex flex-col gap-3">
-      <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+      <p className="flex flex-wrap items-center gap-x-2 gap-y-2 text-base">
         <BodySetSelect value={set} onChange={(next) => choose(next, sameOrFirst(next, sharing))} />
         <RelationSelect set={set} value={sharing} onChange={(next) => choose(set, next)} />
-        <div className="min-w-64 flex-1">
-          <ThresholdSlider value={threshold} onChange={setThreshold} />
-        </div>
-      </div>
+      </p>
+      <ThresholdSlider
+        label="Hide membranes weaker than"
+        value={threshold}
+        onChange={setThreshold}
+      />
       {relation.weight && steps.length > 1 && (
         <WeightControl
           words={relation.weight}
@@ -85,7 +87,7 @@ export function GuildView() {
           pointer={pointer}
           set={set}
           relation={relation}
-          partnerCounts={partnerCounts}
+          sharedCounts={sharedCounts}
         />
         <Suspense fallback={<p className="p-3">Loading the scene…</p>}>
           <GuildScene
@@ -115,8 +117,8 @@ function firstDrawable(set: BodySet) {
   return drawable ?? (set.sharings[0] as Sharing);
 }
 
-/** Counts, for each body, the partners whose sets of bodies include it. */
-function countPartners(partners: { members: ReadonlySet<string> }[]) {
+/** Counts, for each dot, the shared things whose sets of dots include it. */
+function countShared(partners: { members: ReadonlySet<string> }[]) {
   const counts = new Map<string, number>();
   for (const { members } of partners)
     for (const body of members) counts.set(body, (counts.get(body) ?? 0) + 1);

@@ -1,7 +1,7 @@
 {
   "id": "piedmont-visitors",
-  "name": "Piedmont forest, North Carolina: visitors",
-  "group": "Flower surveys",
+  "name": "Visitors of Piedmont forest, North Carolina",
+  "group": "From flower surveys",
   "description": "Spring wildflowers of a deciduous forest and their insect visitors, counted through the springs of 1977 to 1979 before the trees leaf out.",
   "bodyNoun": {
     "one": "visitor",

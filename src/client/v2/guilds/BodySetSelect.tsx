@@ -1,7 +1,7 @@
 import { useId } from "react";
 import { type BodySet, bodySets, groupBodySets } from "./bodySets";
 
-/** Chooses which set of bodies the scene draws, listed under the heading of each group. */
+/** Chooses which dots the scene draws, as the first blank of the sentence "Show … grouped by …". */
 export function BodySetSelect({
   value,
   onChange,
@@ -11,9 +11,9 @@ export function BodySetSelect({
 }) {
   const id = useId();
   return (
-    <div className="flex min-w-0 max-w-full items-center gap-3 text-sm">
-      <label htmlFor={id} className="text-muted">
-        Bodies
+    <span className="inline-flex min-w-0 max-w-full items-center gap-2">
+      <label htmlFor={id} className="whitespace-nowrap">
+        Show
       </label>
       <select
         id={id}
@@ -21,7 +21,7 @@ export function BodySetSelect({
         onChange={(event) =>
           onChange(bodySets.find((set) => set.id === event.target.value) ?? value)
         }
-        className="min-w-0 rounded border border-line bg-panel px-2 py-1"
+        className="min-w-0 rounded border border-line bg-panel px-2 py-1 font-medium"
       >
         {groupBodySets(bodySets).map(([group, sets]) => (
           <optgroup key={group} label={group}>
@@ -33,6 +33,6 @@ export function BodySetSelect({
           </optgroup>
         ))}
       </select>
-    </div>
+    </span>
   );
 }

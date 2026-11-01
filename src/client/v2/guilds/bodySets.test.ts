@@ -20,8 +20,8 @@ describe("bodySets", () => {
 
   it("lists the flower surveys before the sets drawn from across the database", () => {
     expect(groupBodySets(bodySets).map(([group]) => group)).toEqual([
-      "Flower surveys",
-      "Across the database",
+      "From flower surveys",
+      "From across the database",
     ]);
   });
 });

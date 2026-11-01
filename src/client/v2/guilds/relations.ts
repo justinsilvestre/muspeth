@@ -8,20 +8,29 @@ export type RelationId =
   | "descent"
   | "species";
 
-/** What a relation's membranes mean, and the words the view uses to say so. */
+/** A phrase in a singular and a plural form, for agreement with a count. */
+type Forms = { one: string; many: string };
+
+/** What a relation's membranes mean, and the plain words the view uses to say so. */
 export type Relation = {
   id: RelationId;
-  name: string;
-  partner: { one: string; many: string };
-  /** How a body stands to one of its partners, after the body's name: "visited by". */
-  bodyVerb: string;
-  /** How a guild's partners stand to its members, after their count: "seen on exactly these". */
-  guildVerb: string;
-  /** Whether partners are organisms with scientific names, to be abbreviated like bodies. */
-  partnersAreSpecies: boolean;
+  /** How the menu names the relation, after "grouped by": "the visitors they share". */
+  menuLabel: string;
+  /** What is shared, as a count noun: "visitor", "molecule". */
+  shared: Forms;
+  /** What a membrane wraps, after "Each membrane wraps the {dots}": "that the same visitor was seen on". */
+  membrane: string;
+  /** How far the relation reaches, after a count of dots: "has a recorded visitor" and "have a recorded visitor". */
+  reach: Forms;
+  /** How a dot stands to what it shares, after its name and before a count: "visited by". */
+  dotVerb: string;
+  /** How the things a guild shares stand to its members, after their names: "was seen on exactly these". */
+  guildVerb: Forms;
+  /** Whether the shared things are organisms with scientific names, to be abbreviated like dots. */
+  sharedAreSpecies: boolean;
   /** The words of the minimum-weight control, for relations whose source counted the encounters. */
   weight?: { label: string; one: string; many: string };
-  /** What a membrane means here, and how that bends the glottometric reading. */
+  /** What such a grouping is, and how it bends the glottometric reading. */
   explanation: string;
   /** Whether the set's own study is the source, as for a flower survey. */
   citesSet?: boolean;
@@ -43,39 +52,45 @@ const mangalSites = {
 export const relations = {
   visitors: {
     id: "visitors",
-    name: "Shared visitors",
-    partner: { one: "visitor", many: "visitors" },
-    bodyVerb: "visited by",
-    guildVerb: "seen on exactly these",
-    partnersAreSpecies: true,
+    menuLabel: "the visitors they share",
+    shared: { one: "visitor", many: "visitors" },
+    membrane: "that the same visitor was seen on",
+    reach: { one: "has a recorded visitor", many: "have a recorded visitor" },
+    dotVerb: "visited by",
+    guildVerb: { one: "was seen on exactly these", many: "were seen on exactly these" },
+    sharedAreSpecies: true,
     weight: visits,
     explanation:
-      "A visitor was seen on each of the plants it encloses. Where a glottometric membrane is drawn around languages by an innovation they underwent together, this one is drawn around plants by another organism that moves between them. A visitor that cuts across a guild is not evidence against it, as a cross-cutting innovation is against a subgroup, but a generalist that belongs to several guilds at once.",
+      "Plants bound together by the visitors they share are a guild. Where a glottometric membrane is drawn around languages by an innovation they underwent together, this one is drawn around plants by another organism that moves between them. A visitor that cuts across a guild is not evidence against it, as a cross-cutting innovation is against a subgroup, but a generalist that belongs to several guilds at once.",
     citesSet: true,
     citations: [],
   },
   flowers: {
     id: "flowers",
-    name: "Shared flowers",
-    partner: { one: "flower", many: "flowers" },
-    bodyVerb: "seen on",
-    guildVerb: "visited by exactly these",
-    partnersAreSpecies: true,
+    menuLabel: "the flowers they share",
+    shared: { one: "flower", many: "flowers" },
+    membrane: "seen on the same flower",
+    reach: { one: "was seen on a flower", many: "were seen on a flower" },
+    dotVerb: "seen on",
+    guildVerb: { one: "was visited by exactly these", many: "were visited by exactly these" },
+    sharedAreSpecies: true,
     weight: visits,
     explanation:
-      "A flower was visited by each of the visitors it encloses: the same survey turned inside out, so that the plants that were membranes become the partners holding guilds of insects together. A flower that cuts across a guild is one that draws visitors from several guilds at once.",
+      "This is the same survey turned inside out: the plants that were membranes are now what holds guilds of visitors together. A flower that cuts across a guild is one that draws visitors from several guilds at once.",
     citesSet: true,
     citations: [],
   },
   compounds: {
     id: "compounds",
-    name: "Shared compounds",
-    partner: { one: "compound", many: "compounds" },
-    bodyVerb: "contains",
-    guildVerb: "found in exactly these",
-    partnersAreSpecies: false,
+    menuLabel: "the molecules they contain",
+    shared: { one: "molecule", many: "molecules" },
+    membrane: "that contain the same molecule",
+    reach: { one: "has a listed molecule", many: "have a listed molecule" },
+    dotVerb: "contains",
+    guildVerb: { one: "is found in exactly these", many: "are found in exactly these" },
+    sharedAreSpecies: false,
     explanation:
-      "A compound is found in each of the organisms it encloses, according to Wikidata. The diagram cannot tell whether they share it by descent, by arriving at the same chemistry separately, or because one of them ate the other. It shows only who is made of the same molecules.",
+      "The molecules are those Wikidata lists as found in each organism. The diagram cannot tell whether two organisms share a molecule by descent, by arriving at the same chemistry separately, or because one of them ate the other. It shows only who is made of the same stuff.",
     citations: [
       {
         text: "Wikidata, statements of the property “found in taxon” (P703), CC0.",
@@ -85,13 +100,15 @@ export const relations = {
   },
   names: {
     id: "names",
-    name: "Shared names",
-    partner: { one: "name", many: "names" },
-    bodyVerb: "named by",
-    guildVerb: "naming exactly these",
-    partnersAreSpecies: false,
+    menuLabel: "the words people call them by",
+    shared: { one: "word", many: "words" },
+    membrane: "whose names share a word, in some language",
+    reach: { one: "has a recorded name", many: "have a recorded name" },
+    dotVerb: "named with",
+    guildVerb: { one: "names exactly these", many: "name exactly these" },
+    sharedAreSpecies: false,
     explanation:
-      "A word occurs in the vernacular names of each of the organisms it encloses, in some language. These membranes are drawn by human speech: a word such as pine or 松 holds together whatever people have called by it, whether or not botany agrees.",
+      "These membranes are drawn by human speech: a word such as pine or 松 holds together whatever people have called by it, whether or not botany agrees. The names come from the GBIF backbone and the World Loanword Database.",
     citations: [
       { ...gbifBackbone, text: "GBIF Secretariat. GBIF Backbone Taxonomy, vernacular names." },
       {
@@ -102,13 +119,15 @@ export const relations = {
   },
   stories: {
     id: "stories",
-    name: "Shared stories",
-    partner: { one: "motif", many: "motifs" },
-    bodyVerb: "appears in",
-    guildVerb: "telling of exactly these",
-    partnersAreSpecies: false,
+    menuLabel: "the folktales they appear in",
+    shared: { one: "folktale motif", many: "folktale motifs" },
+    membrane: "that appear in the same folktale motif",
+    reach: { one: "appears in a motif", many: "appear in a motif" },
+    dotVerb: "appears in",
+    guildVerb: { one: "tells of exactly these", many: "tell of exactly these" },
+    sharedAreSpecies: false,
     explanation:
-      "A folklore motif from Thompson's index names each of the organisms it encloses. A motif told of a whole group, such as birds or bees, reaches every member of that group in the set, so these membranes follow the categories of storytellers rather than of taxonomists.",
+      "The motifs are from Thompson's index of folk literature. A motif told of a whole group, such as birds or bees, reaches every member of that group here, so these membranes follow the categories of storytellers rather than of taxonomists.",
     citations: [
       {
         text: "Thompson, Stith. Motif-Index of Folk-Literature, as CSV.",
@@ -118,35 +137,44 @@ export const relations = {
   },
   sites: {
     id: "sites",
-    name: "Shared sites",
-    partner: { one: "site", many: "sites" },
-    bodyVerb: "observed at",
-    guildVerb: "where exactly these were observed",
-    partnersAreSpecies: false,
+    menuLabel: "the places they were seen",
+    shared: { one: "survey site", many: "survey sites" },
+    membrane: "seen at the same flower survey site",
+    reach: { one: "was seen at a site", many: "were seen at a site" },
+    dotVerb: "seen at",
+    guildVerb: {
+      one: "is where exactly these were seen",
+      many: "are where exactly these were seen",
+    },
+    sharedAreSpecies: false,
     explanation:
-      "Each of the organisms a membrane encloses was observed at the same flower survey site. These membranes are drawn by being in the same place at the same time, the one relation here that needs neither likeness nor lineage.",
+      "These membranes are drawn by being in the same place at the same time, the one relation here that needs neither likeness nor lineage.",
     citations: [mangalSites],
   },
   descent: {
     id: "descent",
-    name: "Descent",
-    partner: { one: "taxon", many: "taxa" },
-    bodyVerb: "placed in",
-    guildVerb: "containing exactly these",
-    partnersAreSpecies: false,
+    menuLabel: "their family tree",
+    shared: { one: "branch of the tree", many: "branches of the tree" },
+    membrane: "of one genus, family, order, class, phylum or kingdom",
+    reach: { one: "is placed in the tree", many: "are placed in the tree" },
+    dotVerb: "placed in",
+    guildVerb: { one: "contains exactly these", many: "contain exactly these" },
+    sharedAreSpecies: false,
     explanation:
-      "A taxon of the GBIF backbone, from genus to kingdom, contains each of the organisms it encloses. Descent draws only nested membranes, never overlapping ones: this is the tree that the other relations can be read against.",
+      "The tree is the GBIF backbone taxonomy. Descent draws only nested membranes, never overlapping ones: this is the tree that every other grouping here can be read against.",
     citations: [gbifBackbone],
   },
   species: {
     id: "species",
-    name: "Shared species",
-    partner: { one: "species", many: "species" },
-    bodyVerb: "where the surveys observed",
-    guildVerb: "observed at exactly these",
-    partnersAreSpecies: true,
+    menuLabel: "the species they share",
+    shared: { one: "species", many: "species" },
+    membrane: "where the same species was seen",
+    reach: { one: "has a species recorded", many: "have a species recorded" },
+    dotVerb: "where the surveys saw",
+    guildVerb: { one: "was seen at exactly these", many: "were seen at exactly these" },
+    sharedAreSpecies: true,
     explanation:
-      "A species was observed at each of the sites it encloses. The honey bee reaches every site and most species reach only one, so these membranes are drawn by the organisms that travel, or that people carried with them.",
+      "The honey bee reaches every site and most species reach only one, so these membranes are drawn by the organisms that travel, or that people carried with them.",
     citations: [mangalSites],
   },
 } satisfies Record<RelationId, Relation>;

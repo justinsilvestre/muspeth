@@ -1,7 +1,7 @@
 {
   "id": "flores-plants",
-  "name": "Flores, Azores: plants",
-  "group": "Flower surveys",
+  "name": "Plants of Flores, Azores",
+  "group": "From flower surveys",
   "description": "Flower visitors on the coast of Flores in the Azores, counted in the summer of 2000, from the same study of invaded island networks.",
   "bodyNoun": {
     "one": "plant",

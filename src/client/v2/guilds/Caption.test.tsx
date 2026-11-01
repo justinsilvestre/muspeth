@@ -8,7 +8,7 @@ afterEach(cleanup);
 
 const set = {
   id: "test",
-  name: "Flores, Azores: plants",
+  name: "Plants of Flores, Azores",
   group: "Tests",
   description: "",
   bodyNoun: { one: "plant", many: "plants" },
@@ -28,8 +28,26 @@ describe("Caption", () => {
       innovations: [{ label: "bee", members: new Set(["A", "B"]) }],
     };
     render(<Caption set={set} relation={relations.visitors} table={table} />);
-    expect(screen.getByText(/each membrane/).textContent).toBe(
-      "3 plants, each membrane the plants that share a visitor. 1 visitor recorded, reaching 2 of the plants.",
+    expect(screen.getByText(/Each dot/).textContent).toBe(
+      "Each dot is a plant. Each membrane wraps the plants that the same visitor was seen on. 1 visitor recorded; 2 of the 3 plants have a recorded visitor.",
+    );
+  });
+
+  it("writes the article the dot's noun takes", () => {
+    const organisms = { ...set, bodyNoun: { one: "organism", many: "organisms" } };
+    const table = { languages: ["A", "B", "C"], innovations: [] };
+    render(<Caption set={organisms} relation={relations.compounds} table={table} />);
+    expect(screen.getByText(/Each dot/).textContent).toContain("Each dot is an organism.");
+  });
+
+  it("says so when the relation reaches every dot", () => {
+    const table = {
+      languages: ["A", "B", "C"],
+      innovations: [{ label: "all", members: new Set(["A", "B", "C"]) }],
+    };
+    render(<Caption set={set} relation={relations.compounds} table={table} />);
+    expect(screen.getByText(/Each dot/).textContent).toContain(
+      "1 molecule recorded; every plant has a listed molecule.",
     );
   });
 });

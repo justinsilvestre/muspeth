@@ -1,7 +1,7 @@
 {
   "id": "survey-sites",
   "name": "Fourteen survey sites",
-  "group": "Across the database",
+  "group": "From across the database",
   "description": "The sites of the flower surveys in the database, from Ellesmere Island to New Zealand, each a body here; a species observed at several of them draws a membrane around those sites.",
   "bodyNoun": {
     "one": "site",

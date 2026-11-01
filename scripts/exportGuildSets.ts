@@ -58,8 +58,8 @@ for (const survey of surveys) {
   });
   writeSet({
     id: `${survey.id}-plants`,
-    name: `${survey.name}: plants`,
-    group: "Flower surveys",
+    name: `Plants of ${survey.name}`,
+    group: "From flower surveys",
     description: survey.description,
     bodyNoun: { one: "plant", many: "plants" },
     labelStyle: "species",
@@ -76,8 +76,8 @@ for (const survey of surveys) {
   });
   writeSet({
     id: `${survey.id}-visitors`,
-    name: `${survey.name}: visitors`,
-    group: "Flower surveys",
+    name: `Visitors of ${survey.name}`,
+    group: "From flower surveys",
     description: survey.description,
     bodyNoun: { one: "visitor", many: "visitors" },
     labelStyle: "species",
@@ -102,7 +102,7 @@ for (const set of organismSets) {
   if (missing.length) throw new Error(`Organisms not found for ${set.id}: ${missing.join(", ")}`);
   writeSet({
     ...set,
-    group: "Across the database",
+    group: "From across the database",
     labelStyle: "species",
     bodies,
     sharings: organismSharings(bodies),
@@ -125,7 +125,7 @@ for (const set of organismSets) {
   writeSet({
     id: placeSetId,
     name: "Fourteen survey sites",
-    group: "Across the database",
+    group: "From across the database",
     description:
       "The sites of the flower surveys in the database, from Ellesmere Island to New Zealand, each a body here; a species observed at several of them draws a membrane around those sites.",
     bodyNoun: { one: "site", many: "sites" },

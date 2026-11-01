@@ -34,6 +34,11 @@ export function labelOf(set: BodySet, name: string) {
   return set.labelStyle === "species" ? abbreviateSpecies(name) : name;
 }
 
+/** A noun with its indefinite article, as "a plant" or "an organism". */
+export function aOrAn(noun: string) {
+  return `${/^[aeiou]/i.test(noun) ? "an" : "a"} ${noun}`;
+}
+
 /** A count with its noun, as "3 plants" or "1 plant". */
 export function countOf(count: number, noun: { one: string; many: string }) {
   return `${count} ${count === 1 ? noun.one : noun.many}`;
