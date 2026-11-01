@@ -2,6 +2,8 @@ import { useMemo } from "react";
 import { CanvasTexture } from "three";
 
 const textureHeight = 64;
+/** The blank space either side of the text in the sprite, in texture pixels. */
+const sidePadding = 4;
 const font = `600 ${textureHeight * 0.7}px system-ui, sans-serif`;
 /** The second line is drawn smaller and fainter than the first. */
 const secondLineScale = 0.75;
@@ -56,15 +58,16 @@ function drawTexture(text: string, secondText: string | undefined, color: string
   canvas.height = textureHeight * lines;
   if (context) {
     // Resizing the canvas resets the context, so the font is set again.
-    context.textAlign = "center";
+    // Both lines start at the same left edge, so that a second line reads as belonging to the first.
+    context.textAlign = "left";
     context.textBaseline = "middle";
     context.fillStyle = color;
     context.font = font;
-    context.fillText(text, width / 2, textureHeight / 2);
+    context.fillText(text, sidePadding, textureHeight / 2);
     if (secondText) {
       context.font = fontScaled(secondLineScale);
       context.globalAlpha = secondLineAlpha;
-      context.fillText(secondText, width / 2, textureHeight * (1 + (lines - 1) / 2));
+      context.fillText(secondText, sidePadding, textureHeight * (1 + (lines - 1) / 2));
     }
   }
   return { texture: new CanvasTexture(canvas), aspect: width / canvas.height, lines };
@@ -82,5 +85,5 @@ function measureWidth(
   if (!text) return 0;
   if (!context) return textureHeight;
   context.font = fontScaled(scale);
-  return Math.ceil(context.measureText(text).width) + 8;
+  return Math.ceil(context.measureText(text).width) + 2 * sidePadding;
 }
