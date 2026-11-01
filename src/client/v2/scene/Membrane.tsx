@@ -1,6 +1,7 @@
 import { useEffect, useMemo } from "react";
 import type { PlanePoint } from "../glottometry/layoutLanguages";
 import { paddedHullSurface } from "../glottometry/paddedHullSurface";
+import type { Subgroup } from "../glottometry/scoreSubgroups";
 import { type Appearance, finishes } from "./appearance";
 import { buildBlobGeometry } from "./buildBlobGeometry";
 import { useUndulatingMaterial } from "./undulation";
@@ -18,10 +19,14 @@ type MembraneProps = {
   /** Membranes with a higher order are drawn later, so outer membranes should have a higher order than inner ones. */
   order: number;
   appearance: Appearance;
+  /** The subgroup the membrane stands for, if any, so that pointing at the membrane can name it. */
+  subgroup?: Subgroup;
+  isHighlighted?: boolean;
 };
 
 /** Draws a translucent lens-shaped membrane enclosing some points, thickening toward its edge like a cell wall. */
-export function Membrane({ points, padding, color, thickness, order, appearance }: MembraneProps) {
+export function Membrane(props: MembraneProps) {
+  const { points, padding, color, thickness, order, appearance, subgroup, isHighlighted } = props;
   const { depth, cornerSharpness } = appearance.shape;
   const { bodyOpacity, edgeStrength, edgeWidth, finish } = appearance.material;
   const geometry = useMemo(
@@ -44,11 +49,12 @@ export function Membrane({ points, padding, color, thickness, order, appearance 
   );
   const edgeGlow = useMemo(
     () => ({
-      strength: edgeStrength * (0.4 + 0.6 * thickness),
+      strength: isHighlighted ? 1 : edgeStrength * (0.4 + 0.6 * thickness),
       width: edgeWidth * (0.3 + 0.7 * thickness),
     }),
-    [edgeStrength, edgeWidth, thickness],
+    [edgeStrength, edgeWidth, thickness, isHighlighted],
   );
   const material = useUndulatingMaterial(parameters, appearance.movement, edgeGlow);
-  return <mesh geometry={geometry} material={material} renderOrder={order} />;
+  const userData = useMemo(() => ({ subgroup }), [subgroup]);
+  return <mesh geometry={geometry} material={material} renderOrder={order} userData={userData} />;
 }

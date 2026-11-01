@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import type { PlanePoint } from "../glottometry/layoutLanguages";
 import type { Appearance } from "./appearance";
-import { LanguageLabel } from "./LanguageLabel";
+import { TextSprite } from "./TextSprite";
 import { useUndulatingMaterial } from "./undulation";
 
 type LanguageNucleusProps = {
@@ -25,7 +25,7 @@ export function LanguageNucleus({ name, position, labelColor, appearance }: Lang
         <sphereGeometry args={[0.11, 24, 24]} />
       </mesh>
       <group position={[0.25, -0.25, 0.3]}>
-        <LanguageLabel text={name.replace("Ⓛ", "")} color={labelColor} size={0.5} />
+        <TextSprite text={name.replace("Ⓛ", "")} color={labelColor} height={0.45} />
       </group>
     </group>
   );

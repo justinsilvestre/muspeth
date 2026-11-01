@@ -2,8 +2,11 @@ import type { LanguageCoordinates } from "./parseCoordinatesCsv";
 
 export type PlanePoint = { x: number; y: number };
 
+/** Languages placed on the plane, with the scale that placed them. */
+export type LanguageLayout = { positions: Map<string, PlanePoint>; unitsPerDegree: number };
+
 /**
- * Places each language on a plane according to its geographic position, with north upward,
+ * Places each language on a plane according to its geographic position, with north upward and east to the right,
  * centered on the origin and scaled so that the languages span the given extent on their longer axis.
  */
 export function layoutLanguages(coordinates: LanguageCoordinates[], extent: number) {
@@ -11,13 +14,17 @@ export function layoutLanguages(coordinates: LanguageCoordinates[], extent: numb
   const latitudes = coordinates.map((language) => language.latitude);
   const centerX = midpoint(longitudes);
   const centerY = midpoint(latitudes);
-  const scale = extent / Math.max(range(longitudes), range(latitudes));
-  return new Map(
+  const unitsPerDegree = extent / Math.max(range(longitudes), range(latitudes));
+  const positions = new Map(
     coordinates.map(({ name, longitude, latitude }) => [
       name,
-      { x: (longitude - centerX) * scale, y: (latitude - centerY) * scale } satisfies PlanePoint,
+      {
+        x: (longitude - centerX) * unitsPerDegree,
+        y: (latitude - centerY) * unitsPerDegree,
+      } satisfies PlanePoint,
     ]),
   );
+  return { positions, unitsPerDegree } satisfies LanguageLayout;
 }
 
 function midpoint(values: number[]) {
