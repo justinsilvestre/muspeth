@@ -2,11 +2,15 @@
 
 An experiment in exploring connections between organisms and the things around them.
 
+## Versions
+
+A second version of the app is being built alongside the first. The first is served under `/v1`, and the second, still a placeholder, under `/v2`. [docs/v1.md](docs/v1.md) describes the first version's addresses, views and code.
+
 ## Repository structure
 
 | Path | Contents |
 |---|---|
-| `src/client/` | React frontend, styled with Tailwind |
+| `src/client/` | React frontend, styled with Tailwind, with each version of the app in its own folder: `v1/` and `v2/` |
 | `src/worker/` | Cloudflare Worker: a Hono API under `/api`, which also serves the frontend |
 | `src/shared/` | Types and pure logic shared by the frontend and the API, including the path search |
 | `db/muspeth.sqlite` | The database: a SQLite file that the imports write to and each deploy ships |
