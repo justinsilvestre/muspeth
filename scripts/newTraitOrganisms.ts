@@ -3,6 +3,7 @@ import { type GbifTaxon, toGbifTaxon } from "./gbifTaxon.ts";
 import type { TraitNode } from "./likenessConnections.ts";
 import { mapConcurrently } from "./mapConcurrently.ts";
 import { identifyOrganism, type WikidataTaxon } from "./organismIdentity.ts";
+import { mergeNamesakes } from "./traitNamesakes.ts";
 import {
   chooseTraitWikidataTaxon,
   describeTraitOrganism,
@@ -41,8 +42,8 @@ export async function identifyNewTraitOrganisms<Traits>(
     } satisfies Lookup<Traits>;
   });
   const candidatesPerLookup = await fetchWikidataCandidates(lookups);
-  const identified = lookups.map((lookup, i) =>
-    identify(lookup, candidatesPerLookup[i] ?? [], existingIdByLabel),
+  const identified = mergeNamesakes(
+    lookups.map((lookup, i) => identify(lookup, candidatesPerLookup[i] ?? [], existingIdByLabel)),
   );
   return {
     nodesByName: new Map(identified.map(({ name, node }) => [name, [node]])),

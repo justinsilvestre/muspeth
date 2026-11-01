@@ -6,33 +6,29 @@
  * Usage: npm run db:import-networks
  */
 import { executeSqlScript, queryDatabase } from "./database.ts";
-import type { NodeDraft } from "./graphDrafts.ts";
 import { loadOrganismIdsByLabel } from "./loadOrganismIdsByLabel.ts";
 import { fetchNetworkContent, fetchNetworkIdsOfTaxon } from "./mangalApi.ts";
-import {
-  type MangalNetworkContent,
-  type MangalNodeIdentity,
-  toNetworkConnections,
-} from "./mangalConnections.ts";
+import { type MangalNetworkContent, toNetworkConnections } from "./mangalConnections.ts";
 import { chooseCanonical, groupCopies } from "./mangalNetworkCopies.ts";
 import { listNetworkCopies } from "./mangalNetworkProvenance.ts";
 import { selectNetworks } from "./mangalNetworkSelection.ts";
-import { identifyMangalNode, listMangalNodeNames, toLookupName } from "./mangalOrganisms.ts";
-import type { MangalNode } from "./mangalRecords.ts";
+import { identifyMangalNodes, toMangalNodeDrafts } from "./mangalNodeDrafts.ts";
 import { mapConcurrently } from "./mapConcurrently.ts";
 import { toNetworkCopiesSql } from "./networkCopiesSql.ts";
 import { seedOrganismsSql } from "./seedOrganismsSql.ts";
-import { chooseWikidataTaxa } from "./wikidataChoices.ts";
 import { writeConnectionImport } from "./writeConnectionImport.ts";
 
 const source = "mangal";
 const concurrency = 4;
 
 /**
- * Makoto Kato's two Japanese plant–pollinator surveys, at Mt. Kushigata (948) and Mt. Yufu (2462).
- * Mangal holds no network from Kyoto itself, so these stand in for the plan's Kyoto network.
+ * Networks loaded whatever the sample's organisms and the limits:
+ * Makoto Kato's two Japanese plant–pollinator surveys, at Mt. Kushigata (948) and Mt. Yufu (2462),
+ * which stand in for the plan's Kyoto network since Mangal holds none from Kyoto itself;
+ * and Savely's four food webs of rotting oak and pine logs in Duke Forest (1494 to 1497), one
+ * assemblage of fungus feeders, predators, parasites and scavengers at two stages of decay.
  */
-const pinnedNetworkIds = [948, 2462];
+const pinnedNetworkIds = [948, 2462, 1494, 1495, 1496, 1497];
 
 /** Networks larger than this are left out, since one site's network is wanted, not a whole region's. */
 const maxNetworkInteractionCount = 1000;
@@ -62,16 +58,10 @@ const selected = groups.filter(({ canonical }) => selectedIds.includes(canonical
 const networks = selected.map(({ canonical }) => canonical);
 
 const allNodes = networks.flatMap(({ nodes }) => nodes);
-const choices = await chooseWikidataTaxa(listLookupNames(allNodes), listLinkedIdsByName(allNodes));
-const identities = new Map(
-  allNodes.map((node) => {
-    const choice = choices.get(toLookupName(node) ?? "") ?? null;
-    return [node.id, identifyMangalNode(node, choice, existingIdByName)] as const;
-  }),
-);
+const { identities, choices } = await identifyMangalNodes(allNodes, existingIdByName);
 const connections = networks.flatMap((content) => toNetworkConnections(content, identities));
 const connectedIds = new Set(connections.flatMap((c) => [c.sourceNodeId, c.targetNodeId]));
-const nodes = allNodes.flatMap((node) => toNodeDraft(node, identities.get(node.id), connectedIds));
+const nodes = toMangalNodeDrafts(allNodes, identities, choices, connectedIds);
 const copies = selected.flatMap(({ canonical, group }) => listNetworkCopies(canonical, group));
 
 writeConnectionImport(source, nodes, connections);
@@ -82,34 +72,4 @@ console.log(
 
 function toNetworkSize({ network, interactions }: MangalNetworkContent) {
   return { id: network.id, datasetId: network.datasetId, interactionCount: interactions.length };
-}
-
-function listLookupNames(mangalNodes: MangalNode[]) {
-  const names = mangalNodes.map(toLookupName).filter((name) => name !== null);
-  return [...new Set(names)].filter((name) => !existingIdByName.has(name));
-}
-
-/** Lists the GBIF and NCBI taxa that Mangal matched each name to, for choosing among namesakes. */
-function listLinkedIdsByName(mangalNodes: MangalNode[]) {
-  const linkedIds = new Map<string, string[]>();
-  for (const node of mangalNodes) {
-    const name = toLookupName(node);
-    const { gbif, ncbi } = node.taxonomy ?? {};
-    const ids = [gbif && `gbif:${gbif}`, ncbi && `ncbi:${ncbi}`].filter(
-      (id): id is string => typeof id === "string",
-    );
-    if (name) linkedIds.set(name, [...(linkedIds.get(name) ?? []), ...ids]);
-  }
-  return linkedIds;
-}
-
-function toNodeDraft(
-  node: MangalNode,
-  identity: (MangalNodeIdentity & { label: string }) | undefined,
-  connectedIds: Set<string>,
-) {
-  if (!identity || !connectedIds.has(identity.id)) return [];
-  const name = toLookupName(node) ?? identity.label;
-  const names = listMangalNodeNames(name, choices.get(name) ?? null);
-  return [{ id: identity.id, kind: "organism", label: identity.label, names } satisfies NodeDraft];
 }

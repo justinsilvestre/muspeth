@@ -25,7 +25,13 @@ export type Body = {
 export type Link = { body: string; partner: string; weight?: number; flags: string[] };
 
 /** Everything the database records among a set's bodies under one relation; empty when nothing is recorded. */
-export type Sharing = { relation: RelationId; licences: string[]; links: Link[] };
+export type Sharing = {
+  relation: RelationId;
+  licences: string[];
+  links: Link[];
+  /** For a relation whose weights stand for named stages rather than counts, the name of each weight. */
+  weightNames?: Record<string, string>;
+};
 
 /** A set of bodies with the relations recorded among them, as the export script copies it from the database. */
 export type BodySet = {

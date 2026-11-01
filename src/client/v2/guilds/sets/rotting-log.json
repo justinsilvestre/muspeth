@@ -1,0 +1,1832 @@
+{
+  "id": "rotting-log",
+  "name": "Life on a rotting log",
+  "group": "From food webs",
+  "citation": {
+    "text": "Savely, H. E. (1939). Ecological relations of certain animals in dead pine and oak logs. Ecological Monographs, 9(3), 321–385; Mangal networks 1494 to 1497.",
+    "url": "https://doi.org/10.2307/1943233"
+  },
+  "datasetIds": ["mangal:1494", "mangal:1495", "mangal:1496", "mangal:1497"],
+  "description": "Animals that Savely found inside dead oak and pine logs in Duke Forest, North Carolina, in the 1930s, cut open a year after the trees died and again after three years or more: springtails and ants that persist through every stage, bark beetles and their predators in the fresh pine, and the millipedes, snails and termites of the softened wood.",
+  "bodyNoun": {
+    "one": "animal",
+    "many": "animals"
+  },
+  "organisms": [
+    "Isotoma sensibilis",
+    "Entomobrya ligata",
+    "Leptothorax curvispinosus",
+    "Ponera coarctata",
+    "Camponotus herculeanus",
+    "Geophilus varians",
+    "Linotaenia bidens",
+    "Platysoma leconti",
+    "Tachyta nana",
+    "Alaus myops",
+    "Alaus oculatus",
+    "Orthotomicus coelatus",
+    "Megalodacne fasciata",
+    "Odontotaenius disjunctus",
+    "Cambala annulata",
+    "Zonitoides arboreus",
+    "Philomycus carolinensis",
+    "Reticulitermes flavipes",
+    "Monochamus titillator",
+    "Dendroctonus valens",
+    "Ips grandicollis",
+    "Thanasimus dubius",
+    "Temnochila virescens",
+    "Xyleborus fitchi"
+  ],
+  "relations": ["stages", "food", "prey", "predators"],
+  "labelStyle": "species",
+  "bodies": [
+    {
+      "id": "wikidata:Q1978861",
+      "name": "Alaus myops"
+    },
+    {
+      "id": "wikidata:Q1313339",
+      "name": "Alaus oculatus"
+    },
+    {
+      "id": "wikidata:Q4256595",
+      "name": "Cambala annulata"
+    },
+    {
+      "id": "wikidata:Q162870",
+      "name": "Camponotus herculeanus",
+      "commonName": "Camponotus enculus"
+    },
+    {
+      "id": "wikidata:Q24956154",
+      "name": "Dendroctonus valens"
+    },
+    {
+      "id": "wikidata:Q10484848",
+      "name": "Entomobrya ligata"
+    },
+    {
+      "id": "wikidata:Q6506343",
+      "name": "Geophilus varians"
+    },
+    {
+      "id": "wikidata:Q21353164",
+      "name": "Ips grandicollis"
+    },
+    {
+      "id": "wikidata:Q10537893",
+      "name": "Isotoma sensibilis"
+    },
+    {
+      "id": "wikidata:Q14439716",
+      "name": "Leptothorax curvispinosus"
+    },
+    {
+      "id": "mangal:Linotaenia bidens",
+      "name": "Linotaenia bidens"
+    },
+    {
+      "id": "wikidata:Q4043908",
+      "name": "Megalodacne fasciata"
+    },
+    {
+      "id": "wikidata:Q14704706",
+      "name": "Monochamus titillator",
+      "commonName": "Southern pine sawyer",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Book_of_monsters_%281914%29_%2820405157921%29.jpg/960px-Book_of_monsters_%281914%29_%2820405157921%29.jpg",
+        "credit": "Internet Archive Book Images",
+        "licence": "No restrictions",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Book_of_monsters_(1914)_(20405157921).jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q519010",
+      "name": "Odontotaenius disjunctus",
+      "commonName": "Horned Passalus Beetle"
+    },
+    {
+      "id": "mangal:Orthotomicus coelatus",
+      "name": "Orthotomicus coelatus"
+    },
+    {
+      "id": "mangal:Philomycus carolinensis",
+      "name": "Philomycus carolinensis"
+    },
+    {
+      "id": "wikidata:Q14882156",
+      "name": "Platysoma leconti"
+    },
+    {
+      "id": "wikidata:Q2245639",
+      "name": "Ponera coarctata"
+    },
+    {
+      "id": "wikidata:Q1499375",
+      "name": "Reticulitermes flavipes",
+      "commonName": "eastern subterranean termite"
+    },
+    {
+      "id": "wikidata:Q4452830",
+      "name": "Tachyta nana"
+    },
+    {
+      "id": "wikidata:Q2721527",
+      "name": "Temnochila virescens"
+    },
+    {
+      "id": "wikidata:Q49453235",
+      "name": "Thanasimus dubius",
+      "commonName": "Wavering Checkered Beetle"
+    },
+    {
+      "id": "wikidata:Q117796291",
+      "name": "Xyleborus fitchi"
+    },
+    {
+      "id": "wikidata:Q1520828",
+      "name": "Zonitoides arboreus"
+    }
+  ],
+  "sharings": [
+    {
+      "relation": "stages",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Alaus oculatus",
+          "partner": "oak logs a year dead",
+          "flags": ["unmatched_name"],
+          "weight": 1
+        },
+        {
+          "body": "Camponotus herculeanus",
+          "partner": "oak logs a year dead",
+          "flags": ["unmatched_name"],
+          "weight": 1
+        },
+        {
+          "body": "Entomobrya ligata",
+          "partner": "oak logs a year dead",
+          "flags": [],
+          "weight": 1
+        },
+        {
+          "body": "Geophilus varians",
+          "partner": "oak logs a year dead",
+          "flags": ["unmatched_name"],
+          "weight": 1
+        },
+        {
+          "body": "Isotoma sensibilis",
+          "partner": "oak logs a year dead",
+          "flags": [],
+          "weight": 1
+        },
+        {
+          "body": "Leptothorax curvispinosus",
+          "partner": "oak logs a year dead",
+          "flags": ["unmatched_name"],
+          "weight": 1
+        },
+        {
+          "body": "Linotaenia bidens",
+          "partner": "oak logs a year dead",
+          "flags": ["unmatched_name"],
+          "weight": 1
+        },
+        {
+          "body": "Megalodacne fasciata",
+          "partner": "oak logs a year dead",
+          "flags": ["unmatched_name"],
+          "weight": 1
+        },
+        {
+          "body": "Orthotomicus coelatus",
+          "partner": "oak logs a year dead",
+          "flags": ["unmatched_name", "placeholder_species"],
+          "weight": 1
+        },
+        {
+          "body": "Ponera coarctata",
+          "partner": "oak logs a year dead",
+          "flags": ["unmatched_name"],
+          "weight": 1
+        },
+        {
+          "body": "Tachyta nana",
+          "partner": "oak logs a year dead",
+          "flags": ["placeholder_species"],
+          "weight": 1
+        },
+        {
+          "body": "Alaus oculatus",
+          "partner": "oak logs three years dead or more",
+          "flags": ["unmatched_name"],
+          "weight": 3
+        },
+        {
+          "body": "Cambala annulata",
+          "partner": "oak logs three years dead or more",
+          "flags": ["unmatched_name"],
+          "weight": 3
+        },
+        {
+          "body": "Camponotus herculeanus",
+          "partner": "oak logs three years dead or more",
+          "flags": ["unmatched_name"],
+          "weight": 3
+        },
+        {
+          "body": "Entomobrya ligata",
+          "partner": "oak logs three years dead or more",
+          "flags": [],
+          "weight": 3
+        },
+        {
+          "body": "Isotoma sensibilis",
+          "partner": "oak logs three years dead or more",
+          "flags": [],
+          "weight": 3
+        },
+        {
+          "body": "Leptothorax curvispinosus",
+          "partner": "oak logs three years dead or more",
+          "flags": ["unmatched_name"],
+          "weight": 3
+        },
+        {
+          "body": "Megalodacne fasciata",
+          "partner": "oak logs three years dead or more",
+          "flags": ["unmatched_name"],
+          "weight": 3
+        },
+        {
+          "body": "Odontotaenius disjunctus",
+          "partner": "oak logs three years dead or more",
+          "flags": ["unmatched_name"],
+          "weight": 3
+        },
+        {
+          "body": "Philomycus carolinensis",
+          "partner": "oak logs three years dead or more",
+          "flags": ["unmatched_name"],
+          "weight": 3
+        },
+        {
+          "body": "Platysoma leconti",
+          "partner": "oak logs three years dead or more",
+          "flags": [],
+          "weight": 3
+        },
+        {
+          "body": "Ponera coarctata",
+          "partner": "oak logs three years dead or more",
+          "flags": ["unmatched_name"],
+          "weight": 3
+        },
+        {
+          "body": "Reticulitermes flavipes",
+          "partner": "oak logs three years dead or more",
+          "flags": ["unmatched_name"],
+          "weight": 3
+        },
+        {
+          "body": "Tachyta nana",
+          "partner": "oak logs three years dead or more",
+          "flags": ["placeholder_species"],
+          "weight": 3
+        },
+        {
+          "body": "Zonitoides arboreus",
+          "partner": "oak logs three years dead or more",
+          "flags": ["unmatched_name"],
+          "weight": 3
+        },
+        {
+          "body": "Alaus myops",
+          "partner": "pine logs a year dead",
+          "flags": ["unmatched_name"],
+          "weight": 1
+        },
+        {
+          "body": "Camponotus herculeanus",
+          "partner": "pine logs a year dead",
+          "flags": ["unmatched_name"],
+          "weight": 1
+        },
+        {
+          "body": "Dendroctonus valens",
+          "partner": "pine logs a year dead",
+          "flags": [],
+          "weight": 1
+        },
+        {
+          "body": "Entomobrya ligata",
+          "partner": "pine logs a year dead",
+          "flags": ["unmatched_name"],
+          "weight": 1
+        },
+        {
+          "body": "Geophilus varians",
+          "partner": "pine logs a year dead",
+          "flags": ["unmatched_name"],
+          "weight": 1
+        },
+        {
+          "body": "Ips grandicollis",
+          "partner": "pine logs a year dead",
+          "flags": [],
+          "weight": 1
+        },
+        {
+          "body": "Isotoma sensibilis",
+          "partner": "pine logs a year dead",
+          "flags": ["unmatched_name"],
+          "weight": 1
+        },
+        {
+          "body": "Leptothorax curvispinosus",
+          "partner": "pine logs a year dead",
+          "flags": ["unmatched_name"],
+          "weight": 1
+        },
+        {
+          "body": "Linotaenia bidens",
+          "partner": "pine logs a year dead",
+          "flags": ["unmatched_name"],
+          "weight": 1
+        },
+        {
+          "body": "Monochamus titillator",
+          "partner": "pine logs a year dead",
+          "flags": ["unmatched_name"],
+          "weight": 1
+        },
+        {
+          "body": "Orthotomicus coelatus",
+          "partner": "pine logs a year dead",
+          "flags": ["unmatched_name"],
+          "weight": 1
+        },
+        {
+          "body": "Platysoma leconti",
+          "partner": "pine logs a year dead",
+          "flags": [],
+          "weight": 1
+        },
+        {
+          "body": "Ponera coarctata",
+          "partner": "pine logs a year dead",
+          "flags": ["unmatched_name"],
+          "weight": 1
+        },
+        {
+          "body": "Temnochila virescens",
+          "partner": "pine logs a year dead",
+          "flags": ["unmatched_name"],
+          "weight": 1
+        },
+        {
+          "body": "Thanasimus dubius",
+          "partner": "pine logs a year dead",
+          "flags": ["unmatched_name"],
+          "weight": 1
+        },
+        {
+          "body": "Xyleborus fitchi",
+          "partner": "pine logs a year dead",
+          "flags": [],
+          "weight": 1
+        },
+        {
+          "body": "Alaus myops",
+          "partner": "pine logs three years dead or more",
+          "flags": ["placeholder_species"],
+          "weight": 3
+        },
+        {
+          "body": "Cambala annulata",
+          "partner": "pine logs three years dead or more",
+          "flags": ["placeholder_species"],
+          "weight": 3
+        },
+        {
+          "body": "Entomobrya ligata",
+          "partner": "pine logs three years dead or more",
+          "flags": ["unmatched_name"],
+          "weight": 3
+        },
+        {
+          "body": "Geophilus varians",
+          "partner": "pine logs three years dead or more",
+          "flags": ["unmatched_name"],
+          "weight": 3
+        },
+        {
+          "body": "Isotoma sensibilis",
+          "partner": "pine logs three years dead or more",
+          "flags": ["unmatched_name"],
+          "weight": 3
+        },
+        {
+          "body": "Leptothorax curvispinosus",
+          "partner": "pine logs three years dead or more",
+          "flags": ["unmatched_name"],
+          "weight": 3
+        },
+        {
+          "body": "Linotaenia bidens",
+          "partner": "pine logs three years dead or more",
+          "flags": ["unmatched_name"],
+          "weight": 3
+        },
+        {
+          "body": "Odontotaenius disjunctus",
+          "partner": "pine logs three years dead or more",
+          "flags": ["placeholder_species"],
+          "weight": 3
+        },
+        {
+          "body": "Philomycus carolinensis",
+          "partner": "pine logs three years dead or more",
+          "flags": ["unmatched_name"],
+          "weight": 3
+        },
+        {
+          "body": "Platysoma leconti",
+          "partner": "pine logs three years dead or more",
+          "flags": [],
+          "weight": 3
+        },
+        {
+          "body": "Ponera coarctata",
+          "partner": "pine logs three years dead or more",
+          "flags": ["unmatched_name"],
+          "weight": 3
+        },
+        {
+          "body": "Zonitoides arboreus",
+          "partner": "pine logs three years dead or more",
+          "flags": ["unmatched_name"],
+          "weight": 3
+        }
+      ],
+      "weightNames": {
+        "1": "a year dead",
+        "3": "three years dead or more"
+      }
+    },
+    {
+      "relation": "food",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Entomobrya ligata",
+          "partner": "fungi",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Isotoma sensibilis",
+          "partner": "fungi",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Megalodacne fasciata",
+          "partner": "fungi",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Philomycus carolinensis",
+          "partner": "fungi",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Xyleborus fitchi",
+          "partner": "fungi",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Zonitoides arboreus",
+          "partner": "fungi",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Entomobrya ligata",
+          "partner": "fungi (red rot)",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Isotoma sensibilis",
+          "partner": "fungi (red rot)",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Megalodacne fasciata",
+          "partner": "fungi (red rot)",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Philomycus carolinensis",
+          "partner": "fungi (red rot)",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Zonitoides arboreus",
+          "partner": "fungi (red rot)",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Dendroctonus valens",
+          "partner": "phloem (Pinus spp.)",
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Ips grandicollis",
+          "partner": "phloem (Pinus spp.)",
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Monochamus titillator",
+          "partner": "phloem (Pinus spp.)",
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Orthotomicus coelatus",
+          "partner": "phloem (Pinus spp.)",
+          "flags": ["unmatched_name", "placeholder_species"]
+        },
+        {
+          "body": "Orthotomicus coelatus",
+          "partner": "phloem (Quercus spp.)",
+          "flags": ["unmatched_name", "placeholder_species"]
+        },
+        {
+          "body": "Cambala annulata",
+          "partner": "rotting wood",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Entomobrya ligata",
+          "partner": "rotting wood",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Isotoma sensibilis",
+          "partner": "rotting wood",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Odontotaenius disjunctus",
+          "partner": "rotting wood",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Philomycus carolinensis",
+          "partner": "rotting wood",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Reticulitermes flavipes",
+          "partner": "rotting wood",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Zonitoides arboreus",
+          "partner": "rotting wood",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Cambala annulata",
+          "partner": "rotting wood (Pinus spp.)",
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Entomobrya ligata",
+          "partner": "rotting wood (Pinus spp.)",
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Isotoma sensibilis",
+          "partner": "rotting wood (Pinus spp.)",
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Odontotaenius disjunctus",
+          "partner": "rotting wood (Pinus spp.)",
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Philomycus carolinensis",
+          "partner": "rotting wood (Pinus spp.)",
+          "flags": ["unmatched_name", "placeholder_species"]
+        },
+        {
+          "body": "Zonitoides arboreus",
+          "partner": "rotting wood (Pinus spp.)",
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Camponotus herculeanus",
+          "partner": "various larvae",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Leptothorax curvispinosus",
+          "partner": "various larvae",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Ponera coarctata",
+          "partner": "various larvae",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Camponotus herculeanus",
+          "partner": "various larvae (unsp.)",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Leptothorax curvispinosus",
+          "partner": "various larvae (unsp.)",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Ponera coarctata",
+          "partner": "various larvae (unsp.)",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Camponotus herculeanus",
+          "partner": "various larvae (unspecified)",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Leptothorax curvispinosus",
+          "partner": "various larvae (unspecified)",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Ponera coarctata",
+          "partner": "various larvae (unspecified)",
+          "flags": ["unmatched_name"]
+        }
+      ]
+    },
+    {
+      "relation": "prey",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Alaus myops",
+          "partner": "Acanthocinus obsoletus",
+          "flags": []
+        },
+        {
+          "body": "Tachyta nana",
+          "partner": "Allothrombium pulvinus",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Platysoma leconti",
+          "partner": "Cecidomyiidae",
+          "flags": []
+        },
+        {
+          "body": "Temnochila virescens",
+          "partner": "Chalcophora sp. larvae",
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Platysoma leconti",
+          "partner": "Chironomidae",
+          "flags": []
+        },
+        {
+          "body": "Temnochila virescens",
+          "partner": "Chrysobothris sp. larvae",
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Temnochila virescens",
+          "partner": "Crypturgus pullus",
+          "flags": []
+        },
+        {
+          "body": "Thanasimus dubius",
+          "partner": "Crypturgus pullus",
+          "flags": []
+        },
+        {
+          "body": "Temnochila virescens",
+          "partner": "D. tenebrans",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Thanasimus dubius",
+          "partner": "D. tenebrans",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Temnochila virescens",
+          "partner": "Dendroctonus valens",
+          "flags": []
+        },
+        {
+          "body": "Thanasimus dubius",
+          "partner": "Dendroctonus valens",
+          "flags": []
+        },
+        {
+          "body": "Alaus myops",
+          "partner": "Dendroides bicolor",
+          "flags": []
+        },
+        {
+          "body": "Tachyta nana",
+          "partner": "Dendrolaelops sp.",
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Alaus myops",
+          "partner": "Derobrachus brunneus larvae",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Alaus oculatus",
+          "partner": "Derobrachus brunneus larvae",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Tachyta nana",
+          "partner": "Discopoma sp.",
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Platysoma leconti",
+          "partner": "Dolichopodidae",
+          "flags": []
+        },
+        {
+          "body": "Tachyta nana",
+          "partner": "Entomobrya ligata",
+          "flags": []
+        },
+        {
+          "body": "Temnochila virescens",
+          "partner": "Ips calligraphus",
+          "flags": []
+        },
+        {
+          "body": "Thanasimus dubius",
+          "partner": "Ips calligraphus",
+          "flags": []
+        },
+        {
+          "body": "Temnochila virescens",
+          "partner": "Ips grandicollis",
+          "flags": []
+        },
+        {
+          "body": "Thanasimus dubius",
+          "partner": "Ips grandicollis",
+          "flags": []
+        },
+        {
+          "body": "Tachyta nana",
+          "partner": "Isotoma sensibilis",
+          "flags": []
+        },
+        {
+          "body": "Tachyta nana",
+          "partner": "Lepidocyrtus cyaneus",
+          "flags": []
+        },
+        {
+          "body": "Alaus myops",
+          "partner": "Leptura sp. larvae",
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Tachyta nana",
+          "partner": "Megisthanus sp.",
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Alaus myops",
+          "partner": "Monochamus titillator",
+          "flags": []
+        },
+        {
+          "body": "Platysoma leconti",
+          "partner": "Mycetophilidae",
+          "flags": []
+        },
+        {
+          "body": "Tachyta nana",
+          "partner": "Neosmithurus clavatus",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Temnochila virescens",
+          "partner": "Orthotomicus coelatus",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Thanasimus dubius",
+          "partner": "Orthotomicus coelatus",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Tachyta nana",
+          "partner": "Pergamasus sp.",
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Temnochila virescens",
+          "partner": "Pityophthorus annectens",
+          "flags": []
+        },
+        {
+          "body": "Thanasimus dubius",
+          "partner": "Pityophthorus annectens",
+          "flags": []
+        },
+        {
+          "body": "Temnochila virescens",
+          "partner": "Platypus flavicornis",
+          "flags": []
+        },
+        {
+          "body": "Tachyta nana",
+          "partner": "Podothrombium sp.",
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Alaus oculatus",
+          "partner": "Polymoecus brevipes larvae",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Tachyta nana",
+          "partner": "Pseudistoma sensibilis",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Alaus oculatus",
+          "partner": "Pseudolucanus capreole larvae",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Alaus myops",
+          "partner": "Rhagium lineatum larvae",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Alaus oculatus",
+          "partner": "Romaleum atomarium larvae",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Tachyta nana",
+          "partner": "Schelorabates sp.",
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Tachyta nana",
+          "partner": "Uropoda sp.",
+          "flags": ["placeholder_species"]
+        },
+        {
+          "body": "Geophilus varians",
+          "partner": "various larvae (unsp.)",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Linotaenia bidens",
+          "partner": "various larvae (unsp.)",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Geophilus varians",
+          "partner": "various larvae (unspecified)",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Linotaenia bidens",
+          "partner": "various larvae (unspecified)",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Temnochila virescens",
+          "partner": "Xyleborus fitchi",
+          "flags": []
+        },
+        {
+          "body": "Thanasimus dubius",
+          "partner": "Xyleborus fitchi",
+          "flags": []
+        },
+        {
+          "body": "Tachyta nana",
+          "partner": "Zetes sp.",
+          "flags": ["placeholder_species"]
+        }
+      ]
+    },
+    {
+      "relation": "predators",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Monochamus titillator",
+          "partner": "Alaus myops",
+          "flags": []
+        },
+        {
+          "body": "Dendroctonus valens",
+          "partner": "heteropteran (undet.)",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Ips grandicollis",
+          "partner": "heteropteran (undet.)",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Orthotomicus coelatus",
+          "partner": "heteropteran (undet.)",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Xyleborus fitchi",
+          "partner": "heteropteran (undet.)",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Dendroctonus valens",
+          "partner": "Platysoma parallelum",
+          "flags": []
+        },
+        {
+          "body": "Ips grandicollis",
+          "partner": "Platysoma parallelum",
+          "flags": []
+        },
+        {
+          "body": "Orthotomicus coelatus",
+          "partner": "Platysoma parallelum",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Xyleborus fitchi",
+          "partner": "Platysoma parallelum",
+          "flags": []
+        },
+        {
+          "body": "Dendroctonus valens",
+          "partner": "Rhizophagus cylindricus",
+          "flags": []
+        },
+        {
+          "body": "Ips grandicollis",
+          "partner": "Rhizophagus cylindricus",
+          "flags": []
+        },
+        {
+          "body": "Orthotomicus coelatus",
+          "partner": "Rhizophagus cylindricus",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Xyleborus fitchi",
+          "partner": "Rhizophagus cylindricus",
+          "flags": []
+        },
+        {
+          "body": "Entomobrya ligata",
+          "partner": "Tachymenis flavicauda",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Isotoma sensibilis",
+          "partner": "Tachymenis flavicauda",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Entomobrya ligata",
+          "partner": "Tachyta nana",
+          "flags": []
+        },
+        {
+          "body": "Isotoma sensibilis",
+          "partner": "Tachyta nana",
+          "flags": []
+        },
+        {
+          "body": "Dendroctonus valens",
+          "partner": "Temnochila virescens",
+          "flags": []
+        },
+        {
+          "body": "Ips grandicollis",
+          "partner": "Temnochila virescens",
+          "flags": []
+        },
+        {
+          "body": "Orthotomicus coelatus",
+          "partner": "Temnochila virescens",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Xyleborus fitchi",
+          "partner": "Temnochila virescens",
+          "flags": []
+        },
+        {
+          "body": "Dendroctonus valens",
+          "partner": "Thanasimus dubius",
+          "flags": []
+        },
+        {
+          "body": "Ips grandicollis",
+          "partner": "Thanasimus dubius",
+          "flags": []
+        },
+        {
+          "body": "Orthotomicus coelatus",
+          "partner": "Thanasimus dubius",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Xyleborus fitchi",
+          "partner": "Thanasimus dubius",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "compounds",
+      "licences": [],
+      "links": []
+    },
+    {
+      "relation": "names",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Monochamus titillator",
+          "partner": "pine",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Monochamus titillator",
+          "partner": "Pine Sawyer",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Monochamus titillator",
+          "partner": "Southern Pine",
+          "flags": ["text_match"]
+        }
+      ]
+    },
+    {
+      "relation": "stories",
+      "licences": [],
+      "links": []
+    },
+    {
+      "relation": "sites",
+      "licences": [],
+      "links": []
+    },
+    {
+      "relation": "descent",
+      "licences": ["CC-BY-4.0"],
+      "links": [
+        {
+          "body": "Alaus myops",
+          "partner": "Alaus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Alaus oculatus",
+          "partner": "Alaus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Alaus myops",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Alaus oculatus",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Cambala annulata",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Camponotus herculeanus",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Dendroctonus valens",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Entomobrya ligata",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Geophilus varians",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Ips grandicollis",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Isotoma sensibilis",
+          "partner": "Animalia (kingdom)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Leptothorax curvispinosus",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Linotaenia bidens",
+          "partner": "Animalia (kingdom)",
+          "flags": ["higher_rank_match", "synonym_name"]
+        },
+        {
+          "body": "Megalodacne fasciata",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Monochamus titillator",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Odontotaenius disjunctus",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Orthotomicus coelatus",
+          "partner": "Animalia (kingdom)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Philomycus carolinensis",
+          "partner": "Animalia (kingdom)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Platysoma leconti",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Ponera coarctata",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Reticulitermes flavipes",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Tachyta nana",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Temnochila virescens",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Thanasimus dubius",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Xyleborus fitchi",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Zonitoides arboreus",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Alaus myops",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Alaus oculatus",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Cambala annulata",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Camponotus herculeanus",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Dendroctonus valens",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Entomobrya ligata",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Geophilus varians",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Ips grandicollis",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Isotoma sensibilis",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Leptothorax curvispinosus",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Linotaenia bidens",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["higher_rank_match", "synonym_name"]
+        },
+        {
+          "body": "Megalodacne fasciata",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Monochamus titillator",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Odontotaenius disjunctus",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Orthotomicus coelatus",
+          "partner": "Arthropoda (phylum)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Platysoma leconti",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Ponera coarctata",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Reticulitermes flavipes",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Tachyta nana",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Temnochila virescens",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Thanasimus dubius",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Xyleborus fitchi",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Reticulitermes flavipes",
+          "partner": "Blattodea (order)",
+          "flags": []
+        },
+        {
+          "body": "Cambala annulata",
+          "partner": "Cambala (genus)",
+          "flags": []
+        },
+        {
+          "body": "Cambala annulata",
+          "partner": "Cambalidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Camponotus herculeanus",
+          "partner": "Camponotus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Tachyta nana",
+          "partner": "Carabidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Monochamus titillator",
+          "partner": "Cerambycidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Geophilus varians",
+          "partner": "Chilopoda (class)",
+          "flags": []
+        },
+        {
+          "body": "Linotaenia bidens",
+          "partner": "Chilopoda (class)",
+          "flags": ["higher_rank_match", "synonym_name"]
+        },
+        {
+          "body": "Thanasimus dubius",
+          "partner": "Cleridae (family)",
+          "flags": []
+        },
+        {
+          "body": "Alaus myops",
+          "partner": "Coleoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Alaus oculatus",
+          "partner": "Coleoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Dendroctonus valens",
+          "partner": "Coleoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Ips grandicollis",
+          "partner": "Coleoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Megalodacne fasciata",
+          "partner": "Coleoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Monochamus titillator",
+          "partner": "Coleoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Odontotaenius disjunctus",
+          "partner": "Coleoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Orthotomicus coelatus",
+          "partner": "Coleoptera (order)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Platysoma leconti",
+          "partner": "Coleoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Tachyta nana",
+          "partner": "Coleoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Temnochila virescens",
+          "partner": "Coleoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Thanasimus dubius",
+          "partner": "Coleoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Xyleborus fitchi",
+          "partner": "Coleoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Entomobrya ligata",
+          "partner": "Collembola (class)",
+          "flags": []
+        },
+        {
+          "body": "Isotoma sensibilis",
+          "partner": "Collembola (class)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Dendroctonus valens",
+          "partner": "Curculionidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Ips grandicollis",
+          "partner": "Curculionidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Orthotomicus coelatus",
+          "partner": "Curculionidae (family)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Xyleborus fitchi",
+          "partner": "Curculionidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Dendroctonus valens",
+          "partner": "Dendroctonus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Cambala annulata",
+          "partner": "Diplopoda (class)",
+          "flags": []
+        },
+        {
+          "body": "Alaus myops",
+          "partner": "Elateridae (family)",
+          "flags": []
+        },
+        {
+          "body": "Alaus oculatus",
+          "partner": "Elateridae (family)",
+          "flags": []
+        },
+        {
+          "body": "Entomobrya ligata",
+          "partner": "Entomobrya (genus)",
+          "flags": []
+        },
+        {
+          "body": "Entomobrya ligata",
+          "partner": "Entomobryidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Entomobrya ligata",
+          "partner": "Entomobryomorpha (order)",
+          "flags": []
+        },
+        {
+          "body": "Isotoma sensibilis",
+          "partner": "Entomobryomorpha (order)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Megalodacne fasciata",
+          "partner": "Erotylidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Camponotus herculeanus",
+          "partner": "Formicidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Leptothorax curvispinosus",
+          "partner": "Formicidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Ponera coarctata",
+          "partner": "Formicidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Zonitoides arboreus",
+          "partner": "Gastrodontidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Philomycus carolinensis",
+          "partner": "Gastropoda (class)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Zonitoides arboreus",
+          "partner": "Gastropoda (class)",
+          "flags": []
+        },
+        {
+          "body": "Geophilus varians",
+          "partner": "Geophilidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Geophilus varians",
+          "partner": "Geophilomorpha (order)",
+          "flags": []
+        },
+        {
+          "body": "Linotaenia bidens",
+          "partner": "Geophilomorpha (order)",
+          "flags": ["higher_rank_match", "synonym_name"]
+        },
+        {
+          "body": "Geophilus varians",
+          "partner": "Geophilus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Platysoma leconti",
+          "partner": "Histeridae (family)",
+          "flags": []
+        },
+        {
+          "body": "Camponotus herculeanus",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Leptothorax curvispinosus",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Ponera coarctata",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Alaus myops",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Alaus oculatus",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Camponotus herculeanus",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Dendroctonus valens",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Ips grandicollis",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Leptothorax curvispinosus",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Megalodacne fasciata",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Monochamus titillator",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Odontotaenius disjunctus",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Orthotomicus coelatus",
+          "partner": "Insecta (class)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Platysoma leconti",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Ponera coarctata",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Reticulitermes flavipes",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Tachyta nana",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Temnochila virescens",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Thanasimus dubius",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Xyleborus fitchi",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Ips grandicollis",
+          "partner": "Ips (genus)",
+          "flags": []
+        },
+        {
+          "body": "Isotoma sensibilis",
+          "partner": "Isotomidae (family)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Leptothorax curvispinosus",
+          "partner": "Leptothorax (genus)",
+          "flags": []
+        },
+        {
+          "body": "Linotaenia bidens",
+          "partner": "Linotaeniidae (family)",
+          "flags": ["higher_rank_match", "synonym_name"]
+        },
+        {
+          "body": "Megalodacne fasciata",
+          "partner": "Megalodacne (genus)",
+          "flags": []
+        },
+        {
+          "body": "Philomycus carolinensis",
+          "partner": "Mollusca (phylum)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Zonitoides arboreus",
+          "partner": "Mollusca (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Monochamus titillator",
+          "partner": "Monochamus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Odontotaenius disjunctus",
+          "partner": "Odontotaenius (genus)",
+          "flags": []
+        },
+        {
+          "body": "Orthotomicus coelatus",
+          "partner": "Orthotomicus (genus)",
+          "flags": ["fuzzy_name_match"]
+        },
+        {
+          "body": "Odontotaenius disjunctus",
+          "partner": "Passalidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Philomycus carolinensis",
+          "partner": "Philomycidae (family)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Philomycus carolinensis",
+          "partner": "Philomycus (genus)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Platysoma leconti",
+          "partner": "Platysoma (genus)",
+          "flags": []
+        },
+        {
+          "body": "Ponera coarctata",
+          "partner": "Ponera (genus)",
+          "flags": []
+        },
+        {
+          "body": "Isotoma sensibilis",
+          "partner": "Pseudisotoma (genus)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Reticulitermes flavipes",
+          "partner": "Reticulitermes (genus)",
+          "flags": []
+        },
+        {
+          "body": "Reticulitermes flavipes",
+          "partner": "Rhinotermitidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Cambala annulata",
+          "partner": "Spirostreptida (order)",
+          "flags": []
+        },
+        {
+          "body": "Linotaenia bidens",
+          "partner": "Strigamia (genus)",
+          "flags": ["higher_rank_match", "synonym_name"]
+        },
+        {
+          "body": "Philomycus carolinensis",
+          "partner": "Stylommatophora (order)",
+          "flags": ["synonym_name"]
+        },
+        {
+          "body": "Zonitoides arboreus",
+          "partner": "Stylommatophora (order)",
+          "flags": []
+        },
+        {
+          "body": "Tachyta nana",
+          "partner": "Tachyta (genus)",
+          "flags": []
+        },
+        {
+          "body": "Temnochila virescens",
+          "partner": "Temnochila (genus)",
+          "flags": []
+        },
+        {
+          "body": "Thanasimus dubius",
+          "partner": "Thanasimus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Temnochila virescens",
+          "partner": "Trogossitidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Xyleborus fitchi",
+          "partner": "Xyleborus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Zonitoides arboreus",
+          "partner": "Zonitoides (genus)",
+          "flags": []
+        }
+      ]
+    }
+  ]
+}

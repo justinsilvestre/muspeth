@@ -52,7 +52,8 @@ function readLifestyleTraits(row: Record<string, string>) {
   ) satisfies FungalTraits;
 }
 
-function readGbifHints({ Phylum, Class }: Record<string, string>) {
+/** Reads a genus row's phylum and class as GBIF match parameters, so that GBIF can tell the genus from homonyms. */
+export function readGbifHints({ Phylum, Class }: Record<string, string>) {
   const hints = { phylum: Phylum, class: Class, rank: "GENUS" };
   return Object.fromEntries(
     Object.entries(hints).flatMap(([key, value]) =>

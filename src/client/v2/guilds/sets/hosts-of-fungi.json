@@ -1,0 +1,5967 @@
+{
+  "id": "hosts-of-fungi",
+  "name": "Hosts and the fungi on them",
+  "group": "From other studies",
+  "citation": {
+    "text": "Põlme, S., Abarenkov, K., Nilsson, R. H., et al. (2020). FungalTraits: a user-friendly traits database of fungi and fungus-like stramenopiles. Fungal Diversity, 105, 1–16.",
+    "url": "https://doi.org/10.1007/s13225-020-00466-2"
+  },
+  "description": "The other side of the same table: hosts, from whole kingdoms to single genera, drawn as dots, and grouped by the fungal genera that live on more than one of them, such as the moulds that eat both nematodes and rotifers, or both mosses and liverworts.",
+  "bodyNoun": {
+    "one": "host",
+    "many": "hosts"
+  },
+  "organisms": [
+    "Animalia",
+    "Arthropoda",
+    "Homo sapiens",
+    "Nematoda",
+    "Rotifera",
+    "Rodentia",
+    "Chiroptera",
+    "Termitidae",
+    "Formicidae",
+    "Coccoidea",
+    "Ophiocordyceps",
+    "Mucorales",
+    "Ascomycota",
+    "Chaetomium",
+    "Amanita",
+    "Claviceps",
+    "Bryophyta",
+    "Marchantiophyta",
+    "Poaceae",
+    "Cyperaceae",
+    "Juncaceae",
+    "Arecaceae",
+    "Pinus",
+    "Pinaceae",
+    "Bacillariophyceae",
+    "Phaeophyceae"
+  ],
+  "relations": ["fungi"],
+  "labelStyle": "species",
+  "bodies": [
+    {
+      "id": "wikidata:Q213938",
+      "name": "Amanita"
+    },
+    {
+      "id": "wikidata:Q729",
+      "name": "Animalia",
+      "commonName": "animal"
+    },
+    {
+      "id": "wikidata:Q14080",
+      "name": "Arecaceae"
+    },
+    {
+      "id": "wikidata:Q1360",
+      "name": "Arthropoda",
+      "commonName": "arthropod"
+    },
+    {
+      "id": "wikidata:Q174726",
+      "name": "Ascomycota"
+    },
+    {
+      "id": "wikidata:Q2878349",
+      "name": "Bacillariophyceae",
+      "commonName": "diatoms"
+    },
+    {
+      "id": "wikidata:Q25347",
+      "name": "Bryophyta",
+      "commonName": "moss"
+    },
+    {
+      "id": "wikidata:Q3665729",
+      "name": "Chaetomium"
+    },
+    {
+      "id": "wikidata:Q28425",
+      "name": "Chiroptera",
+      "commonName": "bats"
+    },
+    {
+      "id": "wikidata:Q6445454",
+      "name": "Claviceps"
+    },
+    {
+      "id": "wikidata:Q209602",
+      "name": "Coccoidea",
+      "commonName": "scale insects"
+    },
+    {
+      "id": "wikidata:Q155843",
+      "name": "Cyperaceae"
+    },
+    {
+      "id": "wikidata:Q7386",
+      "name": "Formicidae",
+      "commonName": "ants"
+    },
+    {
+      "id": "wikidata:Q15978631",
+      "name": "Homo sapiens"
+    },
+    {
+      "id": "wikidata:Q156169",
+      "name": "Juncaceae"
+    },
+    {
+      "id": "wikidata:Q189808",
+      "name": "Marchantiophyta",
+      "commonName": "liverwort"
+    },
+    {
+      "id": "wikidata:Q141280",
+      "name": "Mucorales"
+    },
+    {
+      "id": "wikidata:Q5185",
+      "name": "Nematoda",
+      "commonName": "nematodes"
+    },
+    {
+      "id": "wikidata:Q1610767",
+      "name": "Ophiocordyceps"
+    },
+    {
+      "id": "wikidata:Q184573",
+      "name": "Phaeophyceae",
+      "commonName": "brown algae"
+    },
+    {
+      "id": "wikidata:Q101680",
+      "name": "Pinaceae"
+    },
+    {
+      "id": "wikidata:Q12024",
+      "name": "Pinus",
+      "commonName": "Pine",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Pinus_lambertiana_cones_Cucamonga_Peak.jpg/960px-Pinus_lambertiana_cones_Cucamonga_Peak.jpg",
+        "credit": "Mitch from Costa Mesa, CA, USA",
+        "licence": "CC-BY-SA-2.0",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Pinus_lambertiana_cones_Cucamonga_Peak.jpg"
+      }
+    },
+    {
+      "id": "wikidata:Q43238",
+      "name": "Poaceae"
+    },
+    {
+      "id": "wikidata:Q10850",
+      "name": "Rodentia",
+      "commonName": "Rodent"
+    },
+    {
+      "id": "wikidata:Q180148",
+      "name": "Rotifera",
+      "commonName": "rotifers"
+    },
+    {
+      "id": "wikidata:Q1050699",
+      "name": "Termitidae",
+      "commonName": "termites"
+    }
+  ],
+  "sharings": [
+    {
+      "relation": "fungi",
+      "licences": ["NOASSERTION"],
+      "links": [
+        {
+          "body": "Animalia",
+          "partner": "Abelspora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Acallomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Acarispora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Acaulium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Acaulium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Acaulopage",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Achlya",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Acompsomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Acrogynomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Actinomucor",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arecaceae",
+          "partner": "Acuminatispora",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Aedispora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Aegeritella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Formicidae",
+          "partner": "Aegeritella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arecaceae",
+          "partner": "Agaricostilbum",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Agglomerata",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Agmasoma",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Ajellomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Ajellomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Alfvenia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Allocucurbitaria",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Alloglugea",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Alternaria",
+          "flags": ["trait_name_synonym"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Alternosema",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Amazonspora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Amblyospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Ambrosiella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Amesia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Amesia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Ameson",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Amoebophilus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Amorphomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Amphibambusa",
+          "flags": []
+        },
+        {
+          "body": "Chiroptera",
+          "partner": "Amphichorda",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Amphimyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Andreanna",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Anhellia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Anisofilariata",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bacillariophyceae",
+          "partner": "Anisolpidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Phaeophyceae",
+          "partner": "Anisolpidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Anncaliia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Anomalomyces",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Anostracospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Anthopsis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Anthracocystis",
+          "flags": []
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Anthracoidea",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Antonospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Apatelomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Apatomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Aphanandromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Aphanoascella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Aphanoascus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Aphanomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Apinisia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arecaceae",
+          "partner": "Apioclypea",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Aplanochytrium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Aplectosoma",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Apophysomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Aporomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Aposporella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Apotaspora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Apterivorax",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Rotifera",
+          "partner": "Aquastella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Arachnomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Arachnomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Arcuadendron",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arecaceae",
+          "partner": "Arecophila",
+          "flags": []
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Arecophila",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Areospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Arrhenosphaera",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Arthrobotrys",
+          "flags": ["informal_group_name", "trait_name_synonym"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Arthrocladium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Arthrocladium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Arthroderma",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Arthroderma",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Arthropsis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Arthrorhynchus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Asaphomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Aschersonia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Ascopolyporus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Coccoidea",
+          "partner": "Ascopolyporus",
+          "flags": ["unmatched_name", "ambiguous_wikidata_id", "informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Ascosphaera",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Aspergillus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Aspergillus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Atradidymella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Formicidae",
+          "partner": "Attamyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Auraspora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Aureobasidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Auriculoscypha",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Coccoidea",
+          "partner": "Auriculoscypha",
+          "flags": ["unmatched_name", "ambiguous_wikidata_id", "informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Auriscalpium",
+          "flags": []
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Autoicomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Autophagomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Bacillidium",
+          "flags": ["unmatched_name", "informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Baculea",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Baeospora",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Ballocephala",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Bambusiomyces",
+          "flags": []
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Baobabopsis",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Barlaea",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Barnettozyma",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Basidiobolus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Basidiobolus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Basidiolum",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Basipetospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Batkoa",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Batrachochytrium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Bdellospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Becnelia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Benjaminiomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Berkelella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Berwaldia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Biappendiculispora",
+          "flags": []
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Biatriospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Binucleata",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Binucleospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Bionectria",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Marchantiophyta",
+          "partner": "Blasiphalia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Blasticomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Blastomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Blastomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Blastulidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Bohuslavia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Boletinus",
+          "flags": []
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Bordea",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Botryandromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Botryomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Botryomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Brachiola",
+          "flags": ["unmatched_name", "informal_group_name"]
+        },
+        {
+          "body": "Rotifera",
+          "partner": "Brachymyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Brauniellula",
+          "flags": []
+        },
+        {
+          "body": "Arecaceae",
+          "partner": "Brunneiapiospora",
+          "flags": []
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Bryoclaviculus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Bryonosema",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Bryoperdon",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Bryoscyphus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Marchantiophyta",
+          "partner": "Bryotria",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Burenella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Buxtehudea",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Cainomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Calyptrozyma",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Campanulospora",
+          "flags": ["unmatched_name", "informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Camptomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinus",
+          "partner": "Canavirgella",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Candida",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Canningia",
+          "flags": ["unmatched_name", "informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Cantharellopsis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Cantharomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Capillidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Capillidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Capillistichus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Capronia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Capronia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Carpophoromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Catenaria",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Caudosporina",
+          "flags": ["unmatched_name", "informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Cephaloascus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Cephalosporiopsis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Cephalotrichum",
+          "flags": ["trait_name_synonym", "informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Cepsiclava",
+          "flags": []
+        },
+        {
+          "body": "Arecaceae",
+          "partner": "Ceratobasidium",
+          "flags": ["trait_name_synonym"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Ceratomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Cerinosterus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Cesariella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Chaetarthriomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Chaetomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Amanita",
+          "partner": "Chalciporus",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Chapmanium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Chitonomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Chlamydomyzium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Chlamydosauromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Chloridium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Chlorocillium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Chromocyphella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Chroogomphus",
+          "flags": []
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Chytridhaema",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Chytridiopsis",
+          "flags": ["trait_name_synonym", "informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Cibdelia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Ciliatosporidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Ciliolarina",
+          "flags": []
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Cintractia",
+          "flags": []
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Cintractiella",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Citeromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Citeromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Cladophialophora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Cladophialophora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Cladosporium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Clavispora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Clavispora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Clematomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Clonophoromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Clonostachys",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Coccidiodictyon",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Coccoidea",
+          "partner": "Coccidiodictyon",
+          "flags": ["unmatched_name", "ambiguous_wikidata_id", "informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Coccidioides",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Cocconema",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Coccospora",
+          "flags": ["unmatched_name", "informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Cochliomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Cochlonema",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Coelomomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Coelomycidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Cokeromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Coleospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Colonomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Columnomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Compsomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Conglomerata",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Conidiobolus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Conidiobolus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Conidiosporomyces",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Coniochaeta",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Coniosporium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Conoideocrella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Corallomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Cordyceps",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Coreomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Coreomycetopsis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Corethromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Corinectria",
+          "flags": []
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Corylophomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Cotylidia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Couchia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Cougourdella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Crepidulospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Crispospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Cristulospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Cryptandromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Crypticola",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Cryptococcus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Cryptosporina",
+          "flags": ["unmatched_name", "informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Cucujomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Cucumispora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Culicinomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Culicospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Culicosporella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Cunninghamella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Cupulomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Curvularia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Cutaneotrichosporon",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Cutaneotrichosporon",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Cyberlindnera",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Cyberlindnera",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Cylindrospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Cyphellophora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Cyphellophora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Cystogomphus",
+          "flags": []
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Cystopage",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Cystosporogenes",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Dactylaria",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Dactylellina",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Dasyatispora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Dermapteromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Dermatosorus",
+          "flags": []
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Desarmillaria",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Desmozoon",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Diandromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Diaphoromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Diclonomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Dicranidion",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Dictyocoela",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Dictyolus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Didymella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Mucorales",
+          "partner": "Dimargaris",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Dimeiospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Dimeromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Dimorphomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Dioicomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Diphymyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Diplomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Diplopodomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Dipodomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Chaetomium",
+          "partner": "Dispira",
+          "flags": []
+        },
+        {
+          "body": "Mucorales",
+          "partner": "Dispira",
+          "flags": []
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Distolomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Dixomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Drechmeria",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Drechslerella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Drepanomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Duboscqia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Dwayaangam",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Rotifera",
+          "partner": "Dwayaangam",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Eballistra",
+          "flags": []
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Ecteinomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Edenia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Edhazardia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinus",
+          "partner": "Elytroderma",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Emarellia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Emarellia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Emergomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Emericella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Emmonsia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Emmonsiella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Emmonsiella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Enarthromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Encephalitozoon",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Endoblastidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Endocochlus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Endoconidiophora",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "Endocronartium",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Endoreticulatus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Engleromyces",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Enterocytospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Enterocytozoon",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Enteropsectra",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Enterospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Entomophaga",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Entomophthora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Entorrhiza",
+          "flags": []
+        },
+        {
+          "body": "Juncaceae",
+          "partner": "Entorrhiza",
+          "flags": []
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Eocronartium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Epibryon",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Marchantiophyta",
+          "partner": "Epibryon",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Epidermophyton",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Epidermophyton",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Epiglia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Episeptum",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Episternus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Eraphthora",
+          "flags": ["trait_name_synonym"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Erynia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Eryniopsis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Formicidae",
+          "partner": "Escovopsioides",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Formicidae",
+          "partner": "Escovopsis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Esteya",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Eucantharomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Euceratomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Euhaplomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Eumonoicomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Eupenidiella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Eupenidiella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Euphoriomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Euryancale",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Phaeophyceae",
+          "partner": "Eurychasma",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Eurytheca",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Eusynaptomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Euzodiomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Evlachovaia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Exophiala",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Exophiala",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Fabrella",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Facilispora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Farysia",
+          "flags": []
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Farysporium",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Fibrillanosema",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Filariomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Filicupula",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Filobasidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Flabelliforma",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Fonsecaea",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Fonsecaea",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Fragosphaeria",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Franzpetrakia",
+          "flags": []
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Fugomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Furia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Fusarium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Fuscoboletinus",
+          "flags": []
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Gamsylella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Geniculifera",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Geotrichum",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Geusia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Gibberella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Globulispora",
+          "flags": ["unmatched_name", "informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Gloeandromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Gloeocercospora",
+          "flags": []
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Gloeopeziza",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Juncaceae",
+          "partner": "Glomerobolus",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Glugea",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Glugoides",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Golbergia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Gomphidius",
+          "flags": []
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Gomphogaster",
+          "flags": []
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Gonimochaete",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Graminivora",
+          "flags": []
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Graphium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Grimmicola",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Grovesiella",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Gurleya",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Gurleyides",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Marchantiophyta",
+          "partner": "Gynonectria",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Haliphthoros",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Halocrusticida",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Halodaphnea",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Hamiltosporidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Hannaella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Hannaella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Haplomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Haptocillium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Haptoglossa",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinus",
+          "partner": "Harmoniella",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Harposporium",
+          "flags": ["trait_name_synonym", "informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Harposporium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Hazardia",
+          "flags": ["unmatched_name", "ambiguous_wikidata_id", "informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Helicocarpus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Helicocarpus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Helicocephalum",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Helicocollum",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Coccoidea",
+          "partner": "Helicocollum",
+          "flags": ["unmatched_name", "ambiguous_wikidata_id", "informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Helmichia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Helminthascus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Helodiomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Hepatospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Herpomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Hesperomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Hessea",
+          "flags": ["unmatched_name", "ambiguous_wikidata_id", "informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Heterosporis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Heterotolyposporium",
+          "flags": []
+        },
+        {
+          "body": "Juncaceae",
+          "partner": "Heterotolyposporium",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Heterovesicula",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Heyderia",
+          "flags": []
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Hiemsia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Hirsutosporos",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Histeridomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Histoplasma",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Hohenbuehelia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Holobispora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Holtermannia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Homaromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Hongkongmyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Hongkongmyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Hormonema",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Hortaea",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Hortaea",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Hrabeyia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Hrabyeia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Hyalinocysta",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Hyalorbilia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Hyaloscypha",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Rotifera",
+          "partner": "Hydatinophagus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Hydraeomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Hydrophilomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Hymenula",
+          "flags": []
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Hyperdermium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Coccoidea",
+          "partner": "Hyperdermium",
+          "flags": ["unmatched_name", "ambiguous_wikidata_id", "informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Hyperspora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Hyphopichia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Hypobryon",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Marchantiophyta",
+          "partner": "Hypobryon",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Hypocrella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Ichthyosporidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Idiomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Ijuhya",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Ilyomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Ilytheomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinus",
+          "partner": "Infundichalara",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Ingoldiomyces",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Inodosporus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Intexta",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Intrapredatorus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Issatchenkia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Issia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Jamesdicksonia",
+          "flags": []
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Jamesdicksonia",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Janacekia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Jirovecia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Jiroveciana",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Johenrea",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Johncouchia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Coccoidea",
+          "partner": "Johncouchia",
+          "flags": ["unmatched_name", "ambiguous_wikidata_id", "informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Jola",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Kabatana",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Kainomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Kathistes",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Kinorhynchospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Kleidiomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Kluyveromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Kneallhazia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Knoxdaviesia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Kodamaea",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Krishtalia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Kruphaiomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Kuntzeomyces",
+          "flags": []
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Kyphomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Laboulbenia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Laboulbeniopsis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Lacazia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Lagenidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bacillariophyceae",
+          "partner": "Lagenisma",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Lamprospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Lanatospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Marchantiophyta",
+          "partner": "Laniatria",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Larssonia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Larssoniella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Lecophagus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Lecythophora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Leptolegnia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Leptomeliola",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Leucocintractia",
+          "flags": []
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Lichtheimia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Liebermannia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Limnaiomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Lodderomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Loma",
+          "flags": ["unmatched_name", "informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Lomentospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arecaceae",
+          "partner": "Longicorpus",
+          "flags": []
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Lophiopoacea",
+          "flags": []
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Lophomerum",
+          "flags": []
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Lophotrichus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Marchantiophyta",
+          "partner": "Loreleia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Macalpinomyces",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Macrobiotophthora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Madurella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Madurella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Magnusiomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Majewskia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Malassezia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Mariona",
+          "flags": ["unmatched_name", "informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Marssoniella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Massospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Mastigosporium",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Medicopsis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Meionomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Melanchlenus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Melanomphalia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Melnikia",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Meristacrum",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Merocinta",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Metacordyceps",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Metapochonia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Metarhiziopsis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Metarhizium",
+          "flags": ["trait_name_synonym", "informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Metschnikowia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Micraspis",
+          "flags": []
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Microascus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Microbotryozyma",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Microcera",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Microconidiobolus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Microconidiobolus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Microfilum",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Microgemma",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Microsomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Microsphaeropsis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Microsporidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Microsporum",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Microsporum",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Millerozyma",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Mimeomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bacillariophyceae",
+          "partner": "Miracula",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Misgomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Mitoplistophora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Mitosporidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Mniaecia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Mockfordia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Moelleriella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Moesziomyces",
+          "flags": []
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Monacrosporium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Monandromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Moniliella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Moniliella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Monoicomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Moravecia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Moreaua",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Morellospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Mortierella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Mrazekia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Mucor",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Multilamina",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Muscicola",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Muscinupta",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Mycotypha",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Myospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Myosporidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Myriangium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Coccoidea",
+          "partner": "Myriangium",
+          "flags": ["unmatched_name", "ambiguous_wikidata_id", "informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Myrmecomorba",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Myxocystis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Myzocytiopsis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Nadelospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Nadelspora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Nakaseomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Nakaseomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Nannizzia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Nannizziopsis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Nanomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Ascomycota",
+          "partner": "Naohidea",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Napamichum",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Nelliemelba",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Nematocenator",
+          "flags": ["unmatched_name", "informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Nematoceromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Nematocida",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Nematoctonus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Neoconidiobolus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Neoconidiobolus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Neocordyceps",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinus",
+          "partner": "Neoeutypella",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Neoflabelliforma",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Neohaplomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arecaceae",
+          "partner": "Neolinocarpon",
+          "flags": []
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Neolinocarpon",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Neonosemoides",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Neoperezia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Neosartorya",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Neoscytalidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Neoscytalidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Neottiella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Neovossia",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Neozygites",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Nephridiophaga",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Nigelia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Nigrocephalum",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Nigrocephalum",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Nigrograna",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Nolleria",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Nomuraea",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Norlevinea",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Nosema",
+          "flags": ["unmatched_name", "ambiguous_wikidata_id", "informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Nosemoides",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Novothelohania",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Nucleophaga",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Nucleospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Nudispora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Nycteromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Oberwinkleria",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Obruspora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Ochroconis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Octospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Octosporea",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Octosporella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Octosporopsis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Octotetraspora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Oligosporidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Omphalina",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Onychocola",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Onychocola",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Ophidiomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Ophiocordyceps",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Opilionomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Orbilia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Orbiocrella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Coccoidea",
+          "partner": "Orbiocrella",
+          "flags": ["unmatched_name", "ambiguous_wikidata_id", "informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Ordospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Ormieresia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Ormomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Orphanomyces",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Orthomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Orthosomella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Orthothelohania",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Oryctospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Osoriomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Ovadendron",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Ovavesicula",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Ovicillium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Ovipleistophora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Pagidospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arecaceae",
+          "partner": "Palmicola",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Pancytospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Pandora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Panhistophyton",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Pankovaia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Paracoccidioides",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Paracoccidioides",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Paracremonium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Paracremonium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Paradoxium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Paraepiseptum",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Parahepatospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Paraisaria",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Paranannizziopsis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Paranosema",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Paranucleospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Paraphyton",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Parapleistophora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Parascedosporium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Parastempellia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Parathelohania",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Paratuzetia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Parengyodontium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Parvomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Parvulago",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Pegmatheca",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Peltomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bacillariophyceae",
+          "partner": "Pendulichytrium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Penicillium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Penidiellopsis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Penidiellopsis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Percutemincola",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Percutemnicola",
+          "flags": ["unmatched_name", "informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Perennicordyceps",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Perezia",
+          "flags": ["unmatched_name", "informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Periantria",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Pernicivesicula",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Peronosclerospora",
+          "flags": []
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Peyritschiella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Phaeoannellomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Phaeoannellomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Phaeococcomyces",
+          "flags": ["trait_name_synonym", "informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Phaeococcomyces",
+          "flags": ["trait_name_synonym", "informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Phaeodepas",
+          "flags": []
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Phaeonematoloma",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Phaeotellus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Phalacrichomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Phaulomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Phialemoniopsis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Phialemoniopsis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Phialemonium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Phialophora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Phialophoropsis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Phlyctochytrium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Phragmotaenium",
+          "flags": []
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Phurmomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Picardella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Pichia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Pichia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Piedraia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Pilocintractia",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Pilosporella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Ascomycota",
+          "partner": "Piptocephalis",
+          "flags": []
+        },
+        {
+          "body": "Mucorales",
+          "partner": "Piptocephalis",
+          "flags": []
+        },
+        {
+          "body": "Bacillariophyceae",
+          "partner": "Pirsonia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Planetella",
+          "flags": []
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Platycarpa",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Plectomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Plectosphaerella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Pleistophora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Pleistosporidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Pleurotus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Pneumocystis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Pneumocystis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Poakatesthia",
+          "flags": []
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Pochonia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Podonectria",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Coccoidea",
+          "partner": "Podonectria",
+          "flags": ["unmatched_name", "ambiguous_wikidata_id", "informal_group_name"]
+        },
+        {
+          "body": "Termitidae",
+          "partner": "Podostroma",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Polyandromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Polyascomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Polydispyrenia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Polypaecilum",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Polypaecilum",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Porocercospora",
+          "flags": []
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Porophoromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Portalia",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Potaspora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Prolixandromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Protascus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Pselaphidomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Pseudallescheria",
+          "flags": ["trait_name_synonym", "informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Pseudallescheria",
+          "flags": ["trait_name_synonym", "informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Pseudoberwaldia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Pseudoecteinomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Pseudogibellula",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Formicidae",
+          "partner": "Pseudogibellula",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Pseudokabatana",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Pseudoloma",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Pseudomeria",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Pseudonosema",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Pseudopleistophora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Psychronectria",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Pubigera",
+          "flags": []
+        },
+        {
+          "body": "Chiroptera",
+          "partner": "Pulchromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Rodentia",
+          "partner": "Pulchromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Pulicispora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Purpureocillium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinus",
+          "partner": "Purpurepithecium",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Pyrotheca",
+          "flags": ["unmatched_name", "informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Pythiopsis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Ramichloridium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Ramichloridium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Rasamsonia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Rectifusarium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Rectispora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Regiocrella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Remotididymella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Remotididymella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Resiomeria",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Rhabdocline",
+          "flags": []
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Rhachomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Rhinocladiella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Rhinocladiella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Rhipidiomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Rhizocalyx",
+          "flags": []
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Rhizomucor",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Rhizomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Rhizopodomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Rhizopogon",
+          "flags": []
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Rhizopus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Rhizothyrium",
+          "flags": []
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Rhodotorula",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Rhopalomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Rhynchophoromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Rickenella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Rickia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Rimbachia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Rinaldiella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Ringueletium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Rodaucea",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Romellina",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Roseodiscus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Rossiomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Rotiferophthora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Rugispora",
+          "flags": ["unmatched_name", "informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Sagenomella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Saksenaea",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Salmacisia",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Samuelsia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Sandersoniomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Saprochaete",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Saprolegnia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinus",
+          "partner": "Sarcinomyces",
+          "flags": ["unmatched_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Sarcopodium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Sarcotrochila",
+          "flags": []
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Scaphidiomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Scedosporium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Scelophoromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Scepastocarpus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Schizangiella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Schizonella",
+          "flags": []
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Schizophyllum",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Schroedera",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Schwanniomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Scipionospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Sclerophthora",
+          "flags": []
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Sclerospora",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Scolecobasidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Scopulariopsis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Scutulopsis",
+          "flags": []
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Scytalidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Selenaspora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Semenovaia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Senoma",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Septobasidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Coccoidea",
+          "partner": "Septobasidium",
+          "flags": ["unmatched_name", "ambiguous_wikidata_id", "informal_group_name"]
+        },
+        {
+          "body": "Bacillariophyceae",
+          "partner": "Septolpidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Sheriffia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Siemaszkoa",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Sigarispora",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Simuliospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Termitidae",
+          "partner": "Sinotermitomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Smeringomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Rotifera",
+          "partner": "Sommerstorffia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Sorochytrium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Sorosporella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Sphaerocordyceps",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Sphagnurus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Sphaleromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Spherospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Mucorales",
+          "partner": "Spinalia",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Sporanauta",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Sporisorium",
+          "flags": []
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Sporodiniella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Sporopachydermia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Sporothrix",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Spraguea",
+          "flags": ["unmatched_name", "informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Stachylidium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Juncaceae",
+          "partner": "Stegocintractia",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Steinhausia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Stemmatomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Stempellia",
+          "flags": ["unmatched_name", "informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Stereocrea",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Stichomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Stigmatomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arecaceae",
+          "partner": "Striatiguttula",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Striatospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Strobilurus",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Strongwellsea",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Stylopage",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Sugiyamaemyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Suillus",
+          "flags": []
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Symplectromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Formicidae",
+          "partner": "Sympodiomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Sympodomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Synandromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Synaptomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Ascomycota",
+          "partner": "Syncephalis",
+          "flags": []
+        },
+        {
+          "body": "Mucorales",
+          "partner": "Syncephalis",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Systenostrema",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Syzygangia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Tabanispora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Takaokaspora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Talaromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Tardivesicula",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Tarichium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Tavaresiella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Telomyxa",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Tentaculophagus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Rotifera",
+          "partner": "Tentaculophagus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Teratomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Termitariopsis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Termitidae",
+          "partner": "Termiticola",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Termitidae",
+          "partner": "Termitomyces",
+          "flags": ["trait_name_synonym", "informal_group_name"]
+        },
+        {
+          "body": "Termitidae",
+          "partner": "Termitosphaera",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Testicularia",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Tetramicra",
+          "flags": ["unmatched_name", "ambiguous_wikidata_id", "informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Tetrandromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Tettigomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Thamnostylum",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Thaumasiomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Thaxterimyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Thaxterosporium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Thelohania",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Thraustochytrium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Thripomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Ticonectria",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Mucorales",
+          "partner": "Tieghemiomyces",
+          "flags": []
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Tilletia",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Tintelnotia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Tintelnotia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Tolypocladium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Tolyposporella",
+          "flags": []
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Tolyposporium",
+          "flags": []
+        },
+        {
+          "body": "Juncaceae",
+          "partner": "Tolyposporium",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Torrubiella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Toxoglugea",
+          "flags": ["trait_name_synonym", "informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Toxospora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Trachipleistophora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Tranzscheliella",
+          "flags": []
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Trenomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Triadelphia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Triainomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Triceromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Trichocintractia",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Trichoctosporea",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Trichoduboscqia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Trichomaris",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Trichomonascus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Trichonosema",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Trichophyton",
+          "flags": ["trait_name_synonym", "informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Trichophyton",
+          "flags": ["trait_name_synonym", "informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Trichosporon",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Trichosporon",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Trichotosporea",
+          "flags": ["unmatched_name", "informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Trichotuzetia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Tricornia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Tritirachium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Tritirachium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Triwangia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Trizodia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Trochoideomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Troglomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Tubulinosema",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Tuzetia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Claviceps",
+          "partner": "Tyrannicordyceps",
+          "flags": []
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Tzeanania",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Ophiocordyceps",
+          "partner": "Tzeanania",
+          "flags": []
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Uleiella",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Unikaryon",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Uredinella",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Coccoidea",
+          "partner": "Uredinella",
+          "flags": ["unmatched_name", "ambiguous_wikidata_id", "informal_group_name"]
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Ustanciosporium",
+          "flags": []
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Ustilago",
+          "flags": ["trait_name_synonym"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Vacuiphoma",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Vacuiphoma",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Vairimorpha",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Vamsapriya",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Vavraia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Vermispora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Verrucocephalum",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Verruconis",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Verticillium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Viennotia",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Visvesvaria",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Vittaforma",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Weiseria",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Wickerhamomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Wittmannia",
+          "flags": ["unmatched_name", "ambiguous_wikidata_id", "informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Xanthothecium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Xenoacremonium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Xerochrysium",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Xylohypha",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Xylohypha",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Yarrowia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Yunchangia",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Zelenkaia",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Zeugandromyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Zodiomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Zoopage",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Zoophagus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Rotifera",
+          "partner": "Zoophagus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Zoophthora",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Animalia",
+          "partner": "Zygnemomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Zygnemomyces",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Zygoascus",
+          "flags": ["informal_group_name"]
+        },
+        {
+          "body": "Bacillariophyceae",
+          "partner": "Zygorhizidium",
+          "flags": ["informal_group_name"]
+        }
+      ]
+    },
+    {
+      "relation": "compounds",
+      "licences": ["CC0-1.0"],
+      "links": [
+        {
+          "body": "Pinus",
+          "partner": "(-)-epigallocatechin",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "(+)-catechin",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "(+)-gallocatechin",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "(−)-epicatechin",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "apigenin",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "dehydroabietic acid",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "Epicatechin gallate",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "epigallocatechin gallate",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "gallocatechin gallate",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "kaempferol",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "L-proline",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "luteolin",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "myricetin",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "n-heptane",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "quercetin",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "names",
+      "licences": ["CC-BY-4.0", "CC0-1.0"],
+      "links": [
+        {
+          "body": "Pinus",
+          "partner": "bes",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "borovica",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "borovice",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "çam",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "chaj",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "chójca",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "den",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "dʒagda",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "ēj",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "fenyő",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "furu",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "hal’o",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "hàzo kèsika",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "kal",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "karáčoňiko kašt",
+          "flags": ["derived_from_coarser_level"]
+        },
+        {
+          "body": "Pinus",
+          "partner": "Kiefer",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "Mänd",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "msonobari",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "niqeš xöxö",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "ntoo thuv",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "oko",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "paina",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "piino",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "pijnboom",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "pin",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "Pin",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "pînboum",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "pine",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "pinheiro",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "Pini",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "pinu",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "pinus",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "Pušis",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "Şam ağacı",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "Sosna",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "thông",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "toh",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "tu̲di",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "ŧayđa",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "Πεύκη",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "Қарағай",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "Нарс",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "пе̄дзь",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "Сосна",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "Хвоя",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "אורן",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "صنوبر",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "کاج",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "สน",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "소나무",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "マツ",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "松",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "松树",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "relation": "stories",
+      "licences": ["CC-BY-4.0"],
+      "links": [
+        {
+          "body": "Pinus",
+          "partner": "A2723.1. Discontented pine-tree: cause of pine needles. Pine tree given silk leaves, glass leaves, etc. Always discontented. Finally has needles again. (Cf. A2767.1.)",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus",
+          "partner": "A2767.1. Origin of pine-needles. (Cf. A2723.1.)",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus",
+          "partner": "F232.1.2. Fairy has back rough like pine cone.",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus",
+          "partner": "F451.4.3.5. Floors in dwarf home are covered with pine twigs.",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus",
+          "partner": "G314. Pine bender. Kills victims by springing tree.",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus",
+          "partner": "J242.2. Pine and thornbush dispute as to their usefulness. Beauty of form does not give worth; pine grows slowly but it will withstand storms.",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus",
+          "partner": "X1203. Lie: animal's food affects him in unusual way. (E.g. Pine tops: milk good for cough syrup.)",
+          "flags": ["text_match"]
+        },
+        {
+          "body": "Pinus",
+          "partner": "Z39.4.2. Sparrow, where are you going? – To eat seed. – The owner will scold you. – I'll sit on a pine tree. – etc.",
+          "flags": ["text_match"]
+        }
+      ]
+    },
+    {
+      "relation": "sites",
+      "licences": [],
+      "links": []
+    },
+    {
+      "relation": "descent",
+      "licences": ["CC-BY-4.0"],
+      "links": [
+        {
+          "body": "Amanita",
+          "partner": "Agaricales (order)",
+          "flags": []
+        },
+        {
+          "body": "Amanita",
+          "partner": "Agaricomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Amanita",
+          "partner": "Amanita (genus)",
+          "flags": []
+        },
+        {
+          "body": "Amanita",
+          "partner": "Amanitaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Animalia",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Chiroptera",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Coccoidea",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Formicidae",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Rodentia",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Rotifera",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Termitidae",
+          "partner": "Animalia (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Arecaceae",
+          "partner": "Arecaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Arecaceae",
+          "partner": "Arecales (order)",
+          "flags": []
+        },
+        {
+          "body": "Arthropoda",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Coccoidea",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Formicidae",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Termitidae",
+          "partner": "Arthropoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Ascomycota",
+          "partner": "Ascomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Chaetomium",
+          "partner": "Ascomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Claviceps",
+          "partner": "Ascomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Ophiocordyceps",
+          "partner": "Ascomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Bacillariophyceae",
+          "partner": "Bacillariophyceae (class)",
+          "flags": []
+        },
+        {
+          "body": "Amanita",
+          "partner": "Basidiomycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Termitidae",
+          "partner": "Blattodea (order)",
+          "flags": []
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Bryophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Chaetomium",
+          "partner": "Chaetomiaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Chaetomium",
+          "partner": "Chaetomium (genus)",
+          "flags": []
+        },
+        {
+          "body": "Chiroptera",
+          "partner": "Chiroptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Chiroptera",
+          "partner": "Chordata (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Chordata (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Rodentia",
+          "partner": "Chordata (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Bacillariophyceae",
+          "partner": "Chromista (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Phaeophyceae",
+          "partner": "Chromista (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Claviceps",
+          "partner": "Claviceps (genus)",
+          "flags": []
+        },
+        {
+          "body": "Claviceps",
+          "partner": "Clavicipitaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Cyperaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Formicidae",
+          "partner": "Formicidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Amanita",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Ascomycota",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Chaetomium",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Claviceps",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Mucorales",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Ophiocordyceps",
+          "partner": "Fungi (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Coccoidea",
+          "partner": "Hemiptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Hominidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Homo (genus)",
+          "flags": []
+        },
+        {
+          "body": "Formicidae",
+          "partner": "Hymenoptera (order)",
+          "flags": []
+        },
+        {
+          "body": "Claviceps",
+          "partner": "Hypocreales (order)",
+          "flags": []
+        },
+        {
+          "body": "Ophiocordyceps",
+          "partner": "Hypocreales (order)",
+          "flags": []
+        },
+        {
+          "body": "Coccoidea",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Formicidae",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Termitidae",
+          "partner": "Insecta (class)",
+          "flags": []
+        },
+        {
+          "body": "Juncaceae",
+          "partner": "Juncaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Arecaceae",
+          "partner": "Liliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Liliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Juncaceae",
+          "partner": "Liliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Liliopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Chiroptera",
+          "partner": "Mammalia (class)",
+          "flags": []
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Mammalia (class)",
+          "flags": []
+        },
+        {
+          "body": "Rodentia",
+          "partner": "Mammalia (class)",
+          "flags": []
+        },
+        {
+          "body": "Marchantiophyta",
+          "partner": "Marchantiophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Mucorales",
+          "partner": "Mucorales (order)",
+          "flags": []
+        },
+        {
+          "body": "Mucorales",
+          "partner": "Mucoromycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Mucorales",
+          "partner": "Mucoromycota (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Nematoda",
+          "partner": "Nematoda (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Bacillariophyceae",
+          "partner": "Ochrophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Phaeophyceae",
+          "partner": "Ochrophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Ophiocordyceps",
+          "partner": "Ophiocordyceps (genus)",
+          "flags": []
+        },
+        {
+          "body": "Ophiocordyceps",
+          "partner": "Ophiocordycipitaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Phaeophyceae",
+          "partner": "Phaeophyceae (class)",
+          "flags": []
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Pinaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "Pinaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Pinales (order)",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "Pinales (order)",
+          "flags": []
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Pinopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "Pinopsida (class)",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "Pinus (genus)",
+          "flags": []
+        },
+        {
+          "body": "Arecaceae",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Bryophyta",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Juncaceae",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Marchantiophyta",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Plantae (kingdom)",
+          "flags": []
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Poaceae (family)",
+          "flags": []
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Poales (order)",
+          "flags": []
+        },
+        {
+          "body": "Juncaceae",
+          "partner": "Poales (order)",
+          "flags": []
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Poales (order)",
+          "flags": []
+        },
+        {
+          "body": "Homo sapiens",
+          "partner": "Primates (order)",
+          "flags": []
+        },
+        {
+          "body": "Rodentia",
+          "partner": "Rodentia (order)",
+          "flags": []
+        },
+        {
+          "body": "Rotifera",
+          "partner": "Rotifera (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Chaetomium",
+          "partner": "Sordariales (order)",
+          "flags": []
+        },
+        {
+          "body": "Chaetomium",
+          "partner": "Sordariomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Claviceps",
+          "partner": "Sordariomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Ophiocordyceps",
+          "partner": "Sordariomycetes (class)",
+          "flags": []
+        },
+        {
+          "body": "Termitidae",
+          "partner": "Termitidae (family)",
+          "flags": []
+        },
+        {
+          "body": "Arecaceae",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Cyperaceae",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Juncaceae",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Pinaceae",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Pinus",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        },
+        {
+          "body": "Poaceae",
+          "partner": "Tracheophyta (phylum)",
+          "flags": []
+        }
+      ]
+    }
+  ]
+}

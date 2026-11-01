@@ -55,6 +55,7 @@ These flags arise when a connection says a little more, or something a little di
 | `unreferenced_statement` | Wikidata states the fact, such as "found in taxon" or "depicts", without citing a reference. | Wikidata depictions (1,255), Wikidata compounds and products (176) | 1,431 |
 | `tied_nearest_neighbour` | In a likeness link, several organisms were exactly as alike in traits, and a fixed rule picked this one. | FungalTraits | 188 |
 | `uncertain_borrowing` | The World Loanword Database rates the word's borrowing as uncertain. | WOLD | 37 |
+| `informal_group_name` | The source names a host only by an informal group, such as "mosses" or "scale insects", and the import read it as the one taxon that covers the group, keeping the group's name as an English name of the node. | FungalTraits hosts | 943 |
 
 ### Provenance
 

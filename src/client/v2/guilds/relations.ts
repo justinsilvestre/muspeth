@@ -6,7 +6,15 @@ export type RelationId =
   | "stories"
   | "sites"
   | "descent"
-  | "species";
+  | "species"
+  | "stages"
+  | "prey"
+  | "predators"
+  | "food"
+  | "eaters"
+  | "hosts"
+  | "fungi"
+  | "genes";
 
 /** A phrase in a singular and a plural form, for agreement with a count. */
 type Forms = { one: string; many: string };
@@ -173,6 +181,125 @@ export const relations = {
     explanation:
       "The honey bee reaches every site and most species reach only one, so these membranes are drawn by the organisms that travel, or that people carried with them.",
     citations: [mangalSites],
+  },
+  stages: {
+    id: "stages",
+    menuLabel: "the logs they were found in",
+    shared: { one: "kind of log", many: "kinds of log" },
+    membrane: "found in the same kind of log at the same stage of decay",
+    reach: { one: "was found in a log", many: "were found in a log" },
+    dotVerb: "was found in",
+    guildVerb: { one: "held", many: "held" },
+    sharedAreSpecies: false,
+    weight: { label: "Logs dead at least", one: "year", many: "years" },
+    explanation:
+      "Savely cut into oak and pine logs a year after the trees died and again after three years or more, and listed what lived in each. A membrane is one kind of log at one stage of decay, so where the membranes nest and overlap they show which animals persist as the wood softens and which come and go. The glottometric reading bends least here: a stage of decay is something the log underwent, and the animals inside share it as languages share an innovation. The slider admits the logs by how long they had lain dead, so Replay starts from the oldest logs and adds the fresher ones.",
+    citesSet: true,
+    citations: [],
+  },
+  prey: {
+    id: "prey",
+    menuLabel: "the prey they share",
+    shared: { one: "prey", many: "prey" },
+    membrane: "that hunt the same prey",
+    reach: { one: "has a recorded prey", many: "have a recorded prey" },
+    dotVerb: "hunts",
+    guildVerb: { one: "is hunted by", many: "are hunted by" },
+    sharedAreSpecies: true,
+    explanation:
+      "A membrane is drawn by a prey animal around everything recorded eating it, so these groups are guilds in the ecologist's sense: predators that hunt the same things. A prey that cuts across two groups feeds both, and argues against neither.",
+    citesSet: true,
+    citations: [],
+  },
+  predators: {
+    id: "predators",
+    menuLabel: "the predators they share",
+    shared: { one: "predator", many: "predators" },
+    membrane: "hunted by the same predator",
+    reach: { one: "has a recorded predator", many: "have a recorded predator" },
+    dotVerb: "is hunted by",
+    guildVerb: { one: "hunts", many: "hunt" },
+    sharedAreSpecies: true,
+    explanation:
+      "The food web turned round: a membrane is a predator drawn around everything it eats. Where an innovation marks what languages did together, a predator marks what befalls its prey together.",
+    citesSet: true,
+    citations: [],
+  },
+  food: {
+    id: "food",
+    menuLabel: "the food they share",
+    shared: { one: "food", many: "foods" },
+    membrane:
+      "that eat the same food, other than live prey: a fungus, a plant, wood, litter or dung",
+    reach: { one: "has a recorded food", many: "have a recorded food" },
+    dotVerb: "eats",
+    guildVerb: { one: "feeds", many: "feed" },
+    sharedAreSpecies: false,
+    explanation:
+      "The membranes are drawn by what is eaten other than live prey: the fungi, wood, plants, litter and dung that the survey recorded as food. A fungus holding several animals together is the nearest thing here to a shared innovation, the same resource taken up separately by each of them.",
+    citesSet: true,
+    citations: [],
+  },
+  eaters: {
+    id: "eaters",
+    menuLabel: "the eaters they share",
+    shared: { one: "eater", many: "eaters" },
+    membrane: "eaten by the same animal, other than as live prey",
+    reach: { one: "is eaten by a recorded animal", many: "are eaten by a recorded animal" },
+    dotVerb: "is eaten by",
+    guildVerb: { one: "eats", many: "eat" },
+    sharedAreSpecies: true,
+    explanation:
+      "The plants, fungi and litter of the web grouped by who eats them, with the animals that omnivores take: a membrane is a herbivore, detritivore or omnivore drawn around its foods.",
+    citesSet: true,
+    citations: [],
+  },
+  hosts: {
+    id: "hosts",
+    menuLabel: "the hosts they live on",
+    shared: { one: "host", many: "hosts" },
+    membrane: "that live on or in the same host",
+    reach: { one: "has a named host", many: "have a named host" },
+    dotVerb: "lives on",
+    guildVerb: { one: "is home to", many: "are home to" },
+    sharedAreSpecies: true,
+    explanation:
+      "FungalTraits names, for each fungal genus, what it lives on or in: a plant, an insect, another fungus, or a whole kingdom of animals where the source says no more. A membrane is a host drawn around its fungi. A chain of organisms living inside one another, as Tzeanania lives in Ophiocordyceps and Ophiocordyceps in insects, is a fungus that is a dot here and a membrane in the set of hosts.",
+    citesSet: true,
+    citations: [],
+  },
+  fungi: {
+    id: "fungi",
+    menuLabel: "the fungi that live on them",
+    shared: { one: "fungus", many: "fungi" },
+    membrane: "that the same fungal genus lives on",
+    reach: { one: "hosts a named fungus", many: "host a named fungus" },
+    dotVerb: "is home to",
+    guildVerb: { one: "lives on", many: "live on" },
+    sharedAreSpecies: true,
+    explanation:
+      "The hosts turned round: a membrane is a fungal genus drawn around everything it is recorded living on. Most genera have one named host, so the membranes are drawn by the few that bridge two, such as the moulds that trap both nematodes and rotifers.",
+    citesSet: true,
+    citations: [],
+  },
+  genes: {
+    id: "genes",
+    menuLabel: "the genes they share by transfer",
+    shared: { one: "transferred gene", many: "transferred genes" },
+    membrane: "that hold the same gene passed sideways between grasses",
+    reach: { one: "carries or gave a transferred gene", many: "carry or gave a transferred gene" },
+    dotVerb: "shares",
+    guildVerb: { one: "passed between", many: "passed between" },
+    sharedAreSpecies: false,
+    explanation:
+      "Hibdige and colleagues found genes in grass genomes whose nearest relatives sit in another lineage of grasses, carried across by a route still unknown rather than inherited. A membrane is one such gene, drawn around the grasses it was found in and the lineage it came from. This is the one grouping here that is itself a kind of descent: a membrane is a piece of inheritance that cuts across the family tree, which is what a cross-cutting innovation is suspected of being in a language family.",
+    citesSet: true,
+    citations: [
+      {
+        text: "Supporting information of the bioRxiv preprint, version 3 (2020), CC BY-NC-ND 4.0.",
+        url: "https://doi.org/10.1101/2020.02.17.952150",
+      },
+    ],
   },
 } satisfies Record<RelationId, Relation>;
 
