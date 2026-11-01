@@ -4,7 +4,7 @@ An experiment in exploring connections between organisms and the things around t
 
 ## Versions
 
-A second version of the app is being built alongside the first. The first is served under `/v1`, and the second, still a placeholder, under `/v2`. [docs/v1.md](docs/v1.md) describes the first version's addresses, views and code.
+The first version is served under `/v1`, and the second, so far one view drawing a glottometric diagram as a living cell, under `/v2`. [docs/v1.md](docs/v1.md) and [docs/v2.md](docs/v2.md) describe each version's addresses, views and code.
 
 ## Repository structure
 
