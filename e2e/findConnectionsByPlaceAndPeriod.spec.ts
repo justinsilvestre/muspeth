@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 test.describe("finding connections by place and period", () => {
   test("lists the connections recorded near a place", async ({ page }) => {
-    await page.goto("/places");
+    await page.goto("/v1/places");
     await page.getByRole("textbox", { name: "Latitude" }).fill("35.01");
     await page.getByRole("textbox", { name: "Longitude" }).fill("135.77");
     await page.getByRole("button", { name: "Search" }).click();
@@ -12,14 +12,14 @@ test.describe("finding connections by place and period", () => {
   });
 
   test("lists the connections recorded within a period", async ({ page }) => {
-    await page.goto("/places?from=2005&to=2005");
+    await page.goto("/v1/places?from=2005&to=2005");
     await expect(
       page.getByRole("list", { name: "Connections by place and period" }).getByRole("listitem"),
     ).toHaveText([/^western honey bee visits flowers of Japanese red pineSapporo/]);
   });
 
   test("searches near a point clicked on the map", async ({ page }) => {
-    await page.goto("/places");
+    await page.goto("/v1/places");
     const map = page.getByRole("region", { name: /^Map of where/ });
     await expect(map.getByRole("button", { name: /^Search near Sapporo/ })).toBeVisible();
     await map.locator("canvas").click({ position: { x: 20, y: 20 } });
@@ -27,7 +27,7 @@ test.describe("finding connections by place and period", () => {
   });
 
   test("searches near a place chosen from its mark on the map", async ({ page }) => {
-    await page.goto("/places?from=2005");
+    await page.goto("/v1/places?from=2005");
     await page.getByRole("button", { name: /^Search near Sapporo/ }).click();
     await expect(
       page.getByRole("list", { name: "Connections by place and period" }).getByRole("listitem"),
@@ -35,7 +35,7 @@ test.describe("finding connections by place and period", () => {
   });
 
   test("searches a period brushed on the timeline", async ({ page }) => {
-    await page.goto("/places");
+    await page.goto("/v1/places");
     const timeline = page.getByRole("img", { name: /^Timeline of when/ });
     await timeline.scrollIntoViewIfNeeded();
     const box = await timeline.boundingBox();
@@ -48,7 +48,7 @@ test.describe("finding connections by place and period", () => {
   });
 
   test("moves on to the place where a connection was recorded", async ({ page }) => {
-    await page.goto("/places?from=2005&to=2005");
+    await page.goto("/v1/places?from=2005&to=2005");
     await page.getByRole("link", { name: "Search near Sapporo at any time" }).click();
     await expect(page).toHaveURL(/near=43\.06%2C141\.35$/);
   });

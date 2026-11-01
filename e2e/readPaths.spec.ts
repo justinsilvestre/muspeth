@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const fromMatsutakeToRedPine = `/paths?from=${encodeURIComponent("wikidata:Q509308")}&to=${encodeURIComponent("wikidata:Q1044186")}`;
+const fromMatsutakeToRedPine = `/v1/paths?from=${encodeURIComponent("wikidata:Q509308")}&to=${encodeURIComponent("wikidata:Q1044186")}`;
 
 test.describe("reading the paths between two nodes", () => {
   test("gives the reasons for the selected path's rank", async ({ page }) => {

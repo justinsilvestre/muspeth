@@ -1,6 +1,6 @@
 import { expect, type Page, test } from "@playwright/test";
 
-const matsutakePath = `/organisms/${encodeURIComponent("wikidata:Q509308")}`;
+const matsutakePath = `/v1/organisms/${encodeURIComponent("wikidata:Q509308")}`;
 
 /** Follows the last of many matches in the node search, and returns its link. */
 async function chooseLastMatch(page: Page) {
