@@ -5,12 +5,13 @@ import { ColorSchemeProvider } from "../theme/useColorScheme";
 import { V2App } from "./V2App";
 
 vi.mock("./scene/CellScene", () => ({ default: () => null }));
+vi.mock("./pollination/GuildScene", () => ({ default: () => null }));
 
 afterEach(cleanup);
 
-function renderV2App() {
+function renderV2App(path = "/v2") {
   return render(
-    <MemoryRouter initialEntries={["/v2"]}>
+    <MemoryRouter initialEntries={[path]}>
       <ColorSchemeProvider>
         <V2App />
       </ColorSchemeProvider>
@@ -23,6 +24,13 @@ describe("V2App", () => {
     renderV2App();
     expect(
       screen.getByRole("link", { name: "Historical glottometry" }).getAttribute("aria-current"),
+    ).toBe("page");
+  });
+
+  it("marks the Pollination guilds tab as open at its address", () => {
+    renderV2App("/v2/pollination");
+    expect(
+      screen.getByRole("link", { name: "Pollination guilds" }).getAttribute("aria-current"),
     ).toBe("page");
   });
 });

@@ -1,0 +1,439 @@
+{
+  "datasetId": "mangal:934",
+  "datasetUrl": "https://mangal.io/#/network/934",
+  "place": "Pollination networks of the Mauritian Ile aux Aigrettes",
+  "date": "1999-06-01",
+  "latitude": -20.420476,
+  "longitude": 57.732639,
+  "licence": "CC0-1.0",
+  "citation": {
+    "text": "Jens M. Olesen and Louise I. Eskildsen and Shadila Venkatasamy (2002). Invasion of pollination networks on oceanic islands: importance of invader complexes and endemic super generalists.",
+    "url": "https://doi.org/10.1046/j.1472-4642.2002.00148.x"
+  },
+  "visitors": [
+    {
+      "id": "wikidata:Q30034",
+      "name": "Apis mellifera"
+    },
+    {
+      "id": "wikidata:Q146320",
+      "name": "Borbo borbonica"
+    },
+    {
+      "id": "wikidata:Q1303045",
+      "name": "Leptotes pirithous"
+    },
+    {
+      "id": "mangal:934/Lucilia sp.",
+      "name": "Lucilia sp."
+    },
+    {
+      "id": "mangal:934/Megachile sp.",
+      "name": "Megachile sp."
+    },
+    {
+      "id": "wikidata:Q166111",
+      "name": "Musca domestica"
+    },
+    {
+      "id": "wikidata:Q10803095",
+      "name": "Ornidia obesa"
+    },
+    {
+      "id": "mangal:Phalantha phalantha",
+      "name": "Phalantha phalantha"
+    },
+    {
+      "id": "wikidata:Q3090700",
+      "name": "Phelsuma ornata"
+    },
+    {
+      "id": "wikidata:Q2929541",
+      "name": "Protaetia aurichalcea"
+    },
+    {
+      "id": "mangal:934/Stratiomydae sp.",
+      "name": "Stratiomydae sp."
+    },
+    {
+      "id": "mangal:934/Syrphid sp.",
+      "name": "Syrphid sp."
+    },
+    {
+      "id": "wikidata:Q2676870",
+      "name": "Xylocopa fenestrata"
+    }
+  ],
+  "plants": [
+    {
+      "id": "wikidata:Q3038475",
+      "name": "Dracaena concinna"
+    },
+    {
+      "id": "gbif:4065845",
+      "name": "Heliotropium foertherianum"
+    },
+    {
+      "id": "wikidata:Q1672237",
+      "name": "Ipomoea murucoides"
+    },
+    {
+      "id": "wikidata:Q35905",
+      "name": "Leucaena leucocephala"
+    },
+    {
+      "id": "wikidata:Q234238",
+      "name": "Morinda citrifolia"
+    },
+    {
+      "id": "wikidata:Q2068761",
+      "name": "Passiflora suberosa"
+    },
+    {
+      "id": "wikidata:Q3374608",
+      "name": "Pemphis acidula"
+    },
+    {
+      "id": "wikidata:Q1335289",
+      "name": "Polyscias maraisiana"
+    },
+    {
+      "id": "wikidata:Q73291738",
+      "name": "Scaevola sericea"
+    },
+    {
+      "id": "mangal:Stachytapheta jamaicencis",
+      "name": "Stachytapheta jamaicencis"
+    },
+    {
+      "id": "wikidata:Q2719906",
+      "name": "Suriana maritima"
+    },
+    {
+      "id": "wikidata:Q715899",
+      "name": "Talipariti tiliaceum"
+    },
+    {
+      "id": "wikidata:Q715739",
+      "name": "Thespesia populnea"
+    },
+    {
+      "id": "wikidata:Q50876289",
+      "name": "Turnera angustifolia"
+    }
+  ],
+  "visits": [
+    {
+      "visitor": "Apis mellifera",
+      "plant": "Polyscias maraisiana",
+      "count": 149,
+      "flags": []
+    },
+    {
+      "visitor": "Apis mellifera",
+      "plant": "Talipariti tiliaceum",
+      "count": 138,
+      "flags": []
+    },
+    {
+      "visitor": "Apis mellifera",
+      "plant": "Ipomoea murucoides",
+      "count": 126,
+      "flags": []
+    },
+    {
+      "visitor": "Phalantha phalantha",
+      "plant": "Pemphis acidula",
+      "count": 117,
+      "flags": ["unmatched_name"]
+    },
+    {
+      "visitor": "Apis mellifera",
+      "plant": "Morinda citrifolia",
+      "count": 115,
+      "flags": []
+    },
+    {
+      "visitor": "Apis mellifera",
+      "plant": "Pemphis acidula",
+      "count": 103,
+      "flags": []
+    },
+    {
+      "visitor": "Apis mellifera",
+      "plant": "Scaevola sericea",
+      "count": 92,
+      "flags": []
+    },
+    {
+      "visitor": "Apis mellifera",
+      "plant": "Thespesia populnea",
+      "count": 69,
+      "flags": []
+    },
+    {
+      "visitor": "Apis mellifera",
+      "plant": "Heliotropium foertherianum",
+      "count": 57,
+      "flags": []
+    },
+    {
+      "visitor": "Apis mellifera",
+      "plant": "Leucaena leucocephala",
+      "count": 46,
+      "flags": []
+    },
+    {
+      "visitor": "Apis mellifera",
+      "plant": "Passiflora suberosa",
+      "count": 34,
+      "flags": []
+    },
+    {
+      "visitor": "Phelsuma ornata",
+      "plant": "Dracaena concinna",
+      "count": 33,
+      "flags": []
+    },
+    {
+      "visitor": "Phelsuma ornata",
+      "plant": "Polyscias maraisiana",
+      "count": 30,
+      "flags": []
+    },
+    {
+      "visitor": "Phelsuma ornata",
+      "plant": "Talipariti tiliaceum",
+      "count": 28,
+      "flags": []
+    },
+    {
+      "visitor": "Phalantha phalantha",
+      "plant": "Stachytapheta jamaicencis",
+      "count": 26,
+      "flags": ["unmatched_name"]
+    },
+    {
+      "visitor": "Apis mellifera",
+      "plant": "Suriana maritima",
+      "count": 23,
+      "flags": []
+    },
+    {
+      "visitor": "Phelsuma ornata",
+      "plant": "Morinda citrifolia",
+      "count": 23,
+      "flags": []
+    },
+    {
+      "visitor": "Phelsuma ornata",
+      "plant": "Pemphis acidula",
+      "count": 21,
+      "flags": []
+    },
+    {
+      "visitor": "Phelsuma ornata",
+      "plant": "Scaevola sericea",
+      "count": 19,
+      "flags": []
+    },
+    {
+      "visitor": "Syrphid sp.",
+      "plant": "Dracaena concinna",
+      "count": 17,
+      "flags": ["placeholder_species"]
+    },
+    {
+      "visitor": "Lucilia sp.",
+      "plant": "Polyscias maraisiana",
+      "count": 16,
+      "flags": ["placeholder_species"]
+    },
+    {
+      "visitor": "Musca domestica",
+      "plant": "Polyscias maraisiana",
+      "count": 16,
+      "flags": []
+    },
+    {
+      "visitor": "Ornidia obesa",
+      "plant": "Polyscias maraisiana",
+      "count": 16,
+      "flags": []
+    },
+    {
+      "visitor": "Stratiomydae sp.",
+      "plant": "Polyscias maraisiana",
+      "count": 16,
+      "flags": ["placeholder_species"]
+    },
+    {
+      "visitor": "Xylocopa fenestrata",
+      "plant": "Pemphis acidula",
+      "count": 16,
+      "flags": []
+    },
+    {
+      "visitor": "Megachile sp.",
+      "plant": "Scaevola sericea",
+      "count": 15,
+      "flags": ["placeholder_species"]
+    },
+    {
+      "visitor": "Protaetia aurichalcea",
+      "plant": "Polyscias maraisiana",
+      "count": 15,
+      "flags": []
+    },
+    {
+      "visitor": "Xylocopa fenestrata",
+      "plant": "Scaevola sericea",
+      "count": 15,
+      "flags": []
+    },
+    {
+      "visitor": "Phelsuma ornata",
+      "plant": "Thespesia populnea",
+      "count": 14,
+      "flags": []
+    },
+    {
+      "visitor": "Megachile sp.",
+      "plant": "Suriana maritima",
+      "count": 13,
+      "flags": ["placeholder_species"]
+    },
+    {
+      "visitor": "Phelsuma ornata",
+      "plant": "Heliotropium foertherianum",
+      "count": 12,
+      "flags": []
+    },
+    {
+      "visitor": "Apis mellifera",
+      "plant": "Dracaena concinna",
+      "count": 11,
+      "flags": []
+    },
+    {
+      "visitor": "Stratiomydae sp.",
+      "plant": "Pemphis acidula",
+      "count": 11,
+      "flags": ["placeholder_species"]
+    },
+    {
+      "visitor": "Phelsuma ornata",
+      "plant": "Leucaena leucocephala",
+      "count": 9,
+      "flags": []
+    },
+    {
+      "visitor": "Phelsuma ornata",
+      "plant": "Passiflora suberosa",
+      "count": 7,
+      "flags": []
+    },
+    {
+      "visitor": "Stratiomydae sp.",
+      "plant": "Thespesia populnea",
+      "count": 7,
+      "flags": ["placeholder_species"]
+    },
+    {
+      "visitor": "Musca domestica",
+      "plant": "Heliotropium foertherianum",
+      "count": 6,
+      "flags": []
+    },
+    {
+      "visitor": "Syrphid sp.",
+      "plant": "Heliotropium foertherianum",
+      "count": 6,
+      "flags": ["placeholder_species"]
+    },
+    {
+      "visitor": "Stratiomydae sp.",
+      "plant": "Leucaena leucocephala",
+      "count": 5,
+      "flags": ["placeholder_species"]
+    },
+    {
+      "visitor": "Borbo borbonica",
+      "plant": "Thespesia populnea",
+      "count": 2,
+      "flags": []
+    },
+    {
+      "visitor": "Leptotes pirithous",
+      "plant": "Morinda citrifolia",
+      "count": 2,
+      "flags": []
+    },
+    {
+      "visitor": "Leptotes pirithous",
+      "plant": "Polyscias maraisiana",
+      "count": 2,
+      "flags": []
+    },
+    {
+      "visitor": "Megachile sp.",
+      "plant": "Turnera angustifolia",
+      "count": 2,
+      "flags": ["placeholder_species"]
+    },
+    {
+      "visitor": "Stratiomydae sp.",
+      "plant": "Stachytapheta jamaicencis",
+      "count": 2,
+      "flags": ["placeholder_species", "unmatched_name"]
+    },
+    {
+      "visitor": "Syrphid sp.",
+      "plant": "Stachytapheta jamaicencis",
+      "count": 2,
+      "flags": ["placeholder_species", "unmatched_name"]
+    },
+    {
+      "visitor": "Xylocopa fenestrata",
+      "plant": "Turnera angustifolia",
+      "count": 2,
+      "flags": []
+    },
+    {
+      "visitor": "Borbo borbonica",
+      "plant": "Stachytapheta jamaicencis",
+      "count": 1,
+      "flags": ["unmatched_name"]
+    },
+    {
+      "visitor": "Borbo borbonica",
+      "plant": "Turnera angustifolia",
+      "count": 1,
+      "flags": []
+    },
+    {
+      "visitor": "Leptotes pirithous",
+      "plant": "Pemphis acidula",
+      "count": 1,
+      "flags": []
+    },
+    {
+      "visitor": "Leptotes pirithous",
+      "plant": "Stachytapheta jamaicencis",
+      "count": 1,
+      "flags": ["unmatched_name"]
+    },
+    {
+      "visitor": "Leptotes pirithous",
+      "plant": "Suriana maritima",
+      "count": 1,
+      "flags": []
+    },
+    {
+      "visitor": "Stratiomydae sp.",
+      "plant": "Turnera angustifolia",
+      "count": 1,
+      "flags": ["placeholder_species"]
+    }
+  ]
+}

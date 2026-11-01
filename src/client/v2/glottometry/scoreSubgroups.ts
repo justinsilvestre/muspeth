@@ -9,6 +9,8 @@ import type { Innovation, InnovationTable } from "./parseInnovationsCsv";
 export type Subgroup = {
   members: string[];
   support: number;
+  /** The labels of the supporting innovations: those shared by exactly the members. */
+  supporters: string[];
   cohesiveness: number;
   subgroupiness: number;
 };
@@ -28,19 +30,21 @@ export function scoreSubgroups({ languages, innovations }: InnovationTable) {
 }
 
 function scoreSubgroup(subgroup: ReadonlySet<string>, innovations: Innovation[]) {
-  let support = 0;
+  const supporters: string[] = [];
   let compatible = 0;
   let conflicting = 0;
-  for (const { members } of innovations) {
+  for (const { label, members } of innovations) {
     const relation = relate(members, subgroup);
-    if (relation === "supporting") support++;
+    if (relation === "supporting") supporters.push(label);
     else if (relation === "compatible") compatible++;
     else if (relation === "conflicting") conflicting++;
   }
+  const support = supporters.length;
   const cohesiveness = (support + compatible) / (support + compatible + conflicting);
   return {
     members: [...subgroup],
     support,
+    supporters,
     cohesiveness,
     subgroupiness: support * cohesiveness,
   } satisfies Subgroup;
