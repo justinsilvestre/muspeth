@@ -72,7 +72,7 @@ export const relations = {
     membrane: "that visit the same flower",
     reach: { one: "visits a flower", many: "visit a flower" },
     dotVerb: "visits",
-    guildVerb: { one: "draws", many: "draw" },
+    guildVerb: { one: "attracts", many: "attract" },
     sharedAreSpecies: true,
     weight: visits,
     explanation:

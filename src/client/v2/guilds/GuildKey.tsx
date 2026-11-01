@@ -47,9 +47,9 @@ export function GuildKey({ set, relation, sharing, appearance }: GuildKeyProps) 
               " The visits slider counts an encounter only once the survey saw it that many times. Replay starts from the single most frequent encounter and admits rarer ones step by step, so that the membranes grow and merge as the season fills in."}
           </p>
           <p>
-            Pointing at a membrane shows what holds it together. Pointing at a dot shows its name,
-            its picture and how many {shared.many} it has. Drag to turn the picture, scroll to zoom,
-            and drag with the right button to move it.
+            Hovering over a membrane lists the {shared.many} shared by exactly the {dots} inside it.
+            Hovering over a dot shows its name, its picture and how many {shared.many} it has. Drag
+            to turn the picture, scroll to zoom, and drag with the right button to move it.
           </p>
           <p className="text-xs">
             Data:{" "}
