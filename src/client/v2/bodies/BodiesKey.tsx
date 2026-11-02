@@ -51,10 +51,10 @@ export function BodiesKey({ set, relation, sharing, appearance }: BodiesKeyProps
             {relation.weight && ` ${relation.weight.replay}`}
           </p>
           <p>
-            Hovering over a membrane lists the {shared.many} shared by exactly the {dots} inside it.
-            Hovering over a dot shows its name, its picture and how many {shared.many} it{" "}
-            {relation.dotVerb}. Drag to turn the picture, scroll to zoom, and drag with the right
-            button to move it.
+            Pointing at or tapping a membrane lists the {shared.many} shared by exactly the {dots}{" "}
+            inside it. Pointing at or tapping a dot shows its name, its picture and how many{" "}
+            {shared.many} it {relation.dotVerb}. Drag to turn the picture, scroll or pinch to zoom,
+            and drag with the right button or two fingers to move it.
           </p>
           <p className="text-xs">
             Data:{" "}

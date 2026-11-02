@@ -6,6 +6,8 @@ import { DiagramKey } from "./DiagramKey";
 import { FamilySelect } from "./FamilySelect";
 import { HoverTooltip } from "./HoverTooltip";
 import type { Hovered } from "./pickHovered";
+import { restingPointer, type ScenePointer, toScenePointer } from "./ScenePointer";
+import { suppressSelectionUntilRelease } from "./suppressSelectionUntilRelease";
 import { ThresholdSlider } from "./ThresholdSlider";
 
 const CellScene = lazy(() => import("./CellScene"));
@@ -19,10 +21,18 @@ export function SceneView() {
   const [threshold, setThreshold] = useState(defaultThreshold);
   const [appearance, setAppearance] = useState<Appearance>(defaultAppearance);
   const [hovered, setHovered] = useState<Hovered>();
-  const [pointer, setPointer] = useState({ x: 0, y: 0 });
+  const [pointer, setPointer] = useState<ScenePointer>(restingPointer);
   // The scene follows the controls with a delay when it cannot keep up, so that the controls themselves stay responsive.
   const shownAppearance = useDeferredValue(appearance);
   const shownThreshold = useDeferredValue(threshold);
+  const tooltip = (
+    <HoverTooltip
+      hovered={hovered}
+      pointer={pointer}
+      family={family}
+      onClose={() => setHovered(undefined)}
+    />
+  );
   return (
     <section aria-label="Historical glottometry" className="flex flex-col gap-3">
       <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
@@ -43,13 +53,14 @@ export function SceneView() {
         onReset={() => setAppearance(defaultAppearance)}
       />
       <div
-        className="relative aspect-[16/10] rounded border border-line"
-        onPointerMove={(event) => {
-          const bounds = event.currentTarget.getBoundingClientRect();
-          setPointer({ x: event.clientX - bounds.left, y: event.clientY - bounds.top });
+        className="relative aspect-square select-none rounded border border-line [-webkit-touch-callout:none] sm:aspect-[16/10]"
+        onPointerDown={(event) => {
+          suppressSelectionUntilRelease();
+          setPointer(toScenePointer(event));
         }}
+        onPointerMove={(event) => setPointer(toScenePointer(event))}
       >
-        <HoverTooltip hovered={hovered} pointer={pointer} family={family} />
+        {!pointer.isTouch && tooltip}
         <Suspense fallback={<p className="p-3">Loading the scene…</p>}>
           <CellScene
             family={family}
@@ -60,6 +71,7 @@ export function SceneView() {
           />
         </Suspense>
       </div>
+      {pointer.isTouch && tooltip}
       <DiagramKey family={family} appearance={appearance} />
     </section>
   );

@@ -5,11 +5,13 @@ import { HoverTooltip } from "./HoverTooltip";
 
 afterEach(cleanup);
 
-const pointer = { x: 10, y: 20 };
+const pointer = { x: 10, y: 20, width: 400, height: 300, isTouch: false };
 
 describe("HoverTooltip", () => {
   it("shows nothing while the pointer is on nothing", () => {
-    render(<HoverTooltip hovered={undefined} pointer={pointer} family={demoFamily} />);
+    render(
+      <HoverTooltip hovered={undefined} pointer={pointer} family={demoFamily} onClose={() => {}} />,
+    );
     expect(screen.queryByRole("tooltip")).toBeNull();
   });
 
@@ -25,6 +27,7 @@ describe("HoverTooltip", () => {
       <HoverTooltip
         hovered={{ kind: "subgroup", subgroup }}
         pointer={pointer}
+        onClose={() => {}}
         family={demoFamily}
       />,
     );
@@ -38,6 +41,7 @@ describe("HoverTooltip", () => {
       <HoverTooltip
         hovered={{ kind: "language", name: "ⓁA" }}
         pointer={pointer}
+        onClose={() => {}}
         family={demoFamily}
       />,
     );
@@ -49,6 +53,7 @@ describe("HoverTooltip", () => {
       <HoverTooltip
         hovered={{ kind: "language", name: "ⓁA" }}
         pointer={pointer}
+        onClose={() => {}}
         family={demoFamily}
       />,
     );

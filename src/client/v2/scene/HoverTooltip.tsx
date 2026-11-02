@@ -1,27 +1,25 @@
 import { type LanguageFamily, labelOf } from "../glottometry/families";
 import type { Subgroup } from "../glottometry/scoreSubgroups";
 import type { Hovered } from "./pickHovered";
+import type { ScenePointer } from "./ScenePointer";
+import { SceneTooltip } from "./SceneTooltip";
 
 type HoverTooltipProps = {
   hovered: Hovered | undefined;
-  /** Where the pointer is, in pixels from the top left of the scene. */
-  pointer: { x: number; y: number };
+  pointer: ScenePointer;
   family: LanguageFamily;
+  onClose: () => void;
 };
 
-/** Names what the pointer is on, in a small panel beside the pointer. */
-export function HoverTooltip({ hovered, pointer, family }: HoverTooltipProps) {
+/** Names what the pointer is on, or what was last tapped. */
+export function HoverTooltip({ hovered, pointer, family, onClose }: HoverTooltipProps) {
   if (!hovered) return null;
   return (
-    <div
-      role="tooltip"
-      className="pointer-events-none absolute z-10 max-w-72 rounded border border-line bg-panel/95 px-2 py-1 text-xs shadow"
-      style={{ left: pointer.x + 14, top: pointer.y + 14 }}
-    >
+    <SceneTooltip pointer={pointer} onClose={onClose}>
       {hovered.kind === "language"
         ? describeLanguage(hovered.name, family)
         : describeSubgroup(hovered.subgroup, family)}
-    </div>
+    </SceneTooltip>
   );
 }
 

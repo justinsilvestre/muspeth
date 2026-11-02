@@ -1,4 +1,3 @@
-import type { ThreeEvent } from "@react-three/fiber";
 import { useMemo } from "react";
 import { Color } from "three";
 import { type LanguageFamily, labelOf } from "../glottometry/families";
@@ -10,7 +9,8 @@ import type { Appearance } from "./appearance";
 import { GeographicAxes } from "./GeographicAxes";
 import { LanguageNucleus } from "./LanguageNucleus";
 import { Membrane } from "./Membrane";
-import { type Hovered, pickHovered } from "./pickHovered";
+import type { Hovered } from "./pickHovered";
+import { useInspectHandlers } from "./useInspectHandlers";
 
 const diagramExtent = 6.5;
 const labelHeight = 0.4;
@@ -69,8 +69,7 @@ export function CellBody({
   const { paddingBase, paddingPerMember } = appearance.shape;
   const familyPadding = paddingBase + paddingPerMember * familySize + 0.3;
   const inkColor = isDark ? "#f5f5f4" : "#1c1917";
-  const handlePointerMove = (event: ThreeEvent<PointerEvent>) =>
-    onHover(pickHovered(event.intersections));
+  const inspectHandlers = useInspectHandlers(onHover);
   return (
     <group rotation-z={Math.PI / 4}>
       {coordinates && (
@@ -80,7 +79,7 @@ export function CellBody({
           color={isDark ? "#a8a29e" : "#57534e"}
         />
       )}
-      <group onPointerMove={handlePointerMove} onPointerLeave={() => onHover(undefined)}>
+      <group {...inspectHandlers}>
         <Membrane
           points={familyPoints}
           padding={familyPadding}

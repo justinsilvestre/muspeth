@@ -2,6 +2,8 @@ import { lazy, Suspense, useCallback, useDeferredValue, useMemo, useState } from
 import { AppearanceControls } from "../scene/AppearanceControls";
 import { type Appearance, defaultAppearance } from "../scene/appearance";
 import type { Hovered } from "../scene/pickHovered";
+import { restingPointer, type ScenePointer, toScenePointer } from "../scene/ScenePointer";
+import { suppressSelectionUntilRelease } from "../scene/suppressSelectionUntilRelease";
 import { ThresholdSlider } from "../scene/ThresholdSlider";
 import { BodiesKey } from "./BodiesKey";
 import { BodiesTooltip } from "./BodiesTooltip";
@@ -26,7 +28,7 @@ export function BodiesView() {
   const [appearance, setAppearance] = useState<Appearance>(defaultAppearance);
   const [hovered, setHovered] = useState<Hovered>();
   const [fitRequest, setFitRequest] = useState(0);
-  const [pointer, setPointer] = useState({ x: 0, y: 0 });
+  const [pointer, setPointer] = useState<ScenePointer>(restingPointer);
   const relation = relationOf(sharing.relation);
   const steps = useMemo(() => weightSteps(sharing), [sharing]);
   const cutoff = useMemo(
@@ -49,6 +51,16 @@ export function BodiesView() {
     setReplaying(false);
     setHovered(undefined);
   };
+  const tooltip = (
+    <BodiesTooltip
+      hovered={hovered}
+      pointer={pointer}
+      set={set}
+      relation={relation}
+      sharedCounts={sharedCounts}
+      onClose={() => setHovered(undefined)}
+    />
+  );
   return (
     <section aria-label="Biological glottometry" className="flex flex-col gap-3">
       <p className="flex flex-wrap items-center gap-x-2 gap-y-2 text-base">
@@ -78,11 +90,12 @@ export function BodiesView() {
       />
       <Caption set={set} relation={relation} table={table} />
       <div
-        className="relative aspect-[16/10] rounded border border-line"
-        onPointerMove={(event) => {
-          const bounds = event.currentTarget.getBoundingClientRect();
-          setPointer({ x: event.clientX - bounds.left, y: event.clientY - bounds.top });
+        className="relative aspect-square select-none rounded border border-line [-webkit-touch-callout:none] sm:aspect-[16/10]"
+        onPointerDown={(event) => {
+          suppressSelectionUntilRelease();
+          setPointer(toScenePointer(event));
         }}
+        onPointerMove={(event) => setPointer(toScenePointer(event))}
       >
         <button
           type="button"
@@ -91,13 +104,7 @@ export function BodiesView() {
         >
           Fit to view
         </button>
-        <BodiesTooltip
-          hovered={hovered}
-          pointer={pointer}
-          set={set}
-          relation={relation}
-          sharedCounts={sharedCounts}
-        />
+        {!pointer.isTouch && tooltip}
         <Suspense fallback={<p className="p-3">Loading the scene…</p>}>
           <BodiesScene
             set={set}
@@ -111,6 +118,7 @@ export function BodiesView() {
           />
         </Suspense>
       </div>
+      {pointer.isTouch && tooltip}
       <BodiesKey set={set} relation={relation} sharing={sharing} appearance={appearance} />
     </section>
   );

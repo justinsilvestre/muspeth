@@ -1,6 +1,8 @@
 import { resizeCommonsImage } from "../../v1/media/resizeCommonsImage";
 import type { Subgroup } from "../glottometry/scoreSubgroups";
 import type { Hovered } from "../scene/pickHovered";
+import type { ScenePointer } from "../scene/ScenePointer";
+import { SceneTooltip } from "../scene/SceneTooltip";
 import { abbreviateSpecies } from "./abbreviateSpecies";
 import { type BodyImage, type BodySet, bodyOf, countOf, labelOf } from "./BodySet";
 import { partnerOf } from "./partnerOf";
@@ -15,33 +17,30 @@ const pictureWidth = 500;
 
 type BodiesTooltipProps = {
   hovered: Hovered | undefined;
-  /** Where the pointer is, in pixels from the top left of the scene. */
-  pointer: { x: number; y: number };
+  pointer: ScenePointer;
   set: BodySet;
   relation: Relation;
   /** How many shared things each dot has among the links counted. */
   sharedCounts: Map<string, number>;
+  onClose: () => void;
 };
 
-/** Names what the pointer is on: a dot with its picture and what it shares, or a membrane with the things that hold it together. */
+/** Names what the pointer is on, or what was last tapped: a dot with its picture and what it shares, or a membrane with the things that hold it together. */
 export function BodiesTooltip({
   hovered,
   pointer,
   set,
   relation,
   sharedCounts,
+  onClose,
 }: BodiesTooltipProps) {
   if (!hovered) return null;
   return (
-    <div
-      role="tooltip"
-      className="pointer-events-none absolute z-10 w-72 rounded border border-line bg-panel/95 px-2 py-1.5 text-xs shadow"
-      style={{ left: pointer.x + 14, top: pointer.y + 14 }}
-    >
+    <SceneTooltip pointer={pointer} isWide onClose={onClose}>
       {hovered.kind === "language"
         ? describeDot(hovered.name, set, relation, sharedCounts.get(hovered.name) ?? 0)
         : describeMembrane(hovered.subgroup, set, relation)}
-    </div>
+    </SceneTooltip>
   );
 }
 
