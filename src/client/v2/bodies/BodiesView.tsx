@@ -51,16 +51,6 @@ export function BodiesView() {
     setReplaying(false);
     setHovered(undefined);
   };
-  const tooltip = (
-    <BodiesTooltip
-      hovered={hovered}
-      pointer={pointer}
-      set={set}
-      relation={relation}
-      sharedCounts={sharedCounts}
-      onClose={() => setHovered(undefined)}
-    />
-  );
   return (
     <section aria-label="Biological glottometry" className="flex flex-col gap-3">
       <p className="flex flex-wrap items-center gap-x-2 gap-y-2 text-base">
@@ -104,7 +94,14 @@ export function BodiesView() {
         >
           Fit to view
         </button>
-        {!pointer.isTouch && tooltip}
+        <BodiesTooltip
+          hovered={hovered}
+          pointer={pointer}
+          set={set}
+          relation={relation}
+          sharedCounts={sharedCounts}
+          onClose={() => setHovered(undefined)}
+        />
         <Suspense fallback={<p className="p-3">Loading the scene…</p>}>
           <BodiesScene
             set={set}
@@ -118,7 +115,6 @@ export function BodiesView() {
           />
         </Suspense>
       </div>
-      {pointer.isTouch && tooltip}
       <BodiesKey set={set} relation={relation} sharing={sharing} appearance={appearance} />
     </section>
   );

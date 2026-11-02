@@ -25,14 +25,6 @@ export function SceneView() {
   // The scene follows the controls with a delay when it cannot keep up, so that the controls themselves stay responsive.
   const shownAppearance = useDeferredValue(appearance);
   const shownThreshold = useDeferredValue(threshold);
-  const tooltip = (
-    <HoverTooltip
-      hovered={hovered}
-      pointer={pointer}
-      family={family}
-      onClose={() => setHovered(undefined)}
-    />
-  );
   return (
     <section aria-label="Historical glottometry" className="flex flex-col gap-3">
       <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
@@ -60,7 +52,12 @@ export function SceneView() {
         }}
         onPointerMove={(event) => setPointer(toScenePointer(event))}
       >
-        {!pointer.isTouch && tooltip}
+        <HoverTooltip
+          hovered={hovered}
+          pointer={pointer}
+          family={family}
+          onClose={() => setHovered(undefined)}
+        />
         <Suspense fallback={<p className="p-3">Loading the scene…</p>}>
           <CellScene
             family={family}
@@ -71,7 +68,6 @@ export function SceneView() {
           />
         </Suspense>
       </div>
-      {pointer.isTouch && tooltip}
       <DiagramKey family={family} appearance={appearance} />
     </section>
   );
