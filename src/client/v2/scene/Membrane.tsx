@@ -54,12 +54,16 @@ export function Membrane(props: MembraneProps) {
     }),
     [color, bodyOpacity, finish, emphasis, fade],
   );
+  // A thicker wall shows mainly as a stronger, paler rim; the rim reaches only a little further in,
+  // so that the membrane as a whole stays about as clear. The thickest walls gain a faint second band inside the rim.
   const edgeGlow = useMemo(
     () => ({
       strength:
         fade *
-        (emphasis === "raised" ? 1 : emphasize(edgeStrength * (0.4 + 0.6 * thickness), emphasis)),
-      width: edgeWidth * (0.3 + 0.7 * thickness),
+        (emphasis === "raised" ? 1 : emphasize(edgeStrength * (0.15 + 0.85 * thickness), emphasis)),
+      width: edgeWidth * (0.55 + 0.45 * thickness),
+      light: 0.55 * thickness,
+      innerWall: fade * emphasize(edgeStrength * 0.75 * innerWallShare(thickness), emphasis),
     }),
     [edgeStrength, edgeWidth, thickness, emphasis, fade],
   );
@@ -68,10 +72,16 @@ export function Membrane(props: MembraneProps) {
   return <mesh geometry={geometry} material={material} renderOrder={order} userData={userData} />;
 }
 
-/** A raised membrane is a good deal more opaque, and a muted one fainter, than it would be on its own. */
+/** How much of an inner wall a membrane gets by its thickness: none below the middle, rising to full at the thickest. */
+function innerWallShare(thickness: number) {
+  const share = Math.max(0, (thickness - 0.5) * 2);
+  return share * share;
+}
+
+/** A raised membrane is a good deal more opaque, and a muted one somewhat fainter, than it would be on its own. */
 function emphasize(value: number, emphasis: Emphasis | undefined) {
   if (emphasis === "raised") return Math.min(value + 0.2, 0.7);
-  if (emphasis === "muted") return value * 0.35;
+  if (emphasis === "muted") return value * 0.6;
   return value;
 }
 

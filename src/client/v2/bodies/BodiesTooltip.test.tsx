@@ -27,6 +27,17 @@ const set = {
         pageUrl: null,
       },
     },
+    {
+      id: "bee",
+      name: "Apis mellifera",
+      commonName: "Honey bee",
+      image: {
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Apis_mellifera.jpg/960px-Apis_mellifera.jpg",
+        credit: "B. Keeper",
+        licence: "CC BY 4.0",
+        pageUrl: null,
+      },
+    },
   ],
   sharings: [],
 } satisfies BodySet;
@@ -42,7 +53,7 @@ function membraneOf(supporters: string[]) {
 }
 
 describe("BodiesTooltip", () => {
-  it("names a membrane's plants and the visitor seen on exactly them", () => {
+  it("says first which visitor holds a membrane together, then names its plants", () => {
     render(
       <BodiesTooltip
         hovered={{ kind: "subgroup", subgroup: membraneOf(["Apis mellifera"]) }}
@@ -53,8 +64,36 @@ describe("BodiesTooltip", () => {
       />,
     );
     expect(screen.getByRole("tooltip").textContent).toBe(
-      "D. carota, L. corniculatusA. mellifera visits these 2 plants and no other plant here.cohesiveness 0.50 · subgroupiness 0.5",
+      "A. mellifera (Honey bee) visits these 2 plants and no other plant here.D. carota, L. corniculatuscohesiveness 0.50 · subgroupiness 0.5Photo: B. Keeper, CC BY 4.0",
     );
+  });
+
+  it("pictures the species holding a membrane together", () => {
+    render(
+      <BodiesTooltip
+        hovered={{ kind: "subgroup", subgroup: membraneOf(["Apis mellifera"]) }}
+        pointer={pointer}
+        set={set}
+        relation={relations.visitors}
+        sharedCounts={new Map()}
+      />,
+    );
+    expect(screen.getByRole("tooltip").querySelector("img")?.getAttribute("src")).toBe(
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Apis_mellifera.jpg/500px-Apis_mellifera.jpg",
+    );
+  });
+
+  it("shows no picture for a molecule holding a membrane together", () => {
+    render(
+      <BodiesTooltip
+        hovered={{ kind: "subgroup", subgroup: membraneOf(["Apis mellifera"]) }}
+        pointer={pointer}
+        set={set}
+        relation={relations.compounds}
+        sharedCounts={new Map()}
+      />,
+    );
+    expect(screen.getByRole("tooltip").querySelector("img")).toBeNull();
   });
 
   it("names the first few molecules and counts the rest", () => {
@@ -88,7 +127,7 @@ describe("BodiesTooltip", () => {
     );
   });
 
-  it("names a dot by its common and scientific names with the count of what it shares", () => {
+  it("names a dot by its scientific name, then its common name, with the count of what it shares", () => {
     render(
       <BodiesTooltip
         hovered={{ kind: "language", name: "Daucus carota" }}
@@ -99,11 +138,11 @@ describe("BodiesTooltip", () => {
       />,
     );
     expect(screen.getByRole("tooltip").textContent).toBe(
-      "Queen Anne's LaceDaucus carotacontains 3 moleculesPhoto: A. Painter, CC0",
+      "Daucus carotaQueen Anne's Lacecontains 3 moleculesPhoto: A. Painter, CC0",
     );
   });
 
-  it("shows a dot's picture at a small standard width", () => {
+  it("shows a dot's picture at a standard width", () => {
     render(
       <BodiesTooltip
         hovered={{ kind: "language", name: "Daucus carota" }}
@@ -114,7 +153,7 @@ describe("BodiesTooltip", () => {
       />,
     );
     expect(screen.getByRole("tooltip").querySelector("img")?.getAttribute("src")).toBe(
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Daucus_carota.jpg/250px-Daucus_carota.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Daucus_carota.jpg/500px-Daucus_carota.jpg",
     );
   });
 });
