@@ -1,13 +1,12 @@
 /**
  * Copies a few small sets of organisms out of the database into JSON files that the second
- * version's guilds view bundles, so that the view needs no server. Each file holds one set of
+ * version's Biological glottometry view bundles, so that the view needs no server. Each file holds one set of
  * bodies and, for each kind of relation recorded among them, the partners that the bodies share:
  * the visitors of a flower survey, compounds, names, folklore motifs, survey sites, and taxa.
- * Usage: npm run v2:export-guilds
+ * Usage: npm run v2:export-body-sets
  */
 import { writeFileSync } from "node:fs";
 import path from "node:path";
-import { queryDatabase } from "./database.ts";
 import {
   organismSets,
   placeSetId,
@@ -15,10 +14,11 @@ import {
   siteLabels,
   siteNames,
   surveys,
-} from "./guildSetChoices.ts";
-import { type LinkRow, queryRelationLinks, quoteList } from "./guildSetQueries.ts";
+} from "./bodySetChoices.ts";
+import { type LinkRow, queryRelationLinks, quoteList } from "./bodySetQueries.ts";
+import { queryDatabase } from "./database.ts";
 
-const outputDirectory = path.resolve(import.meta.dirname, "../src/client/v2/guilds/sets");
+const outputDirectory = path.resolve(import.meta.dirname, "../src/client/v2/bodies/sets");
 
 /** The name of each stage of the rotting-log survey, by the years the logs had lain dead, for the view's steps. */
 const stageNamesByYears = Object.fromEntries(

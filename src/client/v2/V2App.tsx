@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router";
 import { ColorSchemeSwitcher } from "../theme/ColorSchemeSwitcher";
-import { GuildView } from "./guilds/GuildView";
+import { BodiesView } from "./bodies/BodiesView";
 import { SceneView } from "./scene/SceneView";
 import { V2Navigation } from "./V2Navigation";
 
@@ -15,7 +15,7 @@ export function V2App() {
       <V2Navigation />
       <Routes>
         <Route index element={<SceneView />} />
-        <Route path="biological-glottometry" element={<GuildView />} />
+        <Route path="biological-glottometry" element={<BodiesView />} />
       </Routes>
     </main>
   );

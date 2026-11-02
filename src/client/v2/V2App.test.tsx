@@ -5,7 +5,7 @@ import { ColorSchemeProvider } from "../theme/useColorScheme";
 import { V2App } from "./V2App";
 
 vi.mock("./scene/CellScene", () => ({ default: () => null }));
-vi.mock("./guilds/GuildScene", () => ({ default: () => null }));
+vi.mock("./bodies/BodiesScene", () => ({ default: () => null }));
 
 afterEach(cleanup);
 

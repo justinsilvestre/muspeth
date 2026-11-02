@@ -43,9 +43,18 @@ describe("toSharingTable", () => {
     ]);
   });
 
-  it("leaves out links weighted below the minimum", () => {
-    expect(toSharingTable(set, visitors, 5).innovations).toEqual([
+  it("leaves out links weighing less than an at-least cutoff", () => {
+    expect(toSharingTable(set, visitors, { weight: 5, mode: "atLeast" }).innovations).toEqual([
       { label: "Apis mellifera", members: new Set(["Daucus carota"]) },
+      { label: "Musca domestica", members: new Set(["Daucus carota"]) },
+    ]);
+  });
+});
+
+describe("toSharingTable with an at-most cutoff", () => {
+  it("leaves out links weighing more than the cutoff", () => {
+    expect(toSharingTable(set, visitors, { weight: 5, mode: "atMost" }).innovations).toEqual([
+      { label: "Apis mellifera", members: new Set(["Lotus corniculatus"]) },
       { label: "Musca domestica", members: new Set(["Daucus carota"]) },
     ]);
   });

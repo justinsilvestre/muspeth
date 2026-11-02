@@ -66,7 +66,7 @@ The order matters: GloBI starts from the sample's organisms, the next imports wo
 | `npm run db:import-gene-transfers` | Adds the lateral gene transfers among grasses found by [Hibdige et al. (2021)](https://doi.org/10.1111/nph.17328) in 17 grass genomes: each transferred gene becomes a node, linked to the grasses it was found in and to the lineage it came from. The tables are read from the supporting information of the study's bioRxiv preprint, under its CC BY-NC-ND 4.0 licence. |
 | `npm run db:import-taxa` | Places every organism in the [GBIF backbone taxonomy](https://doi.org/10.15468/39omei). |
 
-The second version's Biological glottometry view bundles a few small sets of organisms, with everything they share, copied out of the database by `npm run v2:export-guilds`; run it again after re-importing.
+The second version's Biological glottometry view bundles a few small sets of organisms, with everything they share, copied out of the database by `npm run v2:export-body-sets`; run it again after re-importing.
 
 Each script writes to `db/muspeth.sqlite`, or to the file that `DATABASE_PATH` names. Commit the updated file to publish the data: the next deploy ships it. Each script can be re-run: it replaces what its previous run wrote instead of duplicating it. Each node records the import that added it in `nodes.source`, and hand-entered nodes belong to `sample`. Re-running an import removes only the nodes that no other import or the sample still uses. Matches by text, links pushed down from a coarser taxonomic group, and other doubtful records are kept and carry quality flags (`src/shared/qualityFlags.ts`).
 

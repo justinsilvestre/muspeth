@@ -1,7 +1,7 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
+import { BodiesTooltip } from "./BodiesTooltip";
 import type { BodySet } from "./BodySet";
-import { GuildTooltip } from "./GuildTooltip";
 import { relations } from "./relations";
 
 afterEach(cleanup);
@@ -31,7 +31,7 @@ const set = {
   sharings: [],
 } satisfies BodySet;
 
-function guildOf(supporters: string[]) {
+function membraneOf(supporters: string[]) {
   return {
     members: ["Daucus carota", "Lotus corniculatus"],
     support: supporters.length,
@@ -41,11 +41,11 @@ function guildOf(supporters: string[]) {
   };
 }
 
-describe("GuildTooltip", () => {
+describe("BodiesTooltip", () => {
   it("names a membrane's plants and the visitor seen on exactly them", () => {
     render(
-      <GuildTooltip
-        hovered={{ kind: "subgroup", subgroup: guildOf(["Apis mellifera"]) }}
+      <BodiesTooltip
+        hovered={{ kind: "subgroup", subgroup: membraneOf(["Apis mellifera"]) }}
         pointer={pointer}
         set={set}
         relation={relations.visitors}
@@ -60,8 +60,8 @@ describe("GuildTooltip", () => {
   it("names the first few molecules and counts the rest", () => {
     const molecules = ["a", "b", "c", "d", "e", "f", "g", "h"];
     render(
-      <GuildTooltip
-        hovered={{ kind: "subgroup", subgroup: guildOf(molecules) }}
+      <BodiesTooltip
+        hovered={{ kind: "subgroup", subgroup: membraneOf(molecules) }}
         pointer={pointer}
         set={set}
         relation={relations.compounds}
@@ -75,8 +75,8 @@ describe("GuildTooltip", () => {
 
   it("names a taxon with its rank first", () => {
     render(
-      <GuildTooltip
-        hovered={{ kind: "subgroup", subgroup: guildOf(["Magnoliopsida (class)"]) }}
+      <BodiesTooltip
+        hovered={{ kind: "subgroup", subgroup: membraneOf(["Magnoliopsida (class)"]) }}
         pointer={pointer}
         set={set}
         relation={relations.descent}
@@ -90,7 +90,7 @@ describe("GuildTooltip", () => {
 
   it("names a dot by its common and scientific names with the count of what it shares", () => {
     render(
-      <GuildTooltip
+      <BodiesTooltip
         hovered={{ kind: "language", name: "Daucus carota" }}
         pointer={pointer}
         set={set}
@@ -105,7 +105,7 @@ describe("GuildTooltip", () => {
 
   it("shows a dot's picture at a small standard width", () => {
     render(
-      <GuildTooltip
+      <BodiesTooltip
         hovered={{ kind: "language", name: "Daucus carota" }}
         pointer={pointer}
         set={set}

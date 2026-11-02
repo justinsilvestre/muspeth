@@ -1,5 +1,5 @@
+import { rottingLogStages } from "./bodySetChoices.ts";
 import { queryDatabase } from "./database.ts";
-import { rottingLogStages } from "./guildSetChoices.ts";
 
 /** One body linked to one partner, as the database gives it, with the licence of the link. */
 export type LinkRow = {

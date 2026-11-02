@@ -1,5 +1,5 @@
-/** The sets of bodies that the guilds view offers, as the export script reads them from the database. */
-import type { ExtraRelation } from "./guildSetQueries.ts";
+/** The sets of bodies that the Biological glottometry view offers, as the export script reads them from the database. */
+import type { ExtraRelation } from "./bodySetQueries.ts";
 
 /** Flower surveys, each giving a set of plants and a set of visitors. */
 export const surveys = [
