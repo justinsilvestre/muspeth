@@ -24,7 +24,7 @@ export function SceneTooltip({ pointer, isWide, onClose, children }: SceneToolti
         onPointerDown={(event) => event.stopPropagation()}
         onPointerMove={(event) => event.stopPropagation()}
         className={clsx(
-          "absolute inset-x-2 z-20 max-h-[45%] overflow-y-auto rounded border border-line bg-panel/95 px-3 py-2 pr-9 text-sm shadow [&_img]:aspect-auto [&_img]:h-20",
+          "absolute inset-x-2 z-20 max-h-[60%] overflow-y-auto rounded border border-line bg-panel/95 px-3 py-2 pr-9 text-sm shadow [&_img]:h-24 [&_img]:w-auto",
           pointer.y > pointer.height / 2 ? "top-2" : "bottom-2",
         )}
       >

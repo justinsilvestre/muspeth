@@ -17,16 +17,22 @@ describe("placeBesidePointer", () => {
   describe("when the pointer is in the scene's bottom right quarter", () => {
     it("places the tooltip above and to the left of the pointer", () => {
       expect(placeBesidePointer({ ...scene, x: 300, y: 250 })).toEqual({
-        right: 114,
+        right: 104,
         bottom: 64,
-        maxWidth: 272,
+        maxWidth: 288,
       });
     });
   });
 
   describe("when the scene is narrower than the widest tooltip", () => {
-    it("narrows the tooltip to the room beside the pointer", () => {
-      expect(placeBesidePointer({ ...scene, width: 300, x: 250, y: 20 }).maxWidth).toBe(222);
+    const narrow = { ...scene, width: 300, x: 150, y: 20 };
+
+    it("lets the tooltip grow as wide as the scene allows", () => {
+      expect(placeBesidePointer(narrow).maxWidth).toBe(284);
+    });
+
+    it("shifts the tooltip sideways to keep it inside the scene", () => {
+      expect(placeBesidePointer(narrow)).toMatchObject({ left: 8 });
     });
   });
 });
