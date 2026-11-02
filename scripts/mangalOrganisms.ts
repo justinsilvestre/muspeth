@@ -39,7 +39,29 @@ function toCleanName({ originalName }: MangalNode) {
 export function toLookupName(node: MangalNode) {
   const name = toCleanName(node);
   if (isPlaceholderName(name)) return null;
-  return node.taxonomy?.name || name;
+  return toTrustedTaxonomy(node)?.name || name;
+}
+
+/**
+ * Gives the taxon Mangal matched a node to, unless the node is named by a plain word such as
+ * "litter" or "carrion", GBIF does not back the match, and the taxon's name does not echo the
+ * word as "Cecidomyiidae" echoes "cecidomyid larvae". Mangal matches such words to the common
+ * names of unrelated species, as "carrion" to the carrion crow.
+ */
+export function toTrustedTaxonomy(node: MangalNode) {
+  const name = toCleanName(node);
+  const taxonName = node.taxonomy?.name ?? "";
+  if (!node.taxonomy || /^[A-Z]/.test(name) || node.taxonomy.gbif !== null) return node.taxonomy;
+  const stem = (word: string) =>
+    word
+      .toLowerCase()
+      .replace(/[^a-z]/g, "")
+      .slice(0, 5);
+  const taxonStem = stem(taxonName.split(/\s+/)[0] ?? "");
+  const echoes = name
+    .split(/[\s()]+/)
+    .some((word) => stem(word) !== "" && stem(word) === taxonStem);
+  return echoes ? node.taxonomy : null;
 }
 
 /**
@@ -53,25 +75,30 @@ export function identifyMangalNode(
   existingIdByName: Map<string, string>,
 ) {
   const name = toLookupName(node);
-  const rank = node.taxonomy?.rank ?? null;
+  const taxonomy = toTrustedTaxonomy(node);
+  const rank = taxonomy?.rank ?? null;
   if (name === null) {
     const label = toCleanName(node) || `node ${node.id}`;
     const id = `mangal:${node.networkId}/${label}`;
     return { id, label, rank, qualityFlags: ["placeholder_species"] satisfies QualityFlag[] };
   }
   const flags = [
-    !node.taxonomy && "unmatched_name",
+    !taxonomy && "unmatched_name",
     choice?.isAmbiguous && "ambiguous_wikidata_id",
   ] satisfies (QualityFlag | false | undefined)[];
   return {
-    id: existingIdByName.get(name) ?? toNewNodeId(node, name, choice),
+    id: existingIdByName.get(name) ?? toNewNodeId(taxonomy, name, choice),
     label: name,
     rank,
     qualityFlags: flags.filter((flag) => typeof flag === "string"),
   };
 }
 
-function toNewNodeId({ taxonomy }: MangalNode, name: string, choice: WikidataChoice | null) {
+function toNewNodeId(
+  taxonomy: MangalNode["taxonomy"],
+  name: string,
+  choice: WikidataChoice | null,
+) {
   if (choice) return `wikidata:${choice.taxon.qid}`;
   if (taxonomy?.gbif) return `gbif:${taxonomy.gbif}`;
   if (taxonomy?.ncbi) return `ncbi:${taxonomy.ncbi}`;

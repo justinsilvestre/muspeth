@@ -2,10 +2,15 @@ import type { Appearance } from "../scene/appearance";
 import { aOrAn, type BodySet, type Sharing } from "./BodySet";
 import type { Relation } from "./relations";
 
-type GuildKeyProps = { set: BodySet; relation: Relation; sharing: Sharing; appearance: Appearance };
+type BodiesKeyProps = {
+  set: BodySet;
+  relation: Relation;
+  sharing: Sharing;
+  appearance: Appearance;
+};
 
 /** Explains what the cell shows under the chosen grouping, in that grouping's own words, and where its data comes from. */
-export function GuildKey({ set, relation, sharing, appearance }: GuildKeyProps) {
+export function BodiesKey({ set, relation, sharing, appearance }: BodiesKeyProps) {
   const { color } = appearance;
   const dots = set.bodyNoun.many;
   const { shared } = relation;
@@ -19,9 +24,9 @@ export function GuildKey({ set, relation, sharing, appearance }: GuildKeyProps) 
       <div className="grid gap-x-6 gap-y-2 px-3 pb-3 sm:grid-cols-2">
         <ul className="space-y-1">
           <li>
-            <Swatch color={color.nucleus} /> The bright dots are the <b>{lowerFirst(set.name)}</b>.
-            They are placed so that {dots} sharing many {shared.many} lie close together; a dim dot
-            has no {shared.one} recorded. {set.description}
+            <Swatch color={color.nucleus} /> <b>{set.name}</b>: each bright dot is{" "}
+            {aOrAn(set.bodyNoun.one)}, placed so that {dots} sharing many {shared.many} lie close
+            together; a dim dot has no {shared.one} recorded. {set.description}
           </li>
           <li>
             <Swatch color={color.smallSubgroup} /> Each <b>membrane</b> wraps the {dots}{" "}
@@ -43,8 +48,7 @@ export function GuildKey({ set, relation, sharing, appearance }: GuildKeyProps) 
         <div className="space-y-2 text-muted">
           <p>
             The two menus above the picture choose the dots and what groups them.
-            {relation.weight &&
-              " The visits slider counts an encounter only once the survey saw it that many times. Replay starts from the single most frequent encounter and admits rarer ones step by step, so that the membranes grow and merge as the season fills in."}
+            {relation.weight && ` ${relation.weight.replay}`}
           </p>
           <p>
             Hovering over a membrane lists the {shared.many} shared by exactly the {dots} inside it.
@@ -69,11 +73,6 @@ export function GuildKey({ set, relation, sharing, appearance }: GuildKeyProps) 
       </div>
     </details>
   );
-}
-
-/** Lowers the first letter of a set's name so that it can follow "the" in a sentence, keeping proper nouns as they are. */
-function lowerFirst(text: string) {
-  return text.charAt(0).toLowerCase() + text.slice(1);
 }
 
 function Swatch({ color }: { color: string }) {

@@ -1,16 +1,29 @@
 /**
  * Copies a few small sets of organisms out of the database into JSON files that the second
- * version's guilds view bundles, so that the view needs no server. Each file holds one set of
+ * version's Biological glottometry view bundles, so that the view needs no server. Each file holds one set of
  * bodies and, for each kind of relation recorded among them, the partners that the bodies share:
  * the visitors of a flower survey, compounds, names, folklore motifs, survey sites, and taxa.
- * Usage: npm run v2:export-guilds
+ * Usage: npm run v2:export-body-sets
  */
 import { writeFileSync } from "node:fs";
 import path from "node:path";
+import {
+  organismSets,
+  placeSetId,
+  rottingLogStages,
+  siteLabels,
+  siteNames,
+  surveys,
+} from "./bodySetChoices.ts";
+import { type LinkRow, queryRelationLinks, quoteList } from "./bodySetQueries.ts";
 import { queryDatabase } from "./database.ts";
-import { organismSets, placeSetId, siteLabels, siteNames, surveys } from "./guildSetChoices.ts";
 
-const outputDirectory = path.resolve(import.meta.dirname, "../src/client/v2/guilds/sets");
+const outputDirectory = path.resolve(import.meta.dirname, "../src/client/v2/bodies/sets");
+
+/** The name of each stage of the rotting-log survey, by the years the logs had lain dead, for the view's steps. */
+const stageNamesByYears = Object.fromEntries(
+  Object.values(rottingLogStages).map(({ years, stepName }) => [String(years), stepName]),
+);
 
 type Body = {
   id: string;
@@ -20,14 +33,11 @@ type Body = {
   image?: { url: string; credit: string | null; licence: string | null; pageUrl: string | null };
 };
 type Link = { body: string; partner: string; weight?: number; flags: string[] };
-type Sharing = { relation: string; licences: string[]; links: Link[] };
-
-type LinkRow = {
-  body_id: string;
-  partner: string;
-  weight: number | null;
-  flags: string;
-  licence: string;
+type Sharing = {
+  relation: string;
+  licences: string[];
+  links: Link[];
+  weightNames?: Record<string, string>;
 };
 
 for (const survey of surveys) {
@@ -106,12 +116,17 @@ for (const set of organismSets) {
   );
   const missing = set.organisms.filter((name) => !bodies.some((body) => body.name === name));
   if (missing.length) throw new Error(`Organisms not found for ${set.id}: ${missing.join(", ")}`);
+  const ids = bodies.map((body) => body.id);
+  const extra = (set.relations ?? []).map((relation) => ({
+    ...toSharing(relation, queryRelationLinks(relation, ids, set), bodies),
+    ...(relation === "stages" ? { weightNames: stageNamesByYears } : {}),
+  }));
   writeSet({
     ...set,
-    group: "From across the database",
+    group: set.group ?? "From across the database",
     labelStyle: "species",
     bodies,
-    sharings: organismSharings(bodies),
+    sharings: [...extra, ...organismSharings(bodies)],
   });
 }
 
@@ -270,8 +285,4 @@ function uniqueBodies(bodies: Body[]) {
 /** The copy flag concerns a network's provenance, not the link, so it is left out. */
 function parseFlags(json: string) {
   return (JSON.parse(json) as string[]).filter((flag) => flag !== "duplicate_network_copy");
-}
-
-function quoteList(values: string[]) {
-  return values.map((value) => `'${value.replace(/'/g, "''")}'`).join(", ");
 }

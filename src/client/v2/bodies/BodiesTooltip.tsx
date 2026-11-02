@@ -5,10 +5,10 @@ import { abbreviateSpecies } from "./abbreviateSpecies";
 import { type Body, type BodySet, bodyOf, countOf, labelOf } from "./BodySet";
 import type { Relation } from "./relations";
 
-/** How many of the things a guild shares are named before the rest are counted. */
+/** How many of the things a membrane shares are named before the rest are counted. */
 const namedSharedLimit = 6;
 
-type GuildTooltipProps = {
+type BodiesTooltipProps = {
   hovered: Hovered | undefined;
   /** Where the pointer is, in pixels from the top left of the scene. */
   pointer: { x: number; y: number };
@@ -19,7 +19,13 @@ type GuildTooltipProps = {
 };
 
 /** Names what the pointer is on: a dot with its picture and what it shares, or a membrane with the things that hold it together. */
-export function GuildTooltip({ hovered, pointer, set, relation, sharedCounts }: GuildTooltipProps) {
+export function BodiesTooltip({
+  hovered,
+  pointer,
+  set,
+  relation,
+  sharedCounts,
+}: BodiesTooltipProps) {
   if (!hovered) return null;
   return (
     <div
@@ -29,7 +35,7 @@ export function GuildTooltip({ hovered, pointer, set, relation, sharedCounts }: 
     >
       {hovered.kind === "language"
         ? describeDot(hovered.name, set, relation, sharedCounts.get(hovered.name) ?? 0)
-        : describeGuild(hovered.subgroup, set, relation)}
+        : describeMembrane(hovered.subgroup, set, relation)}
     </div>
   );
 }
@@ -91,14 +97,14 @@ function Credit({ image }: { image: NonNullable<Body["image"]> }) {
 }
 
 /**
- * Says what holds a guild together: the things shared by exactly its members, as a sentence such as
+ * Says what holds a membrane together: the things shared by exactly its members, as a sentence such as
  * "M. domestica visits these 3 plants and no other plant here".
  */
-function describeGuild(guild: Subgroup, set: BodySet, relation: Relation) {
-  const { members, supporters, cohesiveness, subgroupiness } = guild;
+function describeMembrane(membrane: Subgroup, set: BodySet, relation: Relation) {
+  const { members, supporters, cohesiveness, subgroupiness } = membrane;
   const named = supporters.slice(0, namedSharedLimit).map(sharedLabel(relation)).join(", ");
   const rest = supporters.length - namedSharedLimit;
-  const verb = supporters.length === 1 ? relation.guildVerb.one : relation.guildVerb.many;
+  const verb = supporters.length === 1 ? relation.membraneVerb.one : relation.membraneVerb.many;
   return (
     <>
       <b>{members.map((member) => labelOf(set, member)).join(", ")}</b>

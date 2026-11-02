@@ -4,10 +4,10 @@ import { useColorScheme } from "../../theme/useColorScheme";
 import type { InnovationTable } from "../glottometry/parseInnovationsCsv";
 import type { Appearance } from "../scene/appearance";
 import type { Hovered } from "../scene/pickHovered";
+import { BodiesCell } from "./BodiesCell";
 import type { BodySet } from "./BodySet";
-import { GuildBody } from "./GuildBody";
 
-type GuildSceneProps = {
+type BodiesSceneProps = {
   set: BodySet;
   /** A number that, when it changes, brings the whole diagram back into view. */
   fitRequest: number;
@@ -19,8 +19,8 @@ type GuildSceneProps = {
   onHover: (hovered: Hovered | undefined) => void;
 };
 
-/** Renders a set of bodies and their guilds as a slowly undulating cell, lit as the glottometric cell is. */
-export default function GuildScene(props: GuildSceneProps) {
+/** Renders a set of bodies and their membranes as a slowly undulating cell, lit as the glottometric cell is. */
+export default function BodiesScene(props: BodiesSceneProps) {
   const { colorScheme } = useColorScheme();
   const isDark = colorScheme === "dark";
   return (
@@ -28,7 +28,7 @@ export default function GuildScene(props: GuildSceneProps) {
       <ambientLight intensity={isDark ? 0.5 : 0.9} />
       <directionalLight position={[4, 6, 8]} intensity={isDark ? 1.8 : 2.4} />
       <pointLight position={[0, 0, 3]} intensity={isDark ? 12 : 6} color="#ffe2b0" />
-      <GuildBody isDark={isDark} {...props} />
+      <BodiesCell isDark={isDark} {...props} />
       <OrbitControls
         makeDefault
         minDistance={3}

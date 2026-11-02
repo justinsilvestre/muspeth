@@ -24,14 +24,14 @@ const diagramRotation = Math.PI / 4;
 /** How far beyond the dots the view reaches, for the outer membrane and the labels. */
 const viewMargin = 1.2;
 
-type GuildBodyProps = {
+type BodiesCellProps = {
   set: BodySet;
   /** What the bodies share with every link counted; the nuclei are placed by it, so they keep still as the minimum changes. */
   fullTable: InnovationTable;
   /** What the bodies share among the links counted; the membranes are drawn from it. */
   table: InnovationTable;
   isDark: boolean;
-  /** Guilds with a lower subgroupiness than this are not drawn. */
+  /** Membranes with a lower subgroupiness than this are not drawn. */
   threshold: number;
   appearance: Appearance;
   hovered: Hovered | undefined;
@@ -43,7 +43,7 @@ type GuildBodyProps = {
  * Draws a set as a cell: every body a nucleus, and every set of bodies that shares a partner a membrane nested around its members.
  * When the layout changes, the nuclei glide to their new places while the new membranes fade in around them.
  */
-export function GuildBody(props: GuildBodyProps) {
+export function BodiesCell(props: BodiesCellProps) {
   const { set, fullTable, table, isDark, threshold, appearance, hovered, onHover, fitRequest } =
     props;
   const bodies = table.languages;
@@ -71,18 +71,18 @@ export function GuildBody(props: GuildBodyProps) {
     [table],
   );
   const scored = useMemo(() => scoreSubgroups(table), [table]);
-  // Membrane thicknesses are scaled to the strongest guild drawn with every link counted.
+  // Membrane thicknesses are scaled to the strongest membrane drawn with every link counted.
   const strongest = useMemo(() => scoreSubgroups(fullTable)[0]?.subgroupiness ?? 1, [fullTable]);
-  const guilds = useMemo(
+  const membranes = useMemo(
     () =>
       scored
-        .filter((guild) => guild.subgroupiness >= threshold)
-        .map((guild) => ({ guild, points: positionsOf(guild.members, layout) })),
+        .filter((subgroup) => subgroup.subgroupiness >= threshold)
+        .map((subgroup) => ({ subgroup, points: positionsOf(subgroup.members, layout) })),
     [scored, threshold, layout],
   );
   const setPoints = useMemo(() => positionsOf(bodies, layout), [bodies, layout]);
-  const hoveredGuild = hovered?.kind === "subgroup" ? hovered.subgroup : undefined;
-  const hoveredMembers = useMemo(() => new Set(hoveredGuild?.members), [hoveredGuild]);
+  const hoveredMembrane = hovered?.kind === "subgroup" ? hovered.subgroup : undefined;
+  const hoveredMembers = useMemo(() => new Set(hoveredMembrane?.members), [hoveredMembrane]);
   const { paddingBase, paddingPerMember } = appearance.shape;
   const setPadding = paddingBase + paddingPerMember * bodies.length + 0.3;
   const handlePointerMove = (event: ThreeEvent<PointerEvent>) =>
@@ -103,20 +103,20 @@ export function GuildBody(props: GuildBodyProps) {
           thickness={0.6}
           order={bodies.length + 1}
           appearance={appearance}
-          emphasis={hoveredGuild && "muted"}
+          emphasis={hoveredMembrane && "muted"}
           fade={fade}
         />
-        {guilds.map(({ guild, points }) => (
+        {membranes.map(({ subgroup, points }) => (
           <Membrane
-            key={guild.members.join()}
+            key={subgroup.members.join()}
             points={points}
-            padding={paddingBase + paddingPerMember * guild.members.length}
-            color={membraneColor(guild.members.length / bodies.length, appearance)}
-            thickness={Math.min(guild.subgroupiness / strongest, 1)}
-            order={guild.members.length}
+            padding={paddingBase + paddingPerMember * subgroup.members.length}
+            color={membraneColor(subgroup.members.length / bodies.length, appearance)}
+            thickness={Math.min(subgroup.subgroupiness / strongest, 1)}
+            order={subgroup.members.length}
             appearance={appearance}
-            subgroup={guild}
-            emphasis={hoveredGuild && (hoveredGuild === guild ? "raised" : "muted")}
+            subgroup={subgroup}
+            emphasis={hoveredMembrane && (hoveredMembrane === subgroup ? "raised" : "muted")}
             fade={fade}
           />
         ))}
@@ -156,7 +156,7 @@ function labelColor(isDark: boolean, isLinked: boolean) {
   return isDark ? "#78716c" : "#a8a29e";
 }
 
-/** Blends from the small-guild color to the large-guild color by the share of the set's bodies a guild holds. */
+/** Blends from the small-membrane color to the large-membrane color by the share of the set's bodies a membrane holds. */
 function membraneColor(share: number, { color }: Appearance) {
   return `#${new Color(color.smallSubgroup).lerpHSL(new Color(color.largeSubgroup), share).getHexString()}`;
 }

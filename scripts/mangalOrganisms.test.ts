@@ -22,6 +22,8 @@ const morphospecies = {
   taxonomy: { id: 5, name: "Cheilosia", rank: "genus", gbif: 1, ncbi: null },
 } satisfies MangalNode;
 const typo = { id: 3, networkId: 948, originalName: "Anaspis funagata", taxonomy: null };
+const cecidomyiidae = { id: 6, name: "Cecidomyiidae", rank: "family", gbif: null, ncbi: 33406 };
+const crow = { id: 7, name: "Corvus corone", rank: "species", gbif: null, ncbi: 30422 };
 const beeEntity = {
   qid: "Q30034",
   taxonNames: ["Apis mellifera"],
@@ -74,6 +76,16 @@ describe("toLookupName", () => {
 
   it("does not look up a placeholder", () => {
     expect(toLookupName(morphospecies)).toBeNull();
+  });
+
+  it("keeps a plain word's taxon when the taxon's name echoes the word", () => {
+    const larvae = { ...typo, originalName: "cecidomyid larvae", taxonomy: cecidomyiidae };
+    expect(toLookupName(larvae)).toBe("Cecidomyiidae");
+  });
+
+  it("drops a plain word's taxon when GBIF does not back it and the name does not echo it", () => {
+    const carrion = { ...typo, originalName: "carrion", taxonomy: crow };
+    expect(toLookupName(carrion)).toBe("carrion");
   });
 });
 

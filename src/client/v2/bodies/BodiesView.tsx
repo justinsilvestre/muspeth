@@ -3,21 +3,21 @@ import { AppearanceControls } from "../scene/AppearanceControls";
 import { type Appearance, defaultAppearance } from "../scene/appearance";
 import type { Hovered } from "../scene/pickHovered";
 import { ThresholdSlider } from "../scene/ThresholdSlider";
+import { BodiesKey } from "./BodiesKey";
+import { BodiesTooltip } from "./BodiesTooltip";
 import type { BodySet, Sharing } from "./BodySet";
 import { BodySetSelect } from "./BodySetSelect";
 import { defaultBodySet } from "./bodySets";
 import { Caption } from "./Caption";
-import { GuildKey } from "./GuildKey";
-import { GuildTooltip } from "./GuildTooltip";
 import { RelationSelect } from "./RelationSelect";
 import { relationOf } from "./relations";
 import { countMembranes, toSharingTable, weightSteps } from "./toSharingTable";
 import { WeightControl } from "./WeightControl";
 
-const GuildScene = lazy(() => import("./GuildScene"));
+const BodiesScene = lazy(() => import("./BodiesScene"));
 
-/** Shows a set of bodies as a cell of guilds, with a choice of the relation that draws the membranes. */
-export function GuildView() {
+/** Shows a set of bodies as a cell, with a choice of the relation that draws the membranes. */
+export function BodiesView() {
   const [set, setSet] = useState<BodySet>(defaultBodySet);
   const [sharing, setSharing] = useState<Sharing>(firstDrawable(defaultBodySet));
   const [weightStep, setWeightStep] = useState(0);
@@ -29,12 +29,12 @@ export function GuildView() {
   const [pointer, setPointer] = useState({ x: 0, y: 0 });
   const relation = relationOf(sharing.relation);
   const steps = useMemo(() => weightSteps(sharing), [sharing]);
-  const minimumWeight = steps[weightStep] ?? 1;
-  const fullTable = useMemo(() => toSharingTable(set, sharing), [set, sharing]);
-  const table = useMemo(
-    () => toSharingTable(set, sharing, minimumWeight),
-    [set, sharing, minimumWeight],
+  const cutoff = useMemo(
+    () => ({ weight: steps[weightStep] ?? 1, mode: relation.weight?.cutoff ?? "atLeast" }),
+    [steps, weightStep, relation],
   );
+  const fullTable = useMemo(() => toSharingTable(set, sharing), [set, sharing]);
+  const table = useMemo(() => toSharingTable(set, sharing, cutoff), [set, sharing, cutoff]);
   const sharedCounts = useMemo(() => countShared(table.innovations), [table]);
   const changeWeightStep = useCallback((step: number) => setWeightStep(step), []);
   const changeReplaying = useCallback((next: boolean) => setReplaying(next), []);
@@ -64,6 +64,7 @@ export function GuildView() {
         <WeightControl
           words={relation.weight}
           steps={steps}
+          names={sharing.weightNames}
           value={weightStep}
           onChange={changeWeightStep}
           isReplaying={isReplaying}
@@ -90,7 +91,7 @@ export function GuildView() {
         >
           Fit to view
         </button>
-        <GuildTooltip
+        <BodiesTooltip
           hovered={hovered}
           pointer={pointer}
           set={set}
@@ -98,7 +99,7 @@ export function GuildView() {
           sharedCounts={sharedCounts}
         />
         <Suspense fallback={<p className="p-3">Loading the scene…</p>}>
-          <GuildScene
+          <BodiesScene
             set={set}
             fitRequest={fitRequest}
             fullTable={fullTable}
@@ -110,7 +111,7 @@ export function GuildView() {
           />
         </Suspense>
       </div>
-      <GuildKey set={set} relation={relation} sharing={sharing} appearance={appearance} />
+      <BodiesKey set={set} relation={relation} sharing={sharing} appearance={appearance} />
     </section>
   );
 }
