@@ -6,7 +6,7 @@ import { relations } from "./relations";
 
 afterEach(cleanup);
 
-const pointer = { x: 10, y: 20, width: 400, height: 300, isTouch: false };
+const pointer = { x: 10, y: 20, width: 400, height: 300 };
 
 const set = {
   id: "test",
@@ -58,7 +58,6 @@ describe("BodiesTooltip", () => {
       <BodiesTooltip
         hovered={{ kind: "subgroup", subgroup: membraneOf(["Apis mellifera"]) }}
         pointer={pointer}
-        onClose={() => {}}
         set={set}
         relation={relations.visitors}
         sharedCounts={new Map()}
@@ -74,7 +73,6 @@ describe("BodiesTooltip", () => {
       <BodiesTooltip
         hovered={{ kind: "subgroup", subgroup: membraneOf(["Apis mellifera"]) }}
         pointer={pointer}
-        onClose={() => {}}
         set={set}
         relation={relations.visitors}
         sharedCounts={new Map()}
@@ -90,7 +88,6 @@ describe("BodiesTooltip", () => {
       <BodiesTooltip
         hovered={{ kind: "subgroup", subgroup: membraneOf(["Apis mellifera"]) }}
         pointer={pointer}
-        onClose={() => {}}
         set={set}
         relation={relations.compounds}
         sharedCounts={new Map()}
@@ -105,7 +102,6 @@ describe("BodiesTooltip", () => {
       <BodiesTooltip
         hovered={{ kind: "subgroup", subgroup: membraneOf(molecules) }}
         pointer={pointer}
-        onClose={() => {}}
         set={set}
         relation={relations.compounds}
         sharedCounts={new Map()}
@@ -121,7 +117,6 @@ describe("BodiesTooltip", () => {
       <BodiesTooltip
         hovered={{ kind: "subgroup", subgroup: membraneOf(["Magnoliopsida (class)"]) }}
         pointer={pointer}
-        onClose={() => {}}
         set={set}
         relation={relations.descent}
         sharedCounts={new Map()}
@@ -137,7 +132,6 @@ describe("BodiesTooltip", () => {
       <BodiesTooltip
         hovered={{ kind: "language", name: "Daucus carota" }}
         pointer={pointer}
-        onClose={() => {}}
         set={set}
         relation={relations.compounds}
         sharedCounts={new Map([["Daucus carota", 3]])}
@@ -153,7 +147,6 @@ describe("BodiesTooltip", () => {
       <BodiesTooltip
         hovered={{ kind: "language", name: "Daucus carota" }}
         pointer={pointer}
-        onClose={() => {}}
         set={set}
         relation={relations.compounds}
         sharedCounts={new Map()}

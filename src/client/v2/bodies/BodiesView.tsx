@@ -79,13 +79,15 @@ export function BodiesView() {
         onReset={() => setAppearance(defaultAppearance)}
       />
       <Caption set={set} relation={relation} table={table} />
+      {/* biome-ignore lint/a11y: The click only records where a tap landed; the canvas inside takes the input itself. */}
       <div
         className="relative aspect-square select-none rounded border border-line [-webkit-touch-callout:none] sm:aspect-[16/10]"
-        onPointerDown={(event) => {
-          suppressSelectionUntilRelease();
-          setPointer(toScenePointer(event));
-        }}
-        onPointerMove={(event) => setPointer(toScenePointer(event))}
+        onPointerDown={suppressSelectionUntilRelease}
+        // A finger moves the tooltip only by tapping, so that dragging to turn the scene leaves it in place.
+        onPointerMove={(event) =>
+          event.pointerType !== "touch" && setPointer(toScenePointer(event))
+        }
+        onClick={(event) => setPointer(toScenePointer(event))}
       >
         <button
           type="button"
@@ -100,7 +102,6 @@ export function BodiesView() {
           set={set}
           relation={relation}
           sharedCounts={sharedCounts}
-          onClose={() => setHovered(undefined)}
         />
         <Suspense fallback={<p className="p-3">Loading the scene…</p>}>
           <BodiesScene

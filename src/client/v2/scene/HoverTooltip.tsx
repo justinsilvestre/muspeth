@@ -8,14 +8,13 @@ type HoverTooltipProps = {
   hovered: Hovered | undefined;
   pointer: ScenePointer;
   family: LanguageFamily;
-  onClose: () => void;
 };
 
 /** Names what the pointer is on, or what was last tapped. */
-export function HoverTooltip({ hovered, pointer, family, onClose }: HoverTooltipProps) {
+export function HoverTooltip({ hovered, pointer, family }: HoverTooltipProps) {
   if (!hovered) return null;
   return (
-    <SceneTooltip pointer={pointer} onClose={onClose}>
+    <SceneTooltip pointer={pointer}>
       {hovered.kind === "language"
         ? describeLanguage(hovered.name, family)
         : describeSubgroup(hovered.subgroup, family)}

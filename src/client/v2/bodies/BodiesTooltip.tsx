@@ -22,7 +22,6 @@ type BodiesTooltipProps = {
   relation: Relation;
   /** How many shared things each dot has among the links counted. */
   sharedCounts: Map<string, number>;
-  onClose: () => void;
 };
 
 /** Names what the pointer is on, or what was last tapped: a dot with its picture and what it shares, or a membrane with the things that hold it together. */
@@ -32,11 +31,10 @@ export function BodiesTooltip({
   set,
   relation,
   sharedCounts,
-  onClose,
 }: BodiesTooltipProps) {
   if (!hovered) return null;
   return (
-    <SceneTooltip pointer={pointer} isWide onClose={onClose}>
+    <SceneTooltip pointer={pointer} isWide>
       {hovered.kind === "language"
         ? describeDot(hovered.name, set, relation, sharedCounts.get(hovered.name) ?? 0)
         : describeMembrane(hovered.subgroup, set, relation)}

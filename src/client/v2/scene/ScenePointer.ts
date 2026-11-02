@@ -1,12 +1,11 @@
-import type { CSSProperties, PointerEvent } from "react";
+import type { CSSProperties, MouseEvent } from "react";
 
-/** Where the pointer last was over a scene, in pixels from its top left, with the scene's size and whether a finger was used. */
+/** Where the pointer last was over a scene, in pixels from its top left, with the scene's size. */
 export type ScenePointer = {
   x: number;
   y: number;
   width: number;
   height: number;
-  isTouch: boolean;
 };
 
 /** How far a tooltip stands off from the pointer, in pixels. */
@@ -21,18 +20,16 @@ export const restingPointer = {
   y: 0,
   width: 0,
   height: 0,
-  isTouch: false,
 } satisfies ScenePointer;
 
 /** Reads where a pointer event happened over the element it is handled on. */
-export function toScenePointer(event: PointerEvent<HTMLElement>) {
+export function toScenePointer(event: MouseEvent<HTMLElement>) {
   const bounds = event.currentTarget.getBoundingClientRect();
   return {
     x: event.clientX - bounds.left,
     y: event.clientY - bounds.top,
     width: bounds.width,
     height: bounds.height,
-    isTouch: event.pointerType === "touch",
   } satisfies ScenePointer;
 }
 

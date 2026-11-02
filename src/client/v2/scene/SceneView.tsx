@@ -44,20 +44,17 @@ export function SceneView() {
         onChange={setAppearance}
         onReset={() => setAppearance(defaultAppearance)}
       />
+      {/* biome-ignore lint/a11y: The click only records where a tap landed; the canvas inside takes the input itself. */}
       <div
         className="relative aspect-square select-none rounded border border-line [-webkit-touch-callout:none] sm:aspect-[16/10]"
-        onPointerDown={(event) => {
-          suppressSelectionUntilRelease();
-          setPointer(toScenePointer(event));
-        }}
-        onPointerMove={(event) => setPointer(toScenePointer(event))}
+        onPointerDown={suppressSelectionUntilRelease}
+        // A finger moves the tooltip only by tapping, so that dragging to turn the scene leaves it in place.
+        onPointerMove={(event) =>
+          event.pointerType !== "touch" && setPointer(toScenePointer(event))
+        }
+        onClick={(event) => setPointer(toScenePointer(event))}
       >
-        <HoverTooltip
-          hovered={hovered}
-          pointer={pointer}
-          family={family}
-          onClose={() => setHovered(undefined)}
-        />
+        <HoverTooltip hovered={hovered} pointer={pointer} family={family} />
         <Suspense fallback={<p className="p-3">Loading the scene…</p>}>
           <CellScene
             family={family}

@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { placeBesidePointer } from "./ScenePointer";
 
-const scene = { width: 400, height: 300, isTouch: false };
+const scene = { width: 400, height: 300 };
 
 describe("placeBesidePointer", () => {
   describe("when the pointer is in the scene's top left quarter", () => {
