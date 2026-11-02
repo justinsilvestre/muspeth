@@ -20,7 +20,7 @@ export default function CellScene(props: CellSceneProps) {
   const { colorScheme } = useColorScheme();
   const isDark = colorScheme === "dark";
   return (
-    <Canvas camera={{ position: [0, -8, 13], fov: 40 }}>
+    <Canvas camera={{ position: [0, -8, 13], fov: 40 }} onPointerMissed={() => onHover(undefined)}>
       <ambientLight intensity={isDark ? 0.5 : 0.9} />
       <directionalLight position={[4, 6, 8]} intensity={isDark ? 1.8 : 2.4} />
       <pointLight position={[0, 0, 3]} intensity={isDark ? 12 : 6} color="#ffe2b0" />

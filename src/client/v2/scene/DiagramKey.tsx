@@ -36,7 +36,7 @@ export function DiagramKey({ family, appearance }: DiagramKeyProps) {
         </ul>
         <div className="space-y-2 text-muted">
           <p>
-            Point at a membrane to see its subgroup and scores, or at a dot to see its language.
+            Point at or tap a membrane to see its subgroup and scores, or a dot to see its language.
           </p>
           <p className="text-xs">
             Data:{" "}

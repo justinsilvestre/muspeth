@@ -6,7 +6,7 @@ import { relations } from "./relations";
 
 afterEach(cleanup);
 
-const pointer = { x: 10, y: 20 };
+const pointer = { x: 10, y: 20, width: 400, height: 300 };
 
 const set = {
   id: "test",

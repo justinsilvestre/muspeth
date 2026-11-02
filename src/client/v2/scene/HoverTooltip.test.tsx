@@ -5,7 +5,7 @@ import { HoverTooltip } from "./HoverTooltip";
 
 afterEach(cleanup);
 
-const pointer = { x: 10, y: 20 };
+const pointer = { x: 10, y: 20, width: 400, height: 300 };
 
 describe("HoverTooltip", () => {
   it("shows nothing while the pointer is on nothing", () => {

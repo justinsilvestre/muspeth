@@ -6,6 +6,8 @@ import { DiagramKey } from "./DiagramKey";
 import { FamilySelect } from "./FamilySelect";
 import { HoverTooltip } from "./HoverTooltip";
 import type { Hovered } from "./pickHovered";
+import { restingPointer, type ScenePointer, toScenePointer } from "./ScenePointer";
+import { suppressSelectionUntilRelease } from "./suppressSelectionUntilRelease";
 import { ThresholdSlider } from "./ThresholdSlider";
 
 const CellScene = lazy(() => import("./CellScene"));
@@ -19,7 +21,7 @@ export function SceneView() {
   const [threshold, setThreshold] = useState(defaultThreshold);
   const [appearance, setAppearance] = useState<Appearance>(defaultAppearance);
   const [hovered, setHovered] = useState<Hovered>();
-  const [pointer, setPointer] = useState({ x: 0, y: 0 });
+  const [pointer, setPointer] = useState<ScenePointer>(restingPointer);
   // The scene follows the controls with a delay when it cannot keep up, so that the controls themselves stay responsive.
   const shownAppearance = useDeferredValue(appearance);
   const shownThreshold = useDeferredValue(threshold);
@@ -42,12 +44,15 @@ export function SceneView() {
         onChange={setAppearance}
         onReset={() => setAppearance(defaultAppearance)}
       />
+      {/* biome-ignore lint/a11y: The click only records where a tap landed; the canvas inside takes the input itself. */}
       <div
-        className="relative aspect-[16/10] rounded border border-line"
-        onPointerMove={(event) => {
-          const bounds = event.currentTarget.getBoundingClientRect();
-          setPointer({ x: event.clientX - bounds.left, y: event.clientY - bounds.top });
-        }}
+        className="relative aspect-square select-none rounded border border-line [-webkit-touch-callout:none] sm:aspect-[16/10]"
+        onPointerDown={suppressSelectionUntilRelease}
+        // A finger moves the tooltip only by tapping, so that dragging to turn the scene leaves it in place.
+        onPointerMove={(event) =>
+          event.pointerType !== "touch" && setPointer(toScenePointer(event))
+        }
+        onClick={(event) => setPointer(toScenePointer(event))}
       >
         <HoverTooltip hovered={hovered} pointer={pointer} family={family} />
         <Suspense fallback={<p className="p-3">Loading the scene…</p>}>

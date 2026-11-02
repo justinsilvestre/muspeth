@@ -2,6 +2,8 @@ import { lazy, Suspense, useCallback, useDeferredValue, useMemo, useState } from
 import { AppearanceControls } from "../scene/AppearanceControls";
 import { type Appearance, defaultAppearance } from "../scene/appearance";
 import type { Hovered } from "../scene/pickHovered";
+import { restingPointer, type ScenePointer, toScenePointer } from "../scene/ScenePointer";
+import { suppressSelectionUntilRelease } from "../scene/suppressSelectionUntilRelease";
 import { ThresholdSlider } from "../scene/ThresholdSlider";
 import { BodiesKey } from "./BodiesKey";
 import { BodiesTooltip } from "./BodiesTooltip";
@@ -26,7 +28,7 @@ export function BodiesView() {
   const [appearance, setAppearance] = useState<Appearance>(defaultAppearance);
   const [hovered, setHovered] = useState<Hovered>();
   const [fitRequest, setFitRequest] = useState(0);
-  const [pointer, setPointer] = useState({ x: 0, y: 0 });
+  const [pointer, setPointer] = useState<ScenePointer>(restingPointer);
   const relation = relationOf(sharing.relation);
   const steps = useMemo(() => weightSteps(sharing), [sharing]);
   const cutoff = useMemo(
@@ -77,12 +79,15 @@ export function BodiesView() {
         onReset={() => setAppearance(defaultAppearance)}
       />
       <Caption set={set} relation={relation} table={table} />
+      {/* biome-ignore lint/a11y: The click only records where a tap landed; the canvas inside takes the input itself. */}
       <div
-        className="relative aspect-[16/10] rounded border border-line"
-        onPointerMove={(event) => {
-          const bounds = event.currentTarget.getBoundingClientRect();
-          setPointer({ x: event.clientX - bounds.left, y: event.clientY - bounds.top });
-        }}
+        className="relative aspect-square select-none rounded border border-line [-webkit-touch-callout:none] sm:aspect-[16/10]"
+        onPointerDown={suppressSelectionUntilRelease}
+        // A finger moves the tooltip only by tapping, so that dragging to turn the scene leaves it in place.
+        onPointerMove={(event) =>
+          event.pointerType !== "touch" && setPointer(toScenePointer(event))
+        }
+        onClick={(event) => setPointer(toScenePointer(event))}
       >
         <button
           type="button"

@@ -1,4 +1,3 @@
-import type { ThreeEvent } from "@react-three/fiber";
 import { useMemo } from "react";
 import { Color } from "three";
 import { layoutByLikeness } from "../glottometry/layoutByLikeness";
@@ -9,7 +8,8 @@ import type { Appearance } from "../scene/appearance";
 import { FitCamera } from "../scene/FitCamera";
 import { LanguageNucleus } from "../scene/LanguageNucleus";
 import { Membrane } from "../scene/Membrane";
-import { type Hovered, pickHovered } from "../scene/pickHovered";
+import type { Hovered } from "../scene/pickHovered";
+import { useInspectHandlers } from "../scene/useInspectHandlers";
 import { type BodySet, labelOf, sublabelOf } from "./BodySet";
 import { easeInOut, type Positions } from "./glidePositions";
 import { spreadApart } from "./spreadApart";
@@ -85,8 +85,7 @@ export function BodiesCell(props: BodiesCellProps) {
   const hoveredMembers = useMemo(() => new Set(hoveredMembrane?.members), [hoveredMembrane]);
   const { paddingBase, paddingPerMember } = appearance.shape;
   const setPadding = paddingBase + paddingPerMember * bodies.length + 0.3;
-  const handlePointerMove = (event: ThreeEvent<PointerEvent>) =>
-    onHover(pickHovered(event.intersections));
+  const inspectHandlers = useInspectHandlers(onHover);
   return (
     <group rotation-z={diagramRotation}>
       <FitCamera
@@ -95,7 +94,7 @@ export function BodiesCell(props: BodiesCellProps) {
         rotation={diagramRotation}
         fitRequest={fitRequest}
       />
-      <group onPointerMove={handlePointerMove} onPointerLeave={() => onHover(undefined)}>
+      <group {...inspectHandlers}>
         <Membrane
           points={setPoints}
           padding={setPadding}
