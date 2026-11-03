@@ -23,16 +23,22 @@ jobs:
 
   e2e:
     runs-on: ubuntu-latest
+    # The image comes with the browsers and their system dependencies installed.
+    # Its tag must match the installed version of @playwright/test.
+    container: mcr.microsoft.com/playwright:v1.64.1-noble
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [chromium, webkit, mobile-safari]
     steps:
       - uses: actions/checkout@v7
       - uses: jdx/mise-action@v5
       - run: npm ci
-      - run: npx playwright install --with-deps chromium webkit
-      - run: npm run test:e2e
+      - run: npm run test:e2e -- --project=${{ matrix.project }}
       - if: failure()
         uses: actions/upload-artifact@v7
         with:
-          name: playwright-report
+          name: playwright-report-${{ matrix.project }}
           path: test-results/
           retention-days: 7
 
