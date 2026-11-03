@@ -6,6 +6,12 @@
       "runtimeExecutable": "mise",
       "runtimeArgs": ["exec", "--", "npm", "run", "dev"],
       "port": 5173
+    },
+    {
+      "name": "dev-lan",
+      "runtimeExecutable": "mise",
+      "runtimeArgs": ["exec", "--", "npm", "run", "dev", "--", "--host"],
+      "port": 5173
     }
   ]
 }
