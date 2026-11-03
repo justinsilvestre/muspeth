@@ -9,7 +9,7 @@ const views = [
 /** Links to each view of the second version, marking the one that is open. */
 export function V2Navigation() {
   return (
-    <nav aria-label="Views" className="mb-6 flex flex-wrap gap-1 border-line border-b">
+    <nav aria-label="Views" className="flex gap-1 border-line border-b text-sm sm:text-base">
       {views.map(({ label, path }) => (
         <NavLink
           key={path}
@@ -17,7 +17,7 @@ export function V2Navigation() {
           end
           className={({ isActive }) =>
             clsx(
-              "-mb-px border-b-2 px-3 py-2",
+              "-mb-px whitespace-nowrap border-b-2 px-2 py-1.5 sm:px-3 sm:py-2",
               isActive ? "border-ink font-medium" : "border-transparent text-muted hover:text-ink",
             )
           }

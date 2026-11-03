@@ -1,4 +1,5 @@
-import { lazy, Suspense, useDeferredValue, useState } from "react";
+import { lazy, Suspense, useDeferredValue, useRef, useState } from "react";
+import { Backdrop } from "../Backdrop";
 import { defaultFamily, type LanguageFamily } from "../glottometry/families";
 import { AppearanceControls } from "./AppearanceControls";
 import { type Appearance, defaultAppearance } from "./appearance";
@@ -15,38 +16,42 @@ const CellScene = lazy(() => import("./CellScene"));
 /** The subgroupiness display threshold the Historical Glottometry analyzer starts with. */
 const defaultThreshold = 1;
 
-/** Shows the glottometric cell below the navigation, with controls for which subgroups it draws and how they look. */
+/** Shows the glottometric cell below the navigation, spreading beneath the rest of the page, with controls for which subgroups it draws and how they look. */
 export function SceneView() {
   const [family, setFamily] = useState<LanguageFamily>(defaultFamily);
   const [threshold, setThreshold] = useState(defaultThreshold);
   const [appearance, setAppearance] = useState<Appearance>(defaultAppearance);
   const [hovered, setHovered] = useState<Hovered>();
   const [pointer, setPointer] = useState<ScenePointer>(restingPointer);
+  const sceneFrame = useRef<HTMLDivElement>(null);
   // The scene follows the controls with a delay when it cannot keep up, so that the controls themselves stay responsive.
   const shownAppearance = useDeferredValue(appearance);
   const shownThreshold = useDeferredValue(threshold);
   return (
     <section aria-label="Historical glottometry" className="flex flex-col gap-3">
-      <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-        <FamilySelect
-          value={family}
-          onChange={(next) => {
-            setFamily(next);
-            setHovered(undefined);
-          }}
-        />
-        <div className="min-w-64 flex-1">
-          <ThresholdSlider value={threshold} onChange={setThreshold} />
+      <Backdrop>
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+          <FamilySelect
+            value={family}
+            onChange={(next) => {
+              setFamily(next);
+              setHovered(undefined);
+            }}
+          />
+          <div className="min-w-64 flex-1">
+            <ThresholdSlider value={threshold} onChange={setThreshold} />
+          </div>
         </div>
-      </div>
-      <AppearanceControls
-        value={appearance}
-        onChange={setAppearance}
-        onReset={() => setAppearance(defaultAppearance)}
-      />
+        <AppearanceControls
+          value={appearance}
+          onChange={setAppearance}
+          onReset={() => setAppearance(defaultAppearance)}
+        />
+      </Backdrop>
       {/* biome-ignore lint/a11y: The click only records where a tap landed; the canvas inside takes the input itself. */}
       <div
-        className="relative aspect-square select-none rounded border border-line [-webkit-touch-callout:none] sm:aspect-[16/10]"
+        ref={sceneFrame}
+        className="relative aspect-square select-none [-webkit-touch-callout:none] sm:aspect-[16/10]"
         onPointerDown={suppressSelectionUntilRelease}
         // A finger moves the tooltip only by tapping, so that dragging to turn the scene leaves it in place.
         onPointerMove={(event) =>
@@ -57,6 +62,7 @@ export function SceneView() {
         <HoverTooltip hovered={hovered} pointer={pointer} family={family} />
         <Suspense fallback={<p className="p-3">Loading the scene…</p>}>
           <CellScene
+            frame={sceneFrame}
             family={family}
             threshold={shownThreshold}
             appearance={shownAppearance}
@@ -65,7 +71,9 @@ export function SceneView() {
           />
         </Suspense>
       </div>
-      <DiagramKey family={family} appearance={appearance} />
+      <Backdrop>
+        <DiagramKey family={family} appearance={appearance} />
+      </Backdrop>
     </section>
   );
 }

@@ -1,13 +1,16 @@
 import { OrbitControls } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
+import type { RefObject } from "react";
 import { useColorScheme } from "../../theme/useColorScheme";
 import type { InnovationTable } from "../glottometry/parseInnovationsCsv";
 import type { Appearance } from "../scene/appearance";
+import { PageCanvas } from "../scene/PageCanvas";
 import type { Hovered } from "../scene/pickHovered";
 import { BodiesCell } from "./BodiesCell";
 import type { BodySet } from "./BodySet";
 
 type BodiesSceneProps = {
+  /** The element of the page that frames the scene. */
+  frame: RefObject<HTMLElement | null>;
   set: BodySet;
   /** A number that, when it changes, brings the whole diagram back into view. */
   fitRequest: number;
@@ -24,7 +27,8 @@ export default function BodiesScene(props: BodiesSceneProps) {
   const { colorScheme } = useColorScheme();
   const isDark = colorScheme === "dark";
   return (
-    <Canvas
+    <PageCanvas
+      frame={props.frame}
       camera={{ position: [0, -8, 13], fov: 40 }}
       onPointerMissed={() => props.onHover(undefined)}
     >
@@ -39,6 +43,6 @@ export default function BodiesScene(props: BodiesSceneProps) {
         autoRotate={props.appearance.movement.autoRotate}
         autoRotateSpeed={0.6}
       />
-    </Canvas>
+    </PageCanvas>
   );
 }

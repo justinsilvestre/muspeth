@@ -1,6 +1,6 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
-import { Vector3 } from "three";
+import { type Camera, PerspectiveCamera, Vector3 } from "three";
 import type { PlanePoint } from "../glottometry/layoutLanguages";
 
 /** How much room the fit leaves around the points, as a share of their extent. */
@@ -25,32 +25,28 @@ type FitCameraProps = {
  */
 export function FitCamera({ points, padding, rotation, fitRequest }: FitCameraProps) {
   const { camera, controls, size } = useThree();
-  const goal = useRef<{ target: Vector3; position: Vector3 } | undefined>(undefined);
-  // biome-ignore lint/correctness/useExhaustiveDependencies: a changed request fits the view again without changing anything else.
+  const goal = useRef<{ target: Vector3; direction: Vector3; bounds: Bounds } | undefined>(
+    undefined,
+  );
+  // biome-ignore lint/correctness/useExhaustiveDependencies: a changed request or window size fits the view again without changing anything else.
   useEffect(() => {
     if (points.length === 0) return;
     const bounds = boundsOf(points, rotation, padding);
     const target = new Vector3(bounds.centerX, bounds.centerY, 0);
-    const fov = ("fov" in camera ? (camera.fov as number) : 40) * (Math.PI / 180);
-    const aspect = size.width / size.height;
-    const distance =
-      Math.max(
-        bounds.halfHeight / Math.tan(fov / 2),
-        bounds.halfWidth / (Math.tan(fov / 2) * aspect),
-      ) * margin;
     const from = orbitTarget(controls) ?? new Vector3(0, 0, 0);
-    const direction = camera.position.clone().sub(from).normalize();
-    goal.current = { target, position: target.clone().add(direction.multiplyScalar(distance)) };
+    goal.current = { target, direction: camera.position.clone().sub(from).normalize(), bounds };
   }, [points, padding, rotation, fitRequest, camera, controls, size]);
   useFrame(() => {
     const target = orbitTarget(controls);
     if (!goal.current || !target) return;
-    const share = 1 - (1 - easing) ** 1;
-    target.lerp(goal.current.target, share);
-    camera.position.lerp(goal.current.position, share);
+    const position = goal.current.target
+      .clone()
+      .addScaledVector(goal.current.direction, fittingDistance(camera, goal.current.bounds));
+    target.lerp(goal.current.target, easing);
+    camera.position.lerp(position, easing);
     if (
       target.distanceTo(goal.current.target) < 0.01 &&
-      camera.position.distanceTo(goal.current.position) < 0.01
+      camera.position.distanceTo(position) < 0.01
     )
       goal.current = undefined;
     (controls as { update?: () => void } | null)?.update?.();
@@ -58,11 +54,24 @@ export function FitCamera({ points, padding, rotation, fitRequest }: FitCameraPr
   return null;
 }
 
+/**
+ * How far from the center of the bounds the camera must be for them to fill its view.
+ * The view's aspect is read as the scene is drawn, since the camera's frame may be narrower than the canvas.
+ */
+function fittingDistance(camera: Camera, bounds: Bounds) {
+  const fov = (camera instanceof PerspectiveCamera ? camera.fov : 40) * (Math.PI / 180);
+  const aspect = camera instanceof PerspectiveCamera ? camera.aspect : 1;
+  const tangent = Math.tan(fov / 2);
+  return Math.max(bounds.halfHeight / tangent, bounds.halfWidth / (tangent * aspect)) * margin;
+}
+
 /** The orbit controls' target, when the scene's controls are orbit controls. */
 function orbitTarget(controls: unknown) {
   const candidate = (controls as { target?: Vector3 } | null)?.target;
   return candidate instanceof Vector3 ? candidate : undefined;
 }
+
+type Bounds = ReturnType<typeof boundsOf>;
 
 /** The extent of the points once turned, with the padding added on every side. */
 function boundsOf(points: PlanePoint[], rotation: number, padding: number) {
