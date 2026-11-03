@@ -1,4 +1,5 @@
-import { lazy, Suspense, useCallback, useDeferredValue, useMemo, useState } from "react";
+import { lazy, Suspense, useCallback, useDeferredValue, useMemo, useRef, useState } from "react";
+import { Backdrop } from "../Backdrop";
 import { AppearanceControls } from "../scene/AppearanceControls";
 import { type Appearance, defaultAppearance } from "../scene/appearance";
 import type { Hovered } from "../scene/pickHovered";
@@ -29,6 +30,7 @@ export function BodiesView() {
   const [hovered, setHovered] = useState<Hovered>();
   const [fitRequest, setFitRequest] = useState(0);
   const [pointer, setPointer] = useState<ScenePointer>(restingPointer);
+  const sceneFrame = useRef<HTMLDivElement>(null);
   const relation = relationOf(sharing.relation);
   const steps = useMemo(() => weightSteps(sharing), [sharing]);
   const cutoff = useMemo(
@@ -53,35 +55,41 @@ export function BodiesView() {
   };
   return (
     <section aria-label="Biological glottometry" className="flex flex-col gap-3">
-      <p className="flex flex-wrap items-center gap-x-2 gap-y-2 text-base">
-        <BodySetSelect value={set} onChange={(next) => choose(next, sameOrFirst(next, sharing))} />
-        <RelationSelect set={set} value={sharing} onChange={(next) => choose(set, next)} />
-      </p>
-      <ThresholdSlider
-        label="Hide membranes weaker than"
-        value={threshold}
-        onChange={setThreshold}
-      />
-      {relation.weight && steps.length > 1 && (
-        <WeightControl
-          words={relation.weight}
-          steps={steps}
-          names={sharing.weightNames}
-          value={weightStep}
-          onChange={changeWeightStep}
-          isReplaying={isReplaying}
-          onReplayChange={changeReplaying}
+      <Backdrop>
+        <p className="flex flex-wrap items-center gap-x-2 gap-y-2 text-base">
+          <BodySetSelect
+            value={set}
+            onChange={(next) => choose(next, sameOrFirst(next, sharing))}
+          />
+          <RelationSelect set={set} value={sharing} onChange={(next) => choose(set, next)} />
+        </p>
+        <ThresholdSlider
+          label="Hide membranes weaker than"
+          value={threshold}
+          onChange={setThreshold}
         />
-      )}
-      <AppearanceControls
-        value={appearance}
-        onChange={setAppearance}
-        onReset={() => setAppearance(defaultAppearance)}
-      />
-      <Caption set={set} relation={relation} table={table} />
+        {relation.weight && steps.length > 1 && (
+          <WeightControl
+            words={relation.weight}
+            steps={steps}
+            names={sharing.weightNames}
+            value={weightStep}
+            onChange={changeWeightStep}
+            isReplaying={isReplaying}
+            onReplayChange={changeReplaying}
+          />
+        )}
+        <AppearanceControls
+          value={appearance}
+          onChange={setAppearance}
+          onReset={() => setAppearance(defaultAppearance)}
+        />
+        <Caption set={set} relation={relation} table={table} />
+      </Backdrop>
       {/* biome-ignore lint/a11y: The click only records where a tap landed; the canvas inside takes the input itself. */}
       <div
-        className="relative aspect-square select-none rounded border border-line [-webkit-touch-callout:none] sm:aspect-[16/10]"
+        ref={sceneFrame}
+        className="relative aspect-square select-none [-webkit-touch-callout:none] sm:aspect-[16/10]"
         onPointerDown={suppressSelectionUntilRelease}
         // A finger moves the tooltip only by tapping, so that dragging to turn the scene leaves it in place.
         onPointerMove={(event) =>
@@ -105,6 +113,7 @@ export function BodiesView() {
         />
         <Suspense fallback={<p className="p-3">Loading the scene…</p>}>
           <BodiesScene
+            frame={sceneFrame}
             set={set}
             fitRequest={fitRequest}
             fullTable={fullTable}
@@ -116,7 +125,9 @@ export function BodiesView() {
           />
         </Suspense>
       </div>
-      <BodiesKey set={set} relation={relation} sharing={sharing} appearance={appearance} />
+      <Backdrop>
+        <BodiesKey set={set} relation={relation} sharing={sharing} appearance={appearance} />
+      </Backdrop>
     </section>
   );
 }
